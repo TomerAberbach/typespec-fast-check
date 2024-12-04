@@ -15,15 +15,51 @@ beforeEach(async () => {
 test.each([
   { name: `empty`, code: `` },
   {
-    name: `empty-namespace`,
+    name: `file-namespace`,
     code: `
       namespace PetStore;
     `,
   },
   {
-    name: `empty-model`,
+    name: `namespace`,
+    code: `
+      namespace PetStore {}
+    `,
+  },
+  {
+    name: `namespace-in-file-namespace`,
+    code: `
+      namespace PetStore;
+
+      namespace Pets {}
+    `,
+  },
+  {
+    name: `file-model`,
     code: `
       model Pet {}
+    `,
+  },
+  {
+    name: `model-in-namespace`,
+    code: `
+      namespace PetStore;
+
+      model Pet {}
+    `,
+  },
+  {
+    name: `model-and-namespace`,
+    code: `
+      namespace PetStore {}
+
+      model Pet {}
+    `,
+  },
+  {
+    name: `scalar`,
+    code: `
+      scalar Breed extends string;
     `,
   },
 ] satisfies { name: string; code: string }[])(

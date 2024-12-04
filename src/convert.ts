@@ -165,6 +165,10 @@ const convertScalar = (
       return convertFloat(scalar, options)
     case `string`:
       return convertString(scalar, options)
+    default:
+      if (scalar.baseScalar) {
+        return convertScalar(scalar.baseScalar, options)
+      }
   }
 
   throw new Error(`Unhandled Scalar: ${scalar.name}`)
