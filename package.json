@@ -1,0 +1,82 @@
+{
+  "name": "typespec-fast-check",
+  "version": "0.0.0",
+  "author": {
+    "name": "Tomer Aberbach",
+    "email": "tomer@aberba.ch",
+    "url": "https://tomeraberba.ch"
+  },
+  "description": "A TypeSpec emitter for fast-check arbitraries.",
+  "keywords": [
+    "arbitraries",
+    "codegen",
+    "fast-check",
+    "typespec",
+    "typespec-emitter"
+  ],
+  "homepage": "https://github.com/TomerAberbach/typespec-fast-check",
+  "repository": "TomerAberbach/typespec-fast-check",
+  "bugs": {
+    "url": "https://github.com/TomerAberbach/typespec-fast-check/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "dist",
+    "lib"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "engines": {
+    "node": ">= 18"
+  },
+  "exports": {
+    ".": {
+      "typespec": "./lib/main.tsp",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./testing": {
+      "default": "./dist/testing/index.js",
+      "types": "./dist/testing/index.d.ts"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "scripts": {
+    "format": "tomer format",
+    "lint": "tomer lint",
+    "typecheck": "tomer typecheck",
+    "test": "cross-env NODE_ENV=production tomer test",
+    "build": "tomer build",
+    "clean": "tomer clean dist",
+    "prepublishOnly": "tomer build"
+  },
+  "prettier": "tomer/prettier",
+  "dependencies": {
+    "@alloy-js/core": "^0.3.0",
+    "@alloy-js/typescript": "^0.3.0",
+    "keyalesce": "^2.2.0",
+    "lfi": "^3.8.0",
+    "pascalcase": "^2.0.0",
+    "toposort": "^2.0.2"
+  },
+  "peerDependencies": {
+    "@typespec/compiler": "^0.62.0"
+  },
+  "devDependencies": {
+    "@fast-check/vitest": "^0.1.4",
+    "@types/node": "^22.10.1",
+    "@types/pascalcase": "^1.0.3",
+    "@types/toposort": "^2.0.7",
+    "@typespec/compiler": "^0.62.0",
+    "@vitest/coverage-v8": "^2.1.8",
+    "cross-env": "^7.0.3",
+    "eslint": "^9.16.0",
+    "prettier": "^3.4.1",
+    "source-map-support": "^0.5.21",
+    "tomer": "^6.1.0",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
