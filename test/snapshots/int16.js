@@ -10,6 +10,10 @@ export const MinValueInt16 = fc.integer({
   max: 32767,
 });
 
+export const Min0ValueInt16 = fc.nat({
+  max: 32767,
+});
+
 export const MaxValueInt16 = fc.integer({
   min: -32768,
   max: 345,
