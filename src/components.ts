@@ -140,6 +140,8 @@ const ArbitraryDefinition = ({
   switch (arbitrary.type) {
     case `null`:
       return NullArbitrary()
+    case `undefined`:
+      return UndefinedArbitrary()
     case `boolean`:
       return BooleanArbitrary()
     case `number`:
@@ -164,6 +166,8 @@ const ArbitraryDefinition = ({
 }
 
 const NullArbitrary = (): Child => code`fc.constant(null)`
+
+const UndefinedArbitrary = (): Child => code`fc.constant(undefined)`
 
 const BooleanArbitrary = (): Child => code`fc.boolean()`
 
