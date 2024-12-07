@@ -12,10 +12,11 @@ export type Arbitrary = BaseArbitrary &
     | ArrayArbitrary
     | UnionArbitrary
     | EnumArbitrary
-    | BooleanArbitrary
     | NumberArbitrary
     | BigIntArbitrary
+    | BytesArbitrary
     | StringArbitrary
+    | BooleanArbitrary
   )
 
 export type BaseArbitrary = {
@@ -48,10 +49,6 @@ export type EnumArbitrary = {
   values: string[]
 }
 
-export type BooleanArbitrary = {
-  type: `boolean`
-}
-
 export type NumberArbitrary = {
   type: `number`
   min: number
@@ -65,8 +62,16 @@ export type BigIntArbitrary = {
   max?: bigint
 }
 
+export type BytesArbitrary = {
+  type: `bytes`
+}
+
 export type StringArbitrary = {
   type: `string`
   minLength?: number
   maxLength?: number
+}
+
+export type BooleanArbitrary = {
+  type: `boolean`
 }

@@ -19,6 +19,7 @@ import type {
   ArbitraryNamespace,
   ArrayArbitrary,
   BigIntArbitrary,
+  BytesArbitrary,
   DictionaryArbitrary,
   EnumArbitrary,
   NumberArbitrary,
@@ -137,8 +138,6 @@ const ArbitraryDefinition = ({
   sharedArbitraries: ReadonlySet<Arbitrary>
 }): Child => {
   switch (arbitrary.type) {
-    case `boolean`:
-      return `fc.boolean()`
     case `record`:
       return RecordArbitrary({ arbitrary, sharedArbitraries })
     case `dictionary`:
@@ -153,8 +152,12 @@ const ArbitraryDefinition = ({
       return NumberArbitrary({ arbitrary })
     case `bigint`:
       return BigIntArbitrary({ arbitrary })
+    case `bytes`:
+      return BytesArbitrary()
     case `string`:
       return StringArbitrary({ arbitrary })
+    case `boolean`:
+      return BooleanArbitrary()
   }
 }
 
@@ -278,6 +281,8 @@ const BigIntArbitrary = ({
     ]),
   })})`
 
+const BytesArbitrary = (): Child => code`fc.uint8Array()`
+
 const StringArbitrary = ({
   arbitrary,
 }: {
@@ -289,6 +294,8 @@ const StringArbitrary = ({
       [`maxLength`, arbitrary.maxLength],
     ]),
   })})`
+
+const BooleanArbitrary = (): Child => code`fc.boolean()`
 
 const Options = ({
   properties,

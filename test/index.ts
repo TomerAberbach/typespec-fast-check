@@ -12,6 +12,8 @@ beforeEach(async () => {
   )
 })
 
+type TestCase = { name: string; code: string }
+
 test.each([
   { name: `empty`, code: `` },
 
@@ -59,7 +61,7 @@ test.each([
     `,
   },
 
-  // Numbers
+  // Data types
   {
     name: `int8`,
     code: `
@@ -281,9 +283,14 @@ test.each([
       scalar MinMaxValueNumeric extends numeric;
     `,
   },
-
   {
-    name: `strings`,
+    name: `bytes`,
+    code: `
+      scalar Bytes extends bytes;
+    `,
+  },
+  {
+    name: `string`,
     code: `
       scalar String extends string;
 
@@ -298,7 +305,14 @@ test.each([
       scalar MinAndMaxLengthString extends string;
     `,
   },
+  {
+    name: `boolean`,
+    code: `
+      scalar Boolean extends boolean;
+    `,
+  },
 
+  // Models
   {
     name: `model`,
     code: `
@@ -309,14 +323,11 @@ test.each([
       }
     `,
   },
-] satisfies { name: string; code: string }[])(
-  `$name`,
-  async ({ name, code }) => {
-    const emitted = await emit(code)
+] satisfies TestCase[])(`$name`, async ({ name, code }) => {
+  const emitted = await emit(code)
 
-    await expect(emitted).toMatchFileSnapshot(`snapshots/${name}.js`)
-  },
-)
+  await expect(emitted).toMatchFileSnapshot(`snapshots/${name}.js`)
+})
 
 const emit = async (code: string): Promise<string> => {
   const outputDir = `/out`
