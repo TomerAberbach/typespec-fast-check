@@ -66,6 +66,7 @@
   },
   "devDependencies": {
     "@fast-check/vitest": "^0.1.4",
+    "@types/jsesc": "^3.0.3",
     "@types/node": "^22.10.1",
     "@types/pascalcase": "^1.0.3",
     "@types/toposort": "^2.0.7",
@@ -74,7 +75,10 @@
     "cross-env": "^7.0.3",
     "eslint": "^9.16.0",
     "fast-check": "^3.23.1",
+    "jsesc": "github:TomerAberbach/jsesc#feat/typed-arrays",
+    "module-from-string": "^3.3.1",
     "prettier": "^3.4.1",
+    "serialize-error": "^11.0.3",
     "source-map-support": "^0.5.21",
     "tomer": "^6.1.1",
     "typescript": "^5.7.2",

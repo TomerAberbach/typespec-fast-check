@@ -218,10 +218,20 @@ const NumberArbitrary = ({
     get,
   )
 
+  let arbitraryMin = arbitrary.min === min.value ? null : arbitrary.min
+  if (arbitraryMin !== null && min.normalize) {
+    arbitraryMin = min.normalize(arbitraryMin)
+  }
+
+  let arbitraryMax = arbitrary.max === max.value ? null : arbitrary.max
+  if (arbitraryMax !== null && max.normalize) {
+    arbitraryMax = max.normalize(arbitraryMax)
+  }
+
   return code`fc.${name}(${Options({
     properties: new Map([
-      [`min`, arbitrary.min === min.value ? null : arbitrary.min],
-      [`max`, arbitrary.max === max.value ? null : arbitrary.max],
+      [`min`, arbitraryMin],
+      [`max`, arbitraryMax],
     ]),
   })})`
 }
