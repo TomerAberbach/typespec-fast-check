@@ -17,6 +17,7 @@ export type Arbitrary = BaseArbitrary &
     | BytesArbitrary
     | StringArbitrary
     | BooleanArbitrary
+    | NullArbitrary
   )
 
 export type BaseArbitrary = {
@@ -74,4 +75,8 @@ export type StringArbitrary = {
 
 export type BooleanArbitrary = {
   type: `boolean`
+}
+
+export type NullArbitrary = {
+  type: `null`
 }

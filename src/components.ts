@@ -158,6 +158,8 @@ const ArbitraryDefinition = ({
       return StringArbitrary({ arbitrary })
     case `boolean`:
       return BooleanArbitrary()
+    case `null`:
+      return NullArbitrary()
   }
 }
 
@@ -296,6 +298,8 @@ const StringArbitrary = ({
   })})`
 
 const BooleanArbitrary = (): Child => code`fc.boolean()`
+
+const NullArbitrary = (): Child => code`fc.constant(null)`
 
 const Options = ({
   properties,
