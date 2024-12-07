@@ -1,5 +1,5 @@
 import * as fc from 'fast-check';
 
-export const M = fc.record({
+export const $Model = fc.record({
   property: fc.constant(null),
 });
