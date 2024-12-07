@@ -14,6 +14,7 @@ beforeEach(async () => {
 
 test.each([
   { name: `empty`, code: `` },
+  // Namespace and model nesting
   {
     name: `file-namespace`,
     code: `
@@ -56,10 +57,22 @@ test.each([
       model Pet {}
     `,
   },
+  // Entity types
   {
-    name: `scalar`,
+    name: `string`,
     code: `
+      @minLength(2)
       scalar Breed extends string;
+    `,
+  },
+  {
+    name: `model`,
+    code: `
+      model Dog {
+        @minLength(1)
+        name: string;
+        age: int32;
+      }
     `,
   },
 ] satisfies { name: string; code: string }[])(

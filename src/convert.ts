@@ -1,10 +1,15 @@
 /* eslint-disable typescript/prefer-nullish-coalescing */
-import { isNumeric } from '@typespec/compiler'
+import {
+  getMaxLengthAsNumeric,
+  getMaxValueAsNumeric,
+  getMinLengthAsNumeric,
+  getMinValueAsNumeric,
+} from '@typespec/compiler'
 import type {
-  DecoratorApplication,
   Enum,
   Model,
   Namespace,
+  Numeric,
   Program,
   Scalar,
   Type,
@@ -12,6 +17,7 @@ import type {
 } from '@typespec/compiler'
 import {
   concat,
+  entries,
   filter,
   flatMap,
   flatten,
@@ -20,6 +26,7 @@ import {
   reduce,
   toArray,
   toMap,
+  toObject,
   toSet,
   values,
 } from 'lfi'
@@ -34,12 +41,15 @@ const convertProgram = (
   namespace: ArbitraryNamespace
   sharedArbitraries: Set<Arbitrary>
 } => {
-  const namespace = convertNamespace(program.getGlobalNamespaceType())
+  const namespace = convertNamespace(program, program.getGlobalNamespaceType())
   const sharedArbitraries = collectSharedArbitraries(namespace)
   return { namespace, sharedArbitraries }
 }
 
-const convertNamespace = (namespace: Namespace): ArbitraryNamespace => {
+const convertNamespace = (
+  program: Program,
+  namespace: Namespace,
+): ArbitraryNamespace => {
   const nameToArbitrary = pipe(
     concat<[string, Type]>(
       namespace.models,
@@ -49,7 +59,7 @@ const convertNamespace = (namespace: Namespace): ArbitraryNamespace => {
     ),
     map(([name, type]): [string, Arbitrary] => [
       name,
-      convertType(type, { propertyName: name }),
+      convertType(program, type, { propertyName: name, constraints: {} }),
     ]),
     reduce(toMap()),
   )
@@ -58,7 +68,7 @@ const convertNamespace = (namespace: Namespace): ArbitraryNamespace => {
     namespaces: pipe(
       values(namespace.namespaces),
       filter(namespace => namespace.name !== `TypeSpec`),
-      map(convertNamespace),
+      map(namespace => convertNamespace(program, namespace)),
       reduce(toArray()),
     ),
     nameToArbitrary,
@@ -70,54 +80,71 @@ const convertNamespace = (namespace: Namespace): ArbitraryNamespace => {
   }
 }
 
-const convertType = (type: Type, options?: ConvertTypeOptions): Arbitrary => {
+const convertType = (
+  program: Program,
+  type: Type,
+  { propertyName, constraints }: ConvertTypeOptions,
+): Arbitrary => {
+  const options = {
+    propertyName,
+    constraints: { ...constraints, ...getConstraints(program, type) },
+  }
+
   // eslint-disable-next-line typescript/switch-exhaustiveness-check
   switch (type.kind) {
     case `Model`:
-      return convertModel(type, options)
+      return convertModel(program, type, options)
     case `Union`:
-      return convertUnion(type, options)
+      return convertUnion(program, type, options)
     case `Enum`:
       return convertEnum(type, options)
     case `Scalar`:
-      return convertScalar(type, options)
+      return convertScalar(program, type, options)
   }
 
   throw new Error(`Unhandled type: ${type.kind}`)
 }
 type ConvertTypeOptions = {
   propertyName?: string
-  decorators?: DecoratorApplication[]
+  constraints: Constraints
 }
 
 const convertModel = (
+  program: Program,
   model: Model,
-  { propertyName }: ConvertTypeOptions = {},
+  { propertyName, constraints }: ConvertTypeOptions,
 ): Arbitrary =>
   memoize({
     type: `record`,
     name: pascalcase(model.name || propertyName || `Record`),
     properties: pipe(
       model.properties,
-      map(([name, { type, decorators }]): [string, Arbitrary] => [
+      map(([name, property]): [string, Arbitrary] => [
         name,
-        convertType(type, { propertyName: name, decorators }),
+        convertType(program, property.type, {
+          propertyName: name,
+          constraints: { ...constraints, ...getConstraints(program, property) },
+        }),
       ]),
       reduce(toMap()),
     ),
   })
 
 const convertUnion = (
+  program: Program,
   union: Union,
-  { propertyName }: ConvertTypeOptions = {},
+  { propertyName, constraints }: ConvertTypeOptions,
 ): Arbitrary =>
   memoize({
     type: `union`,
     name: pascalcase(union.name || propertyName || `Union`),
     variants: pipe(
       union.variants,
-      map(([, { type, name, decorators }]) =>
-        convertType(type, { propertyName: String(name), decorators }),
+      map(([, { type, name }]) =>
+        convertType(program, type, {
+          propertyName: String(name),
+          constraints: { ...constraints, ...getConstraints(program, union) },
+        }),
       ),
       reduce(toArray()),
     ),
@@ -125,7 +152,7 @@ const convertUnion = (
 
 const convertEnum = (
   $enum: Enum,
-  { propertyName }: ConvertTypeOptions = {},
+  { propertyName }: ConvertTypeOptions,
 ): Arbitrary =>
   memoize({
     type: `enum`,
@@ -138,10 +165,11 @@ const convertEnum = (
   })
 
 const convertScalar = (
+  program: Program,
   scalar: Scalar,
-  options?: ConvertTypeOptions,
+  options: ConvertTypeOptions,
 ): Arbitrary => {
-  const name = options?.propertyName || scalar.name || `Scalar`
+  const name = options.propertyName || scalar.name || `Scalar`
   switch (scalar.name) {
     case `boolean`:
       return memoize({ type: `boolean`, name })
@@ -167,7 +195,13 @@ const convertScalar = (
       return convertString(scalar, options)
     default:
       if (scalar.baseScalar) {
-        return convertScalar(scalar.baseScalar, options)
+        return convertType(program, scalar.baseScalar, {
+          ...options,
+          constraints: {
+            ...options.constraints,
+            ...getConstraints(program, scalar),
+          },
+        })
       }
   }
 
@@ -176,78 +210,66 @@ const convertScalar = (
 
 const convertInteger = (
   integer: Scalar,
-  // eslint-disable-next-line typescript/default-param-last
-  { decorators = [] }: ConvertTypeOptions = {},
+  { constraints }: ConvertTypeOptions,
   { min, max }: { min: number; max: number },
-): Arbitrary => {
-  const nameToDecorator = convertDecorators(
-    concat(decorators, integer.decorators),
-  )
-  const decoratorMin = nameToDecorator.get(`$min`)?.number(0)
-  const decoratorMax = nameToDecorator.get(`$max`)?.number(0)
-
-  return memoize({
+): Arbitrary =>
+  memoize({
     type: `integer`,
     name: integer.name,
-    min: decoratorMin == null ? min : Math.max(min, decoratorMin),
-    max: decoratorMax == null ? max : Math.min(max, decoratorMax),
+    min: maxOrUndefined(constraints.min?.asNumber() ?? undefined, min),
+    max: minOrUndefined(constraints.max?.asNumber() ?? undefined, max),
   })
-}
 
 const convertBigint = (
   integer: Scalar,
-  { decorators = [] }: ConvertTypeOptions = {},
+  { constraints }: ConvertTypeOptions,
   { min, max }: { min?: bigint; max?: bigint } = {},
-): Arbitrary => {
-  const nameToDecorator = convertDecorators(
-    concat(decorators, integer.decorators),
-  )
-  const decoratorMin = nameToDecorator.get(`$min`)?.bigint(0)
-  const decoratorMax = nameToDecorator.get(`$max`)?.bigint(0)
-
-  return memoize({
+): Arbitrary =>
+  memoize({
     type: `big-integer`,
     name: integer.name,
-    min:
-      decoratorMin == null ? min : bigintMax(min ?? decoratorMin, decoratorMin),
-    max:
-      decoratorMax == null ? max : bigintMin(max ?? decoratorMax, decoratorMax),
+    min: maxOrUndefined(constraints.min?.asBigInt() ?? undefined, min),
+    max: minOrUndefined(constraints.max?.asBigInt() ?? undefined, max),
   })
-}
-
-const bigintMax = (a: bigint, b: bigint) => (a > b ? a : b)
-const bigintMin = (a: bigint, b: bigint) => (a < b ? a : b)
 
 const convertFloat = (
   float: Scalar,
-  { decorators = [] }: ConvertTypeOptions = {},
-): Arbitrary => {
-  const nameToDecorator = convertDecorators(
-    concat(decorators, float.decorators),
-  )
-
-  return memoize({
+  { constraints }: ConvertTypeOptions,
+): Arbitrary =>
+  memoize({
     type: `float`,
     name: float.name,
-    min: nameToDecorator.get(`$min`)?.number(0) ?? undefined,
-    max: nameToDecorator.get(`$max`)?.number(0) ?? undefined,
+    min: constraints.min?.asNumber() ?? undefined,
+    max: constraints.max?.asNumber() ?? undefined,
   })
-}
 
 const convertString = (
   string: Scalar,
-  { decorators = [] }: ConvertTypeOptions = {},
-): Arbitrary => {
-  const nameToDecorator = convertDecorators(
-    concat(decorators, string.decorators),
-  )
-
-  return memoize({
+  { constraints }: ConvertTypeOptions,
+): Arbitrary =>
+  memoize({
     type: `string`,
     name: string.name,
-    minLength: nameToDecorator.get(`$minLength`)?.number(0) ?? undefined,
-    maxLength: nameToDecorator.get(`$maxLength`)?.number(0) ?? undefined,
+    minLength: constraints.minLength?.asNumber() ?? undefined,
+    maxLength: constraints.maxLength?.asNumber() ?? undefined,
   })
+
+const getConstraints = (program: Program, type: Type): Constraints =>
+  pipe(
+    entries({
+      min: getMinValueAsNumeric(program, type),
+      max: getMaxValueAsNumeric(program, type),
+      minLength: getMinLengthAsNumeric(program, type),
+      maxLength: getMaxLengthAsNumeric(program, type),
+    }),
+    filter(([, value]) => value !== undefined),
+    reduce(toObject()),
+  )
+type Constraints = {
+  min?: Numeric
+  max?: Numeric
+  minLength?: Numeric
+  maxLength?: Numeric
 }
 
 const memoize = (arbitrary: Arbitrary): Arbitrary => {
@@ -316,61 +338,6 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
 
 const cachedArbitraries = new Map<ArbitraryKey, Arbitrary>()
 type ArbitraryKey = ReturnType<typeof keyalesce>
-
-const convertDecorators = (
-  decorators: Iterable<DecoratorApplication>,
-): Map<string, DecoratorArguments> =>
-  pipe(
-    decorators,
-    map((decorator): [string, DecoratorArguments] => [
-      decorator.decorator.name,
-      {
-        number: index => {
-          const argument = decorator.args[index]
-          if (!argument) {
-            return null
-          }
-
-          const value = argument.jsValue
-          if (isNumeric(value)) {
-            return value.asNumber()
-          }
-
-          if (typeof value === `number`) {
-            return value
-          }
-
-          return null
-        },
-        bigint: index => {
-          const argument = decorator.args[index]
-          if (!argument) {
-            return null
-          }
-
-          const value = argument.jsValue
-          if (isNumeric(value)) {
-            return value.asBigInt()
-          }
-
-          if (typeof value === `number`) {
-            return BigInt(value)
-          }
-
-          if (typeof value === `bigint`) {
-            return value
-          }
-
-          return null
-        },
-      },
-    ]),
-    reduce(toMap()),
-  )
-type DecoratorArguments = {
-  number: (index: number) => number | null
-  bigint: (index: number) => bigint | null
-}
 
 const collectSharedArbitraries = (
   namespace: ArbitraryNamespace,
@@ -454,6 +421,54 @@ const getDirectArbitraryDependencies = (
     case `string`:
       return new Set()
   }
+}
+
+const minOrUndefined = <
+  const A extends bigint | number | undefined,
+  const B extends bigint | number | undefined,
+>(
+  a: A,
+  b: B,
+): A extends undefined
+  ? B extends undefined
+    ? undefined
+    : Exclude<A | B, undefined>
+  : Exclude<A | B, undefined> => {
+  const min = (() => {
+    if (a === undefined) {
+      return b
+    } else if (b === undefined) {
+      return a
+    } else {
+      return a > b ? a : b
+    }
+  })()
+  // eslint-disable-next-line typescript/no-unsafe-return
+  return min as any
+}
+
+const maxOrUndefined = <
+  const A extends bigint | number | undefined,
+  const B extends bigint | number | undefined,
+>(
+  a: A,
+  b: B,
+): A extends undefined
+  ? B extends undefined
+    ? undefined
+    : Exclude<A | B, undefined>
+  : Exclude<A | B, undefined> => {
+  const max = (() => {
+    if (a === undefined) {
+      return b
+    } else if (b === undefined) {
+      return a
+    } else {
+      return a < b ? a : b
+    }
+  })()
+  // eslint-disable-next-line typescript/no-unsafe-return
+  return max as any
 }
 
 export default convertProgram
