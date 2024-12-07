@@ -27,7 +27,7 @@ export const numerics = {
   }
 >
 
-export const fastCheckNumerics = {
+const constFastCheckNumerics = {
   // https://fast-check.dev/docs/core-blocks/arbitraries/primitives/number/#integer
   integer: {
     min: { value: numerics.int32.min, configurable: true },
@@ -54,8 +54,16 @@ export const fastCheckNumerics = {
   },
   // https://fast-check.dev/docs/core-blocks/arbitraries/primitives/number/#float
   float: {
-    min: { value: numerics.float32.min, configurable: `higher` },
-    max: { value: numerics.float32.max, configurable: `lower` },
+    min: {
+      value: numerics.float32.min,
+      configurable: `higher`,
+      normalize: Math.fround,
+    },
+    max: {
+      value: numerics.float32.max,
+      configurable: `lower`,
+      normalize: Math.fround,
+    },
     isInteger: false,
   },
   // https://fast-check.dev/docs/core-blocks/arbitraries/primitives/number/#double
@@ -64,17 +72,23 @@ export const fastCheckNumerics = {
     max: { value: numerics.float64.max, configurable: `lower` },
     isInteger: false,
   },
-} as const satisfies Record<
-  string,
-  {
-    min: {
-      value: number | bigint
-      configurable: boolean | `higher`
-    }
-    max: {
-      value: number | bigint
-      configurable: boolean | `lower`
-    }
-    isInteger: boolean
+} as const satisfies Record<string, FastCheckNumeric>
+
+export const fastCheckNumerics: Record<
+  keyof typeof constFastCheckNumerics,
+  FastCheckNumeric
+> = constFastCheckNumerics
+
+type FastCheckNumeric = {
+  min: {
+    value: number
+    configurable: boolean | `higher`
+    normalize?: (number: number) => number
   }
->
+  max: {
+    value: number
+    configurable: boolean | `lower`
+    normalize?: (number: number) => number
+  }
+  isInteger: boolean
+}

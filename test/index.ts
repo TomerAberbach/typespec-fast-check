@@ -2,6 +2,11 @@ import { join } from 'node:path'
 import { beforeEach, expect, test } from 'vitest'
 import { createTestHost, createTestWrapper } from '@typespec/compiler/testing'
 import type { BasicTestRunner } from '@typespec/compiler/testing'
+import * as fc from 'fast-check'
+import { entries, filterMap, pipe, reduce, toObject } from 'lfi'
+import { importFromString } from 'module-from-string'
+import { serializeError } from 'serialize-error'
+import jsesc from 'jsesc'
 import { FastCheckTestLibrary } from '../dist/testing/index.js'
 
 let runner: BasicTestRunner
@@ -192,19 +197,22 @@ test.each([
       @minValue(-2147483650)
       scalar MinValueInt64 extends int64;
 
-      @minValue(0)
-      scalar Min0ValueInt64 extends int64;
+      // https://github.com/microsoft/typespec/pull/5295
+      // @minValue(0)
+      // scalar Min0ValueInt64 extends int64;
 
       @maxValue(2147483650)
       scalar MaxValueInt64 extends int64;
 
-      @minValue(-2147483650)
-      @maxValue(2147483650)
-      scalar MinMaxValueInt64 extends int64;
+      // https://github.com/microsoft/typespec/pull/5295
+      // @minValue(-2147483650)
+      // @maxValue(2147483650)
+      // scalar MinMaxValueInt64 extends int64;
 
-      @minValue(-9223372036854775809)
-      @maxValue(9223372036854775809)
-      scalar RedundantlyMinMaxValueInt64 extends int64;
+      // https://github.com/microsoft/typespec/pull/5295
+      // @minValue(-9223372036854775809)
+      // @maxValue(9223372036854775809)
+      // scalar RedundantlyMinMaxValueInt64 extends int64;
     `,
   },
   {
@@ -348,12 +356,19 @@ test.each([
     `,
   },
 ] satisfies TestCase[])(`$name`, async ({ name, code }) => {
-  const emitted = await emit(code)
+  const snapshotPath = `./snapshots/${name}`
+  const arbitrariesPath = `${snapshotPath}/arbitraries.js`
+  const arbitrarySamplesPath = `${snapshotPath}/samples.js`
 
-  await expect(emitted).toMatchFileSnapshot(`snapshots/${name}.js`)
+  const emitted = await emitArbitraries(code)
+
+  await expect(emitted).toMatchFileSnapshot(arbitrariesPath)
+  await expect(emitArbitrarySamples(emitted)).resolves.toMatchFileSnapshot(
+    arbitrarySamplesPath,
+  )
 })
 
-const emit = async (code: string): Promise<string> => {
+const emitArbitraries = async (code: string): Promise<string> => {
   const outputDir = `/out`
   await runner.compile(code, { outputDir, noEmit: false })
   const file = runner.fs.get(
@@ -361,4 +376,45 @@ const emit = async (code: string): Promise<string> => {
   )
   expect(file).toBeDefined()
   return file!
+}
+
+const emitArbitrarySamples = async (code: string): Promise<string> => {
+  const arbitraries = (await importFromString(code)) as Record<
+    PropertyKey,
+    unknown
+  >
+  const arbitrarySamples = sampleArbitraries(arbitraries)
+  return `export const samples = ${jsesc(arbitrarySamples, { compact: false })};`
+}
+
+const sampleArbitraries = (
+  arbitraries: Record<PropertyKey, unknown>,
+): Record<PropertyKey, unknown> =>
+  pipe(
+    entries(arbitraries),
+    filterMap(([name, value]) => {
+      if (value === null || typeof value !== `object`) {
+        return null
+      }
+
+      return [
+        name,
+        isArbitrary(value)
+          ? trySample(value)
+          : sampleArbitraries(value as Record<PropertyKey, unknown>),
+      ]
+    }),
+    reduce(toObject()),
+  )
+
+const isArbitrary = (value: object): value is fc.Arbitrary<unknown> =>
+  `generate` in value
+
+const trySample = (value: fc.Arbitrary<unknown>): unknown => {
+  try {
+    return fc.sample(value, { seed: 42, numRuns: 5 })
+  } catch (error: unknown) {
+    const { name, message } = serializeError(error)
+    return `[${name}: ${message}]`
+  }
 }
