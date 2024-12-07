@@ -311,6 +311,14 @@ test.each([
       scalar Boolean extends boolean;
     `,
   },
+  {
+    name: `null`,
+    code: `
+      model M {
+        property: null
+      }
+    `,
+  },
 
   // Models
   {

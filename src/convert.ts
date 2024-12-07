@@ -7,6 +7,7 @@ import {
 } from '@typespec/compiler'
 import type {
   Enum,
+  IntrinsicType,
   Model,
   Namespace,
   Numeric,
@@ -101,6 +102,8 @@ const convertType = (
       return convertEnum(type, options)
     case `Scalar`:
       return convertScalar(program, type, options)
+    case `Intrinsic`:
+      return convertIntrinsic(type)
   }
 
   throw new Error(`Unhandled type: ${type.kind}`)
@@ -250,6 +253,21 @@ const convertString = (
 const convertBoolean = (boolean: Scalar): Arbitrary =>
   memoize({ type: `boolean`, name: boolean.name })
 
+const convertIntrinsic = (intrinsic: IntrinsicType): Arbitrary => {
+  switch (intrinsic.name) {
+    case `null`:
+      return convertNull(intrinsic)
+    case `ErrorType`:
+    case `void`:
+    case `never`:
+    case `unknown`:
+      throw new Error(`Unhandled Intrinsic: ${intrinsic.name}`)
+  }
+}
+
+const convertNull = ($null: IntrinsicType): Arbitrary =>
+  memoize({ type: `null`, name: $null.name })
+
 const getConstraints = (program: Program, type: Type): Constraints =>
   pipe(
     entries({
@@ -323,6 +341,8 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
         arbitrary.maxLength,
       ])
     case `boolean`:
+      return keyalesce([arbitrary.type, arbitrary.name])
+    case `null`:
       return keyalesce([arbitrary.type, arbitrary.name])
   }
 }
@@ -410,6 +430,7 @@ const getDirectArbitraryDependencies = (
     case `bytes`:
     case `string`:
     case `boolean`:
+    case `null`:
       return new Set()
   }
 }
