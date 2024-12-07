@@ -34,6 +34,7 @@ import pascalcase from 'pascalcase'
 import keyalesce from 'keyalesce'
 import toposort from 'toposort'
 import type { Arbitrary, ArbitraryNamespace } from './arbitrary.ts'
+import { numerics } from './numerics.ts'
 
 const convertProgram = (
   program: Program,
@@ -174,29 +175,21 @@ const convertScalar = (
     case `boolean`:
       return memoize({ type: `boolean`, name })
     case `int8`:
-      return convertInteger(scalar, options, { min: -128, max: 127 })
     case `int16`:
-      return convertInteger(scalar, options, { min: -32_768, max: 32_767 })
     case `int32`:
-      return convertInteger(scalar, options, {
-        min: -2_147_483_648,
-        max: 2_147_483_647,
-      })
-    case `int64`:
-      return convertBigint(scalar, options, {
-        min: -9_223_372_036_854_775_808n,
-        max: 9_223_372_036_854_775_807n,
-      })
-    case `integer`:
-      return convertBigint(scalar, options)
+    case `safeint`:
     case `float32`:
-      return convertFloat(scalar, options)
     case `float64`:
+      return convertNumber(scalar, options, numerics[scalar.name])
     case `float`:
     case `decimal128`:
     case `decimal`:
     case `numeric`:
-      return convertDouble(scalar, options)
+      return convertNumber(scalar, options, numerics.float64)
+    case `int64`:
+      return convertBigint(scalar, options, numerics.int64)
+    case `integer`:
+      return convertBigint(scalar, options)
     case `string`:
       return convertString(scalar, options)
     default:
@@ -214,16 +207,17 @@ const convertScalar = (
   throw new Error(`Unhandled Scalar: ${scalar.name}`)
 }
 
-const convertInteger = (
-  integer: Scalar,
+const convertNumber = (
+  number: Scalar,
   { constraints }: ConvertTypeOptions,
-  { min, max }: { min: number; max: number },
+  { min, max, isInteger }: { min: number; max: number; isInteger: boolean },
 ): Arbitrary =>
   memoize({
-    type: `integer`,
-    name: integer.name,
+    type: `number`,
+    name: number.name,
     min: maxOrUndefined(constraints.min?.asNumber() ?? undefined, min),
     max: minOrUndefined(constraints.max?.asNumber() ?? undefined, max),
+    isInteger,
   })
 
 const convertBigint = (
@@ -232,38 +226,10 @@ const convertBigint = (
   { min, max }: { min?: bigint; max?: bigint } = {},
 ): Arbitrary =>
   memoize({
-    type: `big-integer`,
+    type: `bigint`,
     name: integer.name,
     min: maxOrUndefined(constraints.min?.asBigInt() ?? undefined, min),
     max: minOrUndefined(constraints.max?.asBigInt() ?? undefined, max),
-  })
-
-const convertFloat = (
-  float: Scalar,
-  { constraints }: ConvertTypeOptions,
-): Arbitrary => {
-  let min = constraints.min?.asNumber() ?? undefined
-  if (min !== undefined && min < -3.4e38) {
-    min = undefined
-  }
-
-  let max = constraints.max?.asNumber() ?? undefined
-  if (max !== undefined && max > 3.4e38) {
-    max = undefined
-  }
-
-  return memoize({ type: `float`, name: float.name, min, max })
-}
-
-const convertDouble = (
-  double: Scalar,
-  { constraints }: ConvertTypeOptions,
-): Arbitrary =>
-  memoize({
-    type: `double`,
-    name: double.name,
-    min: constraints.min?.asNumber() ?? undefined,
-    max: constraints.max?.asNumber() ?? undefined,
   })
 
 const convertString = (
@@ -328,28 +294,14 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
       return keyalesce([arbitrary.type, arbitrary.name, ...arbitrary.variants])
     case `enum`:
       return keyalesce([arbitrary.type, arbitrary.name, ...arbitrary.values])
-    case `integer`:
+    case `number`:
       return keyalesce([
         arbitrary.type,
         arbitrary.name,
         arbitrary.min,
         arbitrary.max,
       ])
-    case `big-integer`:
-      return keyalesce([
-        arbitrary.type,
-        arbitrary.name,
-        arbitrary.min,
-        arbitrary.max,
-      ])
-    case `float`:
-      return keyalesce([
-        arbitrary.type,
-        arbitrary.name,
-        arbitrary.min,
-        arbitrary.max,
-      ])
-    case `double`:
+    case `bigint`:
       return keyalesce([
         arbitrary.type,
         arbitrary.name,
@@ -445,10 +397,8 @@ const getDirectArbitraryDependencies = (
       return new Set(arbitrary.variants)
     case `enum`:
     case `boolean`:
-    case `integer`:
-    case `big-integer`:
-    case `float`:
-    case `double`:
+    case `number`:
+    case `bigint`:
     case `string`:
       return new Set()
   }

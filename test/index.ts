@@ -68,6 +68,9 @@ test.each([
       @minValue(-10)
       scalar MinValueInt8 extends int8;
 
+      @minValue(0)
+      scalar Min0ValueInt8 extends int8;
+
       @maxValue(20)
       scalar MaxValueInt8 extends int8;
 
@@ -87,6 +90,9 @@ test.each([
 
       @minValue(-200)
       scalar MinValueInt16 extends int16;
+
+      @minValue(0)
+      scalar Min0ValueInt16 extends int16;
 
       @maxValue(345)
       scalar MaxValueInt16 extends int16;
@@ -108,6 +114,9 @@ test.each([
       @minValue(-40000)
       scalar MinValueInt32 extends int32;
 
+      @minValue(0)
+      scalar Min0ValueInt32 extends int32;
+
       @maxValue(40000)
       scalar MaxValueInt32 extends int32;
 
@@ -121,12 +130,38 @@ test.each([
     `,
   },
   {
+    name: `safeint`,
+    code: `
+      scalar SafeInt extends safeint;
+
+      @minValue(-40000)
+      scalar MinValueSafeInt extends safeint;
+
+      @minValue(0)
+      scalar Min0ValueSafeInt extends safeint;
+
+      @maxValue(40000)
+      scalar MaxValueSafeInt extends safeint;
+
+      @minValue(-40000)
+      @maxValue(40000)
+      scalar MinMaxValueSafeInt extends safeint;
+
+      @minValue(-2147483650)
+      @maxValue(2147483650)
+      scalar RedundantlyMinMaxValueSafeInt extends safeint;
+    `,
+  },
+  {
     name: `int64`,
     code: `
       scalar Int64 extends int64;
 
       @minValue(-2147483650)
       scalar MinValueInt64 extends int64;
+
+      @minValue(0)
+      scalar Min0ValueInt64 extends int64;
 
       @maxValue(2147483650)
       scalar MaxValueInt64 extends int64;
@@ -148,6 +183,9 @@ test.each([
       @minValue(-92233720368547758000)
       scalar MinValueInteger extends integer;
 
+      @minValue(0)
+      scalar MinValue0Integer extends integer;
+
       @maxValue(922337203685477580000)
       scalar MaxValueInteger extends integer;
 
@@ -163,6 +201,9 @@ test.each([
 
       @minValue(-3.14)
       scalar MinValueFloat32 extends float32;
+
+      @minValue(0)
+      scalar MinValue0Float32 extends float32;
 
       @maxValue(3.14)
       scalar MaxValueFloat32 extends float32;

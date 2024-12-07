@@ -6,6 +6,10 @@ export const MinValueFloat32 = fc.float({
   min: -3.14,
 });
 
+export const MinValue0Float32 = fc.float({
+  min: 0,
+});
+
 export const MaxValueFloat32 = fc.float({
   max: 3.14,
 });

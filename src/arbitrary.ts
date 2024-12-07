@@ -13,10 +13,8 @@ export type Arbitrary = BaseArbitrary &
     | UnionArbitrary
     | EnumArbitrary
     | BooleanArbitrary
-    | IntegerArbitrary
-    | BigIntegerArbitrary
-    | FloatArbitrary
-    | DoubleArbitrary
+    | NumberArbitrary
+    | BigIntArbitrary
     | StringArbitrary
   )
 
@@ -54,28 +52,17 @@ export type BooleanArbitrary = {
   type: `boolean`
 }
 
-export type IntegerArbitrary = {
-  type: `integer`
+export type NumberArbitrary = {
+  type: `number`
   min: number
   max: number
+  isInteger: boolean
 }
 
-export type BigIntegerArbitrary = {
-  type: `big-integer`
+export type BigIntArbitrary = {
+  type: `bigint`
   min?: bigint
   max?: bigint
-}
-
-export type FloatArbitrary = {
-  type: `float`
-  min?: number
-  max?: number
-}
-
-export type DoubleArbitrary = {
-  type: `double`
-  min?: number
-  max?: number
 }
 
 export type StringArbitrary = {
