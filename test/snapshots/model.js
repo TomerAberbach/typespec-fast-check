@@ -1,4 +1,4 @@
-import * as fc from 'fast-check'
+import * as fc from 'fast-check';
 
 export const Dog = fc.record({
   name: fc.string({

@@ -119,8 +119,9 @@ const convertIntrinsic = (intrinsic: IntrinsicType): Arbitrary => {
       return convertNull(intrinsic)
     case `void`:
       return convertVoid(intrinsic)
-    case `ErrorType`:
     case `never`:
+      return convertNever(intrinsic)
+    case `ErrorType`:
     case `unknown`:
       throw new Error(`Unhandled Intrinsic: ${intrinsic.name}`)
   }
@@ -131,6 +132,9 @@ const convertNull = ($null: IntrinsicType): Arbitrary =>
 
 const convertVoid = ($void: IntrinsicType): Arbitrary =>
   memoize({ type: `undefined`, name: $void.name })
+
+const convertNever = (never: IntrinsicType): Arbitrary =>
+  memoize({ type: `never`, name: never.name })
 
 const convertScalar = (
   program: Program,
@@ -306,6 +310,8 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
       return keyalesce([arbitrary.type, arbitrary.name])
     case `undefined`:
       return keyalesce([arbitrary.type, arbitrary.name])
+    case `never`:
+      return keyalesce([arbitrary.type, arbitrary.name])
     case `boolean`:
       return keyalesce([arbitrary.type, arbitrary.name])
     case `number`:
@@ -424,6 +430,7 @@ const getDirectArbitraryDependencies = (
   switch (arbitrary.type) {
     case `null`:
     case `undefined`:
+    case `never`:
     case `boolean`:
     case `number`:
     case `bigint`:
