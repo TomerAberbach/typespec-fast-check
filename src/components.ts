@@ -144,6 +144,8 @@ const ArbitraryDefinition = ({
       return UndefinedArbitrary()
     case `never`:
       return NeverArbitrary()
+    case `unknown`:
+      return UnknownArbitrary()
     case `boolean`:
       return BooleanArbitrary()
     case `number`:
@@ -176,6 +178,8 @@ const NeverArbitrary = (): Child => code`
     throw new Error('never');
   })
 `
+
+const UnknownArbitrary = (): Child => code`fc.anything()`
 
 const BooleanArbitrary = (): Child => code`fc.boolean()`
 

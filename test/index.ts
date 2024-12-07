@@ -92,6 +92,14 @@ test.each([
     `,
   },
   {
+    name: `unknown`,
+    code: `
+      model M {
+        property: unknown
+      }
+    `,
+  },
+  {
     name: `boolean`,
     code: `
       scalar Boolean extends boolean;
