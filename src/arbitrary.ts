@@ -16,6 +16,7 @@ export type Arbitrary = BaseArbitrary &
     | IntegerArbitrary
     | BigIntegerArbitrary
     | FloatArbitrary
+    | DoubleArbitrary
     | StringArbitrary
   )
 
@@ -67,6 +68,12 @@ export type BigIntegerArbitrary = {
 
 export type FloatArbitrary = {
   type: `float`
+  min?: number
+  max?: number
+}
+
+export type DoubleArbitrary = {
+  type: `double`
   min?: number
   max?: number
 }

@@ -10,6 +10,7 @@ import type {
   ArrayArbitrary,
   BigIntegerArbitrary,
   DictionaryArbitrary,
+  DoubleArbitrary,
   EnumArbitrary,
   FloatArbitrary,
   IntegerArbitrary,
@@ -145,6 +146,8 @@ const ArbitraryDefinition = ({
       return BigIntegerArbitrary({ arbitrary })
     case `float`:
       return FloatArbitrary({ arbitrary })
+    case `double`:
+      return DoubleArbitrary({ arbitrary })
     case `string`:
       return StringArbitrary({ arbitrary })
   }
@@ -237,6 +240,18 @@ const BigIntegerArbitrary = ({
 
 const FloatArbitrary = ({ arbitrary }: { arbitrary: FloatArbitrary }): Child =>
   code`fc.float(${Options({
+    properties: new Map([
+      [`min`, arbitrary.min],
+      [`max`, arbitrary.max],
+    ]),
+  })})`
+
+const DoubleArbitrary = ({
+  arbitrary,
+}: {
+  arbitrary: DoubleArbitrary
+}): Child =>
+  code`fc.double(${Options({
     properties: new Map([
       [`min`, arbitrary.min],
       [`max`, arbitrary.max],
