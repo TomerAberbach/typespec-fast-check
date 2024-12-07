@@ -10,6 +10,7 @@ export type Arbitrary = BaseArbitrary &
     | NullArbitrary
     | UndefinedArbitrary
     | NeverArbitrary
+    | UnknownArbitrary
     | BooleanArbitrary
     | NumberArbitrary
     | BigIntArbitrary
@@ -36,6 +37,10 @@ export type UndefinedArbitrary = {
 
 export type NeverArbitrary = {
   type: `never`
+}
+
+export type UnknownArbitrary = {
+  type: `unknown`
 }
 
 export type BooleanArbitrary = {
