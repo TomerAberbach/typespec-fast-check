@@ -321,7 +321,7 @@ const RecordArbitrary = ({
   code`fc.record(${Options({
     properties: pipe(
       arbitrary.properties,
-      map(([name, arbitrary]): [string, Child] => [
+      map(([name, arbitrary]) => [
         name,
         Arbitrary({ arbitrary, sharedArbitraries }),
       ]),

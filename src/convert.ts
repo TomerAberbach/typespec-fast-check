@@ -59,7 +59,7 @@ const convertNamespace = (
       namespace.enums,
       namespace.scalars,
     ),
-    map(([name, type]): [string, Arbitrary] => [
+    map(([name, type]) => [
       name,
       convertType(program, type, { propertyName: name, constraints: {} }),
     ]),
@@ -76,7 +76,7 @@ const convertNamespace = (
     nameToArbitrary,
     arbitraryToName: pipe(
       nameToArbitrary,
-      map(([name, arbitrary]): [Arbitrary, string] => [arbitrary, name]),
+      map(([name, arbitrary]) => [arbitrary, name]),
       reduce(toMap()),
     ),
   }
@@ -269,7 +269,7 @@ const convertModel = (
     name: pascalcase(model.name || propertyName || `Record`),
     properties: pipe(
       model.properties,
-      map(([name, property]): [string, Arbitrary] => [
+      map(([name, property]) => [
         name,
         convertType(program, property.type, {
           propertyName: name,
@@ -414,10 +414,7 @@ const collectSharedArbitraries = (
           : pipe(
               dependencies,
               values,
-              map((dependency): [Arbitrary, Arbitrary] => [
-                arbitrary,
-                dependency,
-              ]),
+              map(dependency => [arbitrary, dependency]),
             ),
     ),
     reduce(toArray()),
