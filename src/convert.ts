@@ -170,10 +170,7 @@ const convertScalar = (
   scalar: Scalar,
   options: ConvertTypeOptions,
 ): Arbitrary => {
-  const name = options.propertyName || scalar.name || `Scalar`
   switch (scalar.name) {
-    case `boolean`:
-      return memoize({ type: `boolean`, name })
     case `int8`:
     case `int16`:
     case `int32`:
@@ -187,11 +184,15 @@ const convertScalar = (
     case `numeric`:
       return convertNumber(scalar, options, numerics.float64)
     case `int64`:
-      return convertBigint(scalar, options, numerics.int64)
+      return convertBigInt(scalar, options, numerics.int64)
     case `integer`:
-      return convertBigint(scalar, options)
+      return convertBigInt(scalar, options)
+    case `bytes`:
+      return convertBytes(scalar)
     case `string`:
       return convertString(scalar, options)
+    case `boolean`:
+      return convertBoolean(scalar)
     default:
       if (scalar.baseScalar) {
         return convertType(program, scalar.baseScalar, {
@@ -220,17 +221,20 @@ const convertNumber = (
     isInteger,
   })
 
-const convertBigint = (
-  integer: Scalar,
+const convertBigInt = (
+  bigint: Scalar,
   { constraints }: ConvertTypeOptions,
   { min, max }: { min?: bigint; max?: bigint } = {},
 ): Arbitrary =>
   memoize({
     type: `bigint`,
-    name: integer.name,
+    name: bigint.name,
     min: maxOrUndefined(constraints.min?.asBigInt() ?? undefined, min),
     max: minOrUndefined(constraints.max?.asBigInt() ?? undefined, max),
   })
+
+const convertBytes = (bytes: Scalar): Arbitrary =>
+  memoize({ type: `bytes`, name: bytes.name })
 
 const convertString = (
   string: Scalar,
@@ -242,6 +246,9 @@ const convertString = (
     minLength: constraints.minLength?.asNumber() ?? undefined,
     maxLength: constraints.maxLength?.asNumber() ?? undefined,
   })
+
+const convertBoolean = (boolean: Scalar): Arbitrary =>
+  memoize({ type: `boolean`, name: boolean.name })
 
 const getConstraints = (program: Program, type: Type): Constraints =>
   pipe(
@@ -273,8 +280,6 @@ const memoize = (arbitrary: Arbitrary): Arbitrary => {
 
 const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
   switch (arbitrary.type) {
-    case `boolean`:
-      return keyalesce([arbitrary.type, arbitrary.name])
     case `record`:
       return keyalesce([
         arbitrary.type,
@@ -308,6 +313,8 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
         arbitrary.min,
         arbitrary.max,
       ])
+    case `bytes`:
+      return keyalesce([arbitrary.type, arbitrary.name])
     case `string`:
       return keyalesce([
         arbitrary.type,
@@ -315,6 +322,8 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
         arbitrary.minLength,
         arbitrary.maxLength,
       ])
+    case `boolean`:
+      return keyalesce([arbitrary.type, arbitrary.name])
   }
 }
 
@@ -396,10 +405,11 @@ const getDirectArbitraryDependencies = (
     case `union`:
       return new Set(arbitrary.variants)
     case `enum`:
-    case `boolean`:
     case `number`:
     case `bigint`:
+    case `bytes`:
     case `string`:
+    case `boolean`:
       return new Set()
   }
 }
