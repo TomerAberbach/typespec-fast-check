@@ -117,8 +117,9 @@ const convertIntrinsic = (intrinsic: IntrinsicType): Arbitrary => {
   switch (intrinsic.name) {
     case `null`:
       return convertNull(intrinsic)
-    case `ErrorType`:
     case `void`:
+      return convertVoid(intrinsic)
+    case `ErrorType`:
     case `never`:
     case `unknown`:
       throw new Error(`Unhandled Intrinsic: ${intrinsic.name}`)
@@ -127,6 +128,9 @@ const convertIntrinsic = (intrinsic: IntrinsicType): Arbitrary => {
 
 const convertNull = ($null: IntrinsicType): Arbitrary =>
   memoize({ type: `null`, name: $null.name })
+
+const convertVoid = ($void: IntrinsicType): Arbitrary =>
+  memoize({ type: `undefined`, name: $void.name })
 
 const convertScalar = (
   program: Program,
@@ -300,6 +304,8 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
   switch (arbitrary.type) {
     case `null`:
       return keyalesce([arbitrary.type, arbitrary.name])
+    case `undefined`:
+      return keyalesce([arbitrary.type, arbitrary.name])
     case `boolean`:
       return keyalesce([arbitrary.type, arbitrary.name])
     case `number`:
@@ -416,22 +422,23 @@ const getDirectArbitraryDependencies = (
   arbitrary: Arbitrary,
 ): Set<Arbitrary> => {
   switch (arbitrary.type) {
-    case `record`:
-      return new Set(values(arbitrary.properties))
-    case `dictionary`:
-      return new Set([arbitrary.key, arbitrary.value])
-    case `array`:
-      return new Set([arbitrary.value])
-    case `union`:
-      return new Set(arbitrary.variants)
-    case `enum`:
+    case `null`:
+    case `undefined`:
+    case `boolean`:
     case `number`:
     case `bigint`:
-    case `bytes`:
     case `string`:
-    case `boolean`:
-    case `null`:
+    case `bytes`:
+    case `enum`:
       return new Set()
+    case `array`:
+      return new Set([arbitrary.value])
+    case `dictionary`:
+      return new Set([arbitrary.key, arbitrary.value])
+    case `union`:
+      return new Set(arbitrary.variants)
+    case `record`:
+      return new Set(values(arbitrary.properties))
   }
 }
 

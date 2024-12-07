@@ -8,6 +8,7 @@ export type ArbitraryNamespace = {
 export type Arbitrary = BaseArbitrary &
   (
     | NullArbitrary
+    | UndefinedArbitrary
     | BooleanArbitrary
     | NumberArbitrary
     | BigIntArbitrary
@@ -26,6 +27,10 @@ export type BaseArbitrary = {
 
 export type NullArbitrary = {
   type: `null`
+}
+
+export type UndefinedArbitrary = {
+  type: `undefined`
 }
 
 export type BooleanArbitrary = {
