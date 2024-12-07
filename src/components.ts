@@ -37,7 +37,7 @@ const ArbitraryFile = ({
   sharedArbitraries: ReadonlySet<Arbitrary>
 }): Child =>
   ay.Output().children(ts.SourceFile({ path: `arbitraries.js` }).code`
-    import * as fc from 'fast-check'
+    import * as fc from 'fast-check';
 
     ${GlobalArbitraryNamespace({ namespace, sharedArbitraries })}
   `)
@@ -142,6 +142,8 @@ const ArbitraryDefinition = ({
       return NullArbitrary()
     case `undefined`:
       return UndefinedArbitrary()
+    case `never`:
+      return NeverArbitrary()
     case `boolean`:
       return BooleanArbitrary()
     case `number`:
@@ -168,6 +170,12 @@ const ArbitraryDefinition = ({
 const NullArbitrary = (): Child => code`fc.constant(null)`
 
 const UndefinedArbitrary = (): Child => code`fc.constant(undefined)`
+
+const NeverArbitrary = (): Child => code`
+  fc.constant(null).map(() => {
+    throw new Error('never');
+  })
+`
 
 const BooleanArbitrary = (): Child => code`fc.boolean()`
 

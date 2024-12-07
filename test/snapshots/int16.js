@@ -1,4 +1,4 @@
-import * as fc from 'fast-check'
+import * as fc from 'fast-check';
 
 export const Int16 = fc.integer({
   min: -32768,
