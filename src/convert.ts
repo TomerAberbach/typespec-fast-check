@@ -94,16 +94,16 @@ const convertType = (
 
   // eslint-disable-next-line typescript/switch-exhaustiveness-check
   switch (type.kind) {
-    case `Model`:
-      return convertModel(program, type, options)
-    case `Union`:
-      return convertUnion(program, type, options)
-    case `Enum`:
-      return convertEnum(type, options)
-    case `Scalar`:
-      return convertScalar(program, type, options)
     case `Intrinsic`:
       return convertIntrinsic(type)
+    case `Scalar`:
+      return convertScalar(program, type, options)
+    case `Enum`:
+      return convertEnum(type, options)
+    case `Union`:
+      return convertUnion(program, type, options)
+    case `Model`:
+      return convertModel(program, type, options)
   }
 
   throw new Error(`Unhandled type: ${type.kind}`)
@@ -113,60 +113,20 @@ type ConvertTypeOptions = {
   constraints: Constraints
 }
 
-const convertModel = (
-  program: Program,
-  model: Model,
-  { propertyName, constraints }: ConvertTypeOptions,
-): Arbitrary =>
-  memoize({
-    type: `record`,
-    name: pascalcase(model.name || propertyName || `Record`),
-    properties: pipe(
-      model.properties,
-      map(([name, property]): [string, Arbitrary] => [
-        name,
-        convertType(program, property.type, {
-          propertyName: name,
-          constraints: { ...constraints, ...getConstraints(program, property) },
-        }),
-      ]),
-      reduce(toMap()),
-    ),
-  })
+const convertIntrinsic = (intrinsic: IntrinsicType): Arbitrary => {
+  switch (intrinsic.name) {
+    case `null`:
+      return convertNull(intrinsic)
+    case `ErrorType`:
+    case `void`:
+    case `never`:
+    case `unknown`:
+      throw new Error(`Unhandled Intrinsic: ${intrinsic.name}`)
+  }
+}
 
-const convertUnion = (
-  program: Program,
-  union: Union,
-  { propertyName, constraints }: ConvertTypeOptions,
-): Arbitrary =>
-  memoize({
-    type: `union`,
-    name: pascalcase(union.name || propertyName || `Union`),
-    variants: pipe(
-      union.variants,
-      map(([, { type, name }]) =>
-        convertType(program, type, {
-          propertyName: String(name),
-          constraints: { ...constraints, ...getConstraints(program, union) },
-        }),
-      ),
-      reduce(toArray()),
-    ),
-  })
-
-const convertEnum = (
-  $enum: Enum,
-  { propertyName }: ConvertTypeOptions,
-): Arbitrary =>
-  memoize({
-    type: `enum`,
-    name: pascalcase($enum.name || propertyName || `Enum`),
-    values: pipe(
-      $enum.members,
-      map(([, { value }]) => JSON.stringify(value)),
-      reduce(toArray()),
-    ),
-  })
+const convertNull = ($null: IntrinsicType): Arbitrary =>
+  memoize({ type: `null`, name: $null.name })
 
 const convertScalar = (
   program: Program,
@@ -253,20 +213,60 @@ const convertString = (
 const convertBoolean = (boolean: Scalar): Arbitrary =>
   memoize({ type: `boolean`, name: boolean.name })
 
-const convertIntrinsic = (intrinsic: IntrinsicType): Arbitrary => {
-  switch (intrinsic.name) {
-    case `null`:
-      return convertNull(intrinsic)
-    case `ErrorType`:
-    case `void`:
-    case `never`:
-    case `unknown`:
-      throw new Error(`Unhandled Intrinsic: ${intrinsic.name}`)
-  }
-}
+const convertEnum = (
+  $enum: Enum,
+  { propertyName }: ConvertTypeOptions,
+): Arbitrary =>
+  memoize({
+    type: `enum`,
+    name: pascalcase($enum.name || propertyName || `Enum`),
+    values: pipe(
+      $enum.members,
+      map(([, { value }]) => JSON.stringify(value)),
+      reduce(toArray()),
+    ),
+  })
 
-const convertNull = ($null: IntrinsicType): Arbitrary =>
-  memoize({ type: `null`, name: $null.name })
+const convertUnion = (
+  program: Program,
+  union: Union,
+  { propertyName, constraints }: ConvertTypeOptions,
+): Arbitrary =>
+  memoize({
+    type: `union`,
+    name: pascalcase(union.name || propertyName || `Union`),
+    variants: pipe(
+      union.variants,
+      map(([, { type, name }]) =>
+        convertType(program, type, {
+          propertyName: String(name),
+          constraints: { ...constraints, ...getConstraints(program, union) },
+        }),
+      ),
+      reduce(toArray()),
+    ),
+  })
+
+const convertModel = (
+  program: Program,
+  model: Model,
+  { propertyName, constraints }: ConvertTypeOptions,
+): Arbitrary =>
+  memoize({
+    type: `record`,
+    name: pascalcase(model.name || propertyName || `Record`),
+    properties: pipe(
+      model.properties,
+      map(([name, property]): [string, Arbitrary] => [
+        name,
+        convertType(program, property.type, {
+          propertyName: name,
+          constraints: { ...constraints, ...getConstraints(program, property) },
+        }),
+      ]),
+      reduce(toMap()),
+    ),
+  })
 
 const getConstraints = (program: Program, type: Type): Constraints =>
   pipe(
@@ -298,25 +298,10 @@ const memoize = (arbitrary: Arbitrary): Arbitrary => {
 
 const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
   switch (arbitrary.type) {
-    case `record`:
-      return keyalesce([
-        arbitrary.type,
-        arbitrary.name,
-        ...flatten(arbitrary.properties),
-      ])
-    case `dictionary`:
-      return keyalesce([
-        arbitrary.type,
-        arbitrary.name,
-        arbitrary.key,
-        arbitrary.value,
-      ])
-    case `array`:
-      return keyalesce([arbitrary.type, arbitrary.name, arbitrary.value])
-    case `union`:
-      return keyalesce([arbitrary.type, arbitrary.name, ...arbitrary.variants])
-    case `enum`:
-      return keyalesce([arbitrary.type, arbitrary.name, ...arbitrary.values])
+    case `null`:
+      return keyalesce([arbitrary.type, arbitrary.name])
+    case `boolean`:
+      return keyalesce([arbitrary.type, arbitrary.name])
     case `number`:
       return keyalesce([
         arbitrary.type,
@@ -331,8 +316,6 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
         arbitrary.min,
         arbitrary.max,
       ])
-    case `bytes`:
-      return keyalesce([arbitrary.type, arbitrary.name])
     case `string`:
       return keyalesce([
         arbitrary.type,
@@ -340,10 +323,27 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
         arbitrary.minLength,
         arbitrary.maxLength,
       ])
-    case `boolean`:
+    case `bytes`:
       return keyalesce([arbitrary.type, arbitrary.name])
-    case `null`:
-      return keyalesce([arbitrary.type, arbitrary.name])
+    case `enum`:
+      return keyalesce([arbitrary.type, arbitrary.name, ...arbitrary.values])
+    case `array`:
+      return keyalesce([arbitrary.type, arbitrary.name, arbitrary.value])
+    case `dictionary`:
+      return keyalesce([
+        arbitrary.type,
+        arbitrary.name,
+        arbitrary.key,
+        arbitrary.value,
+      ])
+    case `union`:
+      return keyalesce([arbitrary.type, arbitrary.name, ...arbitrary.variants])
+    case `record`:
+      return keyalesce([
+        arbitrary.type,
+        arbitrary.name,
+        ...flatten(arbitrary.properties),
+      ])
   }
 }
 

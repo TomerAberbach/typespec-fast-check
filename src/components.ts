@@ -138,91 +138,34 @@ const ArbitraryDefinition = ({
   sharedArbitraries: ReadonlySet<Arbitrary>
 }): Child => {
   switch (arbitrary.type) {
-    case `record`:
-      return RecordArbitrary({ arbitrary, sharedArbitraries })
-    case `dictionary`:
-      return DictionaryArbitrary({ arbitrary, sharedArbitraries })
-    case `array`:
-      return ArrayArbitrary({ arbitrary, sharedArbitraries })
-    case `union`:
-      return UnionArbitrary({ arbitrary, sharedArbitraries })
-    case `enum`:
-      return EnumArbitrary({ arbitrary })
+    case `null`:
+      return NullArbitrary()
+    case `boolean`:
+      return BooleanArbitrary()
     case `number`:
       return NumberArbitrary({ arbitrary })
     case `bigint`:
       return BigIntArbitrary({ arbitrary })
-    case `bytes`:
-      return BytesArbitrary()
     case `string`:
       return StringArbitrary({ arbitrary })
-    case `boolean`:
-      return BooleanArbitrary()
-    case `null`:
-      return NullArbitrary()
+    case `bytes`:
+      return BytesArbitrary()
+    case `enum`:
+      return EnumArbitrary({ arbitrary })
+    case `array`:
+      return ArrayArbitrary({ arbitrary, sharedArbitraries })
+    case `dictionary`:
+      return DictionaryArbitrary({ arbitrary, sharedArbitraries })
+    case `union`:
+      return UnionArbitrary({ arbitrary, sharedArbitraries })
+    case `record`:
+      return RecordArbitrary({ arbitrary, sharedArbitraries })
   }
 }
 
-const RecordArbitrary = ({
-  arbitrary,
-  sharedArbitraries,
-}: {
-  arbitrary: RecordArbitrary
-  sharedArbitraries: ReadonlySet<Arbitrary>
-}): Child =>
-  code`fc.record(${Options({
-    properties: pipe(
-      arbitrary.properties,
-      map(([name, arbitrary]): [string, Child] => [
-        name,
-        Arbitrary({ arbitrary, sharedArbitraries }),
-      ]),
-      reduce(toMap()),
-    ),
-    emitEmpty: true,
-  })})`
+const NullArbitrary = (): Child => code`fc.constant(null)`
 
-const DictionaryArbitrary = ({
-  arbitrary,
-  sharedArbitraries,
-}: {
-  arbitrary: DictionaryArbitrary
-  sharedArbitraries: ReadonlySet<Arbitrary>
-}): Child => {
-  const Key = Arbitrary({ arbitrary: arbitrary.key, sharedArbitraries })
-  const Value = Arbitrary({ arbitrary: arbitrary.value, sharedArbitraries })
-  return code`fc.dictionary(${Key}, ${Value})`
-}
-
-const ArrayArbitrary = ({
-  arbitrary,
-  sharedArbitraries,
-}: {
-  arbitrary: ArrayArbitrary
-  sharedArbitraries: ReadonlySet<Arbitrary>
-}): Child =>
-  code`fc.array(${Arbitrary({ arbitrary: arbitrary.value, sharedArbitraries })})`
-
-const UnionArbitrary = ({
-  arbitrary,
-  sharedArbitraries,
-}: {
-  arbitrary: UnionArbitrary
-  sharedArbitraries: ReadonlySet<Arbitrary>
-}): Child =>
-  code`fc.oneof(\n${ay
-    .Indent()
-    .children(
-      ayJoin(
-        arbitrary.variants.map(
-          variant =>
-            code`${Arbitrary({ arbitrary: variant, sharedArbitraries })},`,
-        ),
-      ),
-    )}\n)`
-
-const EnumArbitrary = ({ arbitrary }: { arbitrary: EnumArbitrary }): Child =>
-  code`fc.constantFrom(${arbitrary.values.join(`, `)})`
+const BooleanArbitrary = (): Child => code`fc.boolean()`
 
 const NumberArbitrary = ({
   arbitrary,
@@ -283,8 +226,6 @@ const BigIntArbitrary = ({
     ]),
   })})`
 
-const BytesArbitrary = (): Child => code`fc.uint8Array()`
-
 const StringArbitrary = ({
   arbitrary,
 }: {
@@ -297,9 +238,71 @@ const StringArbitrary = ({
     ]),
   })})`
 
-const BooleanArbitrary = (): Child => code`fc.boolean()`
+const BytesArbitrary = (): Child => code`fc.uint8Array()`
 
-const NullArbitrary = (): Child => code`fc.constant(null)`
+const EnumArbitrary = ({ arbitrary }: { arbitrary: EnumArbitrary }): Child =>
+  code`fc.constantFrom(${arbitrary.values.join(`, `)})`
+
+const ArrayArbitrary = ({
+  arbitrary,
+  sharedArbitraries,
+}: {
+  arbitrary: ArrayArbitrary
+  sharedArbitraries: ReadonlySet<Arbitrary>
+}): Child =>
+  code`fc.array(${Arbitrary({
+    arbitrary: arbitrary.value,
+    sharedArbitraries,
+  })})`
+
+const DictionaryArbitrary = ({
+  arbitrary,
+  sharedArbitraries,
+}: {
+  arbitrary: DictionaryArbitrary
+  sharedArbitraries: ReadonlySet<Arbitrary>
+}): Child => {
+  const Key = Arbitrary({ arbitrary: arbitrary.key, sharedArbitraries })
+  const Value = Arbitrary({ arbitrary: arbitrary.value, sharedArbitraries })
+  return code`fc.dictionary(${Key}, ${Value})`
+}
+
+const UnionArbitrary = ({
+  arbitrary,
+  sharedArbitraries,
+}: {
+  arbitrary: UnionArbitrary
+  sharedArbitraries: ReadonlySet<Arbitrary>
+}): Child =>
+  code`fc.oneof(\n${ay
+    .Indent()
+    .children(
+      ayJoin(
+        arbitrary.variants.map(
+          variant =>
+            code`${Arbitrary({ arbitrary: variant, sharedArbitraries })},`,
+        ),
+      ),
+    )}\n)`
+
+const RecordArbitrary = ({
+  arbitrary,
+  sharedArbitraries,
+}: {
+  arbitrary: RecordArbitrary
+  sharedArbitraries: ReadonlySet<Arbitrary>
+}): Child =>
+  code`fc.record(${Options({
+    properties: pipe(
+      arbitrary.properties,
+      map(([name, arbitrary]): [string, Child] => [
+        name,
+        Arbitrary({ arbitrary, sharedArbitraries }),
+      ]),
+      reduce(toMap()),
+    ),
+    emitEmpty: true,
+  })})`
 
 const Options = ({
   properties,

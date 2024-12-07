@@ -7,47 +7,29 @@ export type ArbitraryNamespace = {
 
 export type Arbitrary = BaseArbitrary &
   (
-    | RecordArbitrary
-    | DictionaryArbitrary
-    | ArrayArbitrary
-    | UnionArbitrary
-    | EnumArbitrary
+    | NullArbitrary
+    | BooleanArbitrary
     | NumberArbitrary
     | BigIntArbitrary
-    | BytesArbitrary
     | StringArbitrary
-    | BooleanArbitrary
-    | NullArbitrary
+    | BytesArbitrary
+    | EnumArbitrary
+    | ArrayArbitrary
+    | DictionaryArbitrary
+    | UnionArbitrary
+    | RecordArbitrary
   )
 
 export type BaseArbitrary = {
   name: string
 }
 
-export type RecordArbitrary = {
-  type: `record`
-  properties: Map<string, Arbitrary>
+export type NullArbitrary = {
+  type: `null`
 }
 
-export type DictionaryArbitrary = {
-  type: `dictionary`
-  key: Arbitrary
-  value: Arbitrary
-}
-
-export type ArrayArbitrary = {
-  type: `array`
-  value: Arbitrary
-}
-
-export type UnionArbitrary = {
-  type: `union`
-  variants: Arbitrary[]
-}
-
-export type EnumArbitrary = {
-  type: `enum`
-  values: string[]
+export type BooleanArbitrary = {
+  type: `boolean`
 }
 
 export type NumberArbitrary = {
@@ -63,20 +45,38 @@ export type BigIntArbitrary = {
   max?: bigint
 }
 
-export type BytesArbitrary = {
-  type: `bytes`
-}
-
 export type StringArbitrary = {
   type: `string`
   minLength?: number
   maxLength?: number
 }
 
-export type BooleanArbitrary = {
-  type: `boolean`
+export type BytesArbitrary = {
+  type: `bytes`
 }
 
-export type NullArbitrary = {
-  type: `null`
+export type EnumArbitrary = {
+  type: `enum`
+  values: string[]
+}
+
+export type ArrayArbitrary = {
+  type: `array`
+  value: Arbitrary
+}
+
+export type DictionaryArbitrary = {
+  type: `dictionary`
+  key: Arbitrary
+  value: Arbitrary
+}
+
+export type UnionArbitrary = {
+  type: `union`
+  variants: Arbitrary[]
+}
+
+export type RecordArbitrary = {
+  type: `record`
+  properties: Map<string, Arbitrary>
 }

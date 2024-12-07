@@ -63,6 +63,20 @@ test.each([
 
   // Data types
   {
+    name: `null`,
+    code: `
+      model M {
+        property: null
+      }
+    `,
+  },
+  {
+    name: `boolean`,
+    code: `
+      scalar Boolean extends boolean;
+    `,
+  },
+  {
     name: `int8`,
     code: `
       scalar Int8 extends int8;
@@ -284,12 +298,6 @@ test.each([
     `,
   },
   {
-    name: `bytes`,
-    code: `
-      scalar Bytes extends bytes;
-    `,
-  },
-  {
     name: `string`,
     code: `
       scalar String extends string;
@@ -306,17 +314,9 @@ test.each([
     `,
   },
   {
-    name: `boolean`,
+    name: `bytes`,
     code: `
-      scalar Boolean extends boolean;
-    `,
-  },
-  {
-    name: `null`,
-    code: `
-      model M {
-        property: null
-      }
+      scalar Bytes extends bytes;
     `,
   },
 
