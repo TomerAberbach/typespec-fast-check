@@ -9,6 +9,7 @@ import type {
   Enum,
   IntrinsicType,
   Model,
+  ModelIndexer,
   Namespace,
   Numeric,
   Program,
@@ -34,7 +35,25 @@ import {
 import pascalcase from 'pascalcase'
 import keyalesce from 'keyalesce'
 import toposort from 'toposort'
-import type { Arbitrary, ArbitraryNamespace } from './arbitrary.ts'
+import type {
+  Arbitrary,
+  ArbitraryNamespace,
+  ArrayArbitrary,
+  BigIntArbitrary,
+  BytesArbitrary,
+  DictionaryArbitrary,
+  EnumArbitrary,
+  IntrinsicArbitrary,
+  NeverArbitrary,
+  NullArbitrary,
+  NumberArbitrary,
+  RecordArbitrary,
+  ScalarArbitrary,
+  StringArbitrary,
+  UndefinedArbitrary,
+  UnionArbitrary,
+  UnknownArbitrary,
+} from './arbitrary.ts'
 import { numerics } from './numerics.ts'
 
 const convertProgram = (
@@ -113,7 +132,7 @@ type ConvertTypeOptions = {
   constraints: Constraints
 }
 
-const convertIntrinsic = (intrinsic: IntrinsicType): Arbitrary => {
+const convertIntrinsic = (intrinsic: IntrinsicType): IntrinsicArbitrary => {
   switch (intrinsic.name) {
     case `null`:
       return convertNull(intrinsic)
@@ -128,23 +147,23 @@ const convertIntrinsic = (intrinsic: IntrinsicType): Arbitrary => {
   }
 }
 
-const convertNull = ($null: IntrinsicType): Arbitrary =>
+const convertNull = ($null: IntrinsicType): NullArbitrary =>
   memoize({ type: `null`, name: $null.name })
 
-const convertVoid = ($void: IntrinsicType): Arbitrary =>
+const convertVoid = ($void: IntrinsicType): UndefinedArbitrary =>
   memoize({ type: `undefined`, name: $void.name })
 
-const convertNever = (never: IntrinsicType): Arbitrary =>
+const convertNever = (never: IntrinsicType): NeverArbitrary =>
   memoize({ type: `never`, name: never.name })
 
-const convertUnknown = (unknown: IntrinsicType): Arbitrary =>
+const convertUnknown = (unknown: IntrinsicType): UnknownArbitrary =>
   memoize({ type: `unknown`, name: unknown.name })
 
 const convertScalar = (
   program: Program,
   scalar: Scalar,
   options: ConvertTypeOptions,
-): Arbitrary => {
+): ScalarArbitrary => {
   switch (scalar.name) {
     case `int8`:
     case `int16`:
@@ -170,7 +189,7 @@ const convertScalar = (
       return convertBoolean(scalar)
     default:
       if (scalar.baseScalar) {
-        return convertType(program, scalar.baseScalar, {
+        return convertScalar(program, scalar.baseScalar, {
           ...options,
           constraints: {
             ...options.constraints,
@@ -187,7 +206,7 @@ const convertNumber = (
   number: Scalar,
   { constraints }: ConvertTypeOptions,
   { min, max, isInteger }: { min: number; max: number; isInteger: boolean },
-): Arbitrary =>
+): NumberArbitrary =>
   memoize({
     type: `number`,
     name: number.name,
@@ -200,7 +219,7 @@ const convertBigInt = (
   bigint: Scalar,
   { constraints }: ConvertTypeOptions,
   { min, max }: { min?: bigint; max?: bigint } = {},
-): Arbitrary =>
+): BigIntArbitrary =>
   memoize({
     type: `bigint`,
     name: bigint.name,
@@ -208,13 +227,13 @@ const convertBigInt = (
     max: minOrUndefined(constraints.max?.asBigInt() ?? undefined, max),
   })
 
-const convertBytes = (bytes: Scalar): Arbitrary =>
+const convertBytes = (bytes: Scalar): BytesArbitrary =>
   memoize({ type: `bytes`, name: bytes.name })
 
 const convertString = (
   string: Scalar,
   { constraints }: ConvertTypeOptions,
-): Arbitrary =>
+): StringArbitrary =>
   memoize({
     type: `string`,
     name: string.name,
@@ -222,13 +241,13 @@ const convertString = (
     maxLength: constraints.maxLength?.asNumber() ?? undefined,
   })
 
-const convertBoolean = (boolean: Scalar): Arbitrary =>
+const convertBoolean = (boolean: Scalar): ScalarArbitrary =>
   memoize({ type: `boolean`, name: boolean.name })
 
 const convertEnum = (
   $enum: Enum,
   { propertyName }: ConvertTypeOptions,
-): Arbitrary =>
+): EnumArbitrary =>
   memoize({
     type: `enum`,
     name: pascalcase($enum.name || propertyName || `Enum`),
@@ -243,7 +262,7 @@ const convertUnion = (
   program: Program,
   union: Union,
   { propertyName, constraints }: ConvertTypeOptions,
-): Arbitrary =>
+): UnionArbitrary =>
   memoize({
     type: `union`,
     name: pascalcase(union.name || propertyName || `Union`),
@@ -262,8 +281,45 @@ const convertUnion = (
 const convertModel = (
   program: Program,
   model: Model,
+  options: ConvertTypeOptions,
+): Arbitrary => {
+  if (!model.indexer) {
+    return convertRecord(program, model, options)
+  }
+
+  return (
+    model.indexer.key.name === `integer` ? convertArray : convertDictionary
+  )(program, model as Model & { indexer: ModelIndexer }, options)
+}
+
+const convertArray = (
+  program: Program,
+  model: Model & { indexer: ModelIndexer },
+  options: ConvertTypeOptions,
+): ArrayArbitrary =>
+  memoize({
+    type: `array`,
+    name: pascalcase(model.name || options.propertyName || `Array`),
+    value: convertType(program, model.indexer.value, options),
+  })
+
+const convertDictionary = (
+  program: Program,
+  model: Model & { indexer: ModelIndexer },
+  options: ConvertTypeOptions,
+): DictionaryArbitrary =>
+  memoize({
+    type: `dictionary`,
+    name: pascalcase(model.name || options.propertyName || `Dictionary`),
+    key: convertType(program, model.indexer.key, options),
+    value: convertType(program, model.indexer.value, options),
+  })
+
+const convertRecord = (
+  program: Program,
+  model: Model,
   { propertyName, constraints }: ConvertTypeOptions,
-): Arbitrary =>
+): RecordArbitrary =>
   memoize({
     type: `record`,
     name: pascalcase(model.name || propertyName || `Record`),
@@ -298,14 +354,14 @@ type Constraints = {
   maxLength?: Numeric
 }
 
-const memoize = (arbitrary: Arbitrary): Arbitrary => {
+const memoize = <A extends Arbitrary>(arbitrary: A): A => {
   const arbitraryKey = getArbitraryKey(arbitrary)
   let cachedArbitrary = cachedArbitraries.get(arbitraryKey)
   if (!cachedArbitrary) {
     cachedArbitrary = arbitrary
     cachedArbitraries.set(arbitraryKey, cachedArbitrary)
   }
-  return cachedArbitrary
+  return cachedArbitrary as A
 }
 
 const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {

@@ -70,7 +70,7 @@ test.each([
   {
     name: `null`,
     code: `
-      model M {
+      model $Model {
         property: null
       }
     `,
@@ -78,7 +78,7 @@ test.each([
   {
     name: `void`,
     code: `
-      model M {
+      model $Model {
         property: void
       }
     `,
@@ -86,7 +86,7 @@ test.each([
   {
     name: `never`,
     code: `
-      model M {
+      model $Model {
         property: never
       }
     `,
@@ -94,7 +94,7 @@ test.each([
   {
     name: `unknown`,
     code: `
-      model M {
+      model $Model {
         property: unknown
       }
     `,
@@ -354,13 +354,15 @@ test.each([
 
   // Models
   {
-    name: `model`,
+    name: `array`,
     code: `
-      model Dog {
-        @minLength(1)
-        name: string;
-        age: int32;
-      }
+      model $Array is Array<string>;
+    `,
+  },
+  {
+    name: `dictionary`,
+    code: `
+      model Dictionary is Record<int32>;
     `,
   },
 ] satisfies TestCase[])(`$name`, async ({ name, code }) => {

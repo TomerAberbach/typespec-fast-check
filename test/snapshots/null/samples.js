@@ -1,5 +1,5 @@
 export const samples = {
-	'M': [
+	'$Model': [
 		{
 			'property': null
 		},
