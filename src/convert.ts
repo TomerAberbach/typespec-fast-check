@@ -443,22 +443,13 @@ const memoize = <A extends Arbitrary>(arbitrary: A): A => {
 const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
   switch (arbitrary.type) {
     case `null`:
-      return keyalesce([arbitrary.type, arbitrary.name])
     case `undefined`:
-      return keyalesce([arbitrary.type, arbitrary.name])
     case `never`:
-      return keyalesce([arbitrary.type, arbitrary.name])
     case `unknown`:
-      return keyalesce([arbitrary.type, arbitrary.name])
     case `boolean`:
+    case `bytes`:
       return keyalesce([arbitrary.type, arbitrary.name])
     case `number`:
-      return keyalesce([
-        arbitrary.type,
-        arbitrary.name,
-        arbitrary.min,
-        arbitrary.max,
-      ])
     case `bigint`:
       return keyalesce([
         arbitrary.type,
@@ -473,8 +464,6 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
         arbitrary.minLength,
         arbitrary.maxLength,
       ])
-    case `bytes`:
-      return keyalesce([arbitrary.type, arbitrary.name])
     case `enum`:
       return keyalesce([arbitrary.type, arbitrary.name, ...arbitrary.values])
     case `array`:
