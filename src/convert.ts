@@ -1,4 +1,5 @@
 /* eslint-disable typescript/prefer-nullish-coalescing */
+import assert from 'node:assert'
 import {
   getMaxItemsAsNumeric,
   getMaxLengthAsNumeric,
@@ -35,7 +36,6 @@ import {
   toSet,
   values,
 } from 'lfi'
-import pascalcase from 'pascalcase'
 import keyalesce from 'keyalesce'
 import toposort from 'toposort'
 import type {
@@ -43,19 +43,13 @@ import type {
   ArbitraryNamespace,
   ArrayArbitrary,
   BigIntArbitrary,
-  BooleanArbitrary,
-  BytesArbitrary,
   DictionaryArbitrary,
-  EnumArbitrary,
   IntrinsicArbitrary,
-  NeverArbitrary,
-  NullArbitrary,
   NumberArbitrary,
   RecordArbitrary,
+  ReferenceArbitrary,
   StringArbitrary,
-  UndefinedArbitrary,
   UnionArbitrary,
-  UnknownArbitrary,
 } from './arbitrary.ts'
 import { numerics } from './numerics.ts'
 
@@ -63,7 +57,7 @@ const convertProgram = (
   program: Program,
 ): {
   namespace: ArbitraryNamespace
-  sharedArbitraries: Set<Arbitrary>
+  sharedArbitraries: Set<ReferenceArbitrary>
 } => {
   const namespace = convertNamespace(program, program.getGlobalNamespaceType())
   const sharedArbitraries = collectSharedArbitraries(namespace)
@@ -81,10 +75,11 @@ const convertNamespace = (
       namespace.enums,
       namespace.scalars,
     ),
-    map(([name, type]) => [
-      name,
-      convertType(program, type, { sourceName: name, constraints: {} }),
-    ]),
+    map(([, type]) => {
+      const arbitrary = convertType(program, type, {})
+      assert(arbitrary.type === `reference`)
+      return [arbitrary.name, arbitrary]
+    }),
     reduce(toMap()),
   )
   return {
@@ -107,64 +102,68 @@ const convertNamespace = (
 const convertType = (
   program: Program,
   type: Type,
-  { sourceName, constraints }: ConvertTypeOptions,
+  constraints: Constraints,
 ): Arbitrary => {
-  const options = {
-    sourceName,
-    constraints: { ...constraints, ...getConstraints(program, type) },
-  }
+  constraints = { ...constraints, ...getConstraints(program, type) }
 
   // eslint-disable-next-line typescript/switch-exhaustiveness-check
   switch (type.kind) {
     case `Intrinsic`:
       return convertIntrinsic(type)
     case `Scalar`:
-      return convertScalar(program, type, options)
     case `Enum`:
-      return convertEnum(type, options)
     case `Union`:
-      return convertUnion(program, type, options)
     case `Model`:
-      return convertModel(program, type, options)
+      return convertReference(program, type, constraints)
   }
 
   throw new Error(`Unhandled type: ${type.kind}`)
 }
-type ConvertTypeOptions = {
-  sourceName?: string
-  constraints: Constraints
-}
+
 const convertIntrinsic = (intrinsic: IntrinsicType): IntrinsicArbitrary => {
   switch (intrinsic.name) {
     case `null`:
-      return convertNull(intrinsic)
+      return memoize({ type: `null` })
     case `void`:
-      return convertVoid(intrinsic)
+      return memoize({ type: `undefined` })
     case `never`:
-      return convertNever(intrinsic)
+      return memoize({ type: `never` })
     case `unknown`:
-      return convertUnknown(intrinsic)
+      return memoize({ type: `unknown` })
     case `ErrorType`:
       throw new Error(`Unhandled Intrinsic: ${intrinsic.name}`)
   }
 }
 
-const convertNull = ($null: IntrinsicType): NullArbitrary =>
-  memoize({ type: `null`, name: $null.name })
+const convertReference = (
+  program: Program,
+  type: Scalar | Enum | Union | Model,
+  constraints: Constraints,
+): Arbitrary => {
+  let arbitrary: Arbitrary
+  switch (type.kind) {
+    case `Scalar`:
+      arbitrary = convertScalar(program, type, constraints)
+      break
+    case `Enum`:
+      arbitrary = convertEnum(type)
+      break
+    case `Union`:
+      arbitrary = convertUnion(program, type, constraints)
+      break
+    case `Model`:
+      arbitrary = convertModel(program, type, constraints)
+      break
+  }
 
-const convertVoid = ($void: IntrinsicType): UndefinedArbitrary =>
-  memoize({ type: `undefined`, name: $void.name })
-
-const convertNever = (never: IntrinsicType): NeverArbitrary =>
-  memoize({ type: `never`, name: never.name })
-
-const convertUnknown = (unknown: IntrinsicType): UnknownArbitrary =>
-  memoize({ type: `unknown`, name: unknown.name })
+  const { name } = type
+  return name ? ref(name, arbitrary) : arbitrary
+}
 
 const convertScalar = (
   program: Program,
   scalar: Scalar,
-  options: ConvertTypeOptions,
+  constraints: Constraints,
 ): Arbitrary => {
   switch (scalar.name) {
     case `int8`:
@@ -173,33 +172,28 @@ const convertScalar = (
     case `safeint`:
     case `float32`:
     case `float64`:
-      return convertNumber(scalar, options, numerics[scalar.name])
+      return convertNumber(scalar, constraints, numerics[scalar.name])
     case `float`:
     case `decimal128`:
     case `decimal`:
     case `numeric`:
-      return convertNumber(scalar, options, numerics.float64)
+      return convertNumber(scalar, constraints, numerics.float64)
     case `int64`:
-      return convertBigInt(scalar, options, numerics.int64)
+      return convertBigInt(scalar, constraints, numerics.int64)
     case `integer`:
-      return convertBigInt(scalar, options)
+      return convertBigInt(scalar, constraints)
     case `bytes`:
-      return convertBytes(scalar)
+      return memoize({ type: `bytes` })
     case `string`:
-      return convertString(scalar, options)
+      return convertString(scalar, constraints)
     case `boolean`:
-      return convertBoolean(scalar)
+      return memoize({ type: `boolean` })
     default:
       if (scalar.baseScalar) {
-        return ref(
-          convertScalar(program, scalar.baseScalar, {
-            ...options,
-            constraints: {
-              ...options.constraints,
-              ...getConstraints(program, scalar),
-            },
-          }),
-        )
+        return convertType(program, scalar.baseScalar, {
+          ...constraints,
+          ...getConstraints(program, scalar),
+        })
       }
   }
 
@@ -208,12 +202,11 @@ const convertScalar = (
 
 const convertNumber = (
   number: Scalar,
-  { constraints }: ConvertTypeOptions,
+  constraints: Constraints,
   { min, max, isInteger }: { min: number; max: number; isInteger: boolean },
 ): NumberArbitrary =>
   memoize({
     type: `number`,
-    name: number.name,
     min: maxOrUndefined(constraints.min?.asNumber() ?? undefined, min),
     max: minOrUndefined(constraints.max?.asNumber() ?? undefined, max),
     isInteger,
@@ -221,40 +214,28 @@ const convertNumber = (
 
 const convertBigInt = (
   bigint: Scalar,
-  { constraints }: ConvertTypeOptions,
+  constraints: Constraints,
   { min, max }: { min?: bigint; max?: bigint } = {},
 ): BigIntArbitrary =>
   memoize({
     type: `bigint`,
-    name: bigint.name,
     min: maxOrUndefined(constraints.min?.asBigInt() ?? undefined, min),
     max: minOrUndefined(constraints.max?.asBigInt() ?? undefined, max),
   })
 
-const convertBytes = (bytes: Scalar): BytesArbitrary =>
-  memoize({ type: `bytes`, name: bytes.name })
-
 const convertString = (
   string: Scalar,
-  { constraints }: ConvertTypeOptions,
+  constraints: Constraints,
 ): StringArbitrary =>
   memoize({
     type: `string`,
-    name: string.name,
     minLength: constraints.minLength?.asNumber() ?? undefined,
     maxLength: constraints.maxLength?.asNumber() ?? undefined,
   })
 
-const convertBoolean = (boolean: Scalar): BooleanArbitrary =>
-  memoize({ type: `boolean`, name: boolean.name })
-
-const convertEnum = (
-  $enum: Enum,
-  { sourceName }: ConvertTypeOptions,
-): EnumArbitrary =>
+const convertEnum = ($enum: Enum): Arbitrary =>
   memoize({
     type: `enum`,
-    name: pascalcase($enum.name || sourceName || `Enum`),
     values: pipe(
       $enum.members,
       map(([, { name, value }]) =>
@@ -267,18 +248,20 @@ const convertEnum = (
 const convertUnion = (
   program: Program,
   union: Union,
-  { sourceName, constraints }: ConvertTypeOptions,
+  constraints: Constraints,
 ): UnionArbitrary =>
   memoize({
     type: `union`,
-    name: pascalcase(union.name || sourceName || `Union`),
     variants: pipe(
       union.variants,
       map(([, { type, name }]) =>
-        convertType(program, type, {
-          sourceName: String(name),
-          constraints: { ...constraints, ...getConstraints(program, union) },
-        }),
+        ref(
+          String(name),
+          convertType(program, type, {
+            ...constraints,
+            ...getConstraints(program, union),
+          }),
+        ),
       ),
       reduce(toArray()),
     ),
@@ -287,7 +270,7 @@ const convertUnion = (
 const convertModel = (
   program: Program,
   model: Model,
-  options: ConvertTypeOptions,
+  constraints: Constraints,
 ): Arbitrary => {
   const sourceModels = pipe(
     concat(
@@ -311,102 +294,90 @@ const convertModel = (
   if (baseModel && concreteProperties.size === 0) {
     // The model is just `model A extends B` or `model A is B` so we can just
     // convert `B`.
-    return ref(
-      convertType(program, baseModel, {
-        ...options,
-        constraints: {
-          ...options.constraints,
-          ...getConstraints(program, model),
-        },
-      }),
-    )
+    return convertType(program, baseModel, {
+      ...constraints,
+      ...getConstraints(program, model),
+    })
   }
 
   if (sourceModels.size === 0) {
     if (!model.indexer) {
-      return convertRecord(program, model, options)
+      return convertRecord(program, model, constraints)
     }
 
     const modelWithIndexer = model as Model & { indexer: ModelIndexer }
     return model.indexer.key.name === `integer`
-      ? convertArray(program, modelWithIndexer, options)
-      : convertDictionary(program, modelWithIndexer, options)
+      ? convertArray(program, modelWithIndexer, constraints)
+      : convertDictionary(program, modelWithIndexer, constraints)
   }
 
   const arbitraries = pipe(
     concat(
-      map(model => convertType(program, model, options), sourceModels),
+      map(model => convertType(program, model, constraints), sourceModels),
       concreteProperties.size > 0
-        ? [convertRecord(program, model, options, concreteProperties)]
+        ? [convertRecord(program, model, constraints, concreteProperties)]
         : [],
     ),
     reduce(toArray()),
   )
-  return memoize({
-    type: `merged`,
-    name: pascalcase(model.name || options.sourceName || `Model`),
-    arbitraries,
-  })
+  return memoize({ type: `merged`, arbitraries })
 }
 
 const convertArray = (
   program: Program,
   model: Model & { indexer: ModelIndexer },
-  options: ConvertTypeOptions,
+  constraints: Constraints,
 ): ArrayArbitrary => {
-  let minItems = options.constraints.minItems?.asNumber() ?? undefined
+  let minItems = constraints.minItems?.asNumber() ?? undefined
   if (minItems === 0) {
     minItems = undefined
   }
 
   return memoize({
     type: `array`,
-    name: pascalcase(model.name || options.sourceName || `Array`),
-    value: convertType(program, model.indexer.value, options),
+    value: convertType(program, model.indexer.value, constraints),
     minItems,
-    maxItems: options.constraints.maxItems?.asNumber() ?? undefined,
+    maxItems: constraints.maxItems?.asNumber() ?? undefined,
   })
 }
 
 const convertDictionary = (
   program: Program,
   model: Model & { indexer: ModelIndexer },
-  options: ConvertTypeOptions,
+  constraints: Constraints,
 ): DictionaryArbitrary =>
   memoize({
     type: `dictionary`,
-    name: pascalcase(model.name || options.sourceName || `Dictionary`),
-    key: convertType(program, model.indexer.key, options),
-    value: convertType(program, model.indexer.value, options),
+    key: convertType(program, model.indexer.key, constraints),
+    value: convertType(program, model.indexer.value, constraints),
   })
 
 const convertRecord = (
   program: Program,
   model: Model,
-  { sourceName, constraints }: ConvertTypeOptions,
+  constraints: Constraints,
   properties: Map<string, ModelProperty> = model.properties,
 ): RecordArbitrary =>
   memoize({
     type: `record`,
-    name: pascalcase(model.name || sourceName || `Record`),
     properties: pipe(
       properties,
       map(([name, property]) => [
         name,
-        convertType(program, property.type, {
-          sourceName: name,
-          constraints: { ...constraints, ...getConstraints(program, property) },
-        }),
+        ref(
+          name,
+          convertType(program, property.type, {
+            ...constraints,
+            ...getConstraints(program, property),
+          }),
+        ),
       ]),
       reduce(toMap()),
     ),
   })
 
-const ref = (arbitrary: Arbitrary): Arbitrary => ({
-  type: `reference`,
-  name: `Reference`,
-  arbitrary,
-})
+const ref = (name: string, arbitrary: Arbitrary): Arbitrary =>
+  memoize({ type: `reference`, name, arbitrary })
 
 const getConstraints = (program: Program, type: Type): Constraints =>
   pipe(
@@ -448,53 +419,33 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
     case `unknown`:
     case `boolean`:
     case `bytes`:
-      return keyalesce([arbitrary.type, arbitrary.name])
+      return keyalesce([arbitrary.type])
     case `number`:
     case `bigint`:
-      return keyalesce([
-        arbitrary.type,
-        arbitrary.name,
-        arbitrary.min,
-        arbitrary.max,
-      ])
+      return keyalesce([arbitrary.type, arbitrary.min, arbitrary.max])
     case `string`:
       return keyalesce([
         arbitrary.type,
-        arbitrary.name,
         arbitrary.minLength,
         arbitrary.maxLength,
       ])
     case `enum`:
-      return keyalesce([arbitrary.type, arbitrary.name, ...arbitrary.values])
+      return keyalesce([arbitrary.type, ...arbitrary.values])
     case `array`:
       return keyalesce([
         arbitrary.type,
-        arbitrary.name,
         arbitrary.value,
         arbitrary.minItems,
         arbitrary.maxItems,
       ])
     case `dictionary`:
-      return keyalesce([
-        arbitrary.type,
-        arbitrary.name,
-        arbitrary.key,
-        arbitrary.value,
-      ])
+      return keyalesce([arbitrary.type, arbitrary.key, arbitrary.value])
     case `union`:
-      return keyalesce([arbitrary.type, arbitrary.name, ...arbitrary.variants])
+      return keyalesce([arbitrary.type, ...arbitrary.variants])
     case `record`:
-      return keyalesce([
-        arbitrary.type,
-        arbitrary.name,
-        ...flatten(arbitrary.properties),
-      ])
+      return keyalesce([arbitrary.type, ...flatten(arbitrary.properties)])
     case `merged`:
-      return keyalesce([
-        arbitrary.type,
-        arbitrary.name,
-        ...arbitrary.arbitraries,
-      ])
+      return keyalesce([arbitrary.type, ...arbitrary.arbitraries])
     case `reference`:
       return keyalesce([arbitrary.type, arbitrary.name, arbitrary.arbitrary])
   }
@@ -505,7 +456,7 @@ type ArbitraryKey = ReturnType<typeof keyalesce>
 
 const collectSharedArbitraries = (
   namespace: ArbitraryNamespace,
-): Set<Arbitrary> => {
+): Set<ReferenceArbitrary> => {
   const arbitraryReferenceCounts = new Map<Arbitrary, number>()
   const arbitraryDependencies = new Map<Arbitrary, Set<Arbitrary>>()
 
@@ -521,7 +472,9 @@ const collectSharedArbitraries = (
       )
     }
 
-    const remainingArbitraries = [...namespace.arbitraryToName.keys()]
+    const remainingArbitraries: Arbitrary[] = [
+      ...namespace.arbitraryToName.keys(),
+    ]
     while (remainingArbitraries.length > 0) {
       const arbitrary = remainingArbitraries.pop()!
       if (arbitraryDependencies.has(arbitrary)) {
@@ -543,24 +496,23 @@ const collectSharedArbitraries = (
 
   const sharedArbitraryDependencyGraph = pipe(
     arbitraryDependencies,
-    flatMap(
-      ([arbitrary, dependencies]): Iterable<
-        [Arbitrary, Arbitrary | undefined]
-      > =>
-        dependencies.size === 0
-          ? [[arbitrary, undefined]]
-          : pipe(
-              dependencies,
-              values,
-              map(dependency => [arbitrary, dependency]),
-            ),
+    flatMap(([arbitrary, dependencies]) =>
+      pipe(
+        dependencies,
+        values,
+        map(dependency => [arbitrary, dependency]),
+      ),
     ),
     reduce(toArray()),
   )
 
   return pipe(
     toposort(sharedArbitraryDependencyGraph).reverse(),
-    filter(arbitrary => (arbitraryReferenceCounts.get(arbitrary) ?? 0) >= 2),
+    filter(
+      (arbitrary): arbitrary is ReferenceArbitrary =>
+        arbitrary.type === `reference` &&
+        (arbitraryReferenceCounts.get(arbitrary) ?? 0) >= 2,
+    ),
     reduce(toSet()),
   )
 }

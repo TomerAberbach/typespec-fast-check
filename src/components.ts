@@ -25,6 +25,7 @@ import type {
   MergedArbitrary,
   NumberArbitrary,
   RecordArbitrary,
+  ReferenceArbitrary,
   StringArbitrary,
   UnionArbitrary,
 } from './arbitrary.ts'
@@ -35,7 +36,7 @@ const ArbitraryFile = ({
   sharedArbitraries,
 }: {
   namespace: ArbitraryNamespace
-  sharedArbitraries: ReadonlySet<Arbitrary>
+  sharedArbitraries: ReadonlySet<ReferenceArbitrary>
 }): Child =>
   ay.Output().children(ts.SourceFile({ path: `arbitraries.js` }).code`
     import * as fc from 'fast-check';
@@ -48,7 +49,7 @@ const GlobalArbitraryNamespace = ({
   sharedArbitraries,
 }: {
   namespace: ArbitraryNamespace
-  sharedArbitraries: ReadonlySet<Arbitrary>
+  sharedArbitraries: ReadonlySet<ReferenceArbitrary>
 }): Child =>
   ayJoin(
     [
@@ -94,7 +95,7 @@ const NestedArbitraryNamespace = ({
   sharedArbitraries,
 }: {
   namespace: ArbitraryNamespace
-  sharedArbitraries: ReadonlySet<Arbitrary>
+  sharedArbitraries: ReadonlySet<ReferenceArbitrary>
 }): Child =>
   ts.ObjectExpression().children(
     ayJoin(
@@ -125,9 +126,9 @@ const Arbitrary = ({
   sharedArbitraries,
 }: {
   arbitrary: Arbitrary
-  sharedArbitraries: ReadonlySet<Arbitrary>
+  sharedArbitraries: ReadonlySet<ReferenceArbitrary>
 }): Child =>
-  sharedArbitraries.has(arbitrary)
+  arbitrary.type === `reference` && sharedArbitraries.has(arbitrary)
     ? refkey(arbitrary)
     : ArbitraryDefinition({ arbitrary, sharedArbitraries })
 
@@ -136,7 +137,7 @@ const ArbitraryDefinition = ({
   sharedArbitraries,
 }: {
   arbitrary: Arbitrary
-  sharedArbitraries: ReadonlySet<Arbitrary>
+  sharedArbitraries: ReadonlySet<ReferenceArbitrary>
 }): Child => {
   switch (arbitrary.type) {
     case `null`:
@@ -279,7 +280,7 @@ const ArrayArbitrary = ({
   sharedArbitraries,
 }: {
   arbitrary: ArrayArbitrary
-  sharedArbitraries: ReadonlySet<Arbitrary>
+  sharedArbitraries: ReadonlySet<ReferenceArbitrary>
 }): Child => {
   const options = Options({
     properties: new Map([
@@ -299,7 +300,7 @@ const DictionaryArbitrary = ({
   sharedArbitraries,
 }: {
   arbitrary: DictionaryArbitrary
-  sharedArbitraries: ReadonlySet<Arbitrary>
+  sharedArbitraries: ReadonlySet<ReferenceArbitrary>
 }): Child => {
   const Key = Arbitrary({ arbitrary: arbitrary.key, sharedArbitraries })
   const Value = Arbitrary({ arbitrary: arbitrary.value, sharedArbitraries })
@@ -311,7 +312,7 @@ const UnionArbitrary = ({
   sharedArbitraries,
 }: {
   arbitrary: UnionArbitrary
-  sharedArbitraries: ReadonlySet<Arbitrary>
+  sharedArbitraries: ReadonlySet<ReferenceArbitrary>
 }): Child =>
   code`fc.oneof(\n${ay
     .Indent()
@@ -329,7 +330,7 @@ const RecordArbitrary = ({
   sharedArbitraries,
 }: {
   arbitrary: RecordArbitrary
-  sharedArbitraries: ReadonlySet<Arbitrary>
+  sharedArbitraries: ReadonlySet<ReferenceArbitrary>
 }): Child =>
   code`fc.record(${Options({
     properties: pipe(
@@ -348,7 +349,7 @@ const MergedArbitrary = ({
   sharedArbitraries,
 }: {
   arbitrary: MergedArbitrary
-  sharedArbitraries: ReadonlySet<Arbitrary>
+  sharedArbitraries: ReadonlySet<ReferenceArbitrary>
 }): Child => code`
   fc
     .tuple(

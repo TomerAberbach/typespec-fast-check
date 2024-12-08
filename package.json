@@ -58,7 +58,6 @@
     "@alloy-js/typescript": "^0.3.0",
     "keyalesce": "^2.2.0",
     "lfi": "^3.8.0",
-    "pascalcase": "^2.0.0",
     "toposort": "^2.0.2"
   },
   "peerDependencies": {
