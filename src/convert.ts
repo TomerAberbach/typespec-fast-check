@@ -86,6 +86,7 @@ const convertNamespace = (
     name: namespace.name,
     namespaces: pipe(
       values(namespace.namespaces),
+      // Don't convert the built-in namespace.
       filter(namespace => namespace.name !== `TypeSpec`),
       map(namespace => convertNamespace(program, namespace)),
       reduce(toArray()),
@@ -172,20 +173,20 @@ const convertScalar = (
     case `safeint`:
     case `float32`:
     case `float64`:
-      return convertNumber(scalar, constraints, numerics[scalar.name])
+      return convertNumber(constraints, numerics[scalar.name])
     case `float`:
     case `decimal128`:
     case `decimal`:
     case `numeric`:
-      return convertNumber(scalar, constraints, numerics.float64)
+      return convertNumber(constraints, numerics.float64)
     case `int64`:
-      return convertBigInt(scalar, constraints, numerics.int64)
+      return convertBigInt(constraints, numerics.int64)
     case `integer`:
-      return convertBigInt(scalar, constraints)
+      return convertBigInt(constraints)
     case `bytes`:
       return memoize({ type: `bytes` })
     case `string`:
-      return convertString(scalar, constraints)
+      return convertString(constraints)
     case `boolean`:
       return memoize({ type: `boolean` })
     default:
@@ -201,7 +202,6 @@ const convertScalar = (
 }
 
 const convertNumber = (
-  number: Scalar,
   constraints: Constraints,
   { min, max, isInteger }: { min: number; max: number; isInteger: boolean },
 ): NumberArbitrary =>
@@ -213,7 +213,6 @@ const convertNumber = (
   })
 
 const convertBigInt = (
-  bigint: Scalar,
   constraints: Constraints,
   { min, max }: { min?: bigint; max?: bigint } = {},
 ): BigIntArbitrary =>
@@ -223,10 +222,7 @@ const convertBigInt = (
     max: minOrUndefined(constraints.max?.asBigInt() ?? undefined, max),
   })
 
-const convertString = (
-  string: Scalar,
-  constraints: Constraints,
-): StringArbitrary =>
+const convertString = (constraints: Constraints): StringArbitrary =>
   memoize({
     type: `string`,
     minLength: constraints.minLength?.asNumber() ?? undefined,
