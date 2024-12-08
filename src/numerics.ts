@@ -79,7 +79,7 @@ export const fastCheckNumerics: Record<
   FastCheckNumeric
 > = constFastCheckNumerics
 
-type FastCheckNumeric = {
+export type FastCheckNumeric = {
   min: {
     value: number
     configurable: boolean | `higher`

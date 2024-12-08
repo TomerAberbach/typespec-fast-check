@@ -22,6 +22,7 @@ import type {
   Union,
 } from '@typespec/compiler'
 import {
+  any,
   concat,
   entries,
   filter,
@@ -41,14 +42,12 @@ import type {
   Arbitrary,
   ArbitraryNamespace,
   ArrayArbitrary,
-  BigIntArbitrary,
   DictionaryArbitrary,
-  NumberArbitrary,
   RecordArbitrary,
   ReferenceArbitrary,
   StringArbitrary,
 } from './arbitrary.ts'
-import { numerics } from './numerics.ts'
+import { fastCheckNumerics, numerics } from './numerics.ts'
 
 const convertProgram = (
   program: Program,
@@ -150,19 +149,19 @@ const convertScalar = (
     case `safeint`:
     case `float32`:
     case `float64`:
-      arbitrary = convertNumber(constraints, numerics[scalar.name])
+      arbitrary = convertNumber(scalar, constraints, numerics[scalar.name])
       break
     case `float`:
     case `decimal128`:
     case `decimal`:
     case `numeric`:
-      arbitrary = convertNumber(constraints, numerics.float64)
+      arbitrary = convertNumber(scalar, constraints, numerics.float64)
       break
     case `int64`:
-      arbitrary = convertBigInt(constraints, numerics.int64)
+      arbitrary = convertBigInt(scalar, constraints, numerics.int64)
       break
     case `integer`:
-      arbitrary = convertBigInt(constraints)
+      arbitrary = convertBigInt(scalar, constraints)
       break
     case `bytes`:
       arbitrary = memoize({ type: `bytes` })
@@ -193,25 +192,56 @@ const convertScalar = (
 }
 
 const convertNumber = (
+  scalar: Scalar,
   constraints: Constraints,
   { min, max, isInteger }: { min: number; max: number; isInteger: boolean },
-): NumberArbitrary =>
-  memoize({
+): Arbitrary => {
+  const arbitrary = memoize({
     type: `number`,
     min: maxOrUndefined(constraints.min?.asNumber() ?? undefined, min),
     max: minOrUndefined(constraints.max?.asNumber() ?? undefined, max),
     isInteger,
   })
 
+  const hasDefaultConstraints = arbitrary.min === min && arbitrary.max === max
+  if (!hasDefaultConstraints) {
+    return arbitrary
+  }
+
+  const matchesFastCheckNumeric = pipe(
+    values(fastCheckNumerics),
+    any(
+      numeric =>
+        arbitrary.min === numeric.min.value &&
+        arbitrary.max === numeric.max.value &&
+        arbitrary.isInteger === numeric.isInteger,
+    ),
+  )
+  if (matchesFastCheckNumeric) {
+    return arbitrary
+  }
+
+  return ref(scalar.name, arbitrary)
+}
+
 const convertBigInt = (
+  scalar: Scalar,
   constraints: Constraints,
   { min, max }: { min?: bigint; max?: bigint } = {},
-): BigIntArbitrary =>
-  memoize({
+): Arbitrary => {
+  const arbitrary = memoize({
     type: `bigint`,
     min: maxOrUndefined(constraints.min?.asBigInt() ?? undefined, min),
     max: minOrUndefined(constraints.max?.asBigInt() ?? undefined, max),
   })
+
+  const hasDefaultConstraints =
+    min !== undefined &&
+    max !== undefined &&
+    arbitrary.min === min &&
+    arbitrary.max === max
+  return hasDefaultConstraints ? ref(scalar.name, arbitrary) : arbitrary
+}
 
 const convertString = (constraints: Constraints): StringArbitrary =>
   memoize({

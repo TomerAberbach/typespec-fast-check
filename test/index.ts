@@ -92,7 +92,7 @@ test.each([
     `,
   },
   {
-    name: `shared-never`,
+    name: `never-sharing`,
     code: `
       model $Model {
         property1: never,
@@ -336,6 +336,65 @@ test.each([
       @minValue(-3.4e+39)
       @maxValue(3.4e+39)
       scalar MinMaxValueNumeric extends numeric;
+    `,
+  },
+  {
+    name: `numeric-sharing`,
+    code: `
+      scalar FirstInt8 extends int8;
+      scalar SecondInt8 extends int8;
+      @minValue(42)
+      scalar ThirdInt8 extends int8;
+
+      scalar FirstInt16 extends int16;
+      scalar SecondInt16 extends int16;
+      @minValue(42)
+      scalar ThirdInt16 extends int16;
+
+      scalar FirstInt32 extends int32;
+      scalar SecondInt32 extends int32;
+      @minValue(42)
+      scalar ThirdInt32 extends int32;
+
+      scalar FirstSafeInt extends safeint;
+      scalar SecondSafeInt extends safeint;
+      @minValue(42)
+      scalar ThirdSafeInt extends safeint;
+
+      scalar FirstInt64 extends int64;
+      scalar SecondInt64 extends int64;
+      @minValue(42)
+      scalar ThirdInt64 extends int64;
+
+      scalar FirstInteger extends integer;
+      scalar SecondInteger extends integer;
+      @minValue(42)
+      scalar ThirdInteger extends integer;
+
+      scalar FirstFloat32 extends float32;
+      scalar SecondFloat32 extends float32;
+      @minValue(42)
+      scalar ThirdFloat32 extends float32;
+
+      scalar FirstFloat64 extends float64;
+      scalar SecondFloat64 extends float64;
+      @minValue(42)
+      scalar ThirdFloat64 extends float64;
+
+      scalar FirstDecimal128 extends decimal128;
+      scalar SecondDecimal128 extends decimal128;
+      @minValue(42)
+      scalar ThirdDecimal128 extends decimal128;
+
+      scalar FirstDecimal extends decimal;
+      scalar SecondDecimal extends decimal;
+      @minValue(42)
+      scalar ThirdDecimal extends decimal;
+
+      scalar FirstNumeric extends numeric;
+      scalar SecondNumeric extends numeric;
+      @minValue(42)
+      scalar ThirdNumeric extends numeric;
     `,
   },
   {
