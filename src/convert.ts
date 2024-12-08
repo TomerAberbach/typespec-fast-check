@@ -1,7 +1,9 @@
 /* eslint-disable typescript/prefer-nullish-coalescing */
 import {
+  getMaxItemsAsNumeric,
   getMaxLengthAsNumeric,
   getMaxValueAsNumeric,
+  getMinItemsAsNumeric,
   getMinLengthAsNumeric,
   getMinValueAsNumeric,
 } from '@typespec/compiler'
@@ -312,12 +314,20 @@ const convertArray = (
   program: Program,
   model: Model & { indexer: ModelIndexer },
   options: ConvertTypeOptions,
-): ArrayArbitrary =>
-  memoize({
+): ArrayArbitrary => {
+  let minItems = options.constraints.minItems?.asNumber() ?? undefined
+  if (minItems === 0) {
+    minItems = undefined
+  }
+
+  return memoize({
     type: `array`,
     name: pascalcase(model.name || options.propertyName || `Array`),
     value: convertType(program, model.indexer.value, options),
+    minItems,
+    maxItems: options.constraints.maxItems?.asNumber() ?? undefined,
   })
+}
 
 const convertDictionary = (
   program: Program,
@@ -359,6 +369,8 @@ const getConstraints = (program: Program, type: Type): Constraints =>
       max: getMaxValueAsNumeric(program, type),
       minLength: getMinLengthAsNumeric(program, type),
       maxLength: getMaxLengthAsNumeric(program, type),
+      minItems: getMinItemsAsNumeric(program, type),
+      maxItems: getMaxItemsAsNumeric(program, type),
     }),
     filter(([, value]) => value !== undefined),
     reduce(toObject()),
@@ -368,6 +380,8 @@ type Constraints = {
   max?: Numeric
   minLength?: Numeric
   maxLength?: Numeric
+  minItems?: Numeric
+  maxItems?: Numeric
 }
 
 const memoize = <A extends Arbitrary>(arbitrary: A): A => {

@@ -278,11 +278,19 @@ const ArrayArbitrary = ({
 }: {
   arbitrary: ArrayArbitrary
   sharedArbitraries: ReadonlySet<Arbitrary>
-}): Child =>
-  code`fc.array(${Arbitrary({
+}): Child => {
+  const options = Options({
+    properties: new Map([
+      [`minLength`, arbitrary.minItems],
+      [`maxLength`, arbitrary.maxItems],
+    ]),
+  })
+
+  return code`fc.array(${Arbitrary({
     arbitrary: arbitrary.value,
     sharedArbitraries,
-  })})`
+  })}${options ? code`, ${options}` : ``})`
+}
 
 const DictionaryArbitrary = ({
   arbitrary,
