@@ -21,14 +21,10 @@
 </div>
 
 <div align="center">
-  A TypeSpec emitter for fast-check arbitraries.
+  A TypeSpec emitter for
+  <a href="https://fast-check.dev"><code>fast-check</code></a>
+  arbitraries.
 </div>
-
-## Features
-
-- **Wow:** so amazing
-- **Amazing:** so wow
-- **Fancy:** has a tie and everything
 
 ## Install
 
@@ -38,12 +34,22 @@ $ npm i typespec-fast-check
 
 ## Usage
 
-```js
-import tspFastCheck from 'typespec-fast-check'
+Via the command line:
 
-console.log(tspFastCheck())
-//=> Hello World!
+```sh
+tsp compile . --emit=typespec-fast-check
 ```
+
+Via the config:
+
+```yaml
+emit:
+  - 'typespec-fast-check'
+```
+
+See the
+[TypeSpec documentation](https://typespec.io/docs/emitters/protobuf/reference/emitter)
+for more information.
 
 ## Contributing
 
@@ -55,4 +61,4 @@ For bugs and feature requests,
 ## License
 
 [MIT](https://github.com/TomerAberbach/typespec-fast-check/blob/main/license) ©
-[Tomer Aberbach](https://github.com/TomerAberbach)
+[Stainless Software, Inc.](https://www.stainlessapi.com)
