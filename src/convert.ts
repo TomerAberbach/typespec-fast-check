@@ -486,7 +486,7 @@ const collectSharedArbitraries = (
       }
 
       const dependencies = getDirectArbitraryDependencies(arbitrary)
-      arbitraryDependencies.set(arbitrary, dependencies)
+      arbitraryDependencies.set(arbitrary, new Set(dependencies))
 
       for (const referencedArbitrary of dependencies) {
         remainingArbitraries.push(referencedArbitrary)
@@ -521,9 +521,7 @@ const collectSharedArbitraries = (
   )
 }
 
-const getDirectArbitraryDependencies = (
-  arbitrary: Arbitrary,
-): Set<Arbitrary> => {
+const getDirectArbitraryDependencies = (arbitrary: Arbitrary): Arbitrary[] => {
   switch (arbitrary.type) {
     case `null`:
     case `undefined`:
@@ -535,24 +533,23 @@ const getDirectArbitraryDependencies = (
     case `string`:
     case `bytes`:
     case `enum`:
-      return new Set()
+      return []
     case `array`:
-      return new Set([arbitrary.value])
+      return [arbitrary.value]
     case `dictionary`:
-      return new Set([arbitrary.key, arbitrary.value])
+      return [arbitrary.key, arbitrary.value]
     case `union`:
-      return new Set(arbitrary.variants)
+      return arbitrary.variants
     case `record`:
-      return new Set(
-        pipe(
-          values(arbitrary.properties),
-          map(property => property.arbitrary),
-        ),
+      return pipe(
+        values(arbitrary.properties),
+        map(property => property.arbitrary),
+        reduce(toArray()),
       )
     case `merged`:
-      return new Set(arbitrary.arbitraries)
+      return arbitrary.arbitraries
     case `reference`:
-      return new Set([arbitrary.arbitrary])
+      return [arbitrary.arbitrary]
   }
 }
 
