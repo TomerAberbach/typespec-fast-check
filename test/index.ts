@@ -354,6 +354,30 @@ test.each([
 
   // Models
   {
+    name: `enum`,
+    code: `
+      enum $Enum {
+        A,
+        B,
+        C,
+        D,
+      }
+      enum StringEnum {
+        A: "a",
+        B: "b",
+        C: "c",
+        D: "d",
+      }
+      enum NumberEnum {
+        A: 1,
+        B: 2,
+        C: 3.14,
+        // https://github.com/microsoft/typespec/issues/5296
+        D: 4${`0`.repeat(310)},
+      }
+    `,
+  },
+  {
     name: `array`,
     code: `
       model $Array is Array<string>;

@@ -253,7 +253,9 @@ const convertEnum = (
     name: pascalcase($enum.name || propertyName || `Enum`),
     values: pipe(
       $enum.members,
-      map(([, { value }]) => JSON.stringify(value)),
+      map(([, { name, value }]) =>
+        JSON.stringify(value === undefined ? name : value),
+      ),
       reduce(toArray()),
     ),
   })
