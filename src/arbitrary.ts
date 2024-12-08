@@ -14,28 +14,19 @@ export type Arbitrary =
   | UnionArbitrary
   | RecordArbitrary
   | MergedArbitrary
+  | ReferenceArbitrary
 
-export type BaseArbitrary = {
-  name: string
-}
+export type BaseArbitrary = { name: string }
 
 export type IntrinsicArbitrary =
   | NullArbitrary
   | UndefinedArbitrary
   | NeverArbitrary
   | UnknownArbitrary
-export type NullArbitrary = BaseArbitrary & {
-  type: `null`
-}
-export type UndefinedArbitrary = BaseArbitrary & {
-  type: `undefined`
-}
-export type NeverArbitrary = BaseArbitrary & {
-  type: `never`
-}
-export type UnknownArbitrary = BaseArbitrary & {
-  type: `unknown`
-}
+export type NullArbitrary = BaseArbitrary & { type: `null` }
+export type UndefinedArbitrary = BaseArbitrary & { type: `undefined` }
+export type NeverArbitrary = BaseArbitrary & { type: `never` }
+export type UnknownArbitrary = BaseArbitrary & { type: `unknown` }
 
 export type ScalarArbitrary =
   | BooleanArbitrary
@@ -97,4 +88,9 @@ export type RecordArbitrary = BaseArbitrary & {
 export type MergedArbitrary = BaseArbitrary & {
   type: `merged`
   arbitraries: Arbitrary[]
+}
+
+export type ReferenceArbitrary = BaseArbitrary & {
+  type: `reference`
+  arbitrary: Arbitrary
 }

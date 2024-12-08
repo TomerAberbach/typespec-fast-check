@@ -422,11 +422,33 @@ test.each([
     `,
   },
   {
-    name: `model-and-dictionary`,
+    name: `model-is`,
     code: `
+      model Model1 {
+        a: int32
+      }
+
+      model Model2 is Model1;
+      model Model3 is Model1 {
+        b: string
+      }
+    `,
+  },
+  {
+    name: `model-spread`,
+    code: `
+      model Model1 {
+        a: int32
+      }
+
+      model Model2 {
+        b: string
+      }
+
       model $Model {
-        a: int32,
-        b: string,
+        ...Model1,
+        ...Model2,
+        c: string,
         ...Record<boolean>
       }
     `,

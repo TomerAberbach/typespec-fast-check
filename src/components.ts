@@ -169,6 +169,8 @@ const ArbitraryDefinition = ({
       return RecordArbitrary({ arbitrary, sharedArbitraries })
     case `merged`:
       return MergedArbitrary({ arbitrary, sharedArbitraries })
+    case `reference`:
+      return Arbitrary({ arbitrary: arbitrary.arbitrary, sharedArbitraries })
   }
 }
 

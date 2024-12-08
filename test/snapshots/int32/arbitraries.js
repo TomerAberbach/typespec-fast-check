@@ -1,6 +1,8 @@
 import * as fc from 'fast-check';
 
-export const Int32 = fc.integer();
+const int32 = fc.integer();
+
+export const Int32 = int32;
 
 export const MinValueInt32 = fc.integer({
   min: -40000,
@@ -17,4 +19,4 @@ export const MinMaxValueInt32 = fc.integer({
   max: 40000,
 });
 
-export const RedundantlyMinMaxValueInt32 = fc.integer();
+export const RedundantlyMinMaxValueInt32 = int32;
