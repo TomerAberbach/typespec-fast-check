@@ -92,6 +92,15 @@ test.each([
     `,
   },
   {
+    name: `shared-never`,
+    code: `
+      model $Model {
+        property1: never,
+        property2: never
+      }
+    `,
+  },
+  {
     name: `unknown`,
     code: `
       model $Model {
