@@ -12,6 +12,7 @@ import type {
   IntrinsicType,
   Model,
   ModelIndexer,
+  ModelProperty,
   Namespace,
   Numeric,
   Program,
@@ -42,6 +43,7 @@ import type {
   ArbitraryNamespace,
   ArrayArbitrary,
   BigIntArbitrary,
+  BooleanArbitrary,
   BytesArbitrary,
   DictionaryArbitrary,
   EnumArbitrary,
@@ -50,7 +52,6 @@ import type {
   NullArbitrary,
   NumberArbitrary,
   RecordArbitrary,
-  ScalarArbitrary,
   StringArbitrary,
   UndefinedArbitrary,
   UnionArbitrary,
@@ -82,7 +83,7 @@ const convertNamespace = (
     ),
     map(([name, type]) => [
       name,
-      convertType(program, type, { propertyName: name, constraints: {} }),
+      convertType(program, type, { sourceName: name, constraints: {} }),
     ]),
     reduce(toMap()),
   )
@@ -106,10 +107,10 @@ const convertNamespace = (
 const convertType = (
   program: Program,
   type: Type,
-  { propertyName, constraints }: ConvertTypeOptions,
+  { sourceName, constraints }: ConvertTypeOptions,
 ): Arbitrary => {
   const options = {
-    propertyName,
+    sourceName,
     constraints: { ...constraints, ...getConstraints(program, type) },
   }
 
@@ -130,10 +131,9 @@ const convertType = (
   throw new Error(`Unhandled type: ${type.kind}`)
 }
 type ConvertTypeOptions = {
-  propertyName?: string
+  sourceName?: string
   constraints: Constraints
 }
-
 const convertIntrinsic = (intrinsic: IntrinsicType): IntrinsicArbitrary => {
   switch (intrinsic.name) {
     case `null`:
@@ -165,7 +165,7 @@ const convertScalar = (
   program: Program,
   scalar: Scalar,
   options: ConvertTypeOptions,
-): ScalarArbitrary => {
+): Arbitrary => {
   switch (scalar.name) {
     case `int8`:
     case `int16`:
@@ -191,13 +191,15 @@ const convertScalar = (
       return convertBoolean(scalar)
     default:
       if (scalar.baseScalar) {
-        return convertScalar(program, scalar.baseScalar, {
-          ...options,
-          constraints: {
-            ...options.constraints,
-            ...getConstraints(program, scalar),
-          },
-        })
+        return ref(
+          convertScalar(program, scalar.baseScalar, {
+            ...options,
+            constraints: {
+              ...options.constraints,
+              ...getConstraints(program, scalar),
+            },
+          }),
+        )
       }
   }
 
@@ -243,16 +245,16 @@ const convertString = (
     maxLength: constraints.maxLength?.asNumber() ?? undefined,
   })
 
-const convertBoolean = (boolean: Scalar): ScalarArbitrary =>
+const convertBoolean = (boolean: Scalar): BooleanArbitrary =>
   memoize({ type: `boolean`, name: boolean.name })
 
 const convertEnum = (
   $enum: Enum,
-  { propertyName }: ConvertTypeOptions,
+  { sourceName }: ConvertTypeOptions,
 ): EnumArbitrary =>
   memoize({
     type: `enum`,
-    name: pascalcase($enum.name || propertyName || `Enum`),
+    name: pascalcase($enum.name || sourceName || `Enum`),
     values: pipe(
       $enum.members,
       map(([, { name, value }]) =>
@@ -265,16 +267,16 @@ const convertEnum = (
 const convertUnion = (
   program: Program,
   union: Union,
-  { propertyName, constraints }: ConvertTypeOptions,
+  { sourceName, constraints }: ConvertTypeOptions,
 ): UnionArbitrary =>
   memoize({
     type: `union`,
-    name: pascalcase(union.name || propertyName || `Union`),
+    name: pascalcase(union.name || sourceName || `Union`),
     variants: pipe(
       union.variants,
       map(([, { type, name }]) =>
         convertType(program, type, {
-          propertyName: String(name),
+          sourceName: String(name),
           constraints: { ...constraints, ...getConstraints(program, union) },
         }),
       ),
@@ -287,26 +289,63 @@ const convertModel = (
   model: Model,
   options: ConvertTypeOptions,
 ): Arbitrary => {
-  const indexerArbitrary = model.indexer
-    ? (model.indexer.key.name === `integer` ? convertArray : convertDictionary)(
-        program,
-        model as Model & { indexer: ModelIndexer },
-        options,
-      )
-    : null
-  if (indexerArbitrary && model.properties.size === 0) {
-    return indexerArbitrary
+  const sourceModels = pipe(
+    concat(
+      filter(model => model !== undefined, [model.baseModel]),
+      map(({ model }) => model, model.sourceModels),
+    ),
+    reduce(toSet()),
+  )
+  const sourcePropertyNames = pipe(
+    sourceModels,
+    flatMap(model => model.properties.keys()),
+    reduce(toSet()),
+  )
+  const concreteProperties = pipe(
+    model.properties,
+    filter(([name]) => !sourcePropertyNames.has(name)),
+    reduce(toMap()),
+  )
+
+  const baseModel = model.baseModel ?? model.sourceModel
+  if (baseModel && concreteProperties.size === 0) {
+    // The model is just `model A extends B` or `model A is B` so we can just
+    // convert `B`.
+    return ref(
+      convertType(program, baseModel, {
+        ...options,
+        constraints: {
+          ...options.constraints,
+          ...getConstraints(program, model),
+        },
+      }),
+    )
   }
 
-  const recordArbitrary = convertRecord(program, model, options)
-  if (!indexerArbitrary) {
-    return recordArbitrary
+  if (sourceModels.size === 0) {
+    if (!model.indexer) {
+      return convertRecord(program, model, options)
+    }
+
+    const modelWithIndexer = model as Model & { indexer: ModelIndexer }
+    return model.indexer.key.name === `integer`
+      ? convertArray(program, modelWithIndexer, options)
+      : convertDictionary(program, modelWithIndexer, options)
   }
 
+  const arbitraries = pipe(
+    concat(
+      map(model => convertType(program, model, options), sourceModels),
+      concreteProperties.size > 0
+        ? [convertRecord(program, model, options, concreteProperties)]
+        : [],
+    ),
+    reduce(toArray()),
+  )
   return memoize({
     type: `merged`,
-    name: pascalcase(model.name || options.propertyName || `Model`),
-    arbitraries: [recordArbitrary, indexerArbitrary],
+    name: pascalcase(model.name || options.sourceName || `Model`),
+    arbitraries,
   })
 }
 
@@ -322,7 +361,7 @@ const convertArray = (
 
   return memoize({
     type: `array`,
-    name: pascalcase(model.name || options.propertyName || `Array`),
+    name: pascalcase(model.name || options.sourceName || `Array`),
     value: convertType(program, model.indexer.value, options),
     minItems,
     maxItems: options.constraints.maxItems?.asNumber() ?? undefined,
@@ -336,7 +375,7 @@ const convertDictionary = (
 ): DictionaryArbitrary =>
   memoize({
     type: `dictionary`,
-    name: pascalcase(model.name || options.propertyName || `Dictionary`),
+    name: pascalcase(model.name || options.sourceName || `Dictionary`),
     key: convertType(program, model.indexer.key, options),
     value: convertType(program, model.indexer.value, options),
   })
@@ -344,23 +383,30 @@ const convertDictionary = (
 const convertRecord = (
   program: Program,
   model: Model,
-  { propertyName, constraints }: ConvertTypeOptions,
+  { sourceName, constraints }: ConvertTypeOptions,
+  properties: Map<string, ModelProperty> = model.properties,
 ): RecordArbitrary =>
   memoize({
     type: `record`,
-    name: pascalcase(model.name || propertyName || `Record`),
+    name: pascalcase(model.name || sourceName || `Record`),
     properties: pipe(
-      model.properties,
+      properties,
       map(([name, property]) => [
         name,
         convertType(program, property.type, {
-          propertyName: name,
+          sourceName: name,
           constraints: { ...constraints, ...getConstraints(program, property) },
         }),
       ]),
       reduce(toMap()),
     ),
   })
+
+const ref = (arbitrary: Arbitrary): Arbitrary => ({
+  type: `reference`,
+  name: `Reference`,
+  arbitrary,
+})
 
 const getConstraints = (program: Program, type: Type): Constraints =>
   pipe(
@@ -432,7 +478,13 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
     case `enum`:
       return keyalesce([arbitrary.type, arbitrary.name, ...arbitrary.values])
     case `array`:
-      return keyalesce([arbitrary.type, arbitrary.name, arbitrary.value])
+      return keyalesce([
+        arbitrary.type,
+        arbitrary.name,
+        arbitrary.value,
+        arbitrary.minItems,
+        arbitrary.maxItems,
+      ])
     case `dictionary`:
       return keyalesce([
         arbitrary.type,
@@ -454,6 +506,8 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
         arbitrary.name,
         ...arbitrary.arbitraries,
       ])
+    case `reference`:
+      return keyalesce([arbitrary.type, arbitrary.name, arbitrary.arbitrary])
   }
 }
 
@@ -481,6 +535,9 @@ const collectSharedArbitraries = (
     const remainingArbitraries = [...namespace.arbitraryToName.keys()]
     while (remainingArbitraries.length > 0) {
       const arbitrary = remainingArbitraries.pop()!
+      if (arbitraryDependencies.has(arbitrary)) {
+        continue
+      }
 
       const dependencies = getDirectArbitraryDependencies(arbitrary)
       arbitraryDependencies.set(arbitrary, dependencies)
@@ -544,6 +601,8 @@ const getDirectArbitraryDependencies = (
       return new Set(values(arbitrary.properties))
     case `merged`:
       return new Set(arbitrary.arbitraries)
+    case `reference`:
+      return new Set([arbitrary.arbitrary])
   }
 }
 

@@ -2,13 +2,15 @@ import * as fc from 'fast-check';
 
 const string = fc.string();
 
-export const $Array = fc.array(string);
+const Array = fc.array(string);
+
+export const $Array = Array;
 
 export const MinItemsArray = fc.array(string, {
   minLength: 3,
 });
 
-export const Min0ItemsArray = fc.array(string);
+export const Min0ItemsArray = Array;
 
 export const MaxItemsArray = fc.array(string, {
   maxLength: 12,

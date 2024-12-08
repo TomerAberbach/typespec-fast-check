@@ -6,22 +6,26 @@ export const samples = {
 			'0#E': false,
 			'<b+u.Lx@D(': false,
 			'': true,
-			'qO(ha': false
+			'qO(ha': false,
+			'c': ''
 		},
 		{
 			'a': -994490854,
 			'b': '__proto__',
-			' =RiGs.>Ju': false
+			' =RiGs.>Ju': false,
+			'c': ''
 		},
 		{
 			'a': -1536816376,
 			'b': 'S',
-			'RFYz': true
+			'RFYz': true,
+			'c': ']N5gX'
 		},
 		{
 			'a': -25,
 			'b': '0&k& #FFD',
-			'8MxC': false
+			'8MxC': false,
+			'c': 'Q'
 		},
 		{
 			'a': true,
@@ -34,7 +38,42 @@ export const samples = {
 			'"En%:r__': true,
 			'V%|': true,
 			'O': true,
-			'ref': false
+			'ref': false,
+			'c': '<kCUCGU.'
+		}
+	],
+	'Model1': [
+		{
+			'a': 9
+		},
+		{
+			'a': -994490854
+		},
+		{
+			'a': -1536816376
+		},
+		{
+			'a': -25
+		},
+		{
+			'a': -2147483626
+		}
+	],
+	'Model2': [
+		{
+			'b': ''
+		},
+		{
+			'b': 'W|%=2Spc'
+		},
+		{
+			'b': 'X1DZwS'
+		},
+		{
+			'b': 'gp'
+		},
+		{
+			'b': ''
 		}
 	]
 };
