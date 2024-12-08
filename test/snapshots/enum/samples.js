@@ -8,7 +8,7 @@ export const samples = {
 	],
 	'NumberEnum': [
 		3.14,
-		null,
+		Infinity,
 		2,
 		3.14,
 		1

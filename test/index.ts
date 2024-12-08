@@ -453,6 +453,30 @@ test.each([
       }
     `,
   },
+  {
+    name: `model-optional-property`,
+    code: `
+      model EmptyModel {}
+
+      model AllRequiredModel {
+        a: int32,
+        b: string,
+        c: string
+      }
+
+      model AllOptionalModel {
+        a?: int32,
+        b?: string,
+        c?: int64
+      }
+
+      model SomeOptionalModel {
+        a?: int32,
+        b: string,
+        c?: int64
+      }
+    `,
+  },
 ] satisfies TestCase[])(`$name`, async ({ name, code }) => {
   const snapshotPath = `./snapshots/${name}`
   const arbitrariesPath = `${snapshotPath}/arbitraries.js`
@@ -482,7 +506,9 @@ const emitArbitrarySamples = async (code: string): Promise<string> => {
     unknown
   >
   const arbitrarySamples = sampleArbitraries(arbitraries)
-  return `export const samples = ${jsesc(arbitrarySamples, { compact: false })};`
+  return `export const samples = ${jsesc(arbitrarySamples, {
+    compact: false,
+  })};\n`
 }
 
 const sampleArbitraries = (
