@@ -19,9 +19,6 @@ importers:
       lfi:
         specifier: ^3.8.0
         version: 3.8.0
-      pascalcase:
-        specifier: ^2.0.0
-        version: 2.0.0
       toposort:
         specifier: ^2.0.2
         version: 2.0.2
@@ -2518,13 +2515,6 @@ packages:
       }
     engines: { node: '>=6' }
 
-  camelcase@6.3.0:
-    resolution:
-      {
-        integrity: sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==,
-      }
-    engines: { node: '>=10' }
-
   caniuse-lite@1.0.30001686:
     resolution:
       {
@@ -4604,13 +4594,6 @@ packages:
       {
         integrity: sha512-BuBYQYlv1ckiPdQi/ohiivi9Sagc9JG+Ozs0r7b/0iK3sKmrb0b9FdWdBbOdx6hBCM/F9Ir82ofnBhtZOjCRPQ==,
       }
-
-  pascalcase@2.0.0:
-    resolution:
-      {
-        integrity: sha512-DHpENy5Qm/FaX+x3iBLoMLG/XHNCTgL+yErm1TwuVaj6u4fiOSkYkf60vGtITk7hrKHOO4uCl9vRrD4hqjNKjg==,
-      }
-    engines: { node: '>=14' }
 
   path-exists@4.0.0:
     resolution:
@@ -7690,8 +7673,6 @@ snapshots:
 
   callsites@3.1.0: {}
 
-  camelcase@6.3.0: {}
-
   caniuse-lite@1.0.30001686: {}
 
   chai@5.1.2:
@@ -9039,10 +9020,6 @@ snapshots:
   parse5@7.2.1:
     dependencies:
       entities: 4.5.0
-
-  pascalcase@2.0.0:
-    dependencies:
-      camelcase: 6.3.0
 
   path-exists@4.0.0: {}
 

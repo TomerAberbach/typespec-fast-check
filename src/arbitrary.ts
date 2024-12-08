@@ -1,8 +1,8 @@
 export type ArbitraryNamespace = {
   name: string
   namespaces: ArbitraryNamespace[]
-  nameToArbitrary: Map<string, Arbitrary>
-  arbitraryToName: Map<Arbitrary, string>
+  nameToArbitrary: Map<string, ReferenceArbitrary>
+  arbitraryToName: Map<ReferenceArbitrary, string>
 }
 
 export type Arbitrary =
@@ -16,17 +16,15 @@ export type Arbitrary =
   | MergedArbitrary
   | ReferenceArbitrary
 
-export type BaseArbitrary = { name: string }
-
 export type IntrinsicArbitrary =
   | NullArbitrary
   | UndefinedArbitrary
   | NeverArbitrary
   | UnknownArbitrary
-export type NullArbitrary = BaseArbitrary & { type: `null` }
-export type UndefinedArbitrary = BaseArbitrary & { type: `undefined` }
-export type NeverArbitrary = BaseArbitrary & { type: `never` }
-export type UnknownArbitrary = BaseArbitrary & { type: `unknown` }
+export type NullArbitrary = { type: `null` }
+export type UndefinedArbitrary = { type: `undefined` }
+export type NeverArbitrary = { type: `never` }
+export type UnknownArbitrary = { type: `unknown` }
 
 export type ScalarArbitrary =
   | BooleanArbitrary
@@ -34,63 +32,64 @@ export type ScalarArbitrary =
   | BigIntArbitrary
   | StringArbitrary
   | BytesArbitrary
-export type BooleanArbitrary = BaseArbitrary & {
+export type BooleanArbitrary = {
   type: `boolean`
 }
-export type NumberArbitrary = BaseArbitrary & {
+export type NumberArbitrary = {
   type: `number`
   min: number
   max: number
   isInteger: boolean
 }
-export type BigIntArbitrary = BaseArbitrary & {
+export type BigIntArbitrary = {
   type: `bigint`
   min?: bigint
   max?: bigint
 }
-export type StringArbitrary = BaseArbitrary & {
+export type StringArbitrary = {
   type: `string`
   minLength?: number
   maxLength?: number
 }
-export type BytesArbitrary = BaseArbitrary & {
+export type BytesArbitrary = {
   type: `bytes`
 }
 
-export type EnumArbitrary = BaseArbitrary & {
+export type EnumArbitrary = {
   type: `enum`
   values: string[]
 }
 
-export type ArrayArbitrary = BaseArbitrary & {
+export type ArrayArbitrary = {
   type: `array`
   value: Arbitrary
   minItems?: number
   maxItems?: number
 }
 
-export type DictionaryArbitrary = BaseArbitrary & {
+export type DictionaryArbitrary = {
   type: `dictionary`
   key: Arbitrary
   value: Arbitrary
 }
 
-export type UnionArbitrary = BaseArbitrary & {
+export type UnionArbitrary = {
   type: `union`
   variants: Arbitrary[]
 }
 
-export type RecordArbitrary = BaseArbitrary & {
+export type RecordArbitrary = {
   type: `record`
   properties: Map<string, Arbitrary>
 }
 
-export type MergedArbitrary = BaseArbitrary & {
+export type MergedArbitrary = {
   type: `merged`
   arbitraries: Arbitrary[]
 }
 
-export type ReferenceArbitrary = BaseArbitrary & {
+export type ReferenceArbitrary = {
   type: `reference`
+  name: string
   arbitrary: Arbitrary
 }
