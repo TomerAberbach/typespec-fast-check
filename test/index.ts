@@ -381,6 +381,19 @@ test.each([
     name: `array`,
     code: `
       model $Array is Array<string>;
+
+      @minItems(3)
+      model MinItemsArray is Array<string>;
+
+      @minItems(0)
+      model Min0ItemsArray is Array<string>;
+
+      @maxItems(12)
+      model MaxItemsArray is Array<string>;
+
+      @minItems(3)
+      @maxItems(12)
+      model MinMaxItemsArray is Array<string>;
     `,
   },
   {

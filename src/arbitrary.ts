@@ -74,6 +74,8 @@ export type EnumArbitrary = BaseArbitrary & {
 export type ArrayArbitrary = BaseArbitrary & {
   type: `array`
   value: Arbitrary
+  minItems?: number
+  maxItems?: number
 }
 
 export type DictionaryArbitrary = BaseArbitrary & {
