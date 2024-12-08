@@ -365,6 +365,25 @@ test.each([
       model Dictionary is Record<int32>;
     `,
   },
+  {
+    name: `model`,
+    code: `
+      model $Model {
+        a: int32,
+        b: string
+      }
+    `,
+  },
+  {
+    name: `model-and-dictionary`,
+    code: `
+      model $Model {
+        a: int32,
+        b: string,
+        ...Record<boolean>
+      }
+    `,
+  },
 ] satisfies TestCase[])(`$name`, async ({ name, code }) => {
   const snapshotPath = `./snapshots/${name}`
   const arbitrariesPath = `${snapshotPath}/arbitraries.js`

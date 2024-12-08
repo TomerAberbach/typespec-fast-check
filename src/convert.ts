@@ -283,13 +283,27 @@ const convertModel = (
   model: Model,
   options: ConvertTypeOptions,
 ): Arbitrary => {
-  if (!model.indexer) {
-    return convertRecord(program, model, options)
+  const indexerArbitrary = model.indexer
+    ? (model.indexer.key.name === `integer` ? convertArray : convertDictionary)(
+        program,
+        model as Model & { indexer: ModelIndexer },
+        options,
+      )
+    : null
+  if (indexerArbitrary && model.properties.size === 0) {
+    return indexerArbitrary
   }
 
-  return (
-    model.indexer.key.name === `integer` ? convertArray : convertDictionary
-  )(program, model as Model & { indexer: ModelIndexer }, options)
+  const recordArbitrary = convertRecord(program, model, options)
+  if (!indexerArbitrary) {
+    return recordArbitrary
+  }
+
+  return memoize({
+    type: `merged`,
+    name: pascalcase(model.name || options.propertyName || `Model`),
+    arbitraries: [recordArbitrary, indexerArbitrary],
+  })
 }
 
 const convertArray = (
@@ -418,6 +432,12 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
         arbitrary.name,
         ...flatten(arbitrary.properties),
       ])
+    case `merged`:
+      return keyalesce([
+        arbitrary.type,
+        arbitrary.name,
+        ...arbitrary.arbitraries,
+      ])
   }
 }
 
@@ -506,6 +526,8 @@ const getDirectArbitraryDependencies = (
       return new Set(arbitrary.variants)
     case `record`:
       return new Set(values(arbitrary.properties))
+    case `merged`:
+      return new Set(arbitrary.arbitraries)
   }
 }
 
