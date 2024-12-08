@@ -390,6 +390,16 @@ test.each([
     `,
   },
   {
+    name: `union`,
+    code: `
+      union Breed {
+        string: string,
+        int32: int32,
+        boolean: boolean
+      }
+    `,
+  },
+  {
     name: `model`,
     code: `
       model $Model {
