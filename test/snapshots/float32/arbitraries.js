@@ -1,8 +1,6 @@
 import * as fc from 'fast-check';
 
-const float32 = fc.float();
-
-export const Float32 = float32;
+export const Float32 = fc.float();
 
 export const MinValueFloat32 = fc.float({
   min: -3.140000104904175,
@@ -21,4 +19,4 @@ export const MinMaxValueFloat32 = fc.float({
   max: 3.140000104904175,
 });
 
-export const RedundantlyMinMaxValueFloat32 = float32;
+export const RedundantlyMinMaxValueFloat32 = fc.float();
