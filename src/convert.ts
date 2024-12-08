@@ -301,14 +301,9 @@ const convertModel = (
   }
 
   if (sourceModels.size === 0) {
-    if (!model.indexer) {
-      return convertRecord(program, model, constraints)
-    }
-
-    const modelWithIndexer = model as Model & { indexer: ModelIndexer }
-    return model.indexer.key.name === `integer`
-      ? convertArray(program, modelWithIndexer, constraints)
-      : convertDictionary(program, modelWithIndexer, constraints)
+    return model.indexer
+      ? convertModelIndexer(program, model.indexer, constraints)
+      : convertRecord(program, model, constraints)
   }
 
   const arbitraries = pipe(
@@ -323,9 +318,20 @@ const convertModel = (
   return memoize({ type: `merged`, arbitraries })
 }
 
+const convertModelIndexer = (
+  program: Program,
+  indexer: ModelIndexer,
+  constraints: Constraints,
+): Arbitrary =>
+  (indexer.key.name === `integer` ? convertArray : convertDictionary)(
+    program,
+    indexer,
+    constraints,
+  )
+
 const convertArray = (
   program: Program,
-  model: Model & { indexer: ModelIndexer },
+  indexer: ModelIndexer,
   constraints: Constraints,
 ): ArrayArbitrary => {
   let minItems = constraints.minItems?.asNumber() ?? undefined
@@ -335,7 +341,7 @@ const convertArray = (
 
   return memoize({
     type: `array`,
-    value: convertType(program, model.indexer.value, constraints),
+    value: convertType(program, indexer.value, constraints),
     minItems,
     maxItems: constraints.maxItems?.asNumber() ?? undefined,
   })
@@ -343,13 +349,13 @@ const convertArray = (
 
 const convertDictionary = (
   program: Program,
-  model: Model & { indexer: ModelIndexer },
+  indexer: ModelIndexer,
   constraints: Constraints,
 ): DictionaryArbitrary =>
   memoize({
     type: `dictionary`,
-    key: convertType(program, model.indexer.key, constraints),
-    value: convertType(program, model.indexer.value, constraints),
+    key: convertType(program, indexer.key, constraints),
+    value: convertType(program, indexer.value, constraints),
   })
 
 const convertRecord = (
