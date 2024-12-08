@@ -49,7 +49,6 @@ import type {
   RecordArbitrary,
   ReferenceArbitrary,
   StringArbitrary,
-  UnionArbitrary,
 } from './arbitrary.ts'
 import { numerics } from './numerics.ts'
 
@@ -86,8 +85,7 @@ const convertNamespace = (
     name: namespace.name,
     namespaces: pipe(
       values(namespace.namespaces),
-      // Don't convert the built-in namespace.
-      filter(namespace => namespace.name !== `TypeSpec`),
+      filter(namespace => !isTypeSpecNamespace(namespace)),
       map(namespace => convertNamespace(program, namespace)),
       reduce(toArray()),
     ),
@@ -112,10 +110,13 @@ const convertType = (
     case `Intrinsic`:
       return convertIntrinsic(type)
     case `Scalar`:
+      return convertScalar(program, type, constraints)
     case `Enum`:
+      return convertEnum(type)
     case `Union`:
+      return convertUnion(program, type, constraints)
     case `Model`:
-      return convertReference(program, type, constraints)
+      return convertModel(program, type, constraints)
   }
 
   throw new Error(`Unhandled type: ${type.kind}`)
@@ -136,36 +137,12 @@ const convertIntrinsic = (intrinsic: IntrinsicType): IntrinsicArbitrary => {
   }
 }
 
-const convertReference = (
-  program: Program,
-  type: Scalar | Enum | Union | Model,
-  constraints: Constraints,
-): Arbitrary => {
-  let arbitrary: Arbitrary
-  switch (type.kind) {
-    case `Scalar`:
-      arbitrary = convertScalar(program, type, constraints)
-      break
-    case `Enum`:
-      arbitrary = convertEnum(type)
-      break
-    case `Union`:
-      arbitrary = convertUnion(program, type, constraints)
-      break
-    case `Model`:
-      arbitrary = convertModel(program, type, constraints)
-      break
-  }
-
-  const { name } = type
-  return name ? ref(name, arbitrary) : arbitrary
-}
-
 const convertScalar = (
   program: Program,
   scalar: Scalar,
   constraints: Constraints,
 ): Arbitrary => {
+  let arbitrary: Arbitrary | undefined
   switch (scalar.name) {
     case `int8`:
     case `int16`:
@@ -173,32 +150,46 @@ const convertScalar = (
     case `safeint`:
     case `float32`:
     case `float64`:
-      return convertNumber(constraints, numerics[scalar.name])
+      arbitrary = convertNumber(constraints, numerics[scalar.name])
+      break
     case `float`:
     case `decimal128`:
     case `decimal`:
     case `numeric`:
-      return convertNumber(constraints, numerics.float64)
+      arbitrary = convertNumber(constraints, numerics.float64)
+      break
     case `int64`:
-      return convertBigInt(constraints, numerics.int64)
+      arbitrary = convertBigInt(constraints, numerics.int64)
+      break
     case `integer`:
-      return convertBigInt(constraints)
+      arbitrary = convertBigInt(constraints)
+      break
     case `bytes`:
-      return memoize({ type: `bytes` })
+      arbitrary = memoize({ type: `bytes` })
+      break
     case `string`:
-      return convertString(constraints)
+      arbitrary = convertString(constraints)
+      break
     case `boolean`:
-      return memoize({ type: `boolean` })
+      arbitrary = memoize({ type: `boolean` })
+      break
     default:
       if (scalar.baseScalar) {
-        return convertType(program, scalar.baseScalar, {
+        arbitrary = convertType(program, scalar.baseScalar, {
           ...constraints,
           ...getConstraints(program, scalar),
         })
       }
+      break
   }
 
-  throw new Error(`Unhandled Scalar: ${scalar.name}`)
+  if (!arbitrary) {
+    throw new Error(`Unhandled Scalar: ${scalar.name}`)
+  }
+
+  return isTypeSpecNamespace(scalar.namespace)
+    ? arbitrary
+    : ref(scalar.name, arbitrary)
 }
 
 const convertNumber = (
@@ -230,23 +221,26 @@ const convertString = (constraints: Constraints): StringArbitrary =>
   })
 
 const convertEnum = ($enum: Enum): Arbitrary =>
-  memoize({
-    type: `enum`,
-    values: pipe(
-      $enum.members,
-      map(([, { name, value }]) =>
-        JSON.stringify(value === undefined ? name : value),
+  ref(
+    $enum.name,
+    memoize({
+      type: `enum`,
+      values: pipe(
+        $enum.members,
+        map(([, { name, value }]) =>
+          JSON.stringify(value === undefined ? name : value),
+        ),
+        reduce(toArray()),
       ),
-      reduce(toArray()),
-    ),
-  })
+    }),
+  )
 
 const convertUnion = (
   program: Program,
   union: Union,
   constraints: Constraints,
-): UnionArbitrary =>
-  memoize({
+): Arbitrary => {
+  const arbitrary = memoize({
     type: `union`,
     variants: pipe(
       union.variants,
@@ -262,6 +256,8 @@ const convertUnion = (
       reduce(toArray()),
     ),
   })
+  return union.name ? ref(union.name, arbitrary) : arbitrary
+}
 
 const convertModel = (
   program: Program,
@@ -287,31 +283,36 @@ const convertModel = (
   )
 
   const baseModel = model.baseModel ?? model.sourceModel
+  let arbitrary: Arbitrary
   if (baseModel && concreteProperties.size === 0) {
     // The model is just `model A extends B` or `model A is B` so we can just
     // convert `B`.
-    return convertType(program, baseModel, {
+    arbitrary = convertType(program, baseModel, {
       ...constraints,
       ...getConstraints(program, model),
     })
-  }
-
-  if (sourceModels.size === 0) {
-    return model.indexer
+  } else if (sourceModels.size === 0) {
+    arbitrary = model.indexer
       ? convertModelIndexer(program, model.indexer, constraints)
       : convertRecord(program, model, constraints)
+  } else {
+    arbitrary = memoize({
+      type: `merged`,
+      arbitraries: pipe(
+        concat(
+          map(model => convertType(program, model, constraints), sourceModels),
+          concreteProperties.size > 0
+            ? [convertRecord(program, model, constraints, concreteProperties)]
+            : [],
+        ),
+        reduce(toArray()),
+      ),
+    })
   }
 
-  const arbitraries = pipe(
-    concat(
-      map(model => convertType(program, model, constraints), sourceModels),
-      concreteProperties.size > 0
-        ? [convertRecord(program, model, constraints, concreteProperties)]
-        : [],
-    ),
-    reduce(toArray()),
-  )
-  return memoize({ type: `merged`, arbitraries })
+  return isTypeSpecNamespace(model.namespace)
+    ? arbitrary
+    : ref(model.name, arbitrary)
 }
 
 const convertModelIndexer = (
@@ -548,6 +549,9 @@ const getDirectArbitraryDependencies = (
       return new Set([arbitrary.arbitrary])
   }
 }
+
+const isTypeSpecNamespace = (namespace?: Namespace): boolean =>
+  namespace?.name === `TypeSpec`
 
 const minOrUndefined = <
   const A extends bigint | number | undefined,
