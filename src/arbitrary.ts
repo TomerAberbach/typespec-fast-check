@@ -13,6 +13,7 @@ export type Arbitrary =
   | DictionaryArbitrary
   | UnionArbitrary
   | RecordArbitrary
+  | MergedArbitrary
 
 export type BaseArbitrary = {
   name: string
@@ -89,4 +90,9 @@ export type UnionArbitrary = BaseArbitrary & {
 export type RecordArbitrary = BaseArbitrary & {
   type: `record`
   properties: Map<string, Arbitrary>
+}
+
+export type MergedArbitrary = BaseArbitrary & {
+  type: `merged`
+  arbitraries: Arbitrary[]
 }

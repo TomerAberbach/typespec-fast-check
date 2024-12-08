@@ -22,6 +22,7 @@ import type {
   BytesArbitrary,
   DictionaryArbitrary,
   EnumArbitrary,
+  MergedArbitrary,
   NumberArbitrary,
   RecordArbitrary,
   StringArbitrary,
@@ -166,6 +167,8 @@ const ArbitraryDefinition = ({
       return UnionArbitrary({ arbitrary, sharedArbitraries })
     case `record`:
       return RecordArbitrary({ arbitrary, sharedArbitraries })
+    case `merged`:
+      return MergedArbitrary({ arbitrary, sharedArbitraries })
   }
 }
 
@@ -329,6 +332,25 @@ const RecordArbitrary = ({
     ),
     emitEmpty: true,
   })})`
+
+const MergedArbitrary = ({
+  arbitrary,
+  sharedArbitraries,
+}: {
+  arbitrary: MergedArbitrary
+  sharedArbitraries: ReadonlySet<Arbitrary>
+}): Child => code`
+  fc
+    .tuple(
+      ${ayJoin(
+        arbitrary.arbitraries.map(
+          arbitrary => code`${Arbitrary({ arbitrary, sharedArbitraries })},`,
+        ),
+        { joiner: `\n` },
+      )}
+    )
+    .map(values => Object.assign(...values))
+`
 
 const Options = ({
   properties,
