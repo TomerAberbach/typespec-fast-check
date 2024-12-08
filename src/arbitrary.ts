@@ -57,7 +57,7 @@ export type BytesArbitrary = {
 
 export type EnumArbitrary = {
   type: `enum`
-  values: string[]
+  values: (string | number)[]
 }
 
 export type ArrayArbitrary = {
@@ -80,7 +80,7 @@ export type UnionArbitrary = {
 
 export type RecordArbitrary = {
   type: `record`
-  properties: Map<string, Arbitrary>
+  properties: Map<string, { arbitrary: Arbitrary; required: boolean }>
 }
 
 export type MergedArbitrary = {

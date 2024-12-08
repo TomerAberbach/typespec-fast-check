@@ -26,7 +26,6 @@ import {
   entries,
   filter,
   flatMap,
-  flatten,
   map,
   pipe,
   reduce,
@@ -44,7 +43,6 @@ import type {
   ArrayArbitrary,
   BigIntArbitrary,
   DictionaryArbitrary,
-  IntrinsicArbitrary,
   NumberArbitrary,
   RecordArbitrary,
   ReferenceArbitrary,
@@ -122,14 +120,16 @@ const convertType = (
   throw new Error(`Unhandled type: ${type.kind}`)
 }
 
-const convertIntrinsic = (intrinsic: IntrinsicType): IntrinsicArbitrary => {
+const convertIntrinsic = (intrinsic: IntrinsicType): Arbitrary => {
   switch (intrinsic.name) {
     case `null`:
       return memoize({ type: `null` })
     case `void`:
       return memoize({ type: `undefined` })
     case `never`:
-      return memoize({ type: `never` })
+      // Ref this because it's verbose so it's nice to extract a `const never`
+      // variable if it's referenced more than once.
+      return ref(`never`, memoize({ type: `never` }))
     case `unknown`:
       return memoize({ type: `unknown` })
     case `ErrorType`:
@@ -227,9 +227,7 @@ const convertEnum = ($enum: Enum): Arbitrary =>
       type: `enum`,
       values: pipe(
         $enum.members,
-        map(([, { name, value }]) =>
-          JSON.stringify(value === undefined ? name : value),
-        ),
+        map(([, { name, value }]) => (value === undefined ? name : value)),
         reduce(toArray()),
       ),
     }),
@@ -244,14 +242,11 @@ const convertUnion = (
     type: `union`,
     variants: pipe(
       union.variants,
-      map(([, { type, name }]) =>
-        ref(
-          String(name),
-          convertType(program, type, {
-            ...constraints,
-            ...getConstraints(program, union),
-          }),
-        ),
+      map(([, { type }]) =>
+        convertType(program, type, {
+          ...constraints,
+          ...getConstraints(program, union),
+        }),
       ),
       reduce(toArray()),
     ),
@@ -367,13 +362,13 @@ const convertRecord = (
       properties,
       map(([name, property]) => [
         name,
-        ref(
-          name,
-          convertType(program, property.type, {
+        {
+          arbitrary: convertType(program, property.type, {
             ...constraints,
             ...getConstraints(program, property),
           }),
-        ),
+          required: !property.optional,
+        },
       ]),
       reduce(toMap()),
     ),
@@ -446,7 +441,13 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
     case `union`:
       return keyalesce([arbitrary.type, ...arbitrary.variants])
     case `record`:
-      return keyalesce([arbitrary.type, ...flatten(arbitrary.properties)])
+      return keyalesce([
+        arbitrary.type,
+        ...flatMap(
+          ([name, { arbitrary, required }]) => [name, arbitrary, required],
+          arbitrary.properties,
+        ),
+      ])
     case `merged`:
       return keyalesce([arbitrary.type, ...arbitrary.arbitraries])
     case `reference`:
@@ -542,7 +543,12 @@ const getDirectArbitraryDependencies = (
     case `union`:
       return new Set(arbitrary.variants)
     case `record`:
-      return new Set(values(arbitrary.properties))
+      return new Set(
+        pipe(
+          values(arbitrary.properties),
+          map(property => property.arbitrary),
+        ),
+      )
     case `merged`:
       return new Set(arbitrary.arbitraries)
     case `reference`:

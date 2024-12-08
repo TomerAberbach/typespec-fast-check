@@ -2,17 +2,27 @@
 import {
   entries,
   filter,
+  first,
   get,
+  join,
+  keys,
   map,
   minBy,
   pipe,
   reduce,
   toArray,
   toMap,
+  toObject,
+  toSet,
 } from 'lfi'
 import * as ay from '@alloy-js/core/stc'
 import * as ts from '@alloy-js/typescript/stc'
-import { join as ayJoin, code, refkey } from '@alloy-js/core'
+import {
+  join as ayJoin,
+  mapJoin as ayMapJoin,
+  code,
+  refkey,
+} from '@alloy-js/core'
 import type { Child, Children } from '@alloy-js/core'
 import type {
   Arbitrary,
@@ -96,15 +106,25 @@ const NestedArbitraryNamespace = ({
 }: {
   namespace: ArbitraryNamespace
   sharedArbitraries: ReadonlySet<ReferenceArbitrary>
-}): Child =>
-  ts.ObjectExpression().children(
+}): Child => {
+  if (
+    namespace.namespaces.length === 0 &&
+    namespace.nameToArbitrary.size === 0
+  ) {
+    return `{}`
+  }
+
+  return ts.ObjectExpression().children(
     ayJoin(
       [
         ...map(
           namespace =>
             ts.ObjectProperty({
               name: namespace.name,
-              value: code`${NestedArbitraryNamespace({ namespace, sharedArbitraries })},`,
+              value: code`${NestedArbitraryNamespace({
+                namespace,
+                sharedArbitraries,
+              })},`,
             }),
           namespace.namespaces,
         ),
@@ -120,6 +140,7 @@ const NestedArbitraryNamespace = ({
       { joiner: `\n\n` },
     ),
   )
+}
 
 const Arbitrary = ({
   arbitrary,
@@ -238,12 +259,14 @@ const NumberArbitrary = ({
     arbitraryMax = max.normalize(arbitraryMax)
   }
 
-  return code`fc.${name}(${Options({
-    properties: new Map([
-      [`min`, arbitraryMin],
-      [`max`, arbitraryMax],
-    ]),
-  })})`
+  return CallExpression({
+    name: `fc.${name}`,
+    args: [
+      ObjectExpression({
+        properties: { min: arbitraryMin, max: arbitraryMax },
+      }),
+    ],
+  })
 }
 
 const BigIntArbitrary = ({
@@ -251,29 +274,47 @@ const BigIntArbitrary = ({
 }: {
   arbitrary: BigIntArbitrary
 }): Child =>
-  code`fc.bigInt(${Options({
-    properties: new Map([
-      [`min`, arbitrary.min == null ? null : `${arbitrary.min}n`],
-      [`max`, arbitrary.max == null ? null : `${arbitrary.max}n`],
-    ]),
-  })})`
+  CallExpression({
+    name: `fc.bigInt`,
+    args: [
+      ObjectExpression({
+        properties: {
+          min: arbitrary.min == null ? null : `${arbitrary.min}n`,
+          max: arbitrary.max == null ? null : `${arbitrary.max}n`,
+        },
+      }),
+    ],
+  })
 
 const StringArbitrary = ({
   arbitrary,
 }: {
   arbitrary: StringArbitrary
 }): Child =>
-  code`fc.string(${Options({
-    properties: new Map([
-      [`minLength`, arbitrary.minLength],
-      [`maxLength`, arbitrary.maxLength],
-    ]),
-  })})`
+  CallExpression({
+    name: `fc.string`,
+    args: [
+      ObjectExpression({
+        properties: {
+          minLength: arbitrary.minLength,
+          maxLength: arbitrary.maxLength,
+        },
+      }),
+    ],
+  })
 
 const BytesArbitrary = (): Child => code`fc.uint8Array()`
 
 const EnumArbitrary = ({ arbitrary }: { arbitrary: EnumArbitrary }): Child =>
-  code`fc.constantFrom(${arbitrary.values.join(`, `)})`
+  CallExpression({
+    name: `fc.constantFrom`,
+    args: arbitrary.values.map(value =>
+      typeof value === `string`
+        ? StringLiteral({ string: value })
+        : String(value),
+    ),
+    oneLine: true,
+  })
 
 const ArrayArbitrary = ({
   arbitrary,
@@ -281,19 +322,20 @@ const ArrayArbitrary = ({
 }: {
   arbitrary: ArrayArbitrary
   sharedArbitraries: ReadonlySet<ReferenceArbitrary>
-}): Child => {
-  const options = Options({
-    properties: new Map([
-      [`minLength`, arbitrary.minItems],
-      [`maxLength`, arbitrary.maxItems],
-    ]),
+}): Child =>
+  CallExpression({
+    name: `fc.array`,
+    args: [
+      Arbitrary({ arbitrary: arbitrary.value, sharedArbitraries }),
+      ObjectExpression({
+        properties: {
+          minLength: arbitrary.minItems,
+          maxLength: arbitrary.maxItems,
+        },
+      }),
+    ],
+    oneLine: true,
   })
-
-  return code`fc.array(${Arbitrary({
-    arbitrary: arbitrary.value,
-    sharedArbitraries,
-  })}${options ? code`, ${options}` : ``})`
-}
 
 const DictionaryArbitrary = ({
   arbitrary,
@@ -304,7 +346,11 @@ const DictionaryArbitrary = ({
 }): Child => {
   const Key = Arbitrary({ arbitrary: arbitrary.key, sharedArbitraries })
   const Value = Arbitrary({ arbitrary: arbitrary.value, sharedArbitraries })
-  return code`fc.dictionary(${Key}, ${Value})`
+  return CallExpression({
+    name: `fc.dictionary`,
+    args: [Key, Value],
+    oneLine: true,
+  })
 }
 
 const UnionArbitrary = ({
@@ -314,16 +360,12 @@ const UnionArbitrary = ({
   arbitrary: UnionArbitrary
   sharedArbitraries: ReadonlySet<ReferenceArbitrary>
 }): Child =>
-  code`fc.oneof(\n${ay
-    .Indent()
-    .children(
-      ayJoin(
-        arbitrary.variants.map(
-          variant =>
-            code`${Arbitrary({ arbitrary: variant, sharedArbitraries })},`,
-        ),
-      ),
-    )}\n)`
+  CallExpression({
+    name: `fc.oneof`,
+    args: arbitrary.variants.map(variant =>
+      Arbitrary({ arbitrary: variant, sharedArbitraries }),
+    ),
+  })
 
 const RecordArbitrary = ({
   arbitrary,
@@ -331,18 +373,47 @@ const RecordArbitrary = ({
 }: {
   arbitrary: RecordArbitrary
   sharedArbitraries: ReadonlySet<ReferenceArbitrary>
-}): Child =>
-  code`fc.record(${Options({
-    properties: pipe(
-      arbitrary.properties,
-      map(([name, arbitrary]) => [
-        name,
-        Arbitrary({ arbitrary, sharedArbitraries }),
-      ]),
-      reduce(toMap()),
-    ),
-    emitEmpty: true,
-  })})`
+}): Child => {
+  const requiredProperties = pipe(
+    arbitrary.properties,
+    filter(([, property]) => property.required),
+    map(([name]) => name),
+    reduce(toSet()),
+  )
+
+  return CallExpression({
+    name: `fc.record`,
+    args: [
+      ObjectExpression({
+        properties: pipe(
+          arbitrary.properties,
+          map(([name, { arbitrary }]) => [
+            name,
+            Arbitrary({ arbitrary, sharedArbitraries }),
+          ]),
+          reduce(toObject()),
+        ),
+        emitEmpty: true,
+      }),
+      requiredProperties.size === arbitrary.properties.size
+        ? null
+        : ObjectExpression({
+            properties:
+              requiredProperties.size === 0
+                ? { withDeletedKeys: `true` }
+                : {
+                    requiredKeys: ArrayExpression({
+                      values: pipe(
+                        requiredProperties,
+                        map(property => StringLiteral({ string: property })),
+                        reduce(toArray()),
+                      ),
+                    }),
+                  },
+          }),
+    ],
+  })
+}
 
 const MergedArbitrary = ({
   arbitrary,
@@ -352,49 +423,105 @@ const MergedArbitrary = ({
   sharedArbitraries: ReadonlySet<ReferenceArbitrary>
 }): Child => code`
   fc
-    .tuple(
-      ${ayJoin(
-        arbitrary.arbitraries.map(
-          arbitrary => code`${Arbitrary({ arbitrary, sharedArbitraries })},`,
-        ),
-        { joiner: `\n` },
-      )}
-    )
+    ${CallExpression({
+      name: `.tuple`,
+      args: arbitrary.arbitraries.map(arbitrary =>
+        Arbitrary({ arbitrary, sharedArbitraries }),
+      ),
+    })}
     .map(values => Object.assign(...values))
 `
 
-const Options = ({
+const ArrayExpression = ({ values }: { values: Child[] }): Child =>
+  code`[${ayJoin(values, { joiner: `, ` })}]`
+
+const ObjectExpression = ({
   properties,
   emitEmpty = false,
 }: {
-  properties: Map<string, Children>
+  properties: Record<string, Children>
   emitEmpty?: boolean
-}) => {
+}): Child => {
   const filteredProperties = pipe(
-    properties,
+    entries(properties),
     filter(([, value]) => value != null),
     reduce(toMap()),
   )
-  if (filteredProperties.size === 0 && !emitEmpty) {
-    return ``
-  }
-
-  return ts.ObjectExpression().children(
-    ayJoin(
-      pipe(
-        filteredProperties,
-        map(
-          ([name, value]) =>
-            code`${ts.ObjectProperty({
-              name,
-              // https://github.com/alloy-framework/alloy/issues/42
-              value: typeof value === `number` ? String(value) : value,
-            })},\n`,
+  switch (filteredProperties.size) {
+    case 0:
+      return emitEmpty ? `{}` : ``
+    case 1: {
+      const [name, value] = get(first(filteredProperties))
+      return code`{ ${ts.ObjectProperty({
+        name,
+        // https://github.com/alloy-framework/alloy/issues/42
+        value: typeof value === `number` ? String(value) : value,
+      })} }`
+    }
+    default:
+      return ts.ObjectExpression().children(
+        ayJoin(
+          pipe(
+            filteredProperties,
+            map(
+              ([name, value]) =>
+                code`${ts.ObjectProperty({
+                  name,
+                  // https://github.com/alloy-framework/alloy/issues/42
+                  value: typeof value === `number` ? String(value) : value,
+                })},\n`,
+            ),
+            reduce(toArray()),
+          ),
         ),
-        reduce(toArray()),
-      ),
-    ),
-  )
+      )
+  }
 }
+
+const CallExpression = ({
+  name,
+  args,
+  oneLine = false,
+}: {
+  name: string
+  args: Child[]
+  oneLine?: boolean
+}): Child => {
+  args = filterChildren(args)
+  return !oneLine && args.length >= 2
+    ? code`
+        ${name}(
+          ${ayMapJoin(args, arg => code`${arg},`, { joiner: `\n` })}
+        )
+      `
+    : code`${name}(${ayJoin(args, { joiner: `, ` })})`
+}
+
+const StringLiteral = ({ string }: { string: string }): Child =>
+  `'${string.replace(
+    new RegExp(
+      `[${pipe(
+        keys(escapes),
+        map(c => (c === `\\` ? `\\\\` : c)),
+        join(``),
+      )}]`,
+      `gu`,
+    ),
+    c => escapes[c]!,
+  )}'`
+
+const escapes: Record<string, string> = {
+  "'": `\\'`,
+  '\\': `\\\\`,
+  '\b': `\\b`,
+  '\f': `\\f`,
+  '\n': `\\n`,
+  '\r': `\\r`,
+  '\t': `\\t`,
+  '\v': `\\x0B`,
+}
+
+const filterChildren = (children: Child[]): Child[] =>
+  children.filter(child => child != null && child !== `` && child !== false)
 
 export default ArbitraryFile

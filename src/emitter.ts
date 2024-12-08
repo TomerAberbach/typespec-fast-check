@@ -11,9 +11,11 @@ export async function $onEmit(context: EmitContext): Promise<void> {
     return
   }
 
-  const { path, contents } = render(
+  let { path, contents } = render(
     ArbitraryFile(convertProgram(context.program)),
   ).contents[0]! as OutputFile
+  contents = `${contents.trim()}\n`
+
   await emitFile(context.program, {
     path: resolvePath(context.emitterOutputDir, path),
     content: contents,
