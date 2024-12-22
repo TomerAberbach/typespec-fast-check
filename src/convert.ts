@@ -296,14 +296,9 @@ const convertModel = (
     ),
     reduce(toSet()),
   )
-  const sourcePropertyNames = pipe(
-    sourceModels,
-    flatMap(model => model.properties.keys()),
-    reduce(toSet()),
-  )
   const concreteProperties = pipe(
     model.properties,
-    filter(([name]) => !sourcePropertyNames.has(name)),
+    filter(([, value]) => !value.sourceProperty),
     reduce(toMap()),
   )
 
