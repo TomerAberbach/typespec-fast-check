@@ -6,22 +6,10 @@ export const $Scalar = fc.integer();
 
 export const DefaultPropertiesModel = fc.record(
   {
-    a1: fc.oneof(
-      fc.constant(null),
-      fc.constant(null),
-    ),
-    a2: fc.oneof(
-      fc.constant(null),
-      fc.constant(null),
-    ),
-    b1: fc.oneof(
-      fc.boolean(),
-      fc.constant(true),
-    ),
-    b2: fc.oneof(
-      fc.boolean(),
-      fc.constant(true),
-    ),
+    a1: fc.constant(null),
+    a2: fc.constant(null),
+    b1: fc.boolean(),
+    b2: fc.boolean(),
     c1: fc.oneof(
       fc.string(),
       fc.constant("abc"),

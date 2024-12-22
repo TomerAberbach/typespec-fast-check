@@ -1,4 +1,3 @@
-/* eslint-disable typescript/prefer-nullish-coalescing */
 import assert from 'node:assert'
 import {
   getMaxItemsAsNumeric,
@@ -27,7 +26,9 @@ import {
   concat,
   entries,
   filter,
+  first,
   flatMap,
+  get,
   map,
   pipe,
   reduce,
@@ -35,6 +36,7 @@ import {
   toMap,
   toObject,
   toSet,
+  unique,
   values,
 } from 'lfi'
 import keyalesce from 'keyalesce'
@@ -45,9 +47,11 @@ import type {
   ArrayArbitrary,
   ConstantArbitrary,
   DictionaryArbitrary,
+  MergedArbitrary,
   RecordArbitrary,
   ReferenceArbitrary,
   StringArbitrary,
+  UnionArbitrary,
 } from './arbitrary.ts'
 import { fastCheckNumerics, numerics } from './numerics.ts'
 
@@ -103,22 +107,30 @@ const convertType = (
   constraints: Constraints,
 ): Arbitrary => {
   constraints = { ...constraints, ...getConstraints(program, type) }
+  let arbitrary: Arbitrary
 
   // eslint-disable-next-line typescript/switch-exhaustiveness-check
   switch (type.kind) {
     case `Intrinsic`:
-      return convertIntrinsic(type)
+      arbitrary = convertIntrinsic(type)
+      break
     case `Scalar`:
-      return convertScalar(program, type, constraints)
+      arbitrary = convertScalar(program, type, constraints)
+      break
     case `Enum`:
-      return convertEnum(type)
+      arbitrary = convertEnum(type)
+      break
     case `Union`:
-      return convertUnion(program, type, constraints)
+      arbitrary = convertUnion(program, type, constraints)
+      break
     case `Model`:
-      return convertModel(program, type, constraints)
+      arbitrary = convertModel(program, type, constraints)
+      break
+    default:
+      throw new Error(`Unhandled type: ${type.kind}`)
   }
 
-  throw new Error(`Unhandled type: ${type.kind}`)
+  return normalizeArbitrary(arbitrary)
 }
 
 const convertIntrinsic = (intrinsic: IntrinsicType): Arbitrary => {
@@ -463,6 +475,118 @@ type Constraints = {
   minItems?: Numeric
   maxItems?: Numeric
 }
+
+const normalizeArbitrary = (arbitrary: Arbitrary): Arbitrary => {
+  switch (arbitrary.type) {
+    case `null`:
+    case `undefined`:
+    case `never`:
+    case `unknown`:
+    case `boolean`:
+    case `number`:
+    case `bigint`:
+    case `string`:
+    case `bytes`:
+    case `enum`:
+      return arbitrary
+    case `constant`:
+      return normalizeConstantArbitrary(arbitrary)
+    case `array`:
+      return normalizeArrayArbitrary(arbitrary)
+    case `dictionary`:
+      return normalizeDictionaryArbitrary(arbitrary)
+    case `union`:
+      return normalizeUnionArbitrary(arbitrary)
+    case `record`:
+      return normalizeRecordArbitrary(arbitrary)
+    case `merged`:
+      return normalizeMergedArbitrary(arbitrary)
+    case `reference`:
+      return normalizeReferenceArbitrary(arbitrary)
+  }
+}
+
+const normalizeConstantArbitrary = (
+  arbitrary: ConstantArbitrary,
+): Arbitrary => {
+  switch (arbitrary.value) {
+    case null:
+      return memoize({ type: `null` })
+    case undefined:
+      return memoize({ type: `undefined` })
+    default:
+      return arbitrary
+  }
+}
+
+const normalizeArrayArbitrary = (arbitrary: ArrayArbitrary): Arbitrary =>
+  memoize({
+    ...arbitrary,
+    value: normalizeArbitrary(arbitrary.value),
+  })
+
+const normalizeDictionaryArbitrary = (
+  arbitrary: DictionaryArbitrary,
+): Arbitrary =>
+  memoize({
+    ...arbitrary,
+    key: normalizeArbitrary(arbitrary.key),
+    value: normalizeArbitrary(arbitrary.value),
+  })
+
+const normalizeUnionArbitrary = (arbitrary: UnionArbitrary): Arbitrary => {
+  const variants = new Set(arbitrary.variants.map(normalizeArbitrary))
+  if (variants.has(memoize({ type: `boolean` }))) {
+    // The set of possible boolean values is so small that there's no point in
+    // biasing a union towards `true` or `false`.
+    variants.delete(memoize({ type: `constant`, value: false }))
+    variants.delete(memoize({ type: `constant`, value: true }))
+  }
+
+  switch (variants.size) {
+    case 0:
+      return memoize({ type: `never` })
+    case 1:
+      return get(first(variants))
+    default:
+      break
+  }
+
+  return memoize({ ...arbitrary, variants: [...variants] })
+}
+
+const normalizeRecordArbitrary = (arbitrary: RecordArbitrary): Arbitrary =>
+  memoize({
+    ...arbitrary,
+    properties: pipe(
+      arbitrary.properties,
+      map(([key, property]) => [
+        key,
+        { ...property, arbitrary: normalizeArbitrary(property.arbitrary) },
+      ]),
+      reduce(toMap()),
+    ),
+  })
+
+const normalizeMergedArbitrary = (arbitrary: MergedArbitrary): Arbitrary => {
+  const arbitraries = [...unique(arbitrary.arbitraries.map(normalizeArbitrary))]
+  switch (arbitraries.length) {
+    case 0:
+      return memoize({ type: `record`, properties: new Map() })
+    case 1:
+      return arbitraries[0]!
+    default:
+      return memoize({ ...arbitrary, arbitraries })
+  }
+}
+
+const normalizeReferenceArbitrary = (
+  arbitrary: ReferenceArbitrary,
+): Arbitrary =>
+  memoize({
+    ...arbitrary,
+    arbitrary: normalizeArbitrary(arbitrary.arbitrary),
+  })
 
 const memoize = <A extends Arbitrary>(arbitrary: A): A => {
   const arbitraryKey = getArbitraryKey(arbitrary)
