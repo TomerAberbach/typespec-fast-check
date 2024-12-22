@@ -20,6 +20,7 @@ import type {
   Scalar,
   Type,
   Union,
+  Value,
 } from '@typespec/compiler'
 import {
   any,
@@ -42,6 +43,7 @@ import type {
   Arbitrary,
   ArbitraryNamespace,
   ArrayArbitrary,
+  ConstantArbitrary,
   DictionaryArbitrary,
   RecordArbitrary,
   ReferenceArbitrary,
@@ -257,7 +259,7 @@ const convertEnum = ($enum: Enum): Arbitrary =>
       type: `enum`,
       values: pipe(
         $enum.members,
-        map(([, { name, value }]) => (value === undefined ? name : value)),
+        map(([, { name, value }]) => value ?? name),
         reduce(toArray()),
       ),
     }),
@@ -385,19 +387,57 @@ const convertRecord = (
     type: `record`,
     properties: pipe(
       properties,
-      map(([name, property]) => [
-        name,
-        {
-          arbitrary: convertType(program, property.type, {
-            ...constraints,
-            ...getConstraints(program, property),
-          }),
-          required: !property.optional,
-        },
-      ]),
+      map(([name, property]) => {
+        const arbitrary = convertType(program, property.type, {
+          ...constraints,
+          ...getConstraints(program, property),
+        })
+        return [
+          name,
+          property.defaultValue
+            ? {
+                arbitrary: memoize({
+                  type: `union`,
+                  variants: [arbitrary, convertValue(property.defaultValue)],
+                }),
+                required: false,
+              }
+            : { arbitrary, required: !property.optional },
+        ]
+      }),
       reduce(toMap()),
     ),
   })
+
+const convertValue = (value: Value): ConstantArbitrary =>
+  memoize({ type: `constant`, value: toJsValue(value) })
+
+const toJsValue = (value: Value): unknown => {
+  switch (value.valueKind) {
+    case `NullValue`:
+    case `BooleanValue`:
+    case `StringValue`:
+      return value.value
+    case `NumericValue`: {
+      const numeric = value.value
+      return numeric.asNumber() ?? numeric.asBigInt()
+    }
+    case `ScalarValue`:
+      return toJsValue(value.value.args[0]!)
+    case `EnumValue`: {
+      const member = value.value
+      return member.value ?? member.name
+    }
+    case `ArrayValue`:
+      return value.values.map(toJsValue)
+    case `ObjectValue`:
+      return pipe(
+        value.properties,
+        map(([key, property]) => [key, toJsValue(property.value)]),
+        reduce(toObject()),
+      )
+  }
+}
 
 const ref = (name: string, arbitrary: Arbitrary): Arbitrary =>
   memoize({ type: `reference`, name, arbitrary })
@@ -443,6 +483,8 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
     case `boolean`:
     case `bytes`:
       return keyalesce([arbitrary.type])
+    case `constant`:
+      return keyalesce([arbitrary.type, arbitrary.value])
     case `number`:
     case `bigint`:
       return keyalesce([arbitrary.type, arbitrary.min, arbitrary.max])
@@ -552,6 +594,7 @@ const getDirectArbitraryDependencies = (arbitrary: Arbitrary): Arbitrary[] => {
     case `undefined`:
     case `never`:
     case `unknown`:
+    case `constant`:
     case `boolean`:
     case `number`:
     case `bigint`:

@@ -7,6 +7,7 @@ export type ArbitraryNamespace = {
 
 export type Arbitrary =
   | IntrinsicArbitrary
+  | ConstantArbitrary
   | ScalarArbitrary
   | EnumArbitrary
   | ArrayArbitrary
@@ -25,6 +26,11 @@ export type NullArbitrary = { type: `null` }
 export type UndefinedArbitrary = { type: `undefined` }
 export type NeverArbitrary = { type: `never` }
 export type UnknownArbitrary = { type: `unknown` }
+
+export type ConstantArbitrary = {
+  type: `constant`
+  value: unknown
+}
 
 export type ScalarArbitrary =
   | BooleanArbitrary
