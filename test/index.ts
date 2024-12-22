@@ -545,6 +545,40 @@ test.each([
       }
     `,
   },
+  {
+    name: `model-default-property`,
+    code: `
+      scalar $Scalar extends int32;
+
+      enum $Enum {
+        A,
+        B: "X"
+      }
+
+      model DefaultPropertiesModel {
+        a1: null = null,
+        a2?: null = null,
+        b1: boolean = true,
+        b2?: boolean = true,
+        c1: string = "abc",
+        c2?: string = "abc",
+        d1: int32 = 42,
+        d2?: int32 = 42,
+        e1: int64 = 42,
+        e2?: int64 = 42,
+        f1: $Scalar = $Scalar(42),
+        f2?: $Scalar = $Scalar(42),
+        g1: $Enum = $Enum.A,
+        g2?: $Enum = $Enum.A,
+        h1: $Enum = $Enum.B,
+        h2?: $Enum = $Enum.B,
+        i1: Array<string> = #["a", "b"],
+        i2?: Array<string> = #["a", "b"],
+        j1: Record<string> = #{ a: "a", b: "b" },
+        j2?: Record<string> = #{ a: "a", b: "b" }
+      }
+    `,
+  },
 ] satisfies TestCase[])(`$name`, async ({ name, code }) => {
   const snapshotPath = `./snapshots/${name}`
   const arbitrariesPath = `${snapshotPath}/arbitraries.js`

@@ -30,6 +30,7 @@ import type {
   ArrayArbitrary,
   BigIntArbitrary,
   BytesArbitrary,
+  ConstantArbitrary,
   DictionaryArbitrary,
   EnumArbitrary,
   MergedArbitrary,
@@ -169,6 +170,8 @@ const ArbitraryDefinition = ({
       return NeverArbitrary()
     case `unknown`:
       return UnknownArbitrary()
+    case `constant`:
+      return ConstantArbitrary({ arbitrary })
     case `boolean`:
       return BooleanArbitrary()
     case `number`:
@@ -207,6 +210,16 @@ const NeverArbitrary = (): Child => code`
 `
 
 const UnknownArbitrary = (): Child => code`fc.anything()`
+
+const ConstantArbitrary = ({
+  arbitrary,
+}: {
+  arbitrary: ConstantArbitrary
+}): Child =>
+  CallExpression({
+    name: `fc.constant`,
+    args: [ts.ValueExpression({ jsValue: arbitrary.value })],
+  })
 
 const BooleanArbitrary = (): Child => code`fc.boolean()`
 
