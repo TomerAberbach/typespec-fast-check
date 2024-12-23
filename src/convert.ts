@@ -61,6 +61,7 @@ import {
   referenceArbitrary,
   stringArbitrary,
   unionArbitrary,
+  urlArbitrary,
 } from './arbitrary.ts'
 import type {
   Arbitrary,
@@ -203,6 +204,9 @@ const convertScalar = (
 ): Arbitrary => {
   let arbitrary: Arbitrary | undefined
   switch (scalar.name) {
+    case `boolean`:
+      arbitrary = booleanArbitrary()
+      break
     case `int8`:
     case `int16`:
     case `int32`:
@@ -223,14 +227,14 @@ const convertScalar = (
     case `integer`:
       arbitrary = convertBigInt(scalar, constraints)
       break
-    case `bytes`:
-      arbitrary = bytesArbitrary()
-      break
     case `string`:
       arbitrary = convertString(constraints)
       break
-    case `boolean`:
-      arbitrary = booleanArbitrary()
+    case `url`:
+      arbitrary = urlArbitrary()
+      break
+    case `bytes`:
+      arbitrary = bytesArbitrary()
       break
     default:
       if (scalar.baseScalar) {
@@ -536,6 +540,7 @@ const normalizeArbitrary = (arbitrary: Arbitrary): Arbitrary => {
     case `number`:
     case `bigint`:
     case `string`:
+    case `url`:
     case `bytes`:
     case `enum`:
       return arbitrary
@@ -703,6 +708,7 @@ const getDirectArbitraryDependencies = (arbitrary: Arbitrary): Arbitrary[] => {
     case `number`:
     case `bigint`:
     case `string`:
+    case `url`:
     case `bytes`:
     case `enum`:
       return []
