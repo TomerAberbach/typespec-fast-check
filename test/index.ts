@@ -630,6 +630,18 @@ test.each([
       }
     `,
   },
+  {
+    name: `model-property-reference`,
+    code: `
+      model Model1 {
+        property: string
+      }
+
+      model Model2 {
+        property: Model1.property
+      }
+    `,
+  },
 ] satisfies TestCase[])(`$name`, async ({ name, code }) => {
   const snapshotPath = `./snapshots/${name}`
   const arbitrariesPath = `${snapshotPath}/arbitraries.js`
