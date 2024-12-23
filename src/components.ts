@@ -313,7 +313,7 @@ const BytesArbitrary = (): Child => code`fc.uint8Array()`
 const EnumArbitrary = ({ arbitrary }: { arbitrary: EnumArbitrary }): Child =>
   CallExpression({
     name: `fc.constantFrom`,
-    args: arbitrary.values.map(value =>
+    args: arbitrary.members.map(value =>
       typeof value === `string`
         ? StringLiteral({ string: value })
         : String(value),
