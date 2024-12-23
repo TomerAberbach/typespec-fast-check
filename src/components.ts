@@ -176,6 +176,8 @@ const ArbitraryDefinition = ({
       return BigIntArbitrary({ arbitrary })
     case `string`:
       return StringArbitrary({ arbitrary })
+    case `url`:
+      return UrlArbitrary()
     case `bytes`:
       return BytesArbitrary()
     case `enum`:
@@ -307,6 +309,8 @@ const StringArbitrary = ({
       }),
     ],
   })
+
+const UrlArbitrary = (): Child => code`fc.webUrl()`
 
 const BytesArbitrary = (): Child => code`fc.uint8Array()`
 

@@ -432,6 +432,12 @@ test.each([
     `,
   },
   {
+    name: `url`,
+    code: `
+      scalar Url extends url;
+    `,
+  },
+  {
     name: `bytes`,
     code: `
       scalar Bytes extends bytes;

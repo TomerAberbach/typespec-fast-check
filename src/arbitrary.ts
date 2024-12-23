@@ -76,6 +76,10 @@ export type StringArbitrary = {
   maxLength?: number
 }
 
+export const urlArbitrary = (): UrlArbitrary => memoize({ type: `url` })
+
+export type UrlArbitrary = { type: `url` }
+
 export const bytesArbitrary = (): BytesArbitrary => memoize({ type: `bytes` })
 
 export type BytesArbitrary = {
@@ -87,6 +91,7 @@ export type ScalarArbitrary =
   | NumberArbitrary
   | BigIntArbitrary
   | StringArbitrary
+  | UrlArbitrary
   | BytesArbitrary
 
 export const enumArbitrary = (members: unknown[]): EnumArbitrary =>
@@ -172,6 +177,7 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
     case `never`:
     case `anything`:
     case `boolean`:
+    case `url`:
     case `bytes`:
       return keyalesce([arbitrary.type])
     case `constant`:
