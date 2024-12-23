@@ -92,3 +92,51 @@ export type FastCheckNumeric = {
   }
   isInteger: boolean
 }
+
+export const minOrUndefined = <
+  const A extends bigint | number | undefined,
+  const B extends bigint | number | undefined,
+>(
+  a: A,
+  b: B,
+): A extends undefined
+  ? B extends undefined
+    ? undefined
+    : Exclude<A | B, undefined>
+  : Exclude<A | B, undefined> => {
+  const min = (() => {
+    if (a === undefined) {
+      return b
+    } else if (b === undefined) {
+      return a
+    } else {
+      return a < b ? a : b
+    }
+  })()
+  // eslint-disable-next-line typescript/no-unsafe-return
+  return min as any
+}
+
+export const maxOrUndefined = <
+  const A extends bigint | number | undefined,
+  const B extends bigint | number | undefined,
+>(
+  a: A,
+  b: B,
+): A extends undefined
+  ? B extends undefined
+    ? undefined
+    : Exclude<A | B, undefined>
+  : Exclude<A | B, undefined> => {
+  const max = (() => {
+    if (a === undefined) {
+      return b
+    } else if (b === undefined) {
+      return a
+    } else {
+      return a > b ? a : b
+    }
+  })()
+  // eslint-disable-next-line typescript/no-unsafe-return
+  return max as any
+}
