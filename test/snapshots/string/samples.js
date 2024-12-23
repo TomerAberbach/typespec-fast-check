@@ -1,4 +1,26 @@
 export const samples = {
+	'$Model': [
+		{
+			'a': 'string',
+			'b': 'string1'
+		},
+		{
+			'a': 'string',
+			'b': 'string2'
+		},
+		{
+			'a': 'string',
+			'b': 'string2'
+		},
+		{
+			'a': 'string',
+			'b': 'string1'
+		},
+		{
+			'a': 'string',
+			'b': 'string1'
+		}
+	],
 	'MaxLengthString': [
 		'!$',
 		'W|%=',
