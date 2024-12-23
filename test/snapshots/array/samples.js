@@ -25,6 +25,42 @@ export const samples = {
 		],
 		[]
 	],
+	'$Model': [
+		{
+			'property': []
+		},
+		{
+			'property': [
+				'|%=2Spc',
+				's',
+				' =RiGs.>Ju',
+				'B',
+				'',
+				'',
+				'K',
+				'%B7dka?'
+			]
+		},
+		{
+			'property': [
+				'1DZwS ',
+				'c',
+				'FYzX=#]N',
+				'g',
+				'0',
+				'F|'
+			]
+		},
+		{
+			'property': [
+				'0&k& #FFD',
+				'~'
+			]
+		},
+		{
+			'property': []
+		}
+	],
 	'MaxItemsArray': [
 		[],
 		[

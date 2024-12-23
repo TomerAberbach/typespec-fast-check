@@ -484,6 +484,10 @@ test.each([
       @minItems(3)
       @maxItems(12)
       model MinMaxItemsArray is Array<string>;
+
+      model $Model {
+        property: string[]
+      }
     `,
   },
   {
@@ -549,6 +553,22 @@ test.each([
         ...Model2,
         c: string,
         ...Record<boolean>
+      }
+    `,
+  },
+  {
+    name: `model-intersection`,
+    code: `
+      model Model1 {
+        a: int32
+      }
+
+      model Model2 {
+        b: string
+      }
+
+      model $Model {
+        property: Model1 & Model2
       }
     `,
   },
