@@ -44,8 +44,24 @@ import {
   unique,
   values,
 } from 'lfi'
-import keyalesce from 'keyalesce'
 import toposort from 'toposort'
+import {
+  anythingArbitrary,
+  arrayArbitrary,
+  bigintArbitrary,
+  booleanArbitrary,
+  bytesArbitrary,
+  constantArbitrary,
+  dictionaryArbitrary,
+  enumArbitrary,
+  intersectionArbitrary,
+  neverArbitrary,
+  numberArbitrary,
+  recordArbitrary,
+  referenceArbitrary,
+  stringArbitrary,
+  unionArbitrary,
+} from './arbitrary.ts'
 import type {
   Arbitrary,
   ArbitraryNamespace,
@@ -162,15 +178,15 @@ const convertType = (
 const convertIntrinsic = (intrinsic: IntrinsicType): Arbitrary => {
   switch (intrinsic.name) {
     case `null`:
-      return memoize({ type: `constant`, value: null })
+      return constantArbitrary(null)
     case `void`:
-      return memoize({ type: `constant`, value: undefined })
+      return constantArbitrary(undefined)
     case `never`:
       // Ref this because it's verbose so it's nice to extract a `const never`
       // variable if it's referenced more than once.
-      return ref(`never`, memoize({ type: `never` }))
+      return referenceArbitrary(`never`, neverArbitrary())
     case `unknown`:
-      return memoize({ type: `anything` })
+      return anythingArbitrary()
     case `ErrorType`:
       throw new Error(`Unhandled Intrinsic: ${intrinsic.name}`)
   }
@@ -178,7 +194,7 @@ const convertIntrinsic = (intrinsic: IntrinsicType): Arbitrary => {
 
 const convertLiteral = (
   literal: BooleanLiteral | NumericLiteral | StringLiteral,
-): Arbitrary => memoize({ type: `constant`, value: literal.value })
+): Arbitrary => constantArbitrary(literal.value)
 
 const convertScalar = (
   program: Program,
@@ -208,13 +224,13 @@ const convertScalar = (
       arbitrary = convertBigInt(scalar, constraints)
       break
     case `bytes`:
-      arbitrary = memoize({ type: `bytes` })
+      arbitrary = bytesArbitrary()
       break
     case `string`:
       arbitrary = convertString(constraints)
       break
     case `boolean`:
-      arbitrary = memoize({ type: `boolean` })
+      arbitrary = booleanArbitrary()
       break
     default:
       if (scalar.baseScalar) {
@@ -232,7 +248,7 @@ const convertScalar = (
 
   return isTypeSpecNamespace(scalar.namespace)
     ? arbitrary
-    : ref(scalar.name, arbitrary)
+    : referenceArbitrary(scalar.name, arbitrary)
 }
 
 const convertNumber = (
@@ -240,8 +256,7 @@ const convertNumber = (
   constraints: Constraints,
   { min, max, isInteger }: { min: number; max: number; isInteger: boolean },
 ): Arbitrary => {
-  const arbitrary = memoize({
-    type: `number`,
+  const arbitrary = numberArbitrary({
     min: maxOrUndefined(constraints.min?.asNumber() ?? undefined, min),
     max: minOrUndefined(constraints.max?.asNumber() ?? undefined, max),
     isInteger,
@@ -265,7 +280,7 @@ const convertNumber = (
     return arbitrary
   }
 
-  return ref(scalar.name, arbitrary)
+  return referenceArbitrary(scalar.name, arbitrary)
 }
 
 const convertBigInt = (
@@ -273,8 +288,7 @@ const convertBigInt = (
   constraints: Constraints,
   { min, max }: { min?: bigint; max?: bigint } = {},
 ): Arbitrary => {
-  const arbitrary = memoize({
-    type: `bigint`,
+  const arbitrary = bigintArbitrary({
     min: maxOrUndefined(constraints.min?.asBigInt() ?? undefined, min),
     max: minOrUndefined(constraints.max?.asBigInt() ?? undefined, max),
   })
@@ -284,27 +298,27 @@ const convertBigInt = (
     max !== undefined &&
     arbitrary.min === min &&
     arbitrary.max === max
-  return hasDefaultConstraints ? ref(scalar.name, arbitrary) : arbitrary
+  return hasDefaultConstraints
+    ? referenceArbitrary(scalar.name, arbitrary)
+    : arbitrary
 }
 
 const convertString = (constraints: Constraints): StringArbitrary =>
-  memoize({
-    type: `string`,
+  stringArbitrary({
     minLength: constraints.minLength?.asNumber() ?? undefined,
     maxLength: constraints.maxLength?.asNumber() ?? undefined,
   })
 
 const convertEnum = ($enum: Enum): Arbitrary =>
-  ref(
+  referenceArbitrary(
     $enum.name,
-    memoize({
-      type: `enum`,
-      values: pipe(
+    enumArbitrary(
+      pipe(
         $enum.members,
         map(([, { name, value }]) => value ?? name),
         reduce(toArray()),
       ),
-    }),
+    ),
   )
 
 const convertUnion = (
@@ -312,9 +326,8 @@ const convertUnion = (
   union: Union,
   constraints: Constraints,
 ): Arbitrary => {
-  const arbitrary = memoize({
-    type: `union`,
-    variants: pipe(
+  const arbitrary = unionArbitrary(
+    pipe(
       union.variants,
       map(([, { type }]) =>
         convertType(program, type, {
@@ -324,8 +337,8 @@ const convertUnion = (
       ),
       reduce(toArray()),
     ),
-  })
-  return union.name ? ref(union.name, arbitrary) : arbitrary
+  )
+  return union.name ? referenceArbitrary(union.name, arbitrary) : arbitrary
 }
 
 const convertObject = (
@@ -333,9 +346,8 @@ const convertObject = (
   object: ObjectType,
   constraints: Constraints,
 ) =>
-  memoize({
-    type: `record`,
-    properties: pipe(
+  recordArbitrary(
+    pipe(
       entries(object.properties),
       map(([name, type]) => [
         name,
@@ -343,7 +355,7 @@ const convertObject = (
       ]),
       reduce(toMap()),
     ),
-  })
+  )
 
 const convertModel = (
   program: Program,
@@ -377,9 +389,8 @@ const convertModel = (
       ? convertModelIndexer(program, model.indexer, constraints)
       : convertRecord(program, model, constraints)
   } else {
-    arbitrary = memoize({
-      type: `intersection`,
-      arbitraries: pipe(
+    arbitrary = intersectionArbitrary(
+      pipe(
         concat(
           map(model => convertType(program, model, constraints), sourceModels),
           concreteProperties.size > 0
@@ -388,12 +399,12 @@ const convertModel = (
         ),
         reduce(toArray()),
       ),
-    })
+    )
   }
 
   return isTypeSpecNamespace(model.namespace)
     ? arbitrary
-    : ref(model.name, arbitrary)
+    : referenceArbitrary(model.name, arbitrary)
 }
 
 const convertModelIndexer = (
@@ -417,9 +428,7 @@ const convertArray = (
     minItems = undefined
   }
 
-  return memoize({
-    type: `array`,
-    value: convertType(program, indexer.value, constraints),
+  return arrayArbitrary(convertType(program, indexer.value, constraints), {
     minItems,
     maxItems: constraints.maxItems?.asNumber() ?? undefined,
   })
@@ -430,11 +439,10 @@ const convertDictionary = (
   indexer: ModelIndexer,
   constraints: Constraints,
 ): DictionaryArbitrary =>
-  memoize({
-    type: `dictionary`,
-    key: convertType(program, indexer.key, constraints),
-    value: convertType(program, indexer.value, constraints),
-  })
+  dictionaryArbitrary(
+    convertType(program, indexer.key, constraints),
+    convertType(program, indexer.value, constraints),
+  )
 
 const convertRecord = (
   program: Program,
@@ -442,9 +450,8 @@ const convertRecord = (
   constraints: Constraints,
   properties: Map<string, ModelProperty> = model.properties,
 ): RecordArbitrary =>
-  memoize({
-    type: `record`,
-    properties: pipe(
+  recordArbitrary(
+    pipe(
       properties,
       map(([name, property]) => {
         const arbitrary = convertType(program, property.type, {
@@ -455,10 +462,10 @@ const convertRecord = (
           name,
           property.defaultValue
             ? {
-                arbitrary: memoize({
-                  type: `union`,
-                  variants: [arbitrary, convertValue(property.defaultValue)],
-                }),
+                arbitrary: unionArbitrary([
+                  arbitrary,
+                  convertValue(property.defaultValue),
+                ]),
                 required: false,
               }
             : { arbitrary, required: !property.optional },
@@ -466,10 +473,10 @@ const convertRecord = (
       }),
       reduce(toMap()),
     ),
-  })
+  )
 
 const convertValue = (value: Value): ConstantArbitrary =>
-  memoize({ type: `constant`, value: toJsValue(value) })
+  constantArbitrary(toJsValue(value))
 
 const toJsValue = (value: Value): unknown => {
   switch (value.valueKind) {
@@ -497,9 +504,6 @@ const toJsValue = (value: Value): unknown => {
       )
   }
 }
-
-const ref = (name: string, arbitrary: Arbitrary): Arbitrary =>
-  memoize({ type: `reference`, name, arbitrary })
 
 const getConstraints = (program: Program, type: Type): Constraints =>
   pipe(
@@ -550,31 +554,27 @@ const normalizeArbitrary = (arbitrary: Arbitrary): Arbitrary => {
   }
 }
 
-const normalizeArrayArbitrary = (arbitrary: ArrayArbitrary): Arbitrary =>
-  memoize({
-    ...arbitrary,
-    value: normalizeArbitrary(arbitrary.value),
-  })
+const normalizeArrayArbitrary = ({
+  value,
+  ...options
+}: ArrayArbitrary): Arbitrary =>
+  arrayArbitrary(normalizeArbitrary(value), options)
 
-const normalizeDictionaryArbitrary = (
-  arbitrary: DictionaryArbitrary,
-): Arbitrary =>
-  memoize({
-    ...arbitrary,
-    key: normalizeArbitrary(arbitrary.key),
-    value: normalizeArbitrary(arbitrary.value),
-  })
+const normalizeDictionaryArbitrary = ({
+  key,
+  value,
+}: DictionaryArbitrary): Arbitrary =>
+  dictionaryArbitrary(normalizeArbitrary(key), normalizeArbitrary(value))
 
 const normalizeUnionArbitrary = (arbitrary: UnionArbitrary): Arbitrary => {
   const variants = new Set(arbitrary.variants.map(normalizeArbitrary))
 
-  const boolean = memoize({ type: `boolean` })
-  const falseConstant = memoize({ type: `constant`, value: false })
-  const trueConstant = memoize({ type: `constant`, value: true })
+  const falseConstant = constantArbitrary(false)
+  const trueConstant = constantArbitrary(true)
   if (variants.has(falseConstant) && variants.has(trueConstant)) {
-    variants.add(boolean)
+    variants.add(booleanArbitrary())
   }
-  if (variants.has(boolean)) {
+  if (variants.has(booleanArbitrary())) {
     // The set of possible boolean values is so small that there's no point in
     // biasing a union towards `true` or `false`.
     variants.delete(falseConstant)
@@ -583,37 +583,33 @@ const normalizeUnionArbitrary = (arbitrary: UnionArbitrary): Arbitrary => {
 
   switch (variants.size) {
     case 0:
-      return memoize({ type: `never` })
+      return neverArbitrary()
     case 1:
       return get(first(variants))
     default:
-      return memoize(
-        all(variant => variant.type === `constant`, variants)
-          ? {
-              type: `enum`,
-              values: pipe(
-                variants,
-                map(variant => (variant as ConstantArbitrary).value),
-                reduce(toArray()),
-              ),
-            }
-          : { ...arbitrary, variants: [...variants] },
-      )
+      return all(variant => variant.type === `constant`, variants)
+        ? enumArbitrary(
+            pipe(
+              variants,
+              map(variant => (variant as ConstantArbitrary).value),
+              reduce(toArray()),
+            ),
+          )
+        : unionArbitrary([...variants])
   }
 }
 
-const normalizeRecordArbitrary = (arbitrary: RecordArbitrary): Arbitrary =>
-  memoize({
-    ...arbitrary,
-    properties: pipe(
-      arbitrary.properties,
+const normalizeRecordArbitrary = ({ properties }: RecordArbitrary): Arbitrary =>
+  recordArbitrary(
+    pipe(
+      properties,
       map(([key, property]) => [
         key,
         { ...property, arbitrary: normalizeArbitrary(property.arbitrary) },
       ]),
       reduce(toMap()),
     ),
-  })
+  )
 
 const normalizeIntersectionArbitrary = (
   arbitrary: IntersectionArbitrary,
@@ -621,80 +617,19 @@ const normalizeIntersectionArbitrary = (
   const arbitraries = [...unique(arbitrary.arbitraries.map(normalizeArbitrary))]
   switch (arbitraries.length) {
     case 0:
-      return memoize({ type: `record`, properties: new Map() })
+      return recordArbitrary(new Map())
     case 1:
       return arbitraries[0]!
     default:
-      return memoize({ ...arbitrary, arbitraries })
+      return intersectionArbitrary(arbitraries)
   }
 }
 
-const normalizeReferenceArbitrary = (
-  arbitrary: ReferenceArbitrary,
-): Arbitrary =>
-  memoize({
-    ...arbitrary,
-    arbitrary: normalizeArbitrary(arbitrary.arbitrary),
-  })
-
-const memoize = <A extends Arbitrary>(arbitrary: A): A => {
-  const arbitraryKey = getArbitraryKey(arbitrary)
-  let cachedArbitrary = cachedArbitraries.get(arbitraryKey)
-  if (!cachedArbitrary) {
-    cachedArbitrary = arbitrary
-    cachedArbitraries.set(arbitraryKey, cachedArbitrary)
-  }
-  return cachedArbitrary as A
-}
-
-const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
-  switch (arbitrary.type) {
-    case `never`:
-    case `anything`:
-    case `boolean`:
-    case `bytes`:
-      return keyalesce([arbitrary.type])
-    case `constant`:
-      return keyalesce([arbitrary.type, arbitrary.value])
-    case `number`:
-    case `bigint`:
-      return keyalesce([arbitrary.type, arbitrary.min, arbitrary.max])
-    case `string`:
-      return keyalesce([
-        arbitrary.type,
-        arbitrary.minLength,
-        arbitrary.maxLength,
-      ])
-    case `enum`:
-      return keyalesce([arbitrary.type, ...arbitrary.values])
-    case `array`:
-      return keyalesce([
-        arbitrary.type,
-        arbitrary.value,
-        arbitrary.minItems,
-        arbitrary.maxItems,
-      ])
-    case `dictionary`:
-      return keyalesce([arbitrary.type, arbitrary.key, arbitrary.value])
-    case `union`:
-      return keyalesce([arbitrary.type, ...arbitrary.variants])
-    case `record`:
-      return keyalesce([
-        arbitrary.type,
-        ...flatMap(
-          ([name, { arbitrary, required }]) => [name, arbitrary, required],
-          arbitrary.properties,
-        ),
-      ])
-    case `intersection`:
-      return keyalesce([arbitrary.type, ...arbitrary.arbitraries])
-    case `reference`:
-      return keyalesce([arbitrary.type, arbitrary.name, arbitrary.arbitrary])
-  }
-}
-
-const cachedArbitraries = new Map<ArbitraryKey, Arbitrary>()
-type ArbitraryKey = ReturnType<typeof keyalesce>
+const normalizeReferenceArbitrary = ({
+  name,
+  arbitrary,
+}: ReferenceArbitrary): Arbitrary =>
+  referenceArbitrary(name, normalizeArbitrary(arbitrary))
 
 const collectSharedArbitraries = (
   namespace: ArbitraryNamespace,
