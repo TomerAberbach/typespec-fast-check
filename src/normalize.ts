@@ -22,7 +22,7 @@ import type {
   UnionArbitrary,
 } from './arbitrary.ts'
 
-export const normalizeArbitrary = (arbitrary: Arbitrary): Arbitrary => {
+const normalizeArbitrary = (arbitrary: Arbitrary): Arbitrary => {
   switch (arbitrary.type) {
     case `never`:
     case `anything`:
@@ -126,3 +126,5 @@ const normalizeReferenceArbitrary = ({
   arbitrary,
 }: ReferenceArbitrary): Arbitrary =>
   referenceArbitrary(name, normalizeArbitrary(arbitrary))
+
+export default normalizeArbitrary
