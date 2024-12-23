@@ -51,7 +51,7 @@ import type {
   ArrayArbitrary,
   ConstantArbitrary,
   DictionaryArbitrary,
-  MergedArbitrary,
+  IntersectionArbitrary,
   RecordArbitrary,
   ReferenceArbitrary,
   StringArbitrary,
@@ -161,15 +161,15 @@ const convertType = (
 const convertIntrinsic = (intrinsic: IntrinsicType): Arbitrary => {
   switch (intrinsic.name) {
     case `null`:
-      return memoize({ type: `null` })
+      return memoize({ type: `constant`, value: null })
     case `void`:
-      return memoize({ type: `undefined` })
+      return memoize({ type: `constant`, value: undefined })
     case `never`:
       // Ref this because it's verbose so it's nice to extract a `const never`
       // variable if it's referenced more than once.
       return ref(`never`, memoize({ type: `never` }))
     case `unknown`:
-      return memoize({ type: `unknown` })
+      return memoize({ type: `anything` })
     case `ErrorType`:
       throw new Error(`Unhandled Intrinsic: ${intrinsic.name}`)
   }
@@ -377,7 +377,7 @@ const convertModel = (
       : convertRecord(program, model, constraints)
   } else {
     arbitrary = memoize({
-      type: `merged`,
+      type: `intersection`,
       arbitraries: pipe(
         concat(
           map(model => convertType(program, model, constraints), sourceModels),
@@ -524,10 +524,9 @@ type Constraints = {
 
 const normalizeArbitrary = (arbitrary: Arbitrary): Arbitrary => {
   switch (arbitrary.type) {
-    case `null`:
-    case `undefined`:
     case `never`:
-    case `unknown`:
+    case `anything`:
+    case `constant`:
     case `boolean`:
     case `number`:
     case `bigint`:
@@ -535,8 +534,6 @@ const normalizeArbitrary = (arbitrary: Arbitrary): Arbitrary => {
     case `bytes`:
     case `enum`:
       return arbitrary
-    case `constant`:
-      return normalizeConstantArbitrary(arbitrary)
     case `array`:
       return normalizeArrayArbitrary(arbitrary)
     case `dictionary`:
@@ -545,23 +542,10 @@ const normalizeArbitrary = (arbitrary: Arbitrary): Arbitrary => {
       return normalizeUnionArbitrary(arbitrary)
     case `record`:
       return normalizeRecordArbitrary(arbitrary)
-    case `merged`:
-      return normalizeMergedArbitrary(arbitrary)
+    case `intersection`:
+      return normalizeIntersectionArbitrary(arbitrary)
     case `reference`:
       return normalizeReferenceArbitrary(arbitrary)
-  }
-}
-
-const normalizeConstantArbitrary = (
-  arbitrary: ConstantArbitrary,
-): Arbitrary => {
-  switch (arbitrary.value) {
-    case null:
-      return memoize({ type: `null` })
-    case undefined:
-      return memoize({ type: `undefined` })
-    default:
-      return arbitrary
   }
 }
 
@@ -619,7 +603,9 @@ const normalizeRecordArbitrary = (arbitrary: RecordArbitrary): Arbitrary =>
     ),
   })
 
-const normalizeMergedArbitrary = (arbitrary: MergedArbitrary): Arbitrary => {
+const normalizeIntersectionArbitrary = (
+  arbitrary: IntersectionArbitrary,
+): Arbitrary => {
   const arbitraries = [...unique(arbitrary.arbitraries.map(normalizeArbitrary))]
   switch (arbitraries.length) {
     case 0:
@@ -651,10 +637,8 @@ const memoize = <A extends Arbitrary>(arbitrary: A): A => {
 
 const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
   switch (arbitrary.type) {
-    case `null`:
-    case `undefined`:
     case `never`:
-    case `unknown`:
+    case `anything`:
     case `boolean`:
     case `bytes`:
       return keyalesce([arbitrary.type])
@@ -690,7 +674,7 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
           arbitrary.properties,
         ),
       ])
-    case `merged`:
+    case `intersection`:
       return keyalesce([arbitrary.type, ...arbitrary.arbitraries])
     case `reference`:
       return keyalesce([arbitrary.type, arbitrary.name, arbitrary.arbitrary])
@@ -765,10 +749,8 @@ const collectSharedArbitraries = (
 
 const getDirectArbitraryDependencies = (arbitrary: Arbitrary): Arbitrary[] => {
   switch (arbitrary.type) {
-    case `null`:
-    case `undefined`:
     case `never`:
-    case `unknown`:
+    case `anything`:
     case `constant`:
     case `boolean`:
     case `number`:
@@ -789,7 +771,7 @@ const getDirectArbitraryDependencies = (arbitrary: Arbitrary): Arbitrary[] => {
         map(property => property.arbitrary),
         reduce(toArray()),
       )
-    case `merged`:
+    case `intersection`:
       return arbitrary.arbitraries
     case `reference`:
       return [arbitrary.arbitrary]
