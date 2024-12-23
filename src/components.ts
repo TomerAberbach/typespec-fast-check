@@ -33,7 +33,7 @@ import type {
   ConstantArbitrary,
   DictionaryArbitrary,
   EnumArbitrary,
-  MergedArbitrary,
+  IntersectionArbitrary,
   NumberArbitrary,
   RecordArbitrary,
   ReferenceArbitrary,
@@ -162,14 +162,10 @@ const ArbitraryDefinition = ({
   sharedArbitraries: ReadonlySet<ReferenceArbitrary>
 }): Child => {
   switch (arbitrary.type) {
-    case `null`:
-      return NullArbitrary()
-    case `undefined`:
-      return UndefinedArbitrary()
     case `never`:
       return NeverArbitrary()
-    case `unknown`:
-      return UnknownArbitrary()
+    case `anything`:
+      return AnythingArbitrary()
     case `constant`:
       return ConstantArbitrary({ arbitrary })
     case `boolean`:
@@ -192,16 +188,12 @@ const ArbitraryDefinition = ({
       return UnionArbitrary({ arbitrary, sharedArbitraries })
     case `record`:
       return RecordArbitrary({ arbitrary, sharedArbitraries })
-    case `merged`:
-      return MergedArbitrary({ arbitrary, sharedArbitraries })
+    case `intersection`:
+      return IntersectionArbitrary({ arbitrary, sharedArbitraries })
     case `reference`:
       return Arbitrary({ arbitrary: arbitrary.arbitrary, sharedArbitraries })
   }
 }
-
-const NullArbitrary = (): Child => code`fc.constant(null)`
-
-const UndefinedArbitrary = (): Child => code`fc.constant(undefined)`
 
 const NeverArbitrary = (): Child => code`
   fc.constant(null).map(() => {
@@ -209,7 +201,7 @@ const NeverArbitrary = (): Child => code`
   })
 `
 
-const UnknownArbitrary = (): Child => code`fc.anything()`
+const AnythingArbitrary = (): Child => code`fc.anything()`
 
 const ConstantArbitrary = ({
   arbitrary,
@@ -428,11 +420,11 @@ const RecordArbitrary = ({
   })
 }
 
-const MergedArbitrary = ({
+const IntersectionArbitrary = ({
   arbitrary,
   sharedArbitraries,
 }: {
-  arbitrary: MergedArbitrary
+  arbitrary: IntersectionArbitrary
   sharedArbitraries: ReadonlySet<ReferenceArbitrary>
 }): Child => code`
   fc

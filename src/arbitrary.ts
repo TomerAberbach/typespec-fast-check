@@ -6,7 +6,8 @@ export type ArbitraryNamespace = {
 }
 
 export type Arbitrary =
-  | IntrinsicArbitrary
+  | NeverArbitrary
+  | AnythingArbitrary
   | ConstantArbitrary
   | ScalarArbitrary
   | EnumArbitrary
@@ -14,18 +15,12 @@ export type Arbitrary =
   | DictionaryArbitrary
   | UnionArbitrary
   | RecordArbitrary
-  | MergedArbitrary
+  | IntersectionArbitrary
   | ReferenceArbitrary
 
-export type IntrinsicArbitrary =
-  | NullArbitrary
-  | UndefinedArbitrary
-  | NeverArbitrary
-  | UnknownArbitrary
-export type NullArbitrary = { type: `null` }
-export type UndefinedArbitrary = { type: `undefined` }
 export type NeverArbitrary = { type: `never` }
-export type UnknownArbitrary = { type: `unknown` }
+
+export type AnythingArbitrary = { type: `anything` }
 
 export type ConstantArbitrary = {
   type: `constant`
@@ -63,7 +58,7 @@ export type BytesArbitrary = {
 
 export type EnumArbitrary = {
   type: `enum`
-  values: (string | number)[]
+  values: unknown[]
 }
 
 export type ArrayArbitrary = {
@@ -89,8 +84,8 @@ export type RecordArbitrary = {
   properties: Map<string, { arbitrary: Arbitrary; required: boolean }>
 }
 
-export type MergedArbitrary = {
-  type: `merged`
+export type IntersectionArbitrary = {
+  type: `intersection`
   arbitraries: Arbitrary[]
 }
 
