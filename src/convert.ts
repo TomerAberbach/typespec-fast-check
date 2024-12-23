@@ -155,9 +155,11 @@ const convertType = (
     case `Model`:
       arbitrary = convertModel(program, type, constraints)
       break
+    case `ModelProperty`:
+      arbitrary = convertType(program, type.type, constraints)
+      break
     case `EnumMember`:
     case `Namespace`:
-    case `ModelProperty`:
     case `Decorator`:
     case `Interface`:
     case `Function`:
