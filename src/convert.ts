@@ -8,6 +8,7 @@ import {
   getMinValueAsNumeric,
 } from '@typespec/compiler'
 import type {
+  BooleanLiteral,
   Enum,
   IntrinsicType,
   Model,
@@ -15,8 +16,11 @@ import type {
   ModelProperty,
   Namespace,
   Numeric,
+  NumericLiteral,
+  ObjectType,
   Program,
   Scalar,
+  StringLiteral,
   Type,
   Union,
   Value,
@@ -109,10 +113,14 @@ const convertType = (
   constraints = { ...constraints, ...getConstraints(program, type) }
   let arbitrary: Arbitrary
 
-  // eslint-disable-next-line typescript/switch-exhaustiveness-check
   switch (type.kind) {
     case `Intrinsic`:
       arbitrary = convertIntrinsic(type)
+      break
+    case `Boolean`:
+    case `Number`:
+    case `String`:
+      arbitrary = convertLiteral(type)
       break
     case `Scalar`:
       arbitrary = convertScalar(program, type, constraints)
@@ -123,10 +131,27 @@ const convertType = (
     case `Union`:
       arbitrary = convertUnion(program, type, constraints)
       break
+    case `Object`:
+      arbitrary = convertObject(program, type, constraints)
+      break
     case `Model`:
       arbitrary = convertModel(program, type, constraints)
       break
-    default:
+    case `EnumMember`:
+    case `Namespace`:
+    case `ModelProperty`:
+    case `Decorator`:
+    case `Interface`:
+    case `Function`:
+    case `FunctionParameter`:
+    case `ScalarConstructor`:
+    case `Operation`:
+    case `Projection`:
+    case `UnionVariant`:
+    case `TemplateParameter`:
+    case `StringTemplate`:
+    case `StringTemplateSpan`:
+    case `Tuple`:
       throw new Error(`Unhandled type: ${type.kind}`)
   }
 
@@ -149,6 +174,10 @@ const convertIntrinsic = (intrinsic: IntrinsicType): Arbitrary => {
       throw new Error(`Unhandled Intrinsic: ${intrinsic.name}`)
   }
 }
+
+const convertLiteral = (
+  literal: BooleanLiteral | NumericLiteral | StringLiteral,
+): Arbitrary => memoize({ type: `constant`, value: literal.value })
 
 const convertScalar = (
   program: Program,
@@ -297,6 +326,23 @@ const convertUnion = (
   })
   return union.name ? ref(union.name, arbitrary) : arbitrary
 }
+
+const convertObject = (
+  program: Program,
+  object: ObjectType,
+  constraints: Constraints,
+) =>
+  memoize({
+    type: `record`,
+    properties: pipe(
+      entries(object.properties),
+      map(([name, type]) => [
+        name,
+        { arbitrary: convertType(program, type, constraints), required: true },
+      ]),
+      reduce(toMap()),
+    ),
+  })
 
 const convertModel = (
   program: Program,
@@ -536,11 +582,18 @@ const normalizeDictionaryArbitrary = (
 
 const normalizeUnionArbitrary = (arbitrary: UnionArbitrary): Arbitrary => {
   const variants = new Set(arbitrary.variants.map(normalizeArbitrary))
-  if (variants.has(memoize({ type: `boolean` }))) {
+
+  const boolean = memoize({ type: `boolean` })
+  const falseConstant = memoize({ type: `constant`, value: false })
+  const trueConstant = memoize({ type: `constant`, value: true })
+  if (variants.has(falseConstant) && variants.has(trueConstant)) {
+    variants.add(boolean)
+  }
+  if (variants.has(boolean)) {
     // The set of possible boolean values is so small that there's no point in
     // biasing a union towards `true` or `false`.
-    variants.delete(memoize({ type: `constant`, value: false }))
-    variants.delete(memoize({ type: `constant`, value: true }))
+    variants.delete(falseConstant)
+    variants.delete(trueConstant)
   }
 
   switch (variants.size) {
@@ -549,10 +602,8 @@ const normalizeUnionArbitrary = (arbitrary: UnionArbitrary): Arbitrary => {
     case 1:
       return get(first(variants))
     default:
-      break
+      return memoize({ ...arbitrary, variants: [...variants] })
   }
-
-  return memoize({ ...arbitrary, variants: [...variants] })
 }
 
 const normalizeRecordArbitrary = (arbitrary: RecordArbitrary): Arbitrary =>

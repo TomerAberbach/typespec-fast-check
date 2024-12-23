@@ -112,6 +112,13 @@ test.each([
     name: `boolean`,
     code: `
       scalar Boolean extends boolean;
+
+      model $Model {
+        a: true,
+        b: false,
+        c: true | false,
+        d: true | true | false | false
+      }
     `,
   },
   {
@@ -336,6 +343,12 @@ test.each([
       @minValue(-3.4e+39)
       @maxValue(3.4e+39)
       scalar MinMaxValueNumeric extends numeric;
+
+      model $Model {
+        a: 1,
+        b: 2,
+        c: 1 | 2.2 | -3,
+      }
     `,
   },
   {
@@ -411,6 +424,11 @@ test.each([
       @minLength(2)
       @maxLength(7)
       scalar MinAndMaxLengthString extends string;
+
+      model $Model {
+        a: "string",
+        b: "string1" | "string2",
+      }
     `,
   },
   {
@@ -419,8 +437,6 @@ test.each([
       scalar Bytes extends bytes;
     `,
   },
-
-  // Models
   {
     name: `enum`,
     code: `
@@ -477,6 +493,15 @@ test.each([
         string: string,
         int32: int32,
         boolean: boolean
+      }
+    `,
+  },
+  {
+    name: `object`,
+    code: `
+      model $Model {
+        a: { a: int32, b: int32 },
+        b: { a: 1, b: 2 }
       }
     `,
   },
