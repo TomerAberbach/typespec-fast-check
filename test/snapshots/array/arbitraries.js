@@ -12,3 +12,5 @@ export const MinMaxItemsArray = fc.array(fc.string(), {
   minLength: 3,
   maxLength: 12,
 });
+
+export const $Model = fc.record({ property: fc.array(fc.string()) });
