@@ -3,11 +3,7 @@ import * as fc from 'fast-check';
 export const $Model = fc.record({
   a: fc.constant(1),
   b: fc.constant(2),
-  c: fc.oneof(
-    fc.constant(1),
-    fc.constant(2.2),
-    fc.constant(-3),
-  ),
+  c: fc.constantFrom(1, 2.2, -3),
 });
 
 export const Numeric = fc.double();

@@ -2,10 +2,7 @@ import * as fc from 'fast-check';
 
 export const $Model = fc.record({
   a: fc.constant("string"),
-  b: fc.oneof(
-    fc.constant("string1"),
-    fc.constant("string2"),
-  ),
+  b: fc.constantFrom('string1', 'string2'),
 });
 
 export const String = fc.string();

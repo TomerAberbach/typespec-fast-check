@@ -26,6 +26,7 @@ import type {
   Value,
 } from '@typespec/compiler'
 import {
+  all,
   any,
   concat,
   entries,
@@ -586,7 +587,18 @@ const normalizeUnionArbitrary = (arbitrary: UnionArbitrary): Arbitrary => {
     case 1:
       return get(first(variants))
     default:
-      return memoize({ ...arbitrary, variants: [...variants] })
+      return memoize(
+        all(variant => variant.type === `constant`, variants)
+          ? {
+              type: `enum`,
+              values: pipe(
+                variants,
+                map(variant => (variant as ConstantArbitrary).value),
+                reduce(toArray()),
+              ),
+            }
+          : { ...arbitrary, variants: [...variants] },
+      )
   }
 }
 
