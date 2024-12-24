@@ -194,6 +194,8 @@ const ArbitraryDefinition = ({
       return IntersectionArbitrary({ arbitrary, sharedArbitraries })
     case `reference`:
       return Arbitrary({ arbitrary: arbitrary.arbitrary, sharedArbitraries })
+    case `recursive-reference`:
+      return `fc.constant("TODO")`
   }
 }
 

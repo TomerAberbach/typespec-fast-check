@@ -100,5 +100,7 @@ const getDirectArbitraryDependencies = (arbitrary: Arbitrary): Arbitrary[] => {
       return arbitrary.arbitraries
     case `reference`:
       return [arbitrary.arbitrary]
+    case `recursive-reference`:
+      return getDirectArbitraryDependencies(arbitrary.deref())
   }
 }

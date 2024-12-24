@@ -44,6 +44,7 @@ import {
   neverArbitrary,
   numberArbitrary,
   recordArbitrary,
+  recursiveReferenceArbitrary,
   referenceArbitrary,
   stringArbitrary,
   unionArbitrary,
@@ -127,6 +128,13 @@ const convertType = (
     return arbitrary
   }
 
+  // If we try to convert the same type and constraints while converting the
+  // type constraints, then we'll return a recursive reference above. Otherwise,
+  // we'll return a non-recursive arbitrary by overwriting this entry below.
+  typeToArbitrary.set(
+    typeKey,
+    recursiveReferenceArbitrary(() => arbitrary!),
+  )
   constraints = mergeConstraints(constraints, getConstraints(program, type))
   switch (type.kind) {
     case `Intrinsic`:

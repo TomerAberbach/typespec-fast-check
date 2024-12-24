@@ -20,6 +20,7 @@ export type Arbitrary =
   | RecordArbitrary
   | IntersectionArbitrary
   | ReferenceArbitrary
+  | RecursiveReferenceArbitrary
 
 export const neverArbitrary = (): NeverArbitrary => memoize({ type: `never` })
 
@@ -162,6 +163,16 @@ export type ReferenceArbitrary = {
   arbitrary: Arbitrary
 }
 
+export const recursiveReferenceArbitrary = (
+  deref: () => Arbitrary,
+): RecursiveReferenceArbitrary =>
+  memoize({ type: `recursive-reference`, deref })
+
+export type RecursiveReferenceArbitrary = {
+  type: `recursive-reference`
+  deref: () => Arbitrary
+}
+
 const memoize = <A extends Arbitrary>(arbitrary: A): A => {
   const arbitraryKey = getArbitraryKey(arbitrary)
   let cachedArbitrary = arbitraryCache.get(arbitraryKey)
@@ -216,6 +227,8 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
       return keyalesce([arbitrary.type, ...arbitrary.arbitraries])
     case `reference`:
       return keyalesce([arbitrary.type, arbitrary.name, arbitrary.arbitrary])
+    case `recursive-reference`:
+      return keyalesce([arbitrary.type, arbitrary.deref])
   }
 }
 

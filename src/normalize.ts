@@ -34,6 +34,7 @@ const normalizeArbitrary = (arbitrary: Arbitrary): Arbitrary => {
     case `url`:
     case `bytes`:
     case `enum`:
+    case `recursive-reference`:
       return arbitrary
     case `array`:
       return normalizeArrayArbitrary(arbitrary)
