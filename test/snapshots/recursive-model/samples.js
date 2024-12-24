@@ -5,31 +5,19 @@ export const samples = {
 		},
 		{
 			'value': 'W|%=2Spc',
-			'next': {
-				'value': ' =RiGs.>Ju',
-				'next': 'TODO'
-			}
+			'next': 'TODO'
 		},
 		{
 			'value': 'X1DZwS',
-			'next': {
-				'value': 'RFYz',
-				'next': 'TODO'
-			}
+			'next': 'TODO'
 		},
 		{
 			'value': 'gp',
-			'next': {
-				'value': '#',
-				'next': 'TODO'
-			}
+			'next': 'TODO'
 		},
 		{
 			'value': '',
-			'next': {
-				'value': '#',
-				'next': 'TODO'
-			}
+			'next': 'TODO'
 		}
 	]
 };
