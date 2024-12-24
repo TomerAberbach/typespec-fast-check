@@ -83,6 +83,7 @@ const getDirectArbitraryDependencies = (arbitrary: Arbitrary): Arbitrary[] => {
     case `url`:
     case `bytes`:
     case `enum`:
+    case `recursive-reference`:
       return []
     case `array`:
       return [arbitrary.value]
@@ -100,7 +101,5 @@ const getDirectArbitraryDependencies = (arbitrary: Arbitrary): Arbitrary[] => {
       return arbitrary.arbitraries
     case `reference`:
       return [arbitrary.arbitrary]
-    case `recursive-reference`:
-      return getDirectArbitraryDependencies(arbitrary.deref())
   }
 }

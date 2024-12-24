@@ -122,6 +122,7 @@ const convertType = (
   type: Type,
   constraints: Constraints,
 ): Arbitrary => {
+  constraints = mergeConstraints(constraints, getConstraints(program, type))
   const typeKey = keyalesce([type, constraints])
   let arbitrary = typeToArbitrary.get(typeKey)
   if (arbitrary) {
@@ -135,7 +136,6 @@ const convertType = (
     typeKey,
     recursiveReferenceArbitrary(() => arbitrary!),
   )
-  constraints = mergeConstraints(constraints, getConstraints(program, type))
   switch (type.kind) {
     case `Intrinsic`:
       arbitrary = convertIntrinsic(type)
