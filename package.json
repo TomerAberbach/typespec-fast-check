@@ -56,9 +56,9 @@
   "dependencies": {
     "@alloy-js/core": "^0.3.0",
     "@alloy-js/typescript": "^0.3.0",
+    "@rtsao/scc": "^1.1.0",
     "keyalesce": "^2.2.0",
-    "lfi": "^3.8.0",
-    "toposort": "^2.0.2"
+    "lfi": "^3.8.0"
   },
   "peerDependencies": {
     "@typespec/compiler": "^0.62.0"
@@ -68,7 +68,6 @@
     "@types/jsesc": "^3.0.3",
     "@types/node": "^22.10.1",
     "@types/pascalcase": "^1.0.3",
-    "@types/toposort": "^2.0.7",
     "@typespec/compiler": "^0.62.0",
     "@vitest/coverage-v8": "^2.1.8",
     "cross-env": "^7.0.3",

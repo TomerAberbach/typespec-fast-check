@@ -1,5 +1,16 @@
-import { filter, flatMap, map, pipe, reduce, toArray, toSet, values } from 'lfi'
-import toposort from 'toposort'
+import {
+  filter,
+  filterMap,
+  first,
+  get,
+  map,
+  pipe,
+  reduce,
+  toArray,
+  toSet,
+  values,
+} from 'lfi'
+import stronglyConnectedComponents from '@rtsao/scc'
 import type {
   Arbitrary,
   ArbitraryNamespace,
@@ -46,20 +57,11 @@ export const collectSharedArbitraries = (
     }
   } while (remainingNamespaces.length > 0)
 
-  const sharedArbitraryDependencyGraph = pipe(
-    arbitraryDependencies,
-    flatMap(([arbitrary, dependencies]) =>
-      pipe(
-        dependencies,
-        values,
-        map(dependency => [arbitrary, dependency]),
-      ),
-    ),
-    reduce(toArray()),
-  )
-
   return pipe(
-    toposort(sharedArbitraryDependencyGraph).reverse(),
+    stronglyConnectedComponents(arbitraryDependencies).reverse(),
+    filterMap(arbitraries =>
+      arbitraries.size === 1 ? get(first(arbitraries)) : null,
+    ),
     filter(
       (arbitrary): arbitrary is ReferenceArbitrary =>
         arbitrary.type === `reference` &&

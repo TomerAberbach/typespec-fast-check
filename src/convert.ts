@@ -1,12 +1,4 @@
 import assert from 'node:assert'
-import {
-  getMaxItemsAsNumeric,
-  getMaxLengthAsNumeric,
-  getMaxValueAsNumeric,
-  getMinItemsAsNumeric,
-  getMinLengthAsNumeric,
-  getMinValueAsNumeric,
-} from '@typespec/compiler'
 import type {
   BooleanLiteral,
   Enum,
@@ -15,7 +7,6 @@ import type {
   ModelIndexer,
   ModelProperty,
   Namespace,
-  Numeric,
   NumericLiteral,
   ObjectType,
   Program,
@@ -39,6 +30,7 @@ import {
   toSet,
   values,
 } from 'lfi'
+import keyalesce from 'keyalesce'
 import {
   anythingArbitrary,
   arrayArbitrary,
@@ -75,6 +67,8 @@ import {
 } from './numerics.ts'
 import normalizeArbitrary from './normalize.ts'
 import { collectSharedArbitraries } from './dependency-graph.ts'
+import { getConstraints, mergeConstraints } from './constraints.ts'
+import type { Constraints } from './constraints.ts'
 
 const convertProgram = (
   program: Program,
@@ -127,9 +121,13 @@ const convertType = (
   type: Type,
   constraints: Constraints,
 ): Arbitrary => {
-  constraints = { ...constraints, ...getConstraints(program, type) }
-  let arbitrary: Arbitrary
+  const typeKey = keyalesce([type, constraints])
+  let arbitrary = typeToArbitrary.get(typeKey)
+  if (arbitrary) {
+    return arbitrary
+  }
 
+  constraints = mergeConstraints(constraints, getConstraints(program, type))
   switch (type.kind) {
     case `Intrinsic`:
       arbitrary = convertIntrinsic(type)
@@ -174,8 +172,14 @@ const convertType = (
       throw new Error(`Unhandled type: ${type.kind}`)
   }
 
-  return normalizeArbitrary(arbitrary)
+  arbitrary = normalizeArbitrary(arbitrary)
+  typeToArbitrary.set(typeKey, arbitrary)
+
+  return arbitrary
 }
+
+const typeToArbitrary = new Map<TypeKey, Arbitrary>()
+type TypeKey = ReturnType<typeof keyalesce>
 
 const convertIntrinsic = (intrinsic: IntrinsicType): Arbitrary => {
   switch (intrinsic.name) {
@@ -239,10 +243,11 @@ const convertScalar = (
       break
     default:
       if (scalar.baseScalar) {
-        arbitrary = convertType(program, scalar.baseScalar, {
-          ...constraints,
-          ...getConstraints(program, scalar),
-        })
+        arbitrary = convertType(
+          program,
+          scalar.baseScalar,
+          mergeConstraints(constraints, getConstraints(program, scalar)),
+        )
       }
       break
   }
@@ -335,10 +340,11 @@ const convertUnion = (
     pipe(
       union.variants,
       map(([, { type }]) =>
-        convertType(program, type, {
-          ...constraints,
-          ...getConstraints(program, union),
-        }),
+        convertType(
+          program,
+          type,
+          mergeConstraints(constraints, getConstraints(program, union)),
+        ),
       ),
       reduce(toArray()),
     ),
@@ -385,10 +391,11 @@ const convertModel = (
   if (baseModel && concreteProperties.size === 0) {
     // The model is just `model A extends B` or `model A is B` so we can just
     // convert `B`.
-    arbitrary = convertType(program, baseModel, {
-      ...constraints,
-      ...getConstraints(program, model),
-    })
+    arbitrary = convertType(
+      program,
+      baseModel,
+      mergeConstraints(constraints, getConstraints(program, model)),
+    )
   } else if (sourceModels.size === 0) {
     arbitrary = model.indexer
       ? convertModelIndexer(program, model.indexer, constraints)
@@ -459,10 +466,11 @@ const convertRecord = (
     pipe(
       properties,
       map(([name, property]) => {
-        const arbitrary = convertType(program, property.type, {
-          ...constraints,
-          ...getConstraints(program, property),
-        })
+        const arbitrary = convertType(
+          program,
+          property.type,
+          mergeConstraints(constraints, getConstraints(program, property)),
+        )
         return [
           name,
           property.defaultValue
@@ -508,28 +516,6 @@ const toJsValue = (value: Value): unknown => {
         reduce(toObject()),
       )
   }
-}
-
-const getConstraints = (program: Program, type: Type): Constraints =>
-  pipe(
-    entries({
-      min: getMinValueAsNumeric(program, type),
-      max: getMaxValueAsNumeric(program, type),
-      minLength: getMinLengthAsNumeric(program, type),
-      maxLength: getMaxLengthAsNumeric(program, type),
-      minItems: getMinItemsAsNumeric(program, type),
-      maxItems: getMaxItemsAsNumeric(program, type),
-    }),
-    filter(([, value]) => value !== undefined),
-    reduce(toObject()),
-  )
-type Constraints = {
-  min?: Numeric
-  max?: Numeric
-  minLength?: Numeric
-  maxLength?: Numeric
-  minItems?: Numeric
-  maxItems?: Numeric
 }
 
 const isTypeSpecNamespace = (namespace?: Namespace): boolean =>

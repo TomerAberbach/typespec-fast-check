@@ -164,10 +164,10 @@ export type ReferenceArbitrary = {
 
 const memoize = <A extends Arbitrary>(arbitrary: A): A => {
   const arbitraryKey = getArbitraryKey(arbitrary)
-  let cachedArbitrary = cachedArbitraries.get(arbitraryKey)
+  let cachedArbitrary = arbitraryCache.get(arbitraryKey)
   if (!cachedArbitrary) {
     cachedArbitrary = arbitrary
-    cachedArbitraries.set(arbitraryKey, cachedArbitrary)
+    arbitraryCache.set(arbitraryKey, cachedArbitrary)
   }
   return cachedArbitrary as A
 }
@@ -219,5 +219,5 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
   }
 }
 
-const cachedArbitraries = new Map<ArbitraryKey, Arbitrary>()
+const arbitraryCache = new Map<ArbitraryKey, Arbitrary>()
 type ArbitraryKey = ReturnType<typeof keyalesce>

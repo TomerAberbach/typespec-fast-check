@@ -13,15 +13,15 @@ importers:
       '@alloy-js/typescript':
         specifier: ^0.3.0
         version: 0.3.0
+      '@rtsao/scc':
+        specifier: ^1.1.0
+        version: 1.1.0
       keyalesce:
         specifier: ^2.2.0
         version: 2.2.0
       lfi:
         specifier: ^3.8.0
         version: 3.8.0
-      toposort:
-        specifier: ^2.0.2
-        version: 2.0.2
     devDependencies:
       '@fast-check/vitest':
         specifier: ^0.1.4
@@ -35,9 +35,6 @@ importers:
       '@types/pascalcase':
         specifier: ^1.0.3
         version: 1.0.3
-      '@types/toposort':
-        specifier: ^2.0.7
-        version: 2.0.7
       '@typespec/compiler':
         specifier: ^0.62.0
         version: 0.62.0
@@ -1848,6 +1845,12 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@rtsao/scc@1.1.0':
+    resolution:
+      {
+        integrity: sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==,
+      }
+
   '@sinclair/typebox@0.27.8':
     resolution:
       {
@@ -1959,12 +1962,6 @@ packages:
     resolution:
       {
         integrity: sha512-I8EUhyrgfLrcTkzV3TSsGyl1tSuPrEDzr0yd5m90UgNxQkyDXULk3b6MlQqTCpZpNtWe1K0hzclnZkTcLBe2UQ==,
-      }
-
-  '@types/toposort@2.0.7':
-    resolution:
-      {
-        integrity: sha512-sQNk65vbC36+UixCkcky+dCr7MlflHcVILg1FVGqlUntsLFv9xd9ToWIVko/gTuin+cVe16t+2YubEFkhnSuPQ==,
       }
 
   '@types/unist@2.0.11':
@@ -5435,12 +5432,6 @@ packages:
       typescript: ^5
       vitest: ^2
 
-  toposort@2.0.2:
-    resolution:
-      {
-        integrity: sha512-0a5EOkAUp8D4moMi2W8ZF8jcga7BgZd91O/yabJCFY8az+XSzeGyTKs0Aoo897iV1Nj6guFq8orWDS96z91oGg==,
-      }
-
   tough-cookie@5.0.0:
     resolution:
       {
@@ -7154,6 +7145,8 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.28.0':
     optional: true
 
+  '@rtsao/scc@1.1.0': {}
+
   '@sinclair/typebox@0.27.8': {}
 
   '@sindresorhus/merge-streams@2.3.0': {}
@@ -7237,8 +7230,6 @@ snapshots:
   '@types/resolve@1.20.2': {}
 
   '@types/semver@7.5.8': {}
-
-  '@types/toposort@2.0.7': {}
 
   '@types/unist@2.0.11': {}
 
@@ -9561,8 +9552,6 @@ snapshots:
       - supports-color
       - utf-8-validate
       - vite
-
-  toposort@2.0.2: {}
 
   tough-cookie@5.0.0:
     dependencies:
