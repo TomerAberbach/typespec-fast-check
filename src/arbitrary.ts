@@ -164,13 +164,13 @@ export type ReferenceArbitrary = {
 }
 
 export const recursiveReferenceArbitrary = (
-  deref: () => Arbitrary,
+  deref: () => ReferenceArbitrary,
 ): RecursiveReferenceArbitrary =>
   memoize({ type: `recursive-reference`, deref })
 
 export type RecursiveReferenceArbitrary = {
   type: `recursive-reference`
-  deref: () => Arbitrary
+  deref: () => ReferenceArbitrary
 }
 
 const memoize = <A extends Arbitrary>(arbitrary: A): A => {
