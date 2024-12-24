@@ -642,6 +642,15 @@ test.each([
       }
     `,
   },
+  {
+    name: `recursive-model`,
+    code: `
+      model Node {
+        value: string,
+        next?: Node
+      }
+    `,
+  },
 ] satisfies TestCase[])(`$name`, async ({ name, code }) => {
   const snapshotPath = `./snapshots/${name}`
   const arbitrariesPath = `${snapshotPath}/arbitraries.js`
