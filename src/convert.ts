@@ -57,7 +57,6 @@ import type {
   ConstantArbitrary,
   DictionaryArbitrary,
   RecordArbitrary,
-  ReferenceArbitrary,
   StringArbitrary,
 } from './arbitrary.ts'
 import {
@@ -68,15 +67,13 @@ import {
 } from './numerics.ts'
 import normalizeArbitrary from './normalize.ts'
 import { collectSharedArbitraries } from './dependency-graph.ts'
+import type { SharedArbitraries } from './dependency-graph.ts'
 import { getConstraints, mergeConstraints } from './constraints.ts'
 import type { Constraints } from './constraints.ts'
 
 const convertProgram = (
   program: Program,
-): {
-  namespace: ArbitraryNamespace
-  sharedArbitraries: Set<ReferenceArbitrary>
-} => {
+): { namespace: ArbitraryNamespace; sharedArbitraries: SharedArbitraries } => {
   const namespace = convertNamespace(program, program.getGlobalNamespaceType())
   const sharedArbitraries = collectSharedArbitraries(namespace)
   return { namespace, sharedArbitraries }

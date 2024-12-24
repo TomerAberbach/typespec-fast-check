@@ -41,13 +41,14 @@ import type {
   UnionArbitrary,
 } from './arbitrary.ts'
 import { fastCheckNumerics } from './numerics.ts'
+import type { SharedArbitraries } from './dependency-graph.ts'
 
 const ArbitraryFile = ({
   namespace,
   sharedArbitraries,
 }: {
   namespace: ArbitraryNamespace
-  sharedArbitraries: ReadonlySet<ReferenceArbitrary>
+  sharedArbitraries: SharedArbitraries
 }): Child =>
   ay.Output().children(ts.SourceFile({ path: `arbitraries.js` }).code`
     import * as fc from 'fast-check';
@@ -60,21 +61,69 @@ const GlobalArbitraryNamespace = ({
   sharedArbitraries,
 }: {
   namespace: ArbitraryNamespace
-  sharedArbitraries: ReadonlySet<ReferenceArbitrary>
+  sharedArbitraries: SharedArbitraries
 }): Child =>
   ayJoin(
     [
-      ...map(
-        arbitrary =>
-          ts.VarDeclaration({
+      ...map(arbitraries => {
+        if (
+          arbitraries.size === 1 &&
+          !sharedArbitraries.recursive.has(get(first(arbitraries)))
+        ) {
+          const arbitrary = get(first(arbitraries))
+          return ts.VarDeclaration({
             export: namespace.arbitraryToName.has(arbitrary),
             const: true,
             name: namespace.arbitraryToName.get(arbitrary) ?? arbitrary.name,
             refkey: refkey(arbitrary),
-            value: ArbitraryDefinition({ arbitrary, sharedArbitraries }),
-          }),
-        sharedArbitraries,
-      ),
+            value: ArbitraryDefinition({
+              arbitrary,
+              sharedArbitraries,
+              activeArbitraryGroup: new Set(),
+            }),
+          })
+        }
+
+        const group = refkey()
+        return ayJoin(
+          [
+            ts.VarDeclaration({
+              const: true,
+              name: `group`,
+              refkey: group,
+              value: code`fc.letrec(tie => (${ObjectExpression({
+                properties: pipe(
+                  arbitraries,
+                  map(arbitrary => [
+                    arbitrary.name,
+                    ArbitraryDefinition({
+                      arbitrary,
+                      sharedArbitraries,
+                      activeArbitraryGroup: arbitraries,
+                    }),
+                  ]),
+                  reduce(toObject()),
+                ),
+              })}))`,
+            }),
+            ...pipe(
+              arbitraries,
+              map(arbitrary =>
+                ts.VarDeclaration({
+                  export: namespace.arbitraryToName.has(arbitrary),
+                  const: true,
+                  name:
+                    namespace.arbitraryToName.get(arbitrary) ?? arbitrary.name,
+                  refkey: refkey(arbitrary),
+                  value: code`${group}.${arbitrary.name}`,
+                }),
+              ),
+              reduce(toArray()),
+            ),
+          ],
+          { joiner: `\n` },
+        )
+      }, sharedArbitraries.groups),
       ...map(
         namespace =>
           ts.VarDeclaration({
@@ -87,13 +136,17 @@ const GlobalArbitraryNamespace = ({
       ),
       ...pipe(
         entries(namespace.nameToArbitrary),
-        filter(([, arbitrary]) => !sharedArbitraries.has(arbitrary)),
+        filter(([, arbitrary]) => !sharedArbitraries.all.has(arbitrary)),
         map(([name, arbitrary]) =>
           ts.VarDeclaration({
             export: true,
             const: true,
             name,
-            value: Arbitrary({ arbitrary, sharedArbitraries }),
+            value: Arbitrary({
+              arbitrary,
+              sharedArbitraries,
+              activeArbitraryGroup: new Set(),
+            }),
           }),
         ),
       ),
@@ -106,7 +159,7 @@ const NestedArbitraryNamespace = ({
   sharedArbitraries,
 }: {
   namespace: ArbitraryNamespace
-  sharedArbitraries: ReadonlySet<ReferenceArbitrary>
+  sharedArbitraries: SharedArbitraries
 }): Child => {
   if (
     namespace.namespaces.length === 0 &&
@@ -133,7 +186,11 @@ const NestedArbitraryNamespace = ({
           ([name, arbitrary]) =>
             ts.ObjectProperty({
               name,
-              value: code`${Arbitrary({ arbitrary, sharedArbitraries })},`,
+              value: code`${Arbitrary({
+                arbitrary,
+                sharedArbitraries,
+                activeArbitraryGroup: new Set(),
+              })},`,
             }),
           entries(namespace.nameToArbitrary),
         ),
@@ -146,20 +203,43 @@ const NestedArbitraryNamespace = ({
 const Arbitrary = ({
   arbitrary,
   sharedArbitraries,
+  activeArbitraryGroup,
 }: {
   arbitrary: Arbitrary
-  sharedArbitraries: ReadonlySet<ReferenceArbitrary>
-}): Child =>
-  arbitrary.type === `reference` && sharedArbitraries.has(arbitrary)
-    ? refkey(arbitrary)
-    : ArbitraryDefinition({ arbitrary, sharedArbitraries })
+  sharedArbitraries: SharedArbitraries
+  activeArbitraryGroup: Set<ReferenceArbitrary>
+}): Child => {
+  if (arbitrary.type !== `reference`) {
+    return ArbitraryDefinition({
+      arbitrary,
+      sharedArbitraries,
+      activeArbitraryGroup,
+    })
+  }
+
+  if (activeArbitraryGroup.has(arbitrary)) {
+    return code`tie(${StringLiteral({ string: arbitrary.name })})`
+  }
+
+  if (sharedArbitraries.all.has(arbitrary)) {
+    return refkey(arbitrary)
+  }
+
+  return ArbitraryDefinition({
+    arbitrary,
+    sharedArbitraries,
+    activeArbitraryGroup,
+  })
+}
 
 const ArbitraryDefinition = ({
   arbitrary,
   sharedArbitraries,
+  activeArbitraryGroup,
 }: {
   arbitrary: Arbitrary
-  sharedArbitraries: ReadonlySet<ReferenceArbitrary>
+  sharedArbitraries: SharedArbitraries
+  activeArbitraryGroup: Set<ReferenceArbitrary>
 }): Child => {
   switch (arbitrary.type) {
     case `never`:
@@ -183,19 +263,43 @@ const ArbitraryDefinition = ({
     case `enum`:
       return EnumArbitrary({ arbitrary })
     case `array`:
-      return ArrayArbitrary({ arbitrary, sharedArbitraries })
+      return ArrayArbitrary({
+        arbitrary,
+        sharedArbitraries,
+        activeArbitraryGroup,
+      })
     case `dictionary`:
-      return DictionaryArbitrary({ arbitrary, sharedArbitraries })
+      return DictionaryArbitrary({
+        arbitrary,
+        sharedArbitraries,
+        activeArbitraryGroup,
+      })
     case `union`:
-      return UnionArbitrary({ arbitrary, sharedArbitraries })
+      return UnionArbitrary({
+        arbitrary,
+        sharedArbitraries,
+        activeArbitraryGroup,
+      })
     case `record`:
-      return RecordArbitrary({ arbitrary, sharedArbitraries })
+      return RecordArbitrary({
+        arbitrary,
+        sharedArbitraries,
+        activeArbitraryGroup,
+      })
     case `intersection`:
-      return IntersectionArbitrary({ arbitrary, sharedArbitraries })
+      return IntersectionArbitrary({
+        arbitrary,
+        sharedArbitraries,
+        activeArbitraryGroup,
+      })
     case `reference`:
-      return Arbitrary({ arbitrary: arbitrary.arbitrary, sharedArbitraries })
+      return Arbitrary({
+        arbitrary: arbitrary.arbitrary,
+        sharedArbitraries,
+        activeArbitraryGroup,
+      })
     case `recursive-reference`:
-      return `fc.constant("TODO")`
+      return code`tie(${StringLiteral({ string: arbitrary.deref().name })})`
   }
 }
 
@@ -330,14 +434,20 @@ const EnumArbitrary = ({ arbitrary }: { arbitrary: EnumArbitrary }): Child =>
 const ArrayArbitrary = ({
   arbitrary,
   sharedArbitraries,
+  activeArbitraryGroup,
 }: {
   arbitrary: ArrayArbitrary
-  sharedArbitraries: ReadonlySet<ReferenceArbitrary>
+  sharedArbitraries: SharedArbitraries
+  activeArbitraryGroup: Set<ReferenceArbitrary>
 }): Child =>
   CallExpression({
     name: `fc.array`,
     args: [
-      Arbitrary({ arbitrary: arbitrary.value, sharedArbitraries }),
+      Arbitrary({
+        arbitrary: arbitrary.value,
+        sharedArbitraries,
+        activeArbitraryGroup,
+      }),
       ObjectExpression({
         properties: {
           minLength: arbitrary.minItems,
@@ -351,12 +461,22 @@ const ArrayArbitrary = ({
 const DictionaryArbitrary = ({
   arbitrary,
   sharedArbitraries,
+  activeArbitraryGroup,
 }: {
   arbitrary: DictionaryArbitrary
-  sharedArbitraries: ReadonlySet<ReferenceArbitrary>
+  sharedArbitraries: SharedArbitraries
+  activeArbitraryGroup: Set<ReferenceArbitrary>
 }): Child => {
-  const Key = Arbitrary({ arbitrary: arbitrary.key, sharedArbitraries })
-  const Value = Arbitrary({ arbitrary: arbitrary.value, sharedArbitraries })
+  const Key = Arbitrary({
+    arbitrary: arbitrary.key,
+    sharedArbitraries,
+    activeArbitraryGroup,
+  })
+  const Value = Arbitrary({
+    arbitrary: arbitrary.value,
+    sharedArbitraries,
+    activeArbitraryGroup,
+  })
   return CallExpression({
     name: `fc.dictionary`,
     args: [Key, Value],
@@ -367,23 +487,31 @@ const DictionaryArbitrary = ({
 const UnionArbitrary = ({
   arbitrary,
   sharedArbitraries,
+  activeArbitraryGroup,
 }: {
   arbitrary: UnionArbitrary
-  sharedArbitraries: ReadonlySet<ReferenceArbitrary>
+  sharedArbitraries: SharedArbitraries
+  activeArbitraryGroup: Set<ReferenceArbitrary>
 }): Child =>
   CallExpression({
     name: `fc.oneof`,
     args: arbitrary.variants.map(variant =>
-      Arbitrary({ arbitrary: variant, sharedArbitraries }),
+      Arbitrary({
+        arbitrary: variant,
+        sharedArbitraries,
+        activeArbitraryGroup,
+      }),
     ),
   })
 
 const RecordArbitrary = ({
   arbitrary,
   sharedArbitraries,
+  activeArbitraryGroup,
 }: {
   arbitrary: RecordArbitrary
-  sharedArbitraries: ReadonlySet<ReferenceArbitrary>
+  sharedArbitraries: SharedArbitraries
+  activeArbitraryGroup: Set<ReferenceArbitrary>
 }): Child => {
   const requiredProperties = pipe(
     arbitrary.properties,
@@ -400,7 +528,7 @@ const RecordArbitrary = ({
           arbitrary.properties,
           map(([name, { arbitrary }]) => [
             name,
-            Arbitrary({ arbitrary, sharedArbitraries }),
+            Arbitrary({ arbitrary, sharedArbitraries, activeArbitraryGroup }),
           ]),
           reduce(toObject()),
         ),
@@ -429,15 +557,17 @@ const RecordArbitrary = ({
 const IntersectionArbitrary = ({
   arbitrary,
   sharedArbitraries,
+  activeArbitraryGroup,
 }: {
   arbitrary: IntersectionArbitrary
-  sharedArbitraries: ReadonlySet<ReferenceArbitrary>
+  sharedArbitraries: SharedArbitraries
+  activeArbitraryGroup: Set<ReferenceArbitrary>
 }): Child => code`
   fc
     ${CallExpression({
       name: `.tuple`,
       args: arbitrary.arbitraries.map(arbitrary =>
-        Arbitrary({ arbitrary, sharedArbitraries }),
+        Arbitrary({ arbitrary, sharedArbitraries, activeArbitraryGroup }),
       ),
     })}
     .map(values => Object.assign(...values))

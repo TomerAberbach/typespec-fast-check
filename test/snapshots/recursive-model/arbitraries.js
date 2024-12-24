@@ -1,9 +1,10 @@
 import * as fc from 'fast-check';
 
-export const Node = fc.record(
+const group = fc.letrec(tie => ({ Node: fc.record(
   {
     value: fc.string(),
-    next: fc.constant("TODO"),
+    next: tie('Node'),
   },
   { requiredKeys: ['value'] },
-);
+) }));
+export const Node = group.Node;
