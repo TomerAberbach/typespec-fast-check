@@ -1,7 +1,7 @@
 import {
   filter,
-  filterMap,
   first,
+  flatten,
   get,
   map,
   pipe,
@@ -19,7 +19,8 @@ import type {
 
 export const collectSharedArbitraries = (
   namespace: ArbitraryNamespace,
-): Set<ReferenceArbitrary> => {
+): SharedArbitraries => {
+  const recursiveArbitraries = new Set<ReferenceArbitrary>()
   const arbitraryReferenceCounts = new Map<Arbitrary, number>()
   const arbitraryDependencies = new Map<Arbitrary, Set<Arbitrary>>()
 
@@ -40,6 +41,10 @@ export const collectSharedArbitraries = (
     ]
     while (remainingArbitraries.length > 0) {
       const arbitrary = remainingArbitraries.pop()!
+      if (arbitrary.type === `recursive-reference`) {
+        recursiveArbitraries.add(arbitrary.deref())
+      }
+
       if (arbitraryDependencies.has(arbitrary)) {
         continue
       }
@@ -57,18 +62,40 @@ export const collectSharedArbitraries = (
     }
   } while (remainingNamespaces.length > 0)
 
-  return pipe(
+  const groups = pipe(
     stronglyConnectedComponents(arbitraryDependencies).reverse(),
-    filterMap(arbitraries =>
-      arbitraries.size === 1 ? get(first(arbitraries)) : null,
+    map(arbitraries =>
+      pipe(
+        arbitraries,
+        filter(arbitrary => arbitrary.type === `reference`),
+        reduce(toSet()),
+      ),
     ),
-    filter(
-      (arbitrary): arbitrary is ReferenceArbitrary =>
-        arbitrary.type === `reference` &&
-        (arbitraryReferenceCounts.get(arbitrary) ?? 0) >= 2,
-    ),
+    filter(arbitraries => {
+      switch (arbitraries.size) {
+        case 0:
+          return false
+        case 1:
+          return (
+            (arbitraryReferenceCounts.get(get(first(arbitraries))) ?? 0) >= 2
+          )
+        default:
+          return true
+      }
+    }),
     reduce(toSet()),
   )
+  return {
+    recursive: recursiveArbitraries,
+    groups,
+    all: pipe(groups, flatten, reduce(toSet())),
+  }
+}
+
+export type SharedArbitraries = {
+  recursive: Set<ReferenceArbitrary>
+  groups: Set<Set<ReferenceArbitrary>>
+  all: Set<ReferenceArbitrary>
 }
 
 const getDirectArbitraryDependencies = (arbitrary: Arbitrary): Arbitrary[] => {
@@ -83,7 +110,6 @@ const getDirectArbitraryDependencies = (arbitrary: Arbitrary): Arbitrary[] => {
     case `url`:
     case `bytes`:
     case `enum`:
-    case `recursive-reference`:
       return []
     case `array`:
       return [arbitrary.value]
@@ -101,5 +127,7 @@ const getDirectArbitraryDependencies = (arbitrary: Arbitrary): Arbitrary[] => {
       return arbitrary.arbitraries
     case `reference`:
       return [arbitrary.arbitrary]
+    case `recursive-reference`:
+      return [arbitrary.deref()]
   }
 }

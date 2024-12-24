@@ -651,6 +651,20 @@ test.each([
       }
     `,
   },
+  {
+    name: `mutually-recursive-models`,
+    code: `
+      model StringNode {
+        value: string,
+        next?: BooleanNode
+      }
+
+      model BooleanNode {
+        value: boolean,
+        next?: StringNode
+      }
+    `,
+  },
 ] satisfies TestCase[])(`$name`, async ({ name, code }) => {
   const snapshotPath = `./snapshots/${name}`
   const arbitrariesPath = `${snapshotPath}/arbitraries.js`
