@@ -134,7 +134,10 @@ const convertType = (
   // we'll return a non-recursive arbitrary by overwriting this entry below.
   typeToArbitrary.set(
     typeKey,
-    recursiveReferenceArbitrary(() => arbitrary!),
+    recursiveReferenceArbitrary(() => {
+      assert(arbitrary?.type === `reference`)
+      return arbitrary
+    }),
   )
   switch (type.kind) {
     case `Intrinsic`:
