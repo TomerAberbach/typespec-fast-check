@@ -20,7 +20,7 @@ import type {
 export const collectSharedArbitraries = (
   namespace: ArbitraryNamespace,
 ): SharedArbitraries => {
-  const recursiveArbitraries = new Set<ReferenceArbitrary>()
+  const recursivelyReferencedArbitraries = new Set<ReferenceArbitrary>()
   const arbitraryReferenceCounts = new Map<Arbitrary, number>()
   const arbitraryDependencies = new Map<Arbitrary, Set<Arbitrary>>()
 
@@ -42,7 +42,7 @@ export const collectSharedArbitraries = (
     while (remainingArbitraries.length > 0) {
       const arbitrary = remainingArbitraries.pop()!
       if (arbitrary.type === `recursive-reference`) {
-        recursiveArbitraries.add(arbitrary.deref())
+        recursivelyReferencedArbitraries.add(arbitrary.deref())
       }
 
       if (arbitraryDependencies.has(arbitrary)) {
@@ -62,7 +62,7 @@ export const collectSharedArbitraries = (
     }
   } while (remainingNamespaces.length > 0)
 
-  const groups = pipe(
+  const stronglyConnectedArbitraries = pipe(
     stronglyConnectedComponents(arbitraryDependencies).reverse(),
     map(arbitraries =>
       pipe(
@@ -86,15 +86,15 @@ export const collectSharedArbitraries = (
     reduce(toSet()),
   )
   return {
-    recursive: recursiveArbitraries,
-    groups,
-    all: pipe(groups, flatten, reduce(toSet())),
+    recursivelyReferenced: recursivelyReferencedArbitraries,
+    stronglyConnected: stronglyConnectedArbitraries,
+    all: pipe(stronglyConnectedArbitraries, flatten, reduce(toSet())),
   }
 }
 
 export type SharedArbitraries = {
-  recursive: Set<ReferenceArbitrary>
-  groups: Set<Set<ReferenceArbitrary>>
+  recursivelyReferenced: Set<ReferenceArbitrary>
+  stronglyConnected: Set<Set<ReferenceArbitrary>>
   all: Set<ReferenceArbitrary>
 }
 
