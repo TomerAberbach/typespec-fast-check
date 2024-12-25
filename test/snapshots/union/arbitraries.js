@@ -1,6 +1,6 @@
 import * as fc from 'fast-check';
 
-export const Breed = fc.oneof(
+export const $Union = fc.oneof(
   fc.string(),
   fc.integer(),
   fc.boolean(),

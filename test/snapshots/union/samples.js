@@ -1,5 +1,5 @@
 export const samples = {
-	'Breed': [
+	'$Union': [
 		-2,
 		false,
 		-11,
