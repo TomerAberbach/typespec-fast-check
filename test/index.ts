@@ -491,6 +491,14 @@ test.each([
     `,
   },
   {
+    name: `tuple`,
+    code: `
+      model $Model {
+        property: [string, int32, boolean]
+      }
+    `,
+  },
+  {
     name: `dictionary`,
     code: `
       model Dictionary is Record<int32>;

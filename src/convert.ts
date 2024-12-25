@@ -13,6 +13,7 @@ import type {
   Program,
   Scalar,
   StringLiteral,
+  Tuple,
   Type,
   Union,
   Value,
@@ -48,6 +49,7 @@ import {
   recursiveReferenceArbitrary,
   referenceArbitrary,
   stringArbitrary,
+  tupleArbitrary,
   unionArbitrary,
   urlArbitrary,
 } from './arbitrary.ts'
@@ -153,6 +155,9 @@ const convertType = (
     case `Enum`:
       arbitrary = convertEnum(type)
       break
+    case `Tuple`:
+      arbitrary = convertTuple(program, type, constraints)
+      break
     case `Union`:
       arbitrary = convertUnion(program, type, constraints)
       break
@@ -178,7 +183,6 @@ const convertType = (
     case `TemplateParameter`:
     case `StringTemplate`:
     case `StringTemplateSpan`:
-    case `Tuple`:
       throw new Error(`Unhandled type: ${type.kind}`)
   }
 
@@ -340,6 +344,15 @@ const convertEnum = ($enum: Enum): Arbitrary =>
       ),
     ),
   })
+
+const convertTuple = (
+  program: Program,
+  tuple: Tuple,
+  constraints: Constraints,
+): Arbitrary =>
+  tupleArbitrary(
+    tuple.values.map(type => convertType(program, type, constraints)),
+  )
 
 const convertUnion = (
   program: Program,

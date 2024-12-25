@@ -16,6 +16,7 @@ export type Arbitrary =
   | ScalarArbitrary
   | EnumArbitrary
   | ArrayArbitrary
+  | TupleArbitrary
   | DictionaryArbitrary
   | UnionArbitrary
   | RecordArbitrary
@@ -116,6 +117,14 @@ export type ArrayArbitrary = {
   maxItems?: number
 }
 
+export const tupleArbitrary = (arbitraries: Arbitrary[]): TupleArbitrary =>
+  memoize({ type: `tuple`, arbitraries })
+
+export type TupleArbitrary = {
+  type: `tuple`
+  arbitraries: Arbitrary[]
+}
+
 export const dictionaryArbitrary = (
   key: Arbitrary,
   value: Arbitrary,
@@ -212,6 +221,8 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
         arbitrary.minItems,
         arbitrary.maxItems,
       ])
+    case `tuple`:
+      return keyalesce([arbitrary.type, ...arbitrary.arbitraries])
     case `dictionary`:
       return keyalesce([arbitrary.type, arbitrary.key, arbitrary.value])
     case `union`:

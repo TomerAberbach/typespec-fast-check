@@ -113,6 +113,8 @@ const getDirectArbitraryDependencies = (arbitrary: Arbitrary): Arbitrary[] => {
       return []
     case `array`:
       return [arbitrary.value]
+    case `tuple`:
+      return arbitrary.arbitraries
     case `dictionary`:
       return [arbitrary.key, arbitrary.value]
     case `union`:

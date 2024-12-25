@@ -39,6 +39,7 @@ import type {
   RecordArbitrary,
   ReferenceArbitrary,
   StringArbitrary,
+  TupleArbitrary,
   UnionArbitrary,
 } from './arbitrary.ts'
 import { fastCheckNumerics } from './numerics.ts'
@@ -301,6 +302,12 @@ const ArbitraryDefinition = ({
         sharedArbitraries,
         currentStronglyConnectedArbitraries,
       })
+    case `tuple`:
+      return TupleArbitrary({
+        arbitrary,
+        sharedArbitraries,
+        currentStronglyConnectedArbitraries,
+      })
     case `dictionary`:
       return DictionaryArbitrary({
         arbitrary,
@@ -489,6 +496,26 @@ const ArrayArbitrary = ({
       }),
     ],
     oneLine: true,
+  })
+
+const TupleArbitrary = ({
+  arbitrary,
+  sharedArbitraries,
+  currentStronglyConnectedArbitraries,
+}: {
+  arbitrary: TupleArbitrary
+  sharedArbitraries: SharedArbitraries
+  currentStronglyConnectedArbitraries: Set<ReferenceArbitrary>
+}): Child =>
+  CallExpression({
+    name: `fc.tuple`,
+    args: arbitrary.arbitraries.map(arbitrary =>
+      Arbitrary({
+        arbitrary,
+        sharedArbitraries,
+        currentStronglyConnectedArbitraries,
+      }),
+    ),
   })
 
 const DictionaryArbitrary = ({
