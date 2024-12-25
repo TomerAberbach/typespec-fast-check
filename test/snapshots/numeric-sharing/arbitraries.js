@@ -1,4 +1,4 @@
-import * as fc from 'fast-check';
+import * as fc from "fast-check";
 
 const int64 = fc.bigInt({
   min: -9223372036854775808n,

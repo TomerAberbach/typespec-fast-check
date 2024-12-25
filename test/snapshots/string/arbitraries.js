@@ -1,8 +1,8 @@
-import * as fc from 'fast-check';
+import * as fc from "fast-check";
 
 export const $Model = fc.record({
   a: fc.constant("string"),
-  b: fc.constantFrom('string1', 'string2'),
+  b: fc.constantFrom("string1", "string2"),
 });
 
 export const String = fc.string();

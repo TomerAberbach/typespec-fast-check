@@ -1,9 +1,9 @@
-import * as fc from 'fast-check';
+import * as fc from "fast-check";
 
 const group = fc.letrec(tie => ({
   MultiLineRecursiveModel: fc.record(
     {
-      property: tie('MultiLineRecursiveModel'),
+      property: tie("MultiLineRecursiveModel"),
     },
     {
       withDeletedKeys: true,
@@ -19,7 +19,7 @@ export const MultiLineRecursiveModel = group.MultiLineRecursiveModel;
 const group_2 = fc.letrec(tie => ({
   SingleLineRecursiveModel: fc.record(
     {
-      property: tie('SingleLineRecursiveModel'),
+      property: tie("SingleLineRecursiveModel"),
     },
     {
       withDeletedKeys: true,

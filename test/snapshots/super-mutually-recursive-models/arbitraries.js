@@ -1,38 +1,38 @@
-import * as fc from 'fast-check';
+import * as fc from "fast-check";
 
 const group = fc.letrec(tie => ({
   Tree: fc.record(
     {
       value: fc.integer(),
-      left: tie('Tree'),
+      left: tie("Tree"),
       right: fc.oneof(
-        tie('StringNode'),
-        tie('Tree'),
+        tie("StringNode"),
+        tie("Tree"),
       ),
     },
     {
-      requiredKeys: ['value'],
+      requiredKeys: ["value"],
     },
   ),
   StringNode: fc.record(
     {
       value: fc.string(),
-      next: tie('BooleanNode'),
+      next: tie("BooleanNode"),
     },
     {
-      requiredKeys: ['value'],
+      requiredKeys: ["value"],
     },
   ),
   BooleanNode: fc.record(
     {
       value: fc.boolean(),
       next: fc.oneof(
-        tie('StringNode'),
-        tie('Tree'),
+        tie("StringNode"),
+        tie("Tree"),
       ),
     },
     {
-      requiredKeys: ['value'],
+      requiredKeys: ["value"],
     },
   ),
 }));
