@@ -1,4 +1,11 @@
 export const samples = {
+	'MultiLineEnum': [
+		'A',
+		'A',
+		'A',
+		'A',
+		'A'
+	],
 	'MultiLineNamespace': {
 		'MultiLineNestedNamespace': {},
 		'MultiLineNamespaceModel': [
@@ -55,12 +62,33 @@ export const samples = {
 			}
 		}
 	],
+	'MultiLineScalar': [
+		'',
+		'W|%=2Spc',
+		'X1DZwS',
+		'gp',
+		''
+	],
 	'MultiLineSharedModel': [
 		{},
 		{},
 		{},
 		{},
 		{}
+	],
+	'MultiLineUnion': [
+		-2,
+		false,
+		-11,
+		'',
+		542422934
+	],
+	'SingleLineEnum': [
+		'A',
+		'A',
+		'A',
+		'A',
+		'A'
 	],
 	'SingleLineNamespace': {
 		'SingleLineNestedNamespace': {},
@@ -118,11 +146,25 @@ export const samples = {
 			}
 		}
 	],
+	'SingleLineScalar': [
+		'',
+		'W|%=2Spc',
+		'X1DZwS',
+		'gp',
+		''
+	],
 	'SingleLineSharedModel': [
 		{},
 		{},
 		{},
 		{},
 		{}
+	],
+	'SingleLineUnion': [
+		-2,
+		false,
+		-11,
+		'',
+		542422934
 	]
 };
