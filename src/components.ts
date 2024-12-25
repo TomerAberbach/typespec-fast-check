@@ -22,7 +22,7 @@ import {
   refkey,
   stc,
 } from '@alloy-js/core'
-import type { Child, Children } from '@alloy-js/core'
+import type { Child } from '@alloy-js/core'
 import type {
   Arbitrary,
   ArbitraryNamespace,
@@ -572,13 +572,16 @@ const RecordArbitrary = ({
       ObjectExpression({
         properties: pipe(
           arbitrary.properties,
-          map(([name, { arbitrary }]) => [
+          map(([name, { arbitrary, comment }]) => [
             name,
-            Arbitrary({
-              arbitrary,
-              sharedArbitraries,
-              currentStronglyConnectedArbitraries,
-            }),
+            {
+              comment,
+              value: Arbitrary({
+                arbitrary,
+                sharedArbitraries,
+                currentStronglyConnectedArbitraries,
+              }),
+            },
           ]),
           reduce(toObject()),
         ),
@@ -638,28 +641,15 @@ const RecursiveReferenceArbitrary = ({
 const ArrayExpression = ({ values }: { values: Child[] }): Child =>
   code`[${ayJoin(values, { joiner: `, ` })}]`
 
-const Commented = stc(
-  ({ comment, children }: { comment?: string; children?: Child }) =>
-    ayJoin([comment && Comment({ comment }), children].filter(Boolean), {
-      joiner: `\n`,
-    }),
-)
-
-const Comment = ({ comment }: { comment: string }): Child => {
-  const lines = comment.split(`\n`)
-  if (lines.length <= 1) {
-    return code`/** ${comment} */`
-  }
-
-  return [`/**`, ...lines.map(line => ` * ${line}`), ` */`].join(`\n`)
-}
-
 const ObjectExpression = ({
   properties,
   emitEmpty = false,
   singlePropertyOneLine = false,
 }: {
-  properties: Record<string, Children>
+  properties: Record<
+    string,
+    { comment: string | undefined; value: Child } | Child
+  >
   emitEmpty?: boolean
   singlePropertyOneLine?: boolean
 }): Child => {
@@ -674,13 +664,21 @@ const ObjectExpression = ({
 
   const objectProperties = pipe(
     filteredProperties,
-    map(([name, value]) =>
-      ts.ObjectProperty({
-        name,
-        // https://github.com/alloy-framework/alloy/issues/42
-        value: typeof value === `number` ? String(value) : value,
-      }),
-    ),
+    map(([name, property]) => {
+      const { comment, value } =
+        property !== null &&
+        typeof property === `object` &&
+        `comment` in property
+          ? property
+          : { value: property }
+      return Commented({ comment }).children(
+        ts.ObjectProperty({
+          name,
+          // https://github.com/alloy-framework/alloy/issues/42
+          value: typeof value === `number` ? String(value) : value,
+        }),
+      )
+    }),
     reduce(toArray()),
   )
   return singlePropertyOneLine && filteredProperties.size === 1
@@ -690,6 +688,22 @@ const ObjectExpression = ({
           ${Commas({ values: objectProperties })}
         }
       `
+}
+
+const Commented = stc(
+  ({ comment, children }: { comment?: string; children?: Child }) =>
+    ayJoin([comment && Comment({ comment }), children].filter(Boolean), {
+      joiner: `\n`,
+    }),
+)
+
+const Comment = ({ comment }: { comment: string }): Child => {
+  const lines = comment.split(`\n`)
+  if (lines.length <= 1) {
+    return code`/** ${comment} */`
+  }
+
+  return [`/**`, ...lines.map(line => ` * ${line}`), ` */`].join(`\n`)
 }
 
 const CallExpression = ({

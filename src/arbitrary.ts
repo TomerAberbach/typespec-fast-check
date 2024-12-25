@@ -150,7 +150,14 @@ export const recordArbitrary = (
 
 export type RecordArbitrary = {
   type: `record`
-  properties: Map<string, { arbitrary: Arbitrary; required: boolean }>
+  properties: Map<
+    string,
+    {
+      arbitrary: Arbitrary
+      comment?: string
+      required: boolean
+    }
+  >
 }
 
 export const intersectionArbitrary = (
@@ -231,7 +238,12 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
       return keyalesce([
         arbitrary.type,
         ...flatMap(
-          ([name, { arbitrary, required }]) => [name, arbitrary, required],
+          ([name, { arbitrary, comment, required }]) => [
+            name,
+            arbitrary,
+            comment,
+            required,
+          ],
           arbitrary.properties,
         ),
       ])

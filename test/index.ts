@@ -754,6 +754,7 @@ test.each([
 
       /** Non-shared model comment. */
       model SingleLineNonSharedModel {
+        /** Property comment. */
         property: SingleLineSharedModel
       }
 
@@ -762,11 +763,16 @@ test.each([
        * model comment.
        */
       model MultiLineNonSharedModel {
+        /**
+         * Property
+         * comment.
+         */
         property: MultiLineSharedModel
       }
 
       /** Recursive model comment. */
       model SingleLineRecursiveModel {
+        /** Property comment. */
         property?: SingleLineRecursiveModel
       }
 
@@ -775,6 +781,10 @@ test.each([
        * model comment.
        */
       model MultiLineRecursiveModel {
+        /**
+         * Property
+         * comment.
+         */
         property?: MultiLineRecursiveModel
       }
 

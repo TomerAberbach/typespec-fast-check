@@ -500,6 +500,7 @@ const convertRecord = (
           property.type,
           mergeConstraints(constraints, getConstraints(program, property)),
         )
+        const comment = getDoc(program, property)
         return [
           name,
           property.defaultValue
@@ -508,9 +509,10 @@ const convertRecord = (
                   arbitrary,
                   convertValue(property.defaultValue),
                 ]),
+                comment,
                 required: false,
               }
-            : { arbitrary, required: !property.optional },
+            : { arbitrary, comment, required: !property.optional },
         ]
       }),
       reduce(toMap()),
