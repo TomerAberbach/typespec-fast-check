@@ -12,9 +12,7 @@ export const MinValueInt8 = fc.integer({
   max: 127,
 });
 
-export const Min0ValueInt8 = fc.nat({
-  max: 127,
-});
+export const Min0ValueInt8 = fc.nat({ max: 127 });
 
 export const MaxValueInt8 = fc.integer({
   min: -128,

@@ -216,22 +216,6 @@ const NestedArbitraryNamespace = ({
   )
 }
 
-const Commented = stc(
-  ({ comment, children }: { comment?: string; children?: Child }) =>
-    ayJoin([comment && Comment({ comment }), children].filter(Boolean), {
-      joiner: `\n`,
-    }),
-)
-
-const Comment = ({ comment }: { comment: string }): Child => {
-  const lines = comment.split(`\n`)
-  if (lines.length <= 1) {
-    return code`/** ${comment} */`
-  }
-
-  return [`/**`, ...lines.map(line => ` * ${line}`), ` */`].join(`\n`)
-}
-
 const Arbitrary = ({
   arbitrary,
   sharedArbitraries,
@@ -415,6 +399,7 @@ const NumberArbitrary = ({
     args: [
       ObjectExpression({
         properties: { min: arbitraryMin, max: arbitraryMax },
+        singlePropertyOneLine: true,
       }),
     ],
   })
@@ -433,6 +418,7 @@ const BigIntArbitrary = ({
           min: arbitrary.min == null ? null : `${arbitrary.min}n`,
           max: arbitrary.max == null ? null : `${arbitrary.max}n`,
         },
+        singlePropertyOneLine: true,
       }),
     ],
   })
@@ -450,6 +436,7 @@ const StringArbitrary = ({
           minLength: arbitrary.minLength,
           maxLength: arbitrary.maxLength,
         },
+        singlePropertyOneLine: true,
       }),
     ],
   })
@@ -491,8 +478,9 @@ const ArrayArbitrary = ({
           minLength: arbitrary.minItems,
           maxLength: arbitrary.maxItems,
         },
+        singlePropertyOneLine: true,
       }),
-    ],
+    ].filter(Boolean),
     oneLine: true,
   })
 
@@ -598,21 +586,23 @@ const RecordArbitrary = ({
       }),
       requiredProperties.size === arbitrary.properties.size
         ? null
-        : ObjectExpression({
-            properties:
-              requiredProperties.size === 0
-                ? { withDeletedKeys: `true` }
-                : {
-                    requiredKeys: ArrayExpression({
-                      values: pipe(
-                        requiredProperties,
-                        map(property => StringLiteral({ string: property })),
-                        reduce(toArray()),
-                      ),
-                    }),
-                  },
-          }),
-    ],
+        : requiredProperties.size === 0
+          ? ObjectExpression({
+              properties: { withDeletedKeys: `true` },
+              singlePropertyOneLine: true,
+            })
+          : ObjectExpression({
+              properties: {
+                requiredKeys: ArrayExpression({
+                  values: pipe(
+                    requiredProperties,
+                    map(property => StringLiteral({ string: property })),
+                    reduce(toArray()),
+                  ),
+                }),
+              },
+            }),
+    ].filter(Boolean),
   })
 }
 
@@ -639,15 +629,39 @@ const IntersectionArbitrary = ({
     .map(values => Object.assign(...values))
 `
 
+const RecursiveReferenceArbitrary = ({
+  arbitrary,
+}: {
+  arbitrary: ReferenceArbitrary
+}): Child => code`tie(${StringLiteral({ string: arbitrary.name })})`
+
 const ArrayExpression = ({ values }: { values: Child[] }): Child =>
   code`[${ayJoin(values, { joiner: `, ` })}]`
+
+const Commented = stc(
+  ({ comment, children }: { comment?: string; children?: Child }) =>
+    ayJoin([comment && Comment({ comment }), children].filter(Boolean), {
+      joiner: `\n`,
+    }),
+)
+
+const Comment = ({ comment }: { comment: string }): Child => {
+  const lines = comment.split(`\n`)
+  if (lines.length <= 1) {
+    return code`/** ${comment} */`
+  }
+
+  return [`/**`, ...lines.map(line => ` * ${line}`), ` */`].join(`\n`)
+}
 
 const ObjectExpression = ({
   properties,
   emitEmpty = false,
+  singlePropertyOneLine = false,
 }: {
   properties: Record<string, Children>
   emitEmpty?: boolean
+  singlePropertyOneLine?: boolean
 }): Child => {
   const filteredProperties = pipe(
     entries(properties),
@@ -658,29 +672,25 @@ const ObjectExpression = ({
     return emitEmpty ? `{}` : ``
   }
 
-  return ts.ObjectExpression().children(
-    ayJoin(
-      pipe(
-        filteredProperties,
-        map(
-          ([name, value]) =>
-            code`${ts.ObjectProperty({
-              name,
-              // https://github.com/alloy-framework/alloy/issues/42
-              value: typeof value === `number` ? String(value) : value,
-            })},\n`,
-        ),
-        reduce(toArray()),
-      ),
+  const objectProperties = pipe(
+    filteredProperties,
+    map(([name, value]) =>
+      ts.ObjectProperty({
+        name,
+        // https://github.com/alloy-framework/alloy/issues/42
+        value: typeof value === `number` ? String(value) : value,
+      }),
     ),
+    reduce(toArray()),
   )
+  return singlePropertyOneLine && filteredProperties.size === 1
+    ? code`{ ${Commas({ values: objectProperties, oneLine: true })} }`
+    : code`
+        {
+          ${Commas({ values: objectProperties })}
+        }
+      `
 }
-
-const RecursiveReferenceArbitrary = ({
-  arbitrary,
-}: {
-  arbitrary: ReferenceArbitrary
-}): Child => code`tie(${StringLiteral({ string: arbitrary.name })})`
 
 const CallExpression = ({
   name,
@@ -690,21 +700,27 @@ const CallExpression = ({
   name: string
   args: Child[]
   oneLine?: boolean
-}): Child => {
-  args = filterChildren(args)
-  return !oneLine && args.length >= 2
+}): Child =>
+  !oneLine && args.length >= 2
     ? code`
         ${name}(
-          ${ayMapJoin(args, arg => code`${arg},`, { joiner: `\n` })}
+          ${Commas({ values: args })}
         )
       `
-    : code`${name}(${ayJoin(args, { joiner: `, ` })})`
-}
+    : code`${name}(${Commas({ values: args, oneLine: true })})`
+
+const Commas = ({
+  values,
+  oneLine = false,
+}: {
+  values: Child[]
+  oneLine?: boolean
+}): Child =>
+  oneLine
+    ? ayJoin(values, { joiner: `, ` })
+    : ayMapJoin(values, value => code`${value},\n`)
 
 const StringLiteral = ({ string }: { string: string }): Child =>
   JSON.stringify(string)
-
-const filterChildren = (children: Child[]): Child[] =>
-  children.filter(child => child != null && child !== `` && child !== false)
 
 export default ArbitraryFile
