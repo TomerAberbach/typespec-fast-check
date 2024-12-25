@@ -9,6 +9,7 @@ import {
   neverArbitrary,
   recordArbitrary,
   referenceArbitrary,
+  tupleArbitrary,
   unionArbitrary,
 } from './arbitrary.ts'
 import type {
@@ -19,6 +20,7 @@ import type {
   IntersectionArbitrary,
   RecordArbitrary,
   ReferenceArbitrary,
+  TupleArbitrary,
   UnionArbitrary,
 } from './arbitrary.ts'
 
@@ -38,6 +40,8 @@ const normalizeArbitrary = (arbitrary: Arbitrary): Arbitrary => {
       return arbitrary
     case `array`:
       return normalizeArrayArbitrary(arbitrary)
+    case `tuple`:
+      return normalizeTupleArbitrary(arbitrary)
     case `dictionary`:
       return normalizeDictionaryArbitrary(arbitrary)
     case `union`:
@@ -56,6 +60,9 @@ const normalizeArrayArbitrary = ({
   ...options
 }: ArrayArbitrary): Arbitrary =>
   arrayArbitrary(normalizeArbitrary(value), options)
+
+const normalizeTupleArbitrary = ({ arbitraries }: TupleArbitrary): Arbitrary =>
+  tupleArbitrary(arbitraries.map(normalizeArbitrary))
 
 const normalizeDictionaryArbitrary = ({
   key,
