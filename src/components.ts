@@ -68,7 +68,7 @@ const GlobalArbitraryNamespace = ({
       ...map(arbitraries => {
         if (
           arbitraries.size === 1 &&
-          !sharedArbitraries.recursive.has(get(first(arbitraries)))
+          !sharedArbitraries.recursivelyReferenced.has(get(first(arbitraries)))
         ) {
           const arbitrary = get(first(arbitraries))
           return ts.VarDeclaration({
@@ -123,7 +123,7 @@ const GlobalArbitraryNamespace = ({
           ],
           { joiner: `\n` },
         )
-      }, sharedArbitraries.groups),
+      }, sharedArbitraries.stronglyConnected),
       ...map(
         namespace =>
           ts.VarDeclaration({
