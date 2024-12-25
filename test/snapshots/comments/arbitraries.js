@@ -1,19 +1,31 @@
 import * as fc from 'fast-check';
 
-const group = fc.letrec(tie => ({ MultiLineRecursiveModel: fc.record(
-  { property: tie('MultiLineRecursiveModel') },
-  { withDeletedKeys: true },
-) }));
+const group = fc.letrec(tie => ({
+  MultiLineRecursiveModel: fc.record(
+    {
+      property: tie('MultiLineRecursiveModel'),
+    },
+    {
+      withDeletedKeys: true,
+    },
+  ),
+}));
 /**
  * Recursive
  * model comment.
  */
 export const MultiLineRecursiveModel = group.MultiLineRecursiveModel;
 
-const group_2 = fc.letrec(tie => ({ SingleLineRecursiveModel: fc.record(
-  { property: tie('SingleLineRecursiveModel') },
-  { withDeletedKeys: true },
-) }));
+const group_2 = fc.letrec(tie => ({
+  SingleLineRecursiveModel: fc.record(
+    {
+      property: tie('SingleLineRecursiveModel'),
+    },
+    {
+      withDeletedKeys: true,
+    },
+  ),
+}));
 /** Recursive model comment. */
 export const SingleLineRecursiveModel = group_2.SingleLineRecursiveModel;
 
@@ -54,10 +66,14 @@ export const MultiLineNamespace = {
 };
 
 /** Non-shared model comment. */
-export const SingleLineNonSharedModel = fc.record({ property: SingleLineSharedModel });
+export const SingleLineNonSharedModel = fc.record({
+  property: SingleLineSharedModel,
+});
 
 /**
  * Non-shared
  * model comment.
  */
-export const MultiLineNonSharedModel = fc.record({ property: MultiLineSharedModel });
+export const MultiLineNonSharedModel = fc.record({
+  property: MultiLineSharedModel,
+});

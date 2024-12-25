@@ -10,14 +10,18 @@ const group = fc.letrec(tie => ({
         tie('Tree'),
       ),
     },
-    { requiredKeys: ['value'] },
+    {
+      requiredKeys: ['value'],
+    },
   ),
   StringNode: fc.record(
     {
       value: fc.string(),
       next: tie('BooleanNode'),
     },
-    { requiredKeys: ['value'] },
+    {
+      requiredKeys: ['value'],
+    },
   ),
   BooleanNode: fc.record(
     {
@@ -27,7 +31,9 @@ const group = fc.letrec(tie => ({
         tie('Tree'),
       ),
     },
-    { requiredKeys: ['value'] },
+    {
+      requiredKeys: ['value'],
+    },
   ),
 }));
 export const Tree = group.Tree;

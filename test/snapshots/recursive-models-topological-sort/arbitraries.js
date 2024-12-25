@@ -6,28 +6,36 @@ const group = fc.letrec(tie => ({
       value: fc.string(),
       next: tie('BooleanNode'),
     },
-    { requiredKeys: ['value'] },
+    {
+      requiredKeys: ['value'],
+    },
   ),
   BooleanNode: fc.record(
     {
       value: fc.boolean(),
       next: tie('StringNode'),
     },
-    { requiredKeys: ['value'] },
+    {
+      requiredKeys: ['value'],
+    },
   ),
 }));
 export const StringNode = group.StringNode;
 export const BooleanNode = group.BooleanNode;
 
-const group_2 = fc.letrec(tie => ({ Tree: fc.record(
-  {
-    value: fc.integer(),
-    left: tie('Tree'),
-    right: fc.oneof(
-      tie('Tree'),
-      StringNode,
-    ),
-  },
-  { requiredKeys: ['value'] },
-) }));
+const group_2 = fc.letrec(tie => ({
+  Tree: fc.record(
+    {
+      value: fc.integer(),
+      left: tie('Tree'),
+      right: fc.oneof(
+        tie('Tree'),
+        StringNode,
+      ),
+    },
+    {
+      requiredKeys: ['value'],
+    },
+  ),
+}));
 export const Tree = group_2.Tree;

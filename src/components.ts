@@ -629,35 +629,26 @@ const ObjectExpression = ({
     filter(([, value]) => value != null),
     reduce(toMap()),
   )
-  switch (filteredProperties.size) {
-    case 0:
-      return emitEmpty ? `{}` : ``
-    case 1: {
-      const [name, value] = get(first(filteredProperties))
-      return code`{ ${ts.ObjectProperty({
-        name,
-        // https://github.com/alloy-framework/alloy/issues/42
-        value: typeof value === `number` ? String(value) : value,
-      })} }`
-    }
-    default:
-      return ts.ObjectExpression().children(
-        ayJoin(
-          pipe(
-            filteredProperties,
-            map(
-              ([name, value]) =>
-                code`${ts.ObjectProperty({
-                  name,
-                  // https://github.com/alloy-framework/alloy/issues/42
-                  value: typeof value === `number` ? String(value) : value,
-                })},\n`,
-            ),
-            reduce(toArray()),
-          ),
-        ),
-      )
+  if (filteredProperties.size === 0) {
+    return emitEmpty ? `{}` : ``
   }
+
+  return ts.ObjectExpression().children(
+    ayJoin(
+      pipe(
+        filteredProperties,
+        map(
+          ([name, value]) =>
+            code`${ts.ObjectProperty({
+              name,
+              // https://github.com/alloy-framework/alloy/issues/42
+              value: typeof value === `number` ? String(value) : value,
+            })},\n`,
+        ),
+        reduce(toArray()),
+      ),
+    ),
+  )
 }
 
 const RecursiveReferenceArbitrary = ({

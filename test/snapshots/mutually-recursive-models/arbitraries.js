@@ -6,14 +6,18 @@ const group = fc.letrec(tie => ({
       value: fc.string(),
       next: tie('BooleanNode'),
     },
-    { requiredKeys: ['value'] },
+    {
+      requiredKeys: ['value'],
+    },
   ),
   BooleanNode: fc.record(
     {
       value: fc.boolean(),
       next: tie('StringNode'),
     },
-    { requiredKeys: ['value'] },
+    {
+      requiredKeys: ['value'],
+    },
   ),
 }));
 export const StringNode = group.StringNode;
