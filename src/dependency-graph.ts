@@ -63,7 +63,7 @@ export const collectSharedArbitraries = (
   } while (remainingNamespaces.length > 0)
 
   const stronglyConnectedArbitraries = pipe(
-    stronglyConnectedComponents(arbitraryDependencies).reverse(),
+    stronglyConnectedComponents(arbitraryDependencies),
     map(arbitraries =>
       pipe(
         arbitraries,

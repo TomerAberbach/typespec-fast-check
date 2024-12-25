@@ -1,8 +1,8 @@
 import * as fc from 'fast-check';
 
-export const $Enum = fc.constantFrom('A', 'X');
-
 export const $Scalar = fc.integer();
+
+export const $Enum = fc.constantFrom('A', 'X');
 
 export const DefaultPropertiesModel = fc.record(
   {
