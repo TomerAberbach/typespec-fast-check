@@ -1,12 +1,15 @@
 export const samples = {
-	'Model1': [
-		{},
-		{},
-		{},
-		{},
-		{}
-	],
-	'Model2': [
+	'MultiLineNamespace': {
+		'MultiLineNestedNamespace': {},
+		'MultiLineNamespaceModel': [
+			{},
+			{},
+			{},
+			{},
+			{}
+		]
+	},
+	'MultiLineNonSharedModel': [
 		{
 			'property': {}
 		},
@@ -23,7 +26,7 @@ export const samples = {
 			'property': {}
 		}
 	],
-	'Model3': [
+	'MultiLineRecursiveModel': [
 		{
 			'property': {
 				'property': {
@@ -52,14 +55,74 @@ export const samples = {
 			}
 		}
 	],
-	'Namespace1': {
-		'Namespace2': {},
-		'Model4': [
+	'MultiLineSharedModel': [
+		{},
+		{},
+		{},
+		{},
+		{}
+	],
+	'SingleLineNamespace': {
+		'SingleLineNestedNamespace': {},
+		'SingleLineNamespaceModel': [
 			{},
 			{},
 			{},
 			{},
 			{}
 		]
-	}
+	},
+	'SingleLineNonSharedModel': [
+		{
+			'property': {}
+		},
+		{
+			'property': {}
+		},
+		{
+			'property': {}
+		},
+		{
+			'property': {}
+		},
+		{
+			'property': {}
+		}
+	],
+	'SingleLineRecursiveModel': [
+		{
+			'property': {
+				'property': {
+					'property': {}
+				}
+			}
+		},
+		{
+			'property': {
+				'property': {
+					'property': {}
+				}
+			}
+		},
+		{
+			'property': {
+				'property': {}
+			}
+		},
+		{},
+		{
+			'property': {
+				'property': {
+					'property': {}
+				}
+			}
+		}
+	],
+	'SingleLineSharedModel': [
+		{},
+		{},
+		{},
+		{},
+		{}
+	]
 };

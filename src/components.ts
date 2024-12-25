@@ -219,10 +219,19 @@ const NestedArbitraryNamespace = ({
 
 const Commented = stc(
   ({ comment, children }: { comment?: string; children?: Child }) =>
-    ayJoin([comment && `/** ${comment} */`, children].filter(Boolean), {
+    ayJoin([comment && Comment({ comment }), children].filter(Boolean), {
       joiner: `\n`,
     }),
 )
+
+const Comment = ({ comment }: { comment: string }): Child => {
+  const lines = comment.split(`\n`)
+  if (lines.length <= 1) {
+    return code`/** ${comment} */`
+  }
+
+  return [`/**`, ...lines.map(line => ` * ${line}`), ` */`].join(`\n`)
+}
 
 const Arbitrary = ({
   arbitrary,

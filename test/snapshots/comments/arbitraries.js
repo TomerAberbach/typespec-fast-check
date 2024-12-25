@@ -1,23 +1,63 @@
 import * as fc from 'fast-check';
 
-const group = fc.letrec(tie => ({ Model3: fc.record(
-  { property: tie('Model3') },
+const group = fc.letrec(tie => ({ MultiLineRecursiveModel: fc.record(
+  { property: tie('MultiLineRecursiveModel') },
+  { withDeletedKeys: true },
+) }));
+/**
+ * Recursive
+ * model comment.
+ */
+export const MultiLineRecursiveModel = group.MultiLineRecursiveModel;
+
+const group_2 = fc.letrec(tie => ({ SingleLineRecursiveModel: fc.record(
+  { property: tie('SingleLineRecursiveModel') },
   { withDeletedKeys: true },
 ) }));
 /** Recursive model comment. */
-export const Model3 = group.Model3;
+export const SingleLineRecursiveModel = group_2.SingleLineRecursiveModel;
+
+/**
+ * Shared
+ * model comment.
+ */
+export const MultiLineSharedModel = fc.record({});
 
 /** Shared model comment. */
-export const Model1 = fc.record({});
+export const SingleLineSharedModel = fc.record({});
 
 /** Namespace comment. */
-export const Namespace1 = {
+export const SingleLineNamespace = {
   /** Nested namespace comment. */
-  Namespace2: {},
+  SingleLineNestedNamespace: {},
   
   /** Namespace model comment. */
-  Model4: fc.record({}),
+  SingleLineNamespaceModel: fc.record({}),
+};
+
+/**
+ * Namespace
+ * comment.
+ */
+export const MultiLineNamespace = {
+  /**
+   * Nested
+   * namespace comment.
+   */
+  MultiLineNestedNamespace: {},
+  
+  /**
+   * Namespace
+   * model comment.
+   */
+  MultiLineNamespaceModel: fc.record({}),
 };
 
 /** Non-shared model comment. */
-export const Model2 = fc.record({ property: Model1 });
+export const SingleLineNonSharedModel = fc.record({ property: SingleLineSharedModel });
+
+/**
+ * Non-shared
+ * model comment.
+ */
+export const MultiLineNonSharedModel = fc.record({ property: MultiLineSharedModel });
