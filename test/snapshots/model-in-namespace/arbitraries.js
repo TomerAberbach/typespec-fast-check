@@ -1,5 +1,5 @@
 import * as fc from 'fast-check';
 
-export const PetStore = {
-  Pet: fc.record({}),
+export const $Namespace = {
+  $Model: fc.record({}),
 };

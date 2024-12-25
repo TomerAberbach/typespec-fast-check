@@ -26,43 +26,43 @@ test.each([
   {
     name: `file-namespace`,
     code: `
-      namespace PetStore;
+      namespace $Namespace;
     `,
   },
   {
     name: `namespace`,
     code: `
-      namespace PetStore {}
+      namespace $Namespace {}
     `,
   },
   {
     name: `namespace-in-file-namespace`,
     code: `
-      namespace PetStore;
+      namespace Namespace1;
 
-      namespace Pets {}
+      namespace Namespace2 {}
     `,
   },
   {
     name: `file-model`,
     code: `
-      model Pet {}
+      model $Model {}
     `,
   },
   {
     name: `model-in-namespace`,
     code: `
-      namespace PetStore;
+      namespace $Namespace;
 
-      model Pet {}
+      model $Model {}
     `,
   },
   {
     name: `model-and-namespace`,
     code: `
-      namespace PetStore {}
+      namespace $Namespace {}
 
-      model Pet {}
+      model $Model {}
     `,
   },
 
@@ -708,7 +708,7 @@ test.each([
   {
     name: `nested-namespace-recursive-model`,
     code: `
-      namespace PetStore;
+      namespace $Namespace;
 
       model Node {
         value: string,
@@ -719,7 +719,7 @@ test.each([
   {
     name: `nested-namespace-mutually-recursive-models`,
     code: `
-      namespace PetStore;
+      namespace $Namespace;
 
       model StringNode {
         value: string,
@@ -729,6 +729,32 @@ test.each([
       model BooleanNode {
         value: boolean,
         next?: StringNode
+      }
+    `,
+  },
+  {
+    name: `comments`,
+    code: `
+      /** Shared model comment. */
+      model Model1 {}
+
+      /** Non-shared model comment. */
+      model Model2 {
+        property: Model1
+      }
+
+      /** Recursive model comment. */
+      model Model3 {
+        property?: Model3
+      }
+
+      /** Namespace comment. */
+      namespace Namespace1 {
+        /** Namespace model comment. */
+        model Model4 {}
+
+        /** Nested namespace comment. */
+        namespace Namespace2 {}
       }
     `,
   },

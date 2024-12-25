@@ -9,6 +9,6 @@ const group = fc.letrec(tie => ({ Node: fc.record(
 ) }));
 const Node = group.Node;
 
-export const PetStore = {
+export const $Namespace = {
   Node: Node,
 };

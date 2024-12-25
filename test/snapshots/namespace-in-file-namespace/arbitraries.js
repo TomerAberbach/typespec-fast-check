@@ -1,5 +1,5 @@
 import * as fc from 'fast-check';
 
-export const PetStore = {
-  Pets: {},
+export const Namespace1 = {
+  Namespace2: {},
 };

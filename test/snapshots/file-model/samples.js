@@ -1,5 +1,5 @@
 export const samples = {
-	'Pet': [
+	'$Model': [
 		{},
 		{},
 		{},

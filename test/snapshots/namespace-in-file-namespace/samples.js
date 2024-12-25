@@ -1,5 +1,5 @@
 export const samples = {
-	'PetStore': {
-		'Pets': {}
+	'Namespace1': {
+		'Namespace2': {}
 	}
 };

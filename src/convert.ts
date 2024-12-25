@@ -1,4 +1,5 @@
 import assert from 'node:assert'
+import { getDoc } from '@typespec/compiler'
 import type {
   BooleanLiteral,
   Enum,
@@ -99,6 +100,7 @@ const convertNamespace = (
   )
   return {
     name: namespace.name,
+    comment: getDoc(program, namespace),
     namespaces: pipe(
       values(namespace.namespaces),
       filter(namespace => !isTypeSpecNamespace(namespace)),
@@ -198,7 +200,7 @@ const convertIntrinsic = (intrinsic: IntrinsicType): Arbitrary => {
     case `never`:
       // Ref this because it's verbose so it's nice to extract a `const never`
       // variable if it's referenced more than once.
-      return referenceArbitrary(`never`, neverArbitrary())
+      return referenceArbitrary({ name: `never`, arbitrary: neverArbitrary() })
     case `unknown`:
       return anythingArbitrary()
     case `ErrorType`:
@@ -266,7 +268,7 @@ const convertScalar = (
 
   return isTypeSpecNamespace(scalar.namespace)
     ? arbitrary
-    : referenceArbitrary(scalar.name, arbitrary)
+    : referenceArbitrary({ name: scalar.name, arbitrary })
 }
 
 const convertNumber = (
@@ -298,7 +300,7 @@ const convertNumber = (
     return arbitrary
   }
 
-  return referenceArbitrary(scalar.name, arbitrary)
+  return referenceArbitrary({ name: scalar.name, arbitrary })
 }
 
 const convertBigInt = (
@@ -317,7 +319,7 @@ const convertBigInt = (
     arbitrary.min === min &&
     arbitrary.max === max
   return hasDefaultConstraints
-    ? referenceArbitrary(scalar.name, arbitrary)
+    ? referenceArbitrary({ name: scalar.name, arbitrary })
     : arbitrary
 }
 
@@ -328,16 +330,16 @@ const convertString = (constraints: Constraints): StringArbitrary =>
   })
 
 const convertEnum = ($enum: Enum): Arbitrary =>
-  referenceArbitrary(
-    $enum.name,
-    enumArbitrary(
+  referenceArbitrary({
+    name: $enum.name,
+    arbitrary: enumArbitrary(
       pipe(
         $enum.members,
         map(([, { name, value }]) => value ?? name),
         reduce(toArray()),
       ),
     ),
-  )
+  })
 
 const convertUnion = (
   program: Program,
@@ -357,7 +359,9 @@ const convertUnion = (
       reduce(toArray()),
     ),
   )
-  return union.name ? referenceArbitrary(union.name, arbitrary) : arbitrary
+  return union.name
+    ? referenceArbitrary({ name: union.name, arbitrary })
+    : arbitrary
 }
 
 const convertObject = (
@@ -424,7 +428,11 @@ const convertModel = (
 
   return isTypeSpecNamespace(model.namespace)
     ? arbitrary
-    : referenceArbitrary(model.name, arbitrary)
+    : referenceArbitrary({
+        name: model.name,
+        comment: getDoc(program, model),
+        arbitrary,
+      })
 }
 
 const convertModelIndexer = (
