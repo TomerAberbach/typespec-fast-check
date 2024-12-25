@@ -65,12 +65,14 @@ const GlobalArbitraryNamespace = ({
 }): Child =>
   ayJoin(
     [
-      ...map(arbitraries => {
+      ...map(stronglyConnectedArbitraries => {
         if (
-          arbitraries.size === 1 &&
-          !sharedArbitraries.recursivelyReferenced.has(get(first(arbitraries)))
+          stronglyConnectedArbitraries.size === 1 &&
+          !sharedArbitraries.recursivelyReferenced.has(
+            get(first(stronglyConnectedArbitraries)),
+          )
         ) {
-          const arbitrary = get(first(arbitraries))
+          const arbitrary = get(first(stronglyConnectedArbitraries))
           return ts.VarDeclaration({
             export: namespace.arbitraryToName.has(arbitrary),
             const: true,
@@ -79,27 +81,28 @@ const GlobalArbitraryNamespace = ({
             value: ArbitraryDefinition({
               arbitrary,
               sharedArbitraries,
-              activeArbitraryGroup: new Set(),
+              currentStronglyConnectedArbitraries: new Set(),
             }),
           })
         }
 
-        const group = refkey()
+        const stronglyConnectedArbitrariesKey = refkey()
         return ayJoin(
           [
             ts.VarDeclaration({
               const: true,
               name: `group`,
-              refkey: group,
+              refkey: stronglyConnectedArbitrariesKey,
               value: code`fc.letrec(tie => (${ObjectExpression({
                 properties: pipe(
-                  arbitraries,
+                  stronglyConnectedArbitraries,
                   map(arbitrary => [
                     arbitrary.name,
                     ArbitraryDefinition({
                       arbitrary,
                       sharedArbitraries,
-                      activeArbitraryGroup: arbitraries,
+                      currentStronglyConnectedArbitraries:
+                        stronglyConnectedArbitraries,
                     }),
                   ]),
                   reduce(toObject()),
@@ -107,7 +110,7 @@ const GlobalArbitraryNamespace = ({
               })}))`,
             }),
             ...pipe(
-              arbitraries,
+              stronglyConnectedArbitraries,
               map(arbitrary =>
                 ts.VarDeclaration({
                   export: namespace.arbitraryToName.has(arbitrary),
@@ -115,7 +118,7 @@ const GlobalArbitraryNamespace = ({
                   name:
                     namespace.arbitraryToName.get(arbitrary) ?? arbitrary.name,
                   refkey: refkey(arbitrary),
-                  value: code`${group}.${arbitrary.name}`,
+                  value: code`${stronglyConnectedArbitrariesKey}.${arbitrary.name}`,
                 }),
               ),
               reduce(toArray()),
@@ -145,7 +148,7 @@ const GlobalArbitraryNamespace = ({
             value: Arbitrary({
               arbitrary,
               sharedArbitraries,
-              activeArbitraryGroup: new Set(),
+              currentStronglyConnectedArbitraries: new Set(),
             }),
           }),
         ),
@@ -189,7 +192,7 @@ const NestedArbitraryNamespace = ({
               value: code`${Arbitrary({
                 arbitrary,
                 sharedArbitraries,
-                activeArbitraryGroup: new Set(),
+                currentStronglyConnectedArbitraries: new Set(),
               })},`,
             }),
           entries(namespace.nameToArbitrary),
@@ -203,22 +206,22 @@ const NestedArbitraryNamespace = ({
 const Arbitrary = ({
   arbitrary,
   sharedArbitraries,
-  activeArbitraryGroup,
+  currentStronglyConnectedArbitraries,
 }: {
   arbitrary: Arbitrary
   sharedArbitraries: SharedArbitraries
-  activeArbitraryGroup: Set<ReferenceArbitrary>
+  currentStronglyConnectedArbitraries: Set<ReferenceArbitrary>
 }): Child => {
   if (arbitrary.type !== `reference`) {
     return ArbitraryDefinition({
       arbitrary,
       sharedArbitraries,
-      activeArbitraryGroup,
+      currentStronglyConnectedArbitraries,
     })
   }
 
-  if (activeArbitraryGroup.has(arbitrary)) {
-    return code`tie(${StringLiteral({ string: arbitrary.name })})`
+  if (currentStronglyConnectedArbitraries.has(arbitrary)) {
+    return RecursiveReferenceArbitrary({ arbitrary })
   }
 
   if (sharedArbitraries.all.has(arbitrary)) {
@@ -228,18 +231,18 @@ const Arbitrary = ({
   return ArbitraryDefinition({
     arbitrary,
     sharedArbitraries,
-    activeArbitraryGroup,
+    currentStronglyConnectedArbitraries,
   })
 }
 
 const ArbitraryDefinition = ({
   arbitrary,
   sharedArbitraries,
-  activeArbitraryGroup,
+  currentStronglyConnectedArbitraries,
 }: {
   arbitrary: Arbitrary
   sharedArbitraries: SharedArbitraries
-  activeArbitraryGroup: Set<ReferenceArbitrary>
+  currentStronglyConnectedArbitraries: Set<ReferenceArbitrary>
 }): Child => {
   switch (arbitrary.type) {
     case `never`:
@@ -266,40 +269,40 @@ const ArbitraryDefinition = ({
       return ArrayArbitrary({
         arbitrary,
         sharedArbitraries,
-        activeArbitraryGroup,
+        currentStronglyConnectedArbitraries,
       })
     case `dictionary`:
       return DictionaryArbitrary({
         arbitrary,
         sharedArbitraries,
-        activeArbitraryGroup,
+        currentStronglyConnectedArbitraries,
       })
     case `union`:
       return UnionArbitrary({
         arbitrary,
         sharedArbitraries,
-        activeArbitraryGroup,
+        currentStronglyConnectedArbitraries,
       })
     case `record`:
       return RecordArbitrary({
         arbitrary,
         sharedArbitraries,
-        activeArbitraryGroup,
+        currentStronglyConnectedArbitraries,
       })
     case `intersection`:
       return IntersectionArbitrary({
         arbitrary,
         sharedArbitraries,
-        activeArbitraryGroup,
+        currentStronglyConnectedArbitraries,
       })
     case `reference`:
       return Arbitrary({
         arbitrary: arbitrary.arbitrary,
         sharedArbitraries,
-        activeArbitraryGroup,
+        currentStronglyConnectedArbitraries,
       })
     case `recursive-reference`:
-      return code`tie(${StringLiteral({ string: arbitrary.deref().name })})`
+      return RecursiveReferenceArbitrary({ arbitrary: arbitrary.deref() })
   }
 }
 
@@ -434,11 +437,11 @@ const EnumArbitrary = ({ arbitrary }: { arbitrary: EnumArbitrary }): Child =>
 const ArrayArbitrary = ({
   arbitrary,
   sharedArbitraries,
-  activeArbitraryGroup,
+  currentStronglyConnectedArbitraries,
 }: {
   arbitrary: ArrayArbitrary
   sharedArbitraries: SharedArbitraries
-  activeArbitraryGroup: Set<ReferenceArbitrary>
+  currentStronglyConnectedArbitraries: Set<ReferenceArbitrary>
 }): Child =>
   CallExpression({
     name: `fc.array`,
@@ -446,7 +449,7 @@ const ArrayArbitrary = ({
       Arbitrary({
         arbitrary: arbitrary.value,
         sharedArbitraries,
-        activeArbitraryGroup,
+        currentStronglyConnectedArbitraries,
       }),
       ObjectExpression({
         properties: {
@@ -461,21 +464,21 @@ const ArrayArbitrary = ({
 const DictionaryArbitrary = ({
   arbitrary,
   sharedArbitraries,
-  activeArbitraryGroup,
+  currentStronglyConnectedArbitraries,
 }: {
   arbitrary: DictionaryArbitrary
   sharedArbitraries: SharedArbitraries
-  activeArbitraryGroup: Set<ReferenceArbitrary>
+  currentStronglyConnectedArbitraries: Set<ReferenceArbitrary>
 }): Child => {
   const Key = Arbitrary({
     arbitrary: arbitrary.key,
     sharedArbitraries,
-    activeArbitraryGroup,
+    currentStronglyConnectedArbitraries,
   })
   const Value = Arbitrary({
     arbitrary: arbitrary.value,
     sharedArbitraries,
-    activeArbitraryGroup,
+    currentStronglyConnectedArbitraries,
   })
   return CallExpression({
     name: `fc.dictionary`,
@@ -487,11 +490,11 @@ const DictionaryArbitrary = ({
 const UnionArbitrary = ({
   arbitrary,
   sharedArbitraries,
-  activeArbitraryGroup,
+  currentStronglyConnectedArbitraries,
 }: {
   arbitrary: UnionArbitrary
   sharedArbitraries: SharedArbitraries
-  activeArbitraryGroup: Set<ReferenceArbitrary>
+  currentStronglyConnectedArbitraries: Set<ReferenceArbitrary>
 }): Child =>
   CallExpression({
     name: `fc.oneof`,
@@ -499,7 +502,7 @@ const UnionArbitrary = ({
       Arbitrary({
         arbitrary: variant,
         sharedArbitraries,
-        activeArbitraryGroup,
+        currentStronglyConnectedArbitraries,
       }),
     ),
   })
@@ -507,11 +510,11 @@ const UnionArbitrary = ({
 const RecordArbitrary = ({
   arbitrary,
   sharedArbitraries,
-  activeArbitraryGroup,
+  currentStronglyConnectedArbitraries,
 }: {
   arbitrary: RecordArbitrary
   sharedArbitraries: SharedArbitraries
-  activeArbitraryGroup: Set<ReferenceArbitrary>
+  currentStronglyConnectedArbitraries: Set<ReferenceArbitrary>
 }): Child => {
   const requiredProperties = pipe(
     arbitrary.properties,
@@ -528,7 +531,11 @@ const RecordArbitrary = ({
           arbitrary.properties,
           map(([name, { arbitrary }]) => [
             name,
-            Arbitrary({ arbitrary, sharedArbitraries, activeArbitraryGroup }),
+            Arbitrary({
+              arbitrary,
+              sharedArbitraries,
+              currentStronglyConnectedArbitraries,
+            }),
           ]),
           reduce(toObject()),
         ),
@@ -557,17 +564,21 @@ const RecordArbitrary = ({
 const IntersectionArbitrary = ({
   arbitrary,
   sharedArbitraries,
-  activeArbitraryGroup,
+  currentStronglyConnectedArbitraries,
 }: {
   arbitrary: IntersectionArbitrary
   sharedArbitraries: SharedArbitraries
-  activeArbitraryGroup: Set<ReferenceArbitrary>
+  currentStronglyConnectedArbitraries: Set<ReferenceArbitrary>
 }): Child => code`
   fc
     ${CallExpression({
       name: `.tuple`,
       args: arbitrary.arbitraries.map(arbitrary =>
-        Arbitrary({ arbitrary, sharedArbitraries, activeArbitraryGroup }),
+        Arbitrary({
+          arbitrary,
+          sharedArbitraries,
+          currentStronglyConnectedArbitraries,
+        }),
       ),
     })}
     .map(values => Object.assign(...values))
@@ -618,6 +629,12 @@ const ObjectExpression = ({
       )
   }
 }
+
+const RecursiveReferenceArbitrary = ({
+  arbitrary,
+}: {
+  arbitrary: ReferenceArbitrary
+}): Child => code`tie(${StringLiteral({ string: arbitrary.name })})`
 
 const CallExpression = ({
   name,
