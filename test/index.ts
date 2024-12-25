@@ -666,6 +666,46 @@ test.each([
     `,
   },
   {
+    name: `super-mutually-recursive-models`,
+    code: `
+      model Tree {
+        value: int32,
+        left?: Tree,
+        right?: StringNode | Tree
+      }
+
+      model StringNode {
+        value: string,
+        next?: BooleanNode
+      }
+
+      model BooleanNode {
+        value: boolean,
+        next?: StringNode | Tree
+      }
+    `,
+  },
+  {
+    name: `recursive-models-topological-sort`,
+    code: `
+      model Tree {
+        value: int32,
+        left?: Tree,
+        right?: Tree | StringNode
+      }
+
+      model StringNode {
+        value: string,
+        next?: BooleanNode
+      }
+
+      model BooleanNode {
+        value: boolean,
+        next?: StringNode
+      }
+    `,
+  },
+  {
     name: `nested-namespace-recursive-model`,
     code: `
       namespace PetStore;

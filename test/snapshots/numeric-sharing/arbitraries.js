@@ -1,8 +1,8 @@
 import * as fc from 'fast-check';
 
-const int8 = fc.integer({
-  min: -128,
-  max: 127,
+const int64 = fc.bigInt({
+  min: -9223372036854775808n,
+  max: 9223372036854775807n,
 });
 
 const int16 = fc.integer({
@@ -10,9 +10,9 @@ const int16 = fc.integer({
   max: 32767,
 });
 
-const int64 = fc.bigInt({
-  min: -9223372036854775808n,
-  max: 9223372036854775807n,
+const int8 = fc.integer({
+  min: -128,
+  max: 127,
 });
 
 export const FirstInt8 = int8;
