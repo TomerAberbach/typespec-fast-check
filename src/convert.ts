@@ -88,10 +88,11 @@ const convertNamespace = (
 ): ArbitraryNamespace => {
   const nameToArbitrary = pipe(
     concat<[string, Type]>(
-      namespace.models,
-      namespace.unions,
-      namespace.enums,
       namespace.scalars,
+      namespace.enums,
+      namespace.unions,
+      namespace.models,
+      namespace.operations,
     ),
     map(([, type]) => {
       const arbitrary = convertType(program, type, {})
@@ -170,20 +171,21 @@ const convertType = (
     case `ModelProperty`:
       arbitrary = convertType(program, type.type, constraints)
       break
-    case `EnumMember`:
-    case `Namespace`:
-    case `Decorator`:
-    case `Interface`:
-    case `Function`:
-    case `FunctionParameter`:
-    case `ScalarConstructor`:
     case `Operation`:
-    case `Projection`:
+      throw new Error(`Unhandled type: ${type.kind}`)
+    case `ScalarConstructor`:
+    case `EnumMember`:
     case `UnionVariant`:
     case `TemplateParameter`:
+    case `Namespace`:
+    case `Decorator`:
+    case `Function`:
+    case `FunctionParameter`:
+    case `Interface`:
+    case `Projection`:
     case `StringTemplate`:
     case `StringTemplateSpan`:
-      throw new Error(`Unhandled type: ${type.kind}`)
+      throw new Error(`Unreachable`)
   }
 
   arbitrary = normalizeArbitrary(arbitrary)
