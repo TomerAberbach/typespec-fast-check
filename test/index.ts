@@ -499,7 +499,7 @@ test.each([
   {
     name: `union`,
     code: `
-      union Breed {
+      union $Union {
         string: string,
         int32: int32,
         boolean: boolean
