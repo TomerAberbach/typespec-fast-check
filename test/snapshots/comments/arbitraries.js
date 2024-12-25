@@ -3,6 +3,10 @@ import * as fc from "fast-check";
 const group = fc.letrec(tie => ({
   MultiLineRecursiveModel: fc.record(
     {
+      /**
+       * Property
+       * comment.
+       */
       property: tie("MultiLineRecursiveModel"),
     },
     { withDeletedKeys: true },
@@ -17,6 +21,7 @@ export const MultiLineRecursiveModel = group.MultiLineRecursiveModel;
 const group_2 = fc.letrec(tie => ({
   SingleLineRecursiveModel: fc.record(
     {
+      /** Property comment. */
       property: tie("SingleLineRecursiveModel"),
     },
     { withDeletedKeys: true },
@@ -63,6 +68,7 @@ export const MultiLineNamespace = {
 
 /** Non-shared model comment. */
 export const SingleLineNonSharedModel = fc.record({
+  /** Property comment. */
   property: SingleLineSharedModel,
 });
 
@@ -71,5 +77,9 @@ export const SingleLineNonSharedModel = fc.record({
  * model comment.
  */
 export const MultiLineNonSharedModel = fc.record({
+  /**
+   * Property
+   * comment.
+   */
   property: MultiLineSharedModel,
 });
