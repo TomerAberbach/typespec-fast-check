@@ -736,25 +736,65 @@ test.each([
     name: `comments`,
     code: `
       /** Shared model comment. */
-      model Model1 {}
+      model SingleLineSharedModel {}
+
+      /**
+       * Shared
+       * model comment.
+       */
+      model MultiLineSharedModel {}
 
       /** Non-shared model comment. */
-      model Model2 {
-        property: Model1
+      model SingleLineNonSharedModel {
+        property: SingleLineSharedModel
+      }
+
+      /**
+       * Non-shared
+       * model comment.
+       */
+      model MultiLineNonSharedModel {
+        property: MultiLineSharedModel
       }
 
       /** Recursive model comment. */
-      model Model3 {
-        property?: Model3
+      model SingleLineRecursiveModel {
+        property?: SingleLineRecursiveModel
+      }
+
+      /**
+       * Recursive
+       * model comment.
+       */
+      model MultiLineRecursiveModel {
+        property?: MultiLineRecursiveModel
       }
 
       /** Namespace comment. */
-      namespace Namespace1 {
+      namespace SingleLineNamespace {
         /** Namespace model comment. */
-        model Model4 {}
+        model SingleLineNamespaceModel {}
 
         /** Nested namespace comment. */
-        namespace Namespace2 {}
+        namespace SingleLineNestedNamespace {}
+      }
+
+      /**
+       * Namespace
+       * comment.
+       */
+      namespace MultiLineNamespace {
+        /**
+         * Namespace
+         * model comment.
+         */
+        model MultiLineNamespaceModel {}
+
+        /**
+         * Nested
+         * namespace comment.
+         */
+        namespace MultiLineNestedNamespace {}
       }
     `,
   },
