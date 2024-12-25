@@ -4,8 +4,6 @@ import {
   filter,
   first,
   get,
-  join,
-  keys,
   map,
   minBy,
   pipe,
@@ -53,7 +51,7 @@ const ArbitraryFile = ({
   sharedArbitraries: SharedArbitraries
 }): Child =>
   ay.Output().children(ts.SourceFile({ path: `arbitraries.js` }).code`
-    import * as fc from 'fast-check';
+    import * as fc from "fast-check";
 
     ${GlobalArbitraryNamespace({ namespace, sharedArbitraries })}
   `)
@@ -345,7 +343,7 @@ const ArbitraryDefinition = ({
 
 const NeverArbitrary = (): Child => code`
   fc.constant(null).map(() => {
-    throw new Error('never');
+    throw new Error("never");
   })
 `
 
@@ -704,28 +702,7 @@ const CallExpression = ({
 }
 
 const StringLiteral = ({ string }: { string: string }): Child =>
-  `'${string.replace(
-    new RegExp(
-      `[${pipe(
-        keys(escapes),
-        map(c => (c === `\\` ? `\\\\` : c)),
-        join(``),
-      )}]`,
-      `gu`,
-    ),
-    c => escapes[c]!,
-  )}'`
-
-const escapes: Record<string, string> = {
-  "'": `\\'`,
-  '\\': `\\\\`,
-  '\b': `\\b`,
-  '\f': `\\f`,
-  '\n': `\\n`,
-  '\r': `\\r`,
-  '\t': `\\t`,
-  '\v': `\\x0B`,
-}
+  JSON.stringify(string)
 
 const filterChildren = (children: Child[]): Child[] =>
   children.filter(child => child != null && child !== `` && child !== false)

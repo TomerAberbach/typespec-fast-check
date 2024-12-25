@@ -1,4 +1,4 @@
-import * as fc from 'fast-check';
+import * as fc from "fast-check";
 
 const int8 = fc.integer({
   min: -128,

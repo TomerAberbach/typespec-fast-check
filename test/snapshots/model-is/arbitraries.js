@@ -1,4 +1,4 @@
-import * as fc from 'fast-check';
+import * as fc from "fast-check";
 
 export const Model1 = fc.record({
   a: fc.integer(),
