@@ -3,7 +3,7 @@ import { beforeEach, expect, test } from 'vitest'
 import { createTestHost, createTestWrapper } from '@typespec/compiler/testing'
 import type { BasicTestRunner } from '@typespec/compiler/testing'
 import * as fc from 'fast-check'
-import { entries, filterMap, pipe, reduce, toObject } from 'lfi'
+import { entries, filterMap, pipe, reduce, repeat, take, toObject } from 'lfi'
 import { importFromString } from 'module-from-string'
 import { serializeError } from 'serialize-error'
 import jsesc from 'jsesc'
@@ -745,6 +745,31 @@ test.each([
     `,
   },
   {
+    name: `templates`,
+    code: `
+      union TemplateUnion<A, B = string> {
+        a: A,
+        b: B
+      }
+
+      model $Model {
+        instantiatedUnion: TemplateUnion<int32>
+      }
+
+      model TemplateModel1<A, B = string> {
+        a: A,
+        b: B
+      }
+
+      model TemplateModel2<A, B> {
+        property1: TemplateModel1<A, B>,
+        property2: A | B
+      }
+
+      model InstantiatedModel1 is TemplateModel1<string>;
+    `,
+  },
+  {
     name: `comments`,
     code: `
       /** Scalar comment. */
@@ -910,6 +935,11 @@ const sampleArbitraries = (
   pipe(
     entries(arbitraries),
     filterMap(([name, value]) => {
+      if (typeof value === `function`) {
+        // eslint-disable-next-line typescript/no-unsafe-call
+        value = value(...pipe(repeat(fc.anything()), take(value.length)))
+      }
+
       if (value === null || typeof value !== `object`) {
         return null
       }

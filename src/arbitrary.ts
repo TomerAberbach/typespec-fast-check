@@ -23,6 +23,9 @@ export type Arbitrary =
   | IntersectionArbitrary
   | ReferenceArbitrary
   | RecursiveReferenceArbitrary
+  | FunctionDeclarationArbitrary
+  | ParameterReferenceArbitrary
+  | FunctionCallArbitrary
 
 export const neverArbitrary = (): NeverArbitrary => memoize({ type: `never` })
 
@@ -190,6 +193,36 @@ export type RecursiveReferenceArbitrary = {
   deref: () => ReferenceArbitrary
 }
 
+export const functionDeclarationArbitrary = (
+  options: Omit<FunctionDeclarationArbitrary, `type`>,
+): FunctionDeclarationArbitrary =>
+  memoize({ ...options, type: `function-declaration` })
+
+export type FunctionDeclarationArbitrary = {
+  type: `function-declaration`
+  parameters: string[]
+  arbitrary: Arbitrary
+}
+
+export const parameterReferenceArbitrary = (
+  name: string,
+): ParameterReferenceArbitrary => memoize({ type: `parameter-reference`, name })
+
+export type ParameterReferenceArbitrary = {
+  type: `parameter-reference`
+  name: string
+}
+
+export const functionCallArbitrary = (
+  options: Omit<FunctionCallArbitrary, `type`>,
+): FunctionCallArbitrary => memoize({ ...options, type: `function-call` })
+
+export type FunctionCallArbitrary = {
+  type: `function-call`
+  name: string
+  args: Arbitrary[]
+}
+
 const memoize = <A extends Arbitrary>(arbitrary: A): A => {
   const arbitraryKey = getArbitraryKey(arbitrary)
   let cachedArbitrary = arbitraryCache.get(arbitraryKey)
@@ -258,6 +291,16 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
       ])
     case `recursive-reference`:
       return keyalesce([arbitrary.type, arbitrary.deref])
+    case `function-declaration`:
+      return keyalesce([
+        arbitrary.type,
+        ...arbitrary.parameters,
+        arbitrary.arbitrary,
+      ])
+    case `parameter-reference`:
+      return keyalesce([arbitrary.type, arbitrary.name])
+    case `function-call`:
+      return keyalesce([arbitrary.type, arbitrary.name, ...arbitrary.args])
   }
 }
 

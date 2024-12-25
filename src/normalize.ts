@@ -5,6 +5,8 @@ import {
   constantArbitrary,
   dictionaryArbitrary,
   enumArbitrary,
+  functionCallArbitrary,
+  functionDeclarationArbitrary,
   intersectionArbitrary,
   neverArbitrary,
   recordArbitrary,
@@ -17,6 +19,8 @@ import type {
   ArrayArbitrary,
   ConstantArbitrary,
   DictionaryArbitrary,
+  FunctionCallArbitrary,
+  FunctionDeclarationArbitrary,
   IntersectionArbitrary,
   RecordArbitrary,
   ReferenceArbitrary,
@@ -37,6 +41,7 @@ const normalizeArbitrary = (arbitrary: Arbitrary): Arbitrary => {
     case `bytes`:
     case `enum`:
     case `recursive-reference`:
+    case `parameter-reference`:
       return arbitrary
     case `array`:
       return normalizeArrayArbitrary(arbitrary)
@@ -52,6 +57,10 @@ const normalizeArbitrary = (arbitrary: Arbitrary): Arbitrary => {
       return normalizeIntersectionArbitrary(arbitrary)
     case `reference`:
       return normalizeReferenceArbitrary(arbitrary)
+    case `function-declaration`:
+      return normalizeFunctionDeclarationArbitrary(arbitrary)
+    case `function-call`:
+      return normalizeFunctionCallArbitrary(arbitrary)
   }
 }
 
@@ -135,6 +144,22 @@ const normalizeReferenceArbitrary = (
   referenceArbitrary({
     ...arbitrary,
     arbitrary: normalizeArbitrary(arbitrary.arbitrary),
+  })
+
+const normalizeFunctionDeclarationArbitrary = (
+  arbitrary: FunctionDeclarationArbitrary,
+): Arbitrary =>
+  functionDeclarationArbitrary({
+    ...arbitrary,
+    arbitrary: normalizeArbitrary(arbitrary.arbitrary),
+  })
+
+const normalizeFunctionCallArbitrary = (
+  arbitrary: FunctionCallArbitrary,
+): Arbitrary =>
+  functionCallArbitrary({
+    ...arbitrary,
+    args: arbitrary.args.map(normalizeArbitrary),
   })
 
 export default normalizeArbitrary

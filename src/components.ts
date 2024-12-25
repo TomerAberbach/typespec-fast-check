@@ -32,6 +32,8 @@ import type {
   ConstantArbitrary,
   DictionaryArbitrary,
   EnumArbitrary,
+  FunctionCallArbitrary,
+  FunctionDeclarationArbitrary,
   IntersectionArbitrary,
   NumberArbitrary,
   RecordArbitrary,
@@ -322,6 +324,20 @@ const ArbitraryDefinition = ({
       })
     case `recursive-reference`:
       return RecursiveReferenceArbitrary({ arbitrary: arbitrary.deref() })
+    case `function-declaration`:
+      return FunctionDeclarationArbitrary({
+        arbitrary,
+        sharedArbitraries,
+        currentStronglyConnectedArbitraries,
+      })
+    case `parameter-reference`:
+      return arbitrary.name
+    case `function-call`:
+      return FunctionCallArbitrary({
+        arbitrary,
+        sharedArbitraries,
+        currentStronglyConnectedArbitraries,
+      })
   }
 }
 
@@ -637,6 +653,48 @@ const RecursiveReferenceArbitrary = ({
 }: {
   arbitrary: ReferenceArbitrary
 }): Child => code`tie(${StringLiteral({ string: arbitrary.name })})`
+
+const FunctionDeclarationArbitrary = ({
+  arbitrary,
+  sharedArbitraries,
+  currentStronglyConnectedArbitraries,
+}: {
+  arbitrary: FunctionDeclarationArbitrary
+  sharedArbitraries: SharedArbitraries
+  currentStronglyConnectedArbitraries: Set<ReferenceArbitrary>
+}): Child => code`
+  ${
+    arbitrary.parameters.length === 1
+      ? arbitrary.parameters[0]
+      : code`(${Commas({ values: arbitrary.parameters, oneLine: true })})`
+  } =>
+    ${Arbitrary({
+      arbitrary: arbitrary.arbitrary,
+      sharedArbitraries,
+      currentStronglyConnectedArbitraries,
+    })}
+`
+
+const FunctionCallArbitrary = ({
+  arbitrary,
+  sharedArbitraries,
+  currentStronglyConnectedArbitraries,
+}: {
+  arbitrary: FunctionCallArbitrary
+  sharedArbitraries: SharedArbitraries
+  currentStronglyConnectedArbitraries: Set<ReferenceArbitrary>
+}): Child =>
+  CallExpression({
+    name: arbitrary.name,
+    args: arbitrary.args.map(arg =>
+      Arbitrary({
+        arbitrary: arg,
+        sharedArbitraries,
+        currentStronglyConnectedArbitraries,
+      }),
+    ),
+    oneLine: true,
+  })
 
 const ArrayExpression = ({ values }: { values: Child[] }): Child =>
   code`[${ayJoin(values, { joiner: `, ` })}]`

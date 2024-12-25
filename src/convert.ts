@@ -1,5 +1,5 @@
 import assert from 'node:assert'
-import { getDoc } from '@typespec/compiler'
+import { getDoc, isTemplateDeclaration } from '@typespec/compiler'
 import type {
   BooleanLiteral,
   Enum,
@@ -13,6 +13,8 @@ import type {
   Program,
   Scalar,
   StringLiteral,
+  TemplateParameter,
+  TemplatedType,
   Tuple,
   Type,
   Union,
@@ -33,6 +35,7 @@ import {
   values,
 } from 'lfi'
 import keyalesce from 'keyalesce'
+import camelcase from 'camelcase'
 import {
   anythingArbitrary,
   arrayArbitrary,
@@ -42,9 +45,12 @@ import {
   constantArbitrary,
   dictionaryArbitrary,
   enumArbitrary,
+  functionCallArbitrary,
+  functionDeclarationArbitrary,
   intersectionArbitrary,
   neverArbitrary,
   numberArbitrary,
+  parameterReferenceArbitrary,
   recordArbitrary,
   recursiveReferenceArbitrary,
   referenceArbitrary,
@@ -59,6 +65,7 @@ import type {
   ArrayArbitrary,
   ConstantArbitrary,
   DictionaryArbitrary,
+  ParameterReferenceArbitrary,
   RecordArbitrary,
   StringArbitrary,
 } from './arbitrary.ts'
@@ -141,6 +148,28 @@ const convertType = (
       return arbitrary
     }),
   )
+
+  if (
+    isTemplatedType(type) &&
+    type.templateMapper &&
+    !isTypeSpecNamespace(type.namespace)
+  ) {
+    return functionCallArbitrary({
+      name: String(type.name),
+      // eslint-disable-next-line array-callback-return
+      args: type.templateMapper.args.map(arg => {
+        switch (arg.entityKind) {
+          case `Type`:
+            return convertType(program, arg, constraints)
+          case `Value`:
+            return convertValue(arg)
+          case `Indeterminate`:
+            throw new Error(`Unhandled entity: ${arg.entityKind}`)
+        }
+      }),
+    })
+  }
+
   switch (type.kind) {
     case `Intrinsic`:
       arbitrary = convertIntrinsic(type)
@@ -171,12 +200,14 @@ const convertType = (
     case `ModelProperty`:
       arbitrary = convertType(program, type.type, constraints)
       break
+    case `TemplateParameter`:
+      arbitrary = convertTemplateParameter(type)
+      break
     case `Operation`:
       throw new Error(`Unhandled type: ${type.kind}`)
     case `ScalarConstructor`:
     case `EnumMember`:
     case `UnionVariant`:
-    case `TemplateParameter`:
     case `Namespace`:
     case `Decorator`:
     case `Function`:
@@ -185,13 +216,41 @@ const convertType = (
     case `Projection`:
     case `StringTemplate`:
     case `StringTemplateSpan`:
-      throw new Error(`Unreachable`)
+      throw new Error(`Unreachable: ${type.kind}`)
+  }
+
+  if (
+    isTemplatedType(type) &&
+    isTemplateDeclaration(type) &&
+    !isTypeSpecNamespace(type.namespace)
+  ) {
+    assert(arbitrary.type === `reference`)
+    arbitrary.arbitrary = functionDeclarationArbitrary({
+      parameters: type.node.templateParameters.map(parameter =>
+        camelcase(parameter.symbol.name),
+      ),
+      arbitrary: arbitrary.arbitrary,
+    })
   }
 
   arbitrary = normalizeArbitrary(arbitrary)
   typeToArbitrary.set(typeKey, arbitrary)
 
   return arbitrary
+}
+
+const isTemplatedType = (type: Type): type is TemplatedType => {
+  // eslint-disable-next-line typescript/switch-exhaustiveness-check
+  switch (type.kind) {
+    case `Scalar`:
+    case `Union`:
+    case `Model`:
+    case `Interface`:
+    case `Operation`:
+      return true
+    default:
+      return false
+  }
 }
 
 const typeToArbitrary = new Map<TypeKey, Arbitrary>()
@@ -559,6 +618,11 @@ const toJsValue = (value: Value): unknown => {
       )
   }
 }
+
+const convertTemplateParameter = (
+  templateParameter: TemplateParameter,
+): ParameterReferenceArbitrary =>
+  parameterReferenceArbitrary(camelcase(templateParameter.node.symbol.name))
 
 const isTypeSpecNamespace = (namespace?: Namespace): boolean =>
   namespace?.name === `TypeSpec`

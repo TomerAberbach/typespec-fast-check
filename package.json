@@ -57,6 +57,7 @@
     "@alloy-js/core": "^0.3.0",
     "@alloy-js/typescript": "^0.3.0",
     "@rtsao/scc": "^1.1.0",
+    "camelcase": "^8.0.0",
     "keyalesce": "^2.2.0",
     "lfi": "^3.8.0"
   },

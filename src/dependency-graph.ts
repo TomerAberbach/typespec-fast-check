@@ -110,6 +110,8 @@ const getDirectArbitraryDependencies = (arbitrary: Arbitrary): Arbitrary[] => {
     case `url`:
     case `bytes`:
     case `enum`:
+    case `function-declaration`:
+    case `parameter-reference`:
       return []
     case `array`:
       return [arbitrary.value]
@@ -131,5 +133,7 @@ const getDirectArbitraryDependencies = (arbitrary: Arbitrary): Arbitrary[] => {
       return [arbitrary.arbitrary]
     case `recursive-reference`:
       return [arbitrary.deref()]
+    case `function-call`:
+      return arbitrary.args
   }
 }
