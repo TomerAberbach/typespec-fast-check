@@ -665,6 +665,33 @@ test.each([
       }
     `,
   },
+  {
+    name: `nested-namespace-recursive-model`,
+    code: `
+      namespace PetStore;
+
+      model Node {
+        value: string,
+        next?: Node
+      }
+    `,
+  },
+  {
+    name: `nested-namespace-mutually-recursive-models`,
+    code: `
+      namespace PetStore;
+
+      model StringNode {
+        value: string,
+        next?: BooleanNode
+      }
+
+      model BooleanNode {
+        value: boolean,
+        next?: StringNode
+      }
+    `,
+  },
 ] satisfies TestCase[])(`$name`, async ({ name, code }) => {
   const snapshotPath = `./snapshots/${name}`
   const arbitrariesPath = `${snapshotPath}/arbitraries.js`
