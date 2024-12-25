@@ -66,23 +66,23 @@ export const MultiLineNamespace = {
   MultiLineNamespaceModel: fc.record({}),
 };
 
-/** Non-shared model comment. */
-export const SingleLineNonSharedModel = fc.record({
-  /** Property comment. */
-  property: SingleLineSharedModel,
-});
+/** Scalar comment. */
+export const SingleLineScalar = fc.string();
 
 /**
- * Non-shared
- * model comment.
+ * Scalar
+ * comment.
  */
-export const MultiLineNonSharedModel = fc.record({
-  /**
-   * Property
-   * comment.
-   */
-  property: MultiLineSharedModel,
-});
+export const MultiLineScalar = fc.string();
+
+/** Enum comment. */
+export const SingleLineEnum = fc.constantFrom("A");
+
+/**
+ * Enum
+ * comment.
+ */
+export const MultiLineEnum = fc.constantFrom("A");
 
 /** Union comment. */
 export const SingleLineUnion = fc.oneof(
@@ -101,20 +101,20 @@ export const MultiLineUnion = fc.oneof(
   fc.boolean(),
 );
 
-/** Enum comment. */
-export const SingleLineEnum = fc.constantFrom("A");
+/** Non-shared model comment. */
+export const SingleLineNonSharedModel = fc.record({
+  /** Property comment. */
+  property: SingleLineSharedModel,
+});
 
 /**
- * Enum
- * comment.
+ * Non-shared
+ * model comment.
  */
-export const MultiLineEnum = fc.constantFrom("A");
-
-/** Scalar comment. */
-export const SingleLineScalar = fc.string();
-
-/**
- * Scalar
- * comment.
- */
-export const MultiLineScalar = fc.string();
+export const MultiLineNonSharedModel = fc.record({
+  /**
+   * Property
+   * comment.
+   */
+  property: MultiLineSharedModel,
+});

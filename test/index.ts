@@ -11,10 +11,14 @@ import { FastCheckTestLibrary } from '../dist/testing/index.js'
 
 let runner: BasicTestRunner
 beforeEach(async () => {
-  runner = createTestWrapper(
-    await createTestHost({ libraries: [FastCheckTestLibrary] }),
-    { compilerOptions: { emit: [`typespec-fast-check`] } },
-  )
+  const host = await createTestHost({ libraries: [FastCheckTestLibrary] })
+  host.addJsFile(`/test/externs.js`, {
+    $decorator: () => {},
+    function: () => {},
+  })
+  runner = createTestWrapper(host, {
+    compilerOptions: { emit: [`typespec-fast-check`] },
+  })
 })
 
 type TestCase = { name: string; code: string }
@@ -853,6 +857,17 @@ test.each([
          */
         namespace MultiLineNestedNamespace {}
       }
+    `,
+  },
+  {
+    name: `skipped`,
+    code: `
+      import "./externs.js";
+
+      extern dec decorator(target: unknown);
+      extern fn function(value: unknown): unknown;
+
+      interface $Interface {}
     `,
   },
 ] satisfies TestCase[])(`$name`, async ({ name, code }) => {
