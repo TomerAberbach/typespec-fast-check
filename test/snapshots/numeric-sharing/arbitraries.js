@@ -37,7 +37,9 @@ export const FirstInt32 = fc.integer();
 
 export const SecondInt32 = fc.integer();
 
-export const ThirdInt32 = fc.integer({ min: 42 });
+export const ThirdInt32 = fc.integer({
+  min: 42,
+});
 
 export const FirstSafeInt = fc.maxSafeInteger();
 
@@ -61,34 +63,46 @@ export const FirstInteger = fc.bigInt();
 
 export const SecondInteger = fc.bigInt();
 
-export const ThirdInteger = fc.bigInt({ min: 42n });
+export const ThirdInteger = fc.bigInt({
+  min: 42n,
+});
 
 export const FirstFloat32 = fc.float();
 
 export const SecondFloat32 = fc.float();
 
-export const ThirdFloat32 = fc.float({ min: 42 });
+export const ThirdFloat32 = fc.float({
+  min: 42,
+});
 
 export const FirstFloat64 = fc.double();
 
 export const SecondFloat64 = fc.double();
 
-export const ThirdFloat64 = fc.double({ min: 42 });
+export const ThirdFloat64 = fc.double({
+  min: 42,
+});
 
 export const FirstDecimal128 = fc.double();
 
 export const SecondDecimal128 = fc.double();
 
-export const ThirdDecimal128 = fc.double({ min: 42 });
+export const ThirdDecimal128 = fc.double({
+  min: 42,
+});
 
 export const FirstDecimal = fc.double();
 
 export const SecondDecimal = fc.double();
 
-export const ThirdDecimal = fc.double({ min: 42 });
+export const ThirdDecimal = fc.double({
+  min: 42,
+});
 
 export const FirstNumeric = fc.double();
 
 export const SecondNumeric = fc.double();
 
-export const ThirdNumeric = fc.double({ min: 42 });
+export const ThirdNumeric = fc.double({
+  min: 42,
+});
