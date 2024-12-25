@@ -3,6 +3,7 @@ import { flatMap } from 'lfi'
 
 export type ArbitraryNamespace = {
   name: string
+  comment?: string
   namespaces: ArbitraryNamespace[]
   nameToArbitrary: Map<string, ReferenceArbitrary>
   arbitraryToName: Map<ReferenceArbitrary, string>
@@ -153,13 +154,13 @@ export type IntersectionArbitrary = {
 }
 
 export const referenceArbitrary = (
-  name: string,
-  arbitrary: Arbitrary,
-): ReferenceArbitrary => memoize({ type: `reference`, name, arbitrary })
+  options: Omit<ReferenceArbitrary, `type`>,
+): ReferenceArbitrary => memoize({ ...options, type: `reference` })
 
 export type ReferenceArbitrary = {
   type: `reference`
   name: string
+  comment?: string
   arbitrary: Arbitrary
 }
 
@@ -226,7 +227,12 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
     case `intersection`:
       return keyalesce([arbitrary.type, ...arbitrary.arbitraries])
     case `reference`:
-      return keyalesce([arbitrary.type, arbitrary.name, arbitrary.arbitrary])
+      return keyalesce([
+        arbitrary.type,
+        arbitrary.name,
+        arbitrary.comment,
+        arbitrary.arbitrary,
+      ])
     case `recursive-reference`:
       return keyalesce([arbitrary.type, arbitrary.deref])
   }

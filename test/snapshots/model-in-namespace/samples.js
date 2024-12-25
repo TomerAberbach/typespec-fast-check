@@ -1,6 +1,6 @@
 export const samples = {
-	'PetStore': {
-		'Pet': [
+	'$Namespace': {
+		'$Model': [
 			{},
 			{},
 			{},

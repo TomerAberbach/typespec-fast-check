@@ -22,6 +22,7 @@ import {
   mapJoin as ayMapJoin,
   code,
   refkey,
+  stc,
 } from '@alloy-js/core'
 import type { Child, Children } from '@alloy-js/core'
 import type {
@@ -73,17 +74,19 @@ const GlobalArbitraryNamespace = ({
           )
         ) {
           const arbitrary = get(first(stronglyConnectedArbitraries))
-          return ts.VarDeclaration({
-            export: namespace.arbitraryToName.has(arbitrary),
-            const: true,
-            name: namespace.arbitraryToName.get(arbitrary) ?? arbitrary.name,
-            refkey: refkey(arbitrary),
-            value: ArbitraryDefinition({
-              arbitrary,
-              sharedArbitraries,
-              currentStronglyConnectedArbitraries: new Set(),
+          return Commented({ comment: arbitrary.comment }).children(
+            ts.VarDeclaration({
+              export: namespace.arbitraryToName.has(arbitrary),
+              const: true,
+              name: namespace.arbitraryToName.get(arbitrary) ?? arbitrary.name,
+              refkey: refkey(arbitrary),
+              value: ArbitraryDefinition({
+                arbitrary,
+                sharedArbitraries,
+                currentStronglyConnectedArbitraries: new Set(),
+              }),
             }),
-          })
+          )
         }
 
         const stronglyConnectedArbitrariesKey = refkey()
@@ -112,14 +115,17 @@ const GlobalArbitraryNamespace = ({
             ...pipe(
               stronglyConnectedArbitraries,
               map(arbitrary =>
-                ts.VarDeclaration({
-                  export: namespace.arbitraryToName.has(arbitrary),
-                  const: true,
-                  name:
-                    namespace.arbitraryToName.get(arbitrary) ?? arbitrary.name,
-                  refkey: refkey(arbitrary),
-                  value: code`${stronglyConnectedArbitrariesKey}.${arbitrary.name}`,
-                }),
+                Commented({ comment: arbitrary.comment }).children(
+                  ts.VarDeclaration({
+                    export: namespace.arbitraryToName.has(arbitrary),
+                    const: true,
+                    name:
+                      namespace.arbitraryToName.get(arbitrary) ??
+                      arbitrary.name,
+                    refkey: refkey(arbitrary),
+                    value: code`${stronglyConnectedArbitrariesKey}.${arbitrary.name}`,
+                  }),
+                ),
               ),
               reduce(toArray()),
             ),
@@ -129,28 +135,32 @@ const GlobalArbitraryNamespace = ({
       }, sharedArbitraries.stronglyConnected),
       ...map(
         namespace =>
-          ts.VarDeclaration({
-            export: true,
-            const: true,
-            name: namespace.name,
-            value: NestedArbitraryNamespace({ namespace, sharedArbitraries }),
-          }),
+          Commented({ comment: namespace.comment }).children(
+            ts.VarDeclaration({
+              export: true,
+              const: true,
+              name: namespace.name,
+              value: NestedArbitraryNamespace({ namespace, sharedArbitraries }),
+            }),
+          ),
         namespace.namespaces,
       ),
       ...pipe(
         entries(namespace.nameToArbitrary),
         filter(([, arbitrary]) => !sharedArbitraries.all.has(arbitrary)),
         map(([name, arbitrary]) =>
-          ts.VarDeclaration({
-            export: true,
-            const: true,
-            name,
-            value: Arbitrary({
-              arbitrary,
-              sharedArbitraries,
-              currentStronglyConnectedArbitraries: new Set(),
+          Commented({ comment: arbitrary.comment }).children(
+            ts.VarDeclaration({
+              export: true,
+              const: true,
+              name,
+              value: Arbitrary({
+                arbitrary,
+                sharedArbitraries,
+                currentStronglyConnectedArbitraries: new Set(),
+              }),
             }),
-          }),
+          ),
         ),
       ),
     ],
@@ -176,25 +186,29 @@ const NestedArbitraryNamespace = ({
       [
         ...map(
           namespace =>
-            ts.ObjectProperty({
-              name: namespace.name,
-              value: code`${NestedArbitraryNamespace({
-                namespace,
-                sharedArbitraries,
-              })},`,
-            }),
+            Commented({ comment: namespace.comment }).children(
+              ts.ObjectProperty({
+                name: namespace.name,
+                value: code`${NestedArbitraryNamespace({
+                  namespace,
+                  sharedArbitraries,
+                })},`,
+              }),
+            ),
           namespace.namespaces,
         ),
         ...map(
           ([name, arbitrary]) =>
-            ts.ObjectProperty({
-              name,
-              value: code`${Arbitrary({
-                arbitrary,
-                sharedArbitraries,
-                currentStronglyConnectedArbitraries: new Set(),
-              })},`,
-            }),
+            Commented({ comment: arbitrary.comment }).children(
+              ts.ObjectProperty({
+                name,
+                value: code`${Arbitrary({
+                  arbitrary,
+                  sharedArbitraries,
+                  currentStronglyConnectedArbitraries: new Set(),
+                })},`,
+              }),
+            ),
           entries(namespace.nameToArbitrary),
         ),
       ],
@@ -202,6 +216,13 @@ const NestedArbitraryNamespace = ({
     ),
   )
 }
+
+const Commented = stc(
+  ({ comment, children }: { comment?: string; children?: Child }) =>
+    ayJoin([comment && `/** ${comment} */`, children].filter(Boolean), {
+      joiner: `\n`,
+    }),
+)
 
 const Arbitrary = ({
   arbitrary,

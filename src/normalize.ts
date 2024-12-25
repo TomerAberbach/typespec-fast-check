@@ -122,10 +122,12 @@ const normalizeIntersectionArbitrary = (
   }
 }
 
-const normalizeReferenceArbitrary = ({
-  name,
-  arbitrary,
-}: ReferenceArbitrary): Arbitrary =>
-  referenceArbitrary(name, normalizeArbitrary(arbitrary))
+const normalizeReferenceArbitrary = (
+  arbitrary: ReferenceArbitrary,
+): Arbitrary =>
+  referenceArbitrary({
+    ...arbitrary,
+    arbitrary: normalizeArbitrary(arbitrary.arbitrary),
+  })
 
 export default normalizeArbitrary

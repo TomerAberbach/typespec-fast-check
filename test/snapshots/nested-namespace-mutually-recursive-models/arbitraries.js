@@ -19,7 +19,7 @@ const group = fc.letrec(tie => ({
 const StringNode = group.StringNode;
 const BooleanNode = group.BooleanNode;
 
-export const PetStore = {
+export const $Namespace = {
   StringNode: StringNode,
   
   BooleanNode: BooleanNode,

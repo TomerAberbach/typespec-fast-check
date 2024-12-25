@@ -1,3 +1,3 @@
 import * as fc from 'fast-check';
 
-export const Pet = fc.record({});
+export const $Model = fc.record({});

@@ -1,10 +1,10 @@
 export const samples = {
-	'Pet': [
+	'$Model': [
 		{},
 		{},
 		{},
 		{},
 		{}
 	],
-	'PetStore': {}
+	'$Namespace': {}
 };
