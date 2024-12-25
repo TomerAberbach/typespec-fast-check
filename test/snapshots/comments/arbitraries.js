@@ -83,3 +83,38 @@ export const MultiLineNonSharedModel = fc.record({
    */
   property: MultiLineSharedModel,
 });
+
+/** Union comment. */
+export const SingleLineUnion = fc.oneof(
+  fc.string(),
+  fc.integer(),
+  fc.boolean(),
+);
+
+/**
+ * Union
+ * comment.
+ */
+export const MultiLineUnion = fc.oneof(
+  fc.string(),
+  fc.integer(),
+  fc.boolean(),
+);
+
+/** Enum comment. */
+export const SingleLineEnum = fc.constantFrom("A");
+
+/**
+ * Enum
+ * comment.
+ */
+export const MultiLineEnum = fc.constantFrom("A");
+
+/** Scalar comment. */
+export const SingleLineScalar = fc.string();
+
+/**
+ * Scalar
+ * comment.
+ */
+export const MultiLineScalar = fc.string();

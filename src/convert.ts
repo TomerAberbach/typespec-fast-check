@@ -153,7 +153,7 @@ const convertType = (
       arbitrary = convertScalar(program, type, constraints)
       break
     case `Enum`:
-      arbitrary = convertEnum(type)
+      arbitrary = convertEnum(program, type)
       break
     case `Tuple`:
       arbitrary = convertTuple(program, type, constraints)
@@ -272,7 +272,11 @@ const convertScalar = (
 
   return isTypeSpecNamespace(scalar.namespace)
     ? arbitrary
-    : referenceArbitrary({ name: scalar.name, arbitrary })
+    : referenceArbitrary({
+        name: scalar.name,
+        comment: getDoc(program, scalar),
+        arbitrary,
+      })
 }
 
 const convertNumber = (
@@ -333,9 +337,10 @@ const convertString = (constraints: Constraints): StringArbitrary =>
     maxLength: constraints.maxLength?.asNumber() ?? undefined,
   })
 
-const convertEnum = ($enum: Enum): Arbitrary =>
+const convertEnum = (program: Program, $enum: Enum): Arbitrary =>
   referenceArbitrary({
     name: $enum.name,
+    comment: getDoc(program, $enum),
     arbitrary: enumArbitrary(
       pipe(
         $enum.members,
@@ -373,7 +378,11 @@ const convertUnion = (
     ),
   )
   return union.name
-    ? referenceArbitrary({ name: union.name, arbitrary })
+    ? referenceArbitrary({
+        name: union.name,
+        comment: getDoc(program, union),
+        arbitrary,
+      })
     : arbitrary
 }
 

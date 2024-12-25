@@ -743,6 +743,45 @@ test.each([
   {
     name: `comments`,
     code: `
+      /** Scalar comment. */
+      scalar SingleLineScalar extends string;
+
+      /**
+       * Scalar
+       * comment.
+       */
+      scalar MultiLineScalar extends string;
+
+      /** Enum comment. */
+      enum SingleLineEnum {
+        A
+      }
+
+      /**
+       * Enum
+       * comment.
+       */
+      enum MultiLineEnum {
+        A
+      }
+
+      /** Union comment. */
+      union SingleLineUnion {
+        string: string,
+        int32: int32,
+        boolean: boolean
+      }
+
+      /**
+       * Union
+       * comment.
+       */
+      union MultiLineUnion {
+        string: string,
+        int32: int32,
+        boolean: boolean
+      }
+
       /** Shared model comment. */
       model SingleLineSharedModel {}
 
