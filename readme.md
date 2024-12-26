@@ -51,6 +51,12 @@ See the
 [TypeSpec documentation](https://typespec.io/docs/emitters/protobuf/reference/emitter)
 for more information.
 
+> [!NOTE]
+>
+> This package doesn't support all TypeSpec features yet. See the
+> [open issues](https://github.com/TomerAberbach/typespec-fast-check/issues) for
+> what's planned.
+
 ## Examples
 
 See [`openai-arbitraries.js`](./examples/openai-arbitraries.js) which was
