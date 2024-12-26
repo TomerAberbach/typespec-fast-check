@@ -26,7 +26,7 @@ const StringNode = group.StringNode;
 const BooleanNode = group.BooleanNode;
 
 export const $Namespace = {
-  StringNode: StringNode,
+  StringNode,
   
-  BooleanNode: BooleanNode,
+  BooleanNode,
 };
