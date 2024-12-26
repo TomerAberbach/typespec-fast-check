@@ -15,14 +15,14 @@ const Image = fc.record(
     /** The URL of the generated image, if `response_format` is `url` (default). */
     url: fc.webUrl(),
     /** The base64-encoded JSON of the generated image, if `response_format` is `b64_json`. */
-    "b64_json": fc.uint8Array(),
+    b64_json: fc.uint8Array(),
   },
   { withDeletedKeys: true },
 );
 
 const FineTuneEvent = fc.record({
   object: fc.string(),
-  "created_at": fc.string(),
+  created_at: fc.string(),
   level: fc.string(),
   message: fc.string(),
 });
@@ -51,7 +51,7 @@ const OpenAIFile = fc.record(
      * Additional details about the status of the file. If the file is in the `error` state, this will
      * include a message describing the error.
      */
-    "status_details": fc.option(fc.string()),
+    status_details: fc.option(fc.string()),
   },
   {
     requiredKeys: ["id", "object", "bytes", "createdAt", "filename", "purpose", "status"],
@@ -66,15 +66,15 @@ const FineTune = fc.record(
     /** The object type, which is always "fine-tune". */
     object: fc.constant("fine-tune"),
     /** The Unix timestamp (in seconds) for when the fine-tuning job was created. */
-    "created_at": fc.string(),
+    created_at: fc.string(),
     /** The Unix timestamp (in seconds) for when the fine-tuning job was last updated. */
-    "updated_at": fc.string(),
+    updated_at: fc.string(),
     /** The base model that is being fine-tuned. */
     model: fc.string(),
     /** The name of the fine-tuned model that is being created. */
-    "fine_tuned_model": fc.option(fc.string()),
+    fine_tuned_model: fc.option(fc.string()),
     /** The organization that owns the fine-tuning job. */
-    "organization_id": fc.string(),
+    organization_id: fc.string(),
     /**
      * The current status of the fine-tuning job, which can be either `created`, `running`,
      * `succeeded`, `failed`, or `cancelled`.
@@ -90,33 +90,33 @@ const FineTune = fc.record(
          * The number of epochs to train the model for. An epoch refers to one full cycle through the
          * training dataset.
          */
-        "n_epochs": fc.maxSafeInteger(),
+        n_epochs: fc.maxSafeInteger(),
         /**
          * The batch size to use for training. The batch size is the number of training examples used to
          * train a single forward and backward pass.
          */
-        "batch_size": fc.maxSafeInteger(),
+        batch_size: fc.maxSafeInteger(),
         /** The weight to use for loss on the prompt tokens. */
-        "prompt_loss_weight": fc.double(),
+        prompt_loss_weight: fc.double(),
         /** The learning rate multiplier to use for training. */
-        "learning_rate_multiplier": fc.double(),
+        learning_rate_multiplier: fc.double(),
         /** The classification metrics to compute using the validation dataset at the end of every epoch. */
-        "compute_classification_metrics": fc.boolean(),
+        compute_classification_metrics: fc.boolean(),
         /** The positive class to use for computing classification metrics. */
-        "classification_positive_class": fc.string(),
+        classification_positive_class: fc.string(),
         /** The number of classes to use for computing classification metrics. */
-        "classification_n_classes": fc.maxSafeInteger(),
+        classification_n_classes: fc.maxSafeInteger(),
       },
       {
         requiredKeys: ["n_epochs", "batch_size", "prompt_loss_weight", "learning_rate_multiplier"],
       },
     ),
     /** The list of files used for training. */
-    "training_files": fc.array(OpenAIFile),
+    training_files: fc.array(OpenAIFile),
     /** The list of files used for validation. */
-    "validation_files": fc.array(OpenAIFile),
+    validation_files: fc.array(OpenAIFile),
     /** The compiled results files for the fine-tuning job. */
-    "result_files": fc.array(OpenAIFile),
+    result_files: fc.array(OpenAIFile),
     /** The list of events that have been observed in the lifecycle of the FineTune job. */
     events: fc.array(FineTuneEvent),
   },
@@ -133,7 +133,7 @@ const SuffixString = fc.string({
 const FineTuningJobEvent = fc.record({
   id: fc.string(),
   object: fc.string(),
-  "created_at": fc.string(),
+  created_at: fc.string(),
   level: fc.constantFrom("info", "warn", "error"),
   message: fc.string(),
 });
@@ -149,21 +149,21 @@ const FineTuningJob = fc.record({
   /** The object type, which is always "fine_tuning.job". */
   object: fc.constant("fine_tuning.job"),
   /** The Unix timestamp (in seconds) for when the fine-tuning job was created. */
-  "created_at": fc.string(),
+  created_at: fc.string(),
   /**
    * The Unix timestamp (in seconds) for when the fine-tuning job was finished. The value will be
    * null if the fine-tuning job is still running.
    */
-  "finished_at": fc.option(fc.string()),
+  finished_at: fc.option(fc.string()),
   /** The base model that is being fine-tuned. */
   model: fc.string(),
   /**
    * The name of the fine-tuned model that is being created. The value will be null if the
    * fine-tuning job is still running.
    */
-  "fine_tuned_model": fc.option(fc.string()),
+  fine_tuned_model: fc.option(fc.string()),
   /** The organization that owns the fine-tuning job. */
-  "organization_id": fc.string(),
+  organization_id: fc.string(),
   /**
    * The current status of the fine-tuning job, which can be either `created`, `pending`, `running`,
    * `succeeded`, `failed`, or `cancelled`.
@@ -182,7 +182,7 @@ const FineTuningJob = fc.record({
        * "Auto" decides the optimal number of epochs based on the size of the dataset. If setting the
        * number manually, we support any number between 1 and 50 epochs.
        */
-      "n_epochs": fc.oneof(
+      n_epochs: fc.oneof(
         NEpochs,
         fc.constant("auto"),
       ),
@@ -193,22 +193,22 @@ const FineTuningJob = fc.record({
    * The file ID used for training. You can retrieve the training data with the
    * [Files API](/docs/api-reference/files/retrieve-contents).
    */
-  "training_file": fc.string(),
+  training_file: fc.string(),
   /**
    * The file ID used for validation. You can retrieve the validation results with the
    * [Files API](/docs/api-reference/files/retrieve-contents).
    */
-  "validation_file": fc.option(fc.string()),
+  validation_file: fc.option(fc.string()),
   /**
    * The compiled results file ID(s) for the fine-tuning job. You can retrieve the results with the
    * [Files API](/docs/api-reference/files/retrieve-contents).
    */
-  "result_files": fc.array(fc.string()),
+  result_files: fc.array(fc.string()),
   /**
    * The total number of billable tokens processed by this fine tuning job. The value will be null
    * if the fine-tuning job is still running.
    */
-  "trained_tokens": fc.option(fc.maxSafeInteger()),
+  trained_tokens: fc.option(fc.maxSafeInteger()),
   /**
    * For fine-tuning jobs that have `failed`, this will contain more information on the cause of the
    * failure.
@@ -238,7 +238,7 @@ const Model = fc.record({
   /** The Unix timestamp (in seconds) when the model was created. */
   created: fc.string(),
   /** The organization that owns the model. */
-  "owned_by": fc.string(),
+  owned_by: fc.string(),
 });
 
 /** Represents an embedding vector returned by embedding endpoint. */
@@ -261,11 +261,11 @@ const TokenArrayArray = fc.array(TokenArray, { minLength: 1 });
 /** Usage statistics for the completion request. */
 const CompletionUsage = fc.record({
   /** Number of tokens in the prompt. */
-  "prompt_tokens": fc.maxSafeInteger(),
+  prompt_tokens: fc.maxSafeInteger(),
   /** Number of tokens in the generated completion */
-  "completion_tokens": fc.maxSafeInteger(),
+  completion_tokens: fc.maxSafeInteger(),
   /** Total number of tokens used in the request (prompt + completion). */
-  "total_tokens": fc.maxSafeInteger(),
+  total_tokens: fc.maxSafeInteger(),
 });
 
 const EditN = fc.nat({ max: 20 });
@@ -316,7 +316,7 @@ const ChatCompletionResponseMessage = fc.record(
     /** The contents of the message. */
     content: fc.option(fc.string()),
     /** The name and arguments of a function that should be called, as generated by the model. */
-    "function_call": fc.record({
+    function_call: fc.record({
       /** The name of the function to call. */
       name: fc.string(),
       /**
@@ -381,7 +381,7 @@ const ChatCompletionRequestMessage = fc.record(
      */
     name: fc.string(),
     /** The name and arguments of a function that should be called, as generated by the model. */
-    "function_call": fc.record({
+    function_call: fc.record({
       /** The name of the function to call. */
       name: fc.string(),
       /**
@@ -457,7 +457,7 @@ export const OpenAI = {
        * The format of the transcript output, in one of these options: json, text, srt, verbose_json, or
        * vtt.
        */
-      "response_format": fc.constantFrom("json", "text", "srt", "verbose_json", "vtt"),
+      response_format: fc.constantFrom("json", "text", "srt", "verbose_json", "vtt"),
       /**
        * The sampling temperature, between 0 and 1. Higher values like 0.8 will make the output more
        * random, while lower values like 0.2 will make it more focused and deterministic. If set to 0,
@@ -514,7 +514,7 @@ export const OpenAI = {
        * The format of the transcript output, in one of these options: json, text, srt, verbose_json, or
        * vtt.
        */
-      "response_format": fc.constantFrom("json", "text", "srt", "verbose_json", "vtt"),
+      response_format: fc.constantFrom("json", "text", "srt", "verbose_json", "vtt"),
       /**
        * The sampling temperature, between 0 and 1. Higher values like 0.8 will make the output more
        * random, while lower values like 0.2 will make it more focused and deterministic. If set to 0,
@@ -559,7 +559,7 @@ export const OpenAI = {
            *
            * We generally recommend altering this or `temperature` but not both.
            */
-          "top_p": fc.oneof(
+          top_p: fc.oneof(
             fc.option(TopP),
             fc.constant(1),
           ),
@@ -579,7 +579,7 @@ export const OpenAI = {
            * [Example Python code](https://github.com/openai/openai-cookbook/blob/main/examples/How_to_count_tokens_with_tiktoken.ipynb)
            * for counting tokens.
            */
-          "max_tokens": fc.oneof(
+          max_tokens: fc.oneof(
             fc.option(MaxTokens),
             fc.constant(16),
           ),
@@ -591,7 +591,7 @@ export const OpenAI = {
            *
            * [See more information about frequency and presence penalties.](/docs/guides/gpt/parameter-details)
            */
-          "presence_penalty": fc.option(Penalty),
+          presence_penalty: fc.option(Penalty),
           /**
            * Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing
            * frequency in the text so far, decreasing the model's likelihood to repeat the same line
@@ -599,7 +599,7 @@ export const OpenAI = {
            *
            * [See more information about frequency and presence penalties.](/docs/guides/gpt/parameter-details)
            */
-          "frequency_penalty": fc.option(Penalty),
+          frequency_penalty: fc.option(Penalty),
           /**
            * Modify the likelihood of specified tokens appearing in the completion.
            * Accepts a json object that maps tokens (specified by their token ID in the tokenizer) to an
@@ -608,7 +608,7 @@ export const OpenAI = {
            * between -1 and 1 should decrease or increase likelihood of selection; values like -100 or 100
            * should result in a ban or exclusive selection of the relevant token.
            */
-          "logit_bias": fc.option(fc.dictionary(fc.string(), fc.maxSafeInteger())),
+          logit_bias: fc.option(fc.dictionary(fc.string(), fc.maxSafeInteger())),
           /**
            * A unique identifier representing your end-user, which can help OpenAI to monitor and detect
            * abuse. [Learn more](/docs/guides/safety-best-practices/end-user-ids).
@@ -654,7 +654,7 @@ export const OpenAI = {
            * model to call that function. `none` is the default when no functions are present. `auto` is the
            * default if functions are present.
            */
-          "function_call": fc.oneof(
+          function_call: fc.oneof(
             ChatCompletionFunctionCallOption,
             fc.constantFrom("none", "auto"),
           ),
@@ -698,7 +698,7 @@ export const OpenAI = {
          * specified in the request was reached, `content_filter` if the content was omitted due to
          * a flag from our content filters, or `function_call` if the model called a function.
          */
-        "finish_reason": fc.constantFrom("stop", "length", "function_call", "content_filter"),
+        finish_reason: fc.constantFrom("stop", "length", "function_call", "content_filter"),
       })),
       usage: CompletionUsage,
     },
@@ -733,7 +733,7 @@ export const OpenAI = {
            *
            * We generally recommend altering this or `temperature` but not both.
            */
-          "top_p": fc.oneof(
+          top_p: fc.oneof(
             fc.option(TopP),
             fc.constant(1),
           ),
@@ -753,7 +753,7 @@ export const OpenAI = {
            * [Example Python code](https://github.com/openai/openai-cookbook/blob/main/examples/How_to_count_tokens_with_tiktoken.ipynb)
            * for counting tokens.
            */
-          "max_tokens": fc.oneof(
+          max_tokens: fc.oneof(
             fc.option(MaxTokens),
             fc.constant(16),
           ),
@@ -765,7 +765,7 @@ export const OpenAI = {
            *
            * [See more information about frequency and presence penalties.](/docs/guides/gpt/parameter-details)
            */
-          "presence_penalty": fc.option(Penalty),
+          presence_penalty: fc.option(Penalty),
           /**
            * Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing
            * frequency in the text so far, decreasing the model's likelihood to repeat the same line
@@ -773,7 +773,7 @@ export const OpenAI = {
            *
            * [See more information about frequency and presence penalties.](/docs/guides/gpt/parameter-details)
            */
-          "frequency_penalty": fc.option(Penalty),
+          frequency_penalty: fc.option(Penalty),
           /**
            * Modify the likelihood of specified tokens appearing in the completion.
            * Accepts a json object that maps tokens (specified by their token ID in the tokenizer) to an
@@ -782,7 +782,7 @@ export const OpenAI = {
            * between -1 and 1 should decrease or increase likelihood of selection; values like -100 or 100
            * should result in a ban or exclusive selection of the relevant token.
            */
-          "logit_bias": fc.option(fc.dictionary(fc.string(), fc.maxSafeInteger())),
+          logit_bias: fc.option(fc.dictionary(fc.string(), fc.maxSafeInteger())),
           /**
            * A unique identifier representing your end-user, which can help OpenAI to monitor and detect
            * abuse. [Learn more](/docs/guides/safety-best-practices/end-user-ids).
@@ -849,7 +849,7 @@ export const OpenAI = {
            * **Note:** Because this parameter generates many completions, it can quickly consume your token
            * quota. Use carefully and ensure that you have reasonable settings for `max_tokens` and `stop`.
            */
-          "best_of": fc.oneof(
+          best_of: fc.oneof(
             fc.option(fc.maxSafeInteger()),
             fc.constant(1),
           ),
@@ -885,9 +885,9 @@ export const OpenAI = {
         text: fc.string(),
         logprobs: fc.option(fc.record({
           tokens: fc.array(fc.string()),
-          "token_logprobs": fc.array(fc.double()),
-          "top_logprobs": fc.array(fc.dictionary(fc.string(), fc.maxSafeInteger())),
-          "text_offset": fc.array(fc.maxSafeInteger()),
+          token_logprobs: fc.array(fc.double()),
+          top_logprobs: fc.array(fc.dictionary(fc.string(), fc.maxSafeInteger())),
+          text_offset: fc.array(fc.maxSafeInteger()),
         })),
         /**
          * The reason the model stopped generating tokens. This will be `stop` if the model hit a
@@ -896,7 +896,7 @@ export const OpenAI = {
          * in the request was reached, or `content_filter` if content was omitted due to a flag from our
          * content filters.
          */
-        "finish_reason": fc.constantFrom("stop", "length", "content_filter"),
+        finish_reason: fc.constantFrom("stop", "length", "content_filter"),
       })),
       usage: CompletionUsage,
     },
@@ -944,7 +944,7 @@ export const OpenAI = {
        *
        * We generally recommend altering this or `temperature` but not both.
        */
-      "top_p": fc.oneof(
+      top_p: fc.oneof(
         fc.option(TopP),
         fc.constant(1),
       ),
@@ -970,7 +970,7 @@ export const OpenAI = {
        * natural stop point or a provided stop sequence, or `length` if the maximum number of tokens
        * specified in the request was reached.
        */
-      "finish_reason": fc.constantFrom("stop", "length"),
+      finish_reason: fc.constantFrom("stop", "length"),
     })),
     usage: CompletionUsage,
   }),
@@ -1012,9 +1012,9 @@ export const OpenAI = {
     /** The usage information for the request. */
     usage: fc.record({
       /** The number of tokens used by the prompt. */
-      "prompt_tokens": fc.maxSafeInteger(),
+      prompt_tokens: fc.maxSafeInteger(),
       /** The total number of tokens used by the request. */
-      "total_tokens": fc.maxSafeInteger(),
+      total_tokens: fc.maxSafeInteger(),
     }),
   }),
 
@@ -1076,7 +1076,7 @@ export const OpenAI = {
        *
        * See the [fine-tuning guide](/docs/guides/fine-tuning) for more details.
        */
-      "training_file": fc.string(),
+      training_file: fc.string(),
       /**
        * The ID of an uploaded file that contains validation data.
        *
@@ -1089,7 +1089,7 @@ export const OpenAI = {
        *
        * See the [fine-tuning guide](/docs/guides/fine-tuning) for more details.
        */
-      "validation_file": fc.option(fc.string()),
+      validation_file: fc.option(fc.string()),
       /**
        * The name of the model to fine-tune. You can select one of the
        * [supported models](/docs/guides/fine-tuning/what-models-can-be-fine-tuned).
@@ -1105,7 +1105,7 @@ export const OpenAI = {
            * The number of epochs to train the model for. An epoch refers to one full cycle through the
            * training dataset.
            */
-          "n_epochs": fc.oneof(
+          n_epochs: fc.oneof(
             NEpochs,
             fc.constant("auto"),
           ),
@@ -1130,7 +1130,7 @@ export const OpenAI = {
   ListPaginatedFineTuningJobsResponse: fc.record({
     object: fc.string(),
     data: fc.array(FineTuningJob),
-    "has_more": fc.boolean(),
+    has_more: fc.boolean(),
   }),
 
   ListFineTuningJobEventsResponse: fc.record({
@@ -1154,7 +1154,7 @@ export const OpenAI = {
        * See the [fine-tuning guide](/docs/guides/legacy-fine-tuning/creating-training-data) for more
        * details.
        */
-      "training_file": fc.string(),
+      training_file: fc.string(),
       /**
        * The ID of an uploaded file that contains validation data.
        *
@@ -1170,7 +1170,7 @@ export const OpenAI = {
        * See the [fine-tuning guide](/docs/guides/legacy-fine-tuning/creating-training-data) for more
        * details.
        */
-      "validation_file": fc.option(fc.string()),
+      validation_file: fc.option(fc.string()),
       /**
        * The name of the base model to fine-tune. You can select one of "ada", "babbage", "curie",
        * "davinci", or a fine-tuned model created after 2022-04-21 and before 2023-08-22. To learn more
@@ -1184,7 +1184,7 @@ export const OpenAI = {
        * The number of epochs to train the model for. An epoch refers to one full cycle through the
        * training dataset.
        */
-      "n_epochs": fc.oneof(
+      n_epochs: fc.oneof(
         fc.option(fc.maxSafeInteger()),
         fc.constant(4),
       ),
@@ -1196,7 +1196,7 @@ export const OpenAI = {
        * in the training set, capped at 256 - in general, we've found that larger batch sizes tend to
        * work better for larger datasets.
        */
-      "batch_size": fc.option(fc.option(fc.maxSafeInteger())),
+      batch_size: fc.option(fc.option(fc.maxSafeInteger())),
       /**
        * The learning rate multiplier to use for training. The fine-tuning learning rate is the original
        * learning rate used for pretraining multiplied by this value.
@@ -1206,7 +1206,7 @@ export const OpenAI = {
        * recommend experimenting with values in the range 0.02 to 0.2 to see what produces the best
        * results.
        */
-      "learning_rate_multiplier": fc.option(fc.option(fc.double())),
+      learning_rate_multiplier: fc.option(fc.option(fc.double())),
       /**
        * The weight to use for loss on the prompt tokens. This controls how much the model tries to
        * learn to generate the prompt (as compared to the completion which always has a weight of 1.0),
@@ -1215,7 +1215,7 @@ export const OpenAI = {
        * If prompts are extremely long (relative to completions), it may make sense to reduce this
        * weight so as to avoid over-prioritizing learning the prompt.
        */
-      "prompt_loss_rate": fc.oneof(
+      prompt_loss_rate: fc.oneof(
         fc.option(fc.double()),
         fc.constant(0.01),
       ),
@@ -1228,7 +1228,7 @@ export const OpenAI = {
        * you must specify `classification_n_classes` for multiclass classification or
        * `classification_positive_class` for binary classification.
        */
-      "compute_classification_metrics": fc.oneof(
+      compute_classification_metrics: fc.oneof(
         fc.option(fc.boolean()),
         fc.constant(false),
       ),
@@ -1237,14 +1237,14 @@ export const OpenAI = {
        *
        * This parameter is required for multiclass classification.
        */
-      "classification_n_classes": fc.option(fc.option(fc.maxSafeInteger())),
+      classification_n_classes: fc.option(fc.option(fc.maxSafeInteger())),
       /**
        * The positive class in binary classification.
        *
        * This parameter is needed to generate precision, recall, and F1 metrics when doing binary
        * classification.
        */
-      "classification_positive_class": fc.option(fc.option(fc.string())),
+      classification_positive_class: fc.option(fc.option(fc.string())),
       /**
        * If this is provided, we calculate F-beta scores at the specified beta values. The F-beta score
        * is a generalization of F-1 score. This is only used for binary classification.
@@ -1253,7 +1253,7 @@ export const OpenAI = {
        * beta score puts more weight on recall and less on precision. A smaller beta score puts more
        * weight on precision and less on recall.
        */
-      "classification_betas": fc.option(fc.option(fc.array(fc.double()))),
+      classification_betas: fc.option(fc.option(fc.array(fc.double()))),
       /**
        * A string of up to 18 characters that will be added to your fine-tuned model name.
        *
@@ -1285,7 +1285,7 @@ export const OpenAI = {
   FineTuningEvent: fc.record(
     {
       object: fc.string(),
-      "created_at": fc.string(),
+      created_at: fc.string(),
       level: fc.string(),
       message: fc.string(),
       data: fc.option(fc.dictionary(fc.string(), fc.anything())),
@@ -1311,7 +1311,7 @@ export const OpenAI = {
             fc.constant("1024x1024"),
           ),
           /** The format in which the generated images are returned. Must be one of `url` or `b64_json`. */
-          "response_format": fc.oneof(
+          response_format: fc.oneof(
             fc.option(fc.constantFrom("url", "b64_json")),
             fc.constant("url"),
           ),
@@ -1349,7 +1349,7 @@ export const OpenAI = {
             fc.constant("1024x1024"),
           ),
           /** The format in which the generated images are returned. Must be one of `url` or `b64_json`. */
-          "response_format": fc.oneof(
+          response_format: fc.oneof(
             fc.option(fc.constantFrom("url", "b64_json")),
             fc.constant("url"),
           ),
@@ -1395,7 +1395,7 @@ export const OpenAI = {
             fc.constant("1024x1024"),
           ),
           /** The format in which the generated images are returned. Must be one of `url` or `b64_json`. */
-          "response_format": fc.oneof(
+          response_format: fc.oneof(
             fc.option(fc.constantFrom("url", "b64_json")),
             fc.constant("url"),
           ),
@@ -1493,7 +1493,7 @@ export const OpenAI = {
         "violence/graphic": fc.boolean(),
       }),
       /** A list of the categories along with their scores as predicted by model. */
-      "category_scores": fc.record({
+      category_scores: fc.record({
         /** The score for the category 'hate'. */
         hate: fc.double(),
         /** The score for the category 'hate/threatening'. */
