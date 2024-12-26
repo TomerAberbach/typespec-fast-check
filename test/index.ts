@@ -133,19 +133,36 @@ test.each([
       @minValue(-10)
       scalar MinValueInt8 extends int8;
 
+      @minValueExclusive(-10)
+      scalar MinValueExclusiveInt8 extends int8;
+
       @minValue(0)
       scalar Min0ValueInt8 extends int8;
 
+      @minValueExclusive(-1)
+      scalar MinNegative1ValueExclusiveInt8 extends int8;
+
       @maxValue(20)
       scalar MaxValueInt8 extends int8;
+
+      @maxValueExclusive(20)
+      scalar MaxValueExclusiveInt8 extends int8;
 
       @minValue(-10)
       @maxValue(20)
       scalar MinMaxValueInt8 extends int8;
 
+      @minValueExclusive(-10)
+      @maxValueExclusive(20)
+      scalar MinMaxValueExclusiveInt8 extends int8;
+
       @minValue(-300)
       @maxValue(400)
       scalar RedundantlyMinMaxValueInt8 extends int8;
+
+      @minValueExclusive(-300)
+      @maxValueExclusive(400)
+      scalar RedundantlyMinMaxValueExclusiveInt8 extends int8;
     `,
   },
   {
@@ -156,19 +173,36 @@ test.each([
       @minValue(-200)
       scalar MinValueInt16 extends int16;
 
+      @minValueExclusive(-200)
+      scalar MinValueExclusiveInt16 extends int16;
+
       @minValue(0)
       scalar Min0ValueInt16 extends int16;
 
+      @minValueExclusive(-1)
+      scalar MinNegative1ValueExclusiveInt16 extends int16;
+
       @maxValue(345)
       scalar MaxValueInt16 extends int16;
+
+      @maxValueExclusive(345)
+      scalar MaxValueExclusiveInt16 extends int16;
 
       @minValue(-200)
       @maxValue(345)
       scalar MinMaxValueInt16 extends int16;
 
+      @minValueExclusive(-200)
+      @maxValueExclusive(345)
+      scalar MinMaxValueExclusiveInt16 extends int16;
+
       @minValue(-40000)
       @maxValue(40000)
       scalar RedundantlyMinMaxValueInt16 extends int16;
+
+      @minValueExclusive(-40000)
+      @maxValueExclusive(40000)
+      scalar RedundantlyMinMaxValueExclusiveInt16 extends int16;
     `,
   },
   {
@@ -179,19 +213,36 @@ test.each([
       @minValue(-40000)
       scalar MinValueInt32 extends int32;
 
+      @minValueExclusive(-40000)
+      scalar MinValueExclusiveInt32 extends int32;
+
       @minValue(0)
       scalar Min0ValueInt32 extends int32;
 
+      @minValueExclusive(-1)
+      scalar MinNegative1ValueExclusiveInt32 extends int32;
+
       @maxValue(40000)
       scalar MaxValueInt32 extends int32;
+
+      @maxValueExclusive(40000)
+      scalar MaxValueExclusiveInt32 extends int32;
 
       @minValue(-40000)
       @maxValue(40000)
       scalar MinMaxValueInt32 extends int32;
 
+      @minValueExclusive(-40000)
+      @maxValueExclusive(40000)
+      scalar MinMaxValueExclusiveInt32 extends int32;
+
       @minValue(-2147483650)
       @maxValue(2147483650)
       scalar RedundantlyMinMaxValueInt32 extends int32;
+
+      @minValueExclusive(-2147483650)
+      @maxValueExclusive(2147483650)
+      scalar RedundantlyMinMaxValueExclusiveInt32 extends int32;
     `,
   },
   {
@@ -202,19 +253,36 @@ test.each([
       @minValue(-40000)
       scalar MinValueSafeInt extends safeint;
 
+      @minValueExclusive(-40000)
+      scalar MinValueExclusiveSafeInt extends safeint;
+
       @minValue(0)
       scalar Min0ValueSafeInt extends safeint;
 
+      @minValueExclusive(-1)
+      scalar MinNegative1ValueExclusiveSafeInt extends safeint;
+
       @maxValue(40000)
       scalar MaxValueSafeInt extends safeint;
+
+      @maxValueExclusive(40000)
+      scalar MaxValueExclusiveSafeInt extends safeint;
 
       @minValue(-40000)
       @maxValue(40000)
       scalar MinMaxValueSafeInt extends safeint;
 
+      @minValueExclusive(-40000)
+      @maxValueExclusive(40000)
+      scalar MinMaxValueExclusiveSafeInt extends safeint;
+
       @minValue(-2147483650)
       @maxValue(2147483650)
       scalar RedundantlyMinMaxValueSafeInt extends safeint;
+
+      @minValueExclusive(-2147483650)
+      @maxValueExclusive(2147483650)
+      scalar RedundantlyMinMaxValueExclusiveSafeInt extends safeint;
     `,
   },
   {
@@ -225,12 +293,22 @@ test.each([
       @minValue(-2147483650)
       scalar MinValueInt64 extends int64;
 
+      @minValueExclusive(-2147483650)
+      scalar MinValueExclusiveInt64 extends int64;
+
       // https://github.com/microsoft/typespec/pull/5295
       // @minValue(0)
       // scalar Min0ValueInt64 extends int64;
 
+      // https://github.com/microsoft/typespec/pull/5295
+      // @minValueExclusive(-1)
+      // scalar MinNegative1ValueExclusiveInt64 extends int64;
+
       @maxValue(2147483650)
       scalar MaxValueInt64 extends int64;
+
+      @maxValueExclusive(2147483650)
+      scalar MaxValueExclusiveInt64 extends int64;
 
       // https://github.com/microsoft/typespec/pull/5295
       // @minValue(-2147483650)
@@ -238,9 +316,19 @@ test.each([
       // scalar MinMaxValueInt64 extends int64;
 
       // https://github.com/microsoft/typespec/pull/5295
+      // @minValueExclusive(-2147483650)
+      // @maxValueExclusive(2147483650)
+      // scalar MinMaxValueExclusiveInt64 extends int64;
+
+      // https://github.com/microsoft/typespec/pull/5295
       // @minValue(-9223372036854775809)
       // @maxValue(9223372036854775809)
       // scalar RedundantlyMinMaxValueInt64 extends int64;
+
+      // https://github.com/microsoft/typespec/pull/5295
+      // @minValueExclusive(-9223372036854775809)
+      // @maxValueExclusive(9223372036854775809)
+      // scalar RedundantlyMinMaxValueExclusiveInt64 extends int64;
     `,
   },
   {
@@ -251,15 +339,28 @@ test.each([
       @minValue(-92233720368547758000)
       scalar MinValueInteger extends integer;
 
+      @minValueExclusive(-92233720368547758000)
+      scalar MinValueExclusiveInteger extends integer;
+
       @minValue(0)
-      scalar MinValue0Integer extends integer;
+      scalar Min0ValueInteger extends integer;
+
+      @minValueExclusive(-1)
+      scalar MinNegative1ValueExclusiveInteger extends integer;
 
       @maxValue(922337203685477580000)
       scalar MaxValueInteger extends integer;
 
+      @maxValueExclusive(922337203685477580000)
+      scalar MaxValueExclusiveInteger extends integer;
+
       @minValue(-92233720368547758000)
       @maxValue(922337203685477580000)
       scalar MinMaxValueInteger extends integer;
+
+      @minValueExclusive(-92233720368547758000)
+      @maxValueExclusive(922337203685477580000)
+      scalar MinMaxValueExclusiveInteger extends integer;
     `,
   },
   {
@@ -270,19 +371,36 @@ test.each([
       @minValue(-3.14)
       scalar MinValueFloat32 extends float32;
 
+      @minValueExclusive(-3.14)
+      scalar MinValueExclusiveFloat32 extends float32;
+
       @minValue(0)
-      scalar MinValue0Float32 extends float32;
+      scalar Min0ValueFloat32 extends float32;
+
+      @minValueExclusive(0)
+      scalar Min0ValueExclusiveFloat32 extends float32;
 
       @maxValue(3.14)
       scalar MaxValueFloat32 extends float32;
+
+      @maxValueExclusive(3.14)
+      scalar MaxValueExclusiveFloat32 extends float32;
 
       @minValue(-3.14)
       @maxValue(3.14)
       scalar MinMaxValueFloat32 extends float32;
 
+      @minValueExclusive(-3.14)
+      @maxValueExclusive(3.14)
+      scalar MinMaxValueExclusiveFloat32 extends float32;
+
       @minValue(-3.4e+39)
       @maxValue(3.4e+39)
       scalar RedundantlyMinMaxValueFloat32 extends float32;
+
+      @minValueExclusive(-3.4e+39)
+      @maxValueExclusive(3.4e+39)
+      scalar RedundantlyMinMaxValueExclusiveFloat32 extends float32;
     `,
   },
   {
@@ -293,12 +411,22 @@ test.each([
       @minValue(-3.4e+39)
       scalar MinValueFloat64 extends float64;
 
+      @minValueExclusive(-3.4e+39)
+      scalar MinValueExclusiveFloat64 extends float64;
+
       @maxValue(3.4e+39)
       scalar MaxValueFloat64 extends float64;
+
+      @maxValueExclusive(3.4e+39)
+      scalar MaxValueExclusiveFloat64 extends float64;
 
       @minValue(-3.4e+39)
       @maxValue(3.4e+39)
       scalar MinMaxValueFloat64 extends float64;
+
+      @minValueExclusive(-3.4e+39)
+      @maxValueExclusive(3.4e+39)
+      scalar MinMaxValueExclusiveFloat64 extends float64;
     `,
   },
   {
@@ -309,12 +437,22 @@ test.each([
       @minValue(-3.4e+39)
       scalar MinValueDecimal128 extends decimal128;
 
+      @minValueExclusive(-3.4e+39)
+      scalar MinValueExclusiveDecimal128 extends decimal128;
+
       @maxValue(3.4e+39)
       scalar MaxValueDecimal128 extends decimal128;
+
+      @maxValueExclusive(3.4e+39)
+      scalar MaxValueExclusiveDecimal128 extends decimal128;
 
       @minValue(-3.4e+39)
       @maxValue(3.4e+39)
       scalar MinMaxValueDecimal128 extends decimal128;
+
+      @minValueExclusive(-3.4e+39)
+      @maxValueExclusive(3.4e+39)
+      scalar MinMaxValueExclusiveDecimal128 extends decimal128;
     `,
   },
   {
@@ -325,12 +463,22 @@ test.each([
       @minValue(-3.4e+39)
       scalar MinValueDecimal extends decimal;
 
+      @minValueExclusive(-3.4e+39)
+      scalar MinValueExclusiveDecimal extends decimal;
+
       @maxValue(3.4e+39)
       scalar MaxValueDecimal extends decimal;
+
+      @maxValueExclusive(3.4e+39)
+      scalar MaxValueExclusiveDecimal extends decimal;
 
       @minValue(-3.4e+39)
       @maxValue(3.4e+39)
       scalar MinMaxValueDecimal extends decimal;
+
+      @minValueExclusive(-3.4e+39)
+      @maxValueExclusive(3.4e+39)
+      scalar MinMaxValueExclusiveDecimal extends decimal;
     `,
   },
   {
@@ -341,12 +489,22 @@ test.each([
       @minValue(-3.4e+39)
       scalar MinValueNumeric extends numeric;
 
+      @minValueExclusive(-3.4e+39)
+      scalar MinValueExclusiveNumeric extends numeric;
+
       @maxValue(3.4e+39)
       scalar MaxValueNumeric extends numeric;
+
+      @maxValueExclusive(3.4e+39)
+      scalar MaxValueExclusiveNumeric extends numeric;
 
       @minValue(-3.4e+39)
       @maxValue(3.4e+39)
       scalar MinMaxValueNumeric extends numeric;
+
+      @minValueExclusive(-3.4e+39)
+      @maxValueExclusive(3.4e+39)
+      scalar MinMaxValueExclusiveNumeric extends numeric;
 
       model $Model {
         a: 1,

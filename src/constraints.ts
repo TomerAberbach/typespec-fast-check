@@ -2,9 +2,11 @@ import {
   getMaxItemsAsNumeric,
   getMaxLengthAsNumeric,
   getMaxValueAsNumeric,
+  getMaxValueExclusiveAsNumeric,
   getMinItemsAsNumeric,
   getMinLengthAsNumeric,
   getMinValueAsNumeric,
+  getMinValueExclusiveAsNumeric,
 } from '@typespec/compiler'
 import type { Numeric, Program, Type } from '@typespec/compiler'
 import keyalesce from 'keyalesce'
@@ -21,6 +23,8 @@ export const getConstraints = (program: Program, type: Type): Constraints =>
       entries({
         min: getMinValueAsNumeric(program, type),
         max: getMaxValueAsNumeric(program, type),
+        minExclusive: getMinValueExclusiveAsNumeric(program, type),
+        maxExclusive: getMaxValueExclusiveAsNumeric(program, type),
         minLength: getMinLengthAsNumeric(program, type),
         maxLength: getMaxLengthAsNumeric(program, type),
         minItems: getMinItemsAsNumeric(program, type),
@@ -34,6 +38,8 @@ export const getConstraints = (program: Program, type: Type): Constraints =>
 export type Constraints = {
   min?: Numeric
   max?: Numeric
+  minExclusive?: Numeric
+  maxExclusive?: Numeric
   minLength?: Numeric
   maxLength?: Numeric
   minItems?: Numeric
@@ -53,6 +59,8 @@ const memoize = (constraints: Constraints): Constraints => {
 const getConstraintsKey = ({
   min,
   max,
+  minExclusive,
+  maxExclusive,
   minLength,
   maxLength,
   minItems,
@@ -61,6 +69,8 @@ const getConstraintsKey = ({
   keyalesce([
     min?.asBigInt(),
     max?.asBigInt(),
+    minExclusive?.asBigInt(),
+    maxExclusive?.asBigInt(),
     minLength?.asBigInt(),
     maxLength?.asBigInt(),
     minItems?.asBigInt(),

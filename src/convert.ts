@@ -71,10 +71,11 @@ import type {
 } from './arbitrary.ts'
 import {
   fastCheckNumerics,
-  maxOrUndefined,
-  minOrUndefined,
+  maxOfMinBounds,
+  minOfMaxBounds,
   numerics,
 } from './numerics.ts'
+import type { Bound } from './numerics.ts'
 import normalizeArbitrary from './normalize.ts'
 import { collectSharedArbitraries } from './dependency-graph.ts'
 import type { SharedArbitraries } from './dependency-graph.ts'
@@ -345,13 +346,38 @@ const convertNumber = (
   constraints: Constraints,
   { min, max, isInteger }: { min: number; max: number; isInteger: boolean },
 ): Arbitrary => {
-  const arbitrary = numberArbitrary({
-    min: maxOrUndefined(constraints.min?.asNumber() ?? undefined, min),
-    max: minOrUndefined(constraints.max?.asNumber() ?? undefined, max),
-    isInteger,
-  })
+  const minBound = [
+    { value: constraints.min?.asNumber(), exclusive: false },
+    { value: constraints.minExclusive?.asNumber(), exclusive: true },
+    { value: min, exclusive: false },
+  ]
+    .filter((bound): bound is Bound<number> => bound.value != null)
+    .reduce(maxOfMinBounds)
+  const maxBound = [
+    { value: constraints.max?.asNumber(), exclusive: false },
+    { value: constraints.maxExclusive?.asNumber(), exclusive: true },
+    { value: max, exclusive: false },
+  ]
+    .filter((bound): bound is Bound<number> => bound.value != null)
+    .reduce(minOfMaxBounds)
+  if (isInteger) {
+    if (minBound.exclusive) {
+      minBound.exclusive = false
+      minBound.value++
+    }
+    if (maxBound.exclusive) {
+      maxBound.exclusive = false
+      maxBound.value--
+    }
+  }
 
-  const hasDefaultConstraints = arbitrary.min === min && arbitrary.max === max
+  const arbitrary = numberArbitrary({ min: minBound, max: maxBound, isInteger })
+
+  const hasDefaultConstraints =
+    !arbitrary.min.exclusive &&
+    arbitrary.min.value === min &&
+    !arbitrary.max.exclusive &&
+    arbitrary.max.value === max
   if (!hasDefaultConstraints) {
     return arbitrary
   }
@@ -360,8 +386,10 @@ const convertNumber = (
     values(fastCheckNumerics),
     any(
       numeric =>
-        arbitrary.min === numeric.min.value &&
-        arbitrary.max === numeric.max.value &&
+        !arbitrary.min.exclusive &&
+        arbitrary.min.value === numeric.min.value &&
+        !arbitrary.max.exclusive &&
+        arbitrary.max.value === numeric.max.value &&
         arbitrary.isInteger === numeric.isInteger,
     ),
   )
@@ -377,9 +405,33 @@ const convertBigInt = (
   constraints: Constraints,
   { min, max }: { min?: bigint; max?: bigint } = {},
 ): Arbitrary => {
+  const minBounds = [
+    { value: constraints.min?.asBigInt(), exclusive: false },
+    { value: constraints.minExclusive?.asBigInt(), exclusive: true },
+    { value: min, exclusive: false },
+  ].filter((bound): bound is Bound<bigint> => bound.value != null)
+  const minBound =
+    minBounds.length === 0 ? undefined : minBounds.reduce(maxOfMinBounds)
+  if (minBound?.exclusive) {
+    minBound.value++
+    minBound.exclusive = false
+  }
+
+  const maxBounds = [
+    { value: constraints.max?.asBigInt(), exclusive: false },
+    { value: constraints.maxExclusive?.asBigInt(), exclusive: true },
+    { value: max, exclusive: false },
+  ].filter((bound): bound is Bound<bigint> => bound.value != null)
+  const maxBound =
+    maxBounds.length === 0 ? undefined : maxBounds.reduce(minOfMaxBounds)
+  if (maxBound?.exclusive) {
+    maxBound.value--
+    maxBound.exclusive = false
+  }
+
   const arbitrary = bigintArbitrary({
-    min: maxOrUndefined(constraints.min?.asBigInt() ?? undefined, min),
-    max: minOrUndefined(constraints.max?.asBigInt() ?? undefined, max),
+    min: minBound?.value,
+    max: maxBound?.value,
   })
 
   const hasDefaultConstraints =
