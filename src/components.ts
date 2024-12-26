@@ -371,50 +371,64 @@ const NumberArbitrary = ({
     filter(
       ([, { isInteger, min, max }]) =>
         arbitrary.isInteger === isInteger &&
-        (arbitrary.min === min.value ||
+        ((!arbitrary.min.exclusive && arbitrary.min.value === min.value) ||
           min.configurable === true ||
-          (min.configurable === `higher` && arbitrary.min >= min.value)) &&
-        (arbitrary.max === max.value ||
+          (min.configurable === `higher` &&
+            arbitrary.min.value >= min.value)) &&
+        ((!arbitrary.max.exclusive && arbitrary.max.value === max.value) ||
           max.configurable === true ||
-          (max.configurable === `lower` && arbitrary.max <= max.value)),
+          (max.configurable === `lower` && arbitrary.max.value <= max.value)),
     ),
     minBy(([, a], [, b]) => {
       const matchCount1 =
-        Number(arbitrary.min === a.min.value) +
-        Number(arbitrary.max === a.max.value)
+        Number(arbitrary.min.value === a.min.value) +
+        Number(arbitrary.max.value === a.max.value)
       const matchCount2 =
-        Number(arbitrary.min === b.min.value) +
-        Number(arbitrary.max === b.max.value)
+        Number(arbitrary.min.value === b.min.value) +
+        Number(arbitrary.max.value === b.max.value)
       if (matchCount1 !== matchCount2) {
         return matchCount2 - matchCount1
       }
 
       const delta1 =
-        Math.abs(arbitrary.min - a.min.value) +
-        Math.abs(arbitrary.max - a.max.value)
+        Math.abs(arbitrary.min.value - a.min.value) +
+        Math.abs(arbitrary.max.value - a.max.value)
       const delta2 =
-        Math.abs(arbitrary.min - b.min.value) +
-        Math.abs(arbitrary.max - b.max.value)
+        Math.abs(arbitrary.min.value - b.min.value) +
+        Math.abs(arbitrary.max.value - b.max.value)
       return delta1 - delta2
     }),
     get,
   )
 
-  let arbitraryMin = arbitrary.min === min.value ? null : arbitrary.min
+  let arbitraryMin =
+    !arbitrary.min.exclusive && arbitrary.min.value === min.value
+      ? null
+      : arbitrary.min
   if (arbitraryMin !== null && min.normalize) {
-    arbitraryMin = min.normalize(arbitraryMin)
+    arbitraryMin = { ...arbitraryMin, value: min.normalize(arbitraryMin.value) }
   }
 
-  let arbitraryMax = arbitrary.max === max.value ? null : arbitrary.max
+  let arbitraryMax =
+    !arbitrary.max.exclusive && arbitrary.max.value === max.value
+      ? null
+      : arbitrary.max
   if (arbitraryMax !== null && max.normalize) {
-    arbitraryMax = max.normalize(arbitraryMax)
+    arbitraryMax = { ...arbitraryMax, value: max.normalize(arbitraryMax.value) }
   }
 
   return CallExpression({
     name: `fc.${name}`,
     args: [
       ObjectExpression({
-        properties: { min: arbitraryMin, max: arbitraryMax },
+        properties: {
+          min: arbitraryMin?.value,
+          // eslint-disable-next-line typescript/prefer-nullish-coalescing
+          minExcluded: arbitraryMin?.exclusive || undefined,
+          max: arbitraryMax?.value,
+          // eslint-disable-next-line typescript/prefer-nullish-coalescing
+          maxExcluded: arbitraryMax?.exclusive || undefined,
+        },
         singlePropertyOneLine: true,
       }),
     ],
@@ -733,7 +747,10 @@ const ObjectExpression = ({
         ts.ObjectProperty({
           name,
           // https://github.com/alloy-framework/alloy/issues/42
-          value: typeof value === `number` ? String(value) : value,
+          value:
+            typeof value === `number` || typeof value === `boolean`
+              ? String(value)
+              : value,
         }),
       )
     }),

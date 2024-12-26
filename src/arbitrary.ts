@@ -57,8 +57,14 @@ export const numberArbitrary = (
 
 export type NumberArbitrary = {
   type: `number`
-  min: number
-  max: number
+  min: {
+    value: number
+    exclusive: boolean
+  }
+  max: {
+    value: number
+    exclusive: boolean
+  }
   isInteger: boolean
 }
 
@@ -244,6 +250,13 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
     case `constant`:
       return keyalesce([arbitrary.type, arbitrary.value])
     case `number`:
+      return keyalesce([
+        arbitrary.type,
+        arbitrary.min.value,
+        arbitrary.min.exclusive,
+        arbitrary.max.value,
+        arbitrary.max.exclusive,
+      ])
     case `bigint`:
       return keyalesce([arbitrary.type, arbitrary.min, arbitrary.max])
     case `string`:
