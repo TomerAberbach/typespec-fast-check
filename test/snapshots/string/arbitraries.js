@@ -1,6 +1,6 @@
 // Generated from TypeSpec using `typespec-fast-check`
 
-import * as fc from "fast-check";
+import fc from "fast-check";
 
 export const String = fc.string();
 
