@@ -802,7 +802,7 @@ const ObjectProperty = ({
       ? String(value)
       : value
 
-  const needsQuotes = !/^(?:[0-9]+|[$a-z](?:[0-9$a-z]*))$/iu.test(name)
+  const needsQuotes = !/^(?:[0-9]+|[$_a-z](?:[0-9$_a-z]*))$/iu.test(name)
   if (needsQuotes) {
     return code`${StringLiteral({ string: name })}: ${value}`
   }
