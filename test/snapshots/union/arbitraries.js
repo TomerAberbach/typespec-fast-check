@@ -18,10 +18,9 @@ export const UnionOfTypeAndConstants = fc.oneof(
   fc.constantFrom("a", "b", "c"),
 );
 
-export const NestedUnions = fc.oneof(
+export const NestedUnions = fc.option(fc.oneof(
   fc.string(),
   fc.boolean(),
   fc.integer(),
-  fc.option(fc.constantFrom("a", "b")),
-  fc.constant("c"),
-);
+  fc.constantFrom("c", "a", "b"),
+));

@@ -1,4 +1,14 @@
-import { first, get, map, pipe, reduce, toMap, unique } from 'lfi'
+import {
+  concat,
+  first,
+  flatMap,
+  get,
+  map,
+  pipe,
+  reduce,
+  toMap,
+  toSet,
+} from 'lfi'
 import { SameValueSet } from 'svkc'
 import {
   arrayArbitrary,
@@ -102,22 +112,11 @@ const normalizeDictionaryArbitrary = ({
 
 const normalizeUnionArbitrary = (arbitrary: UnionArbitrary): Arbitrary => {
   const variants = new Set<Arbitrary>(
-    arbitrary.variants.map(normalizeArbitrary).flatMap(variant => {
-      // eslint-disable-next-line typescript/switch-exhaustiveness-check
-      switch (variant.type) {
-        case `enum`:
-          // These will be re-collapsed below if necessary.
-          return variant.members.map(constantArbitrary)
-        case `union`:
-          return variant.variants.flatMap(variant =>
-            variant.type === `enum`
-              ? variant.members.map(constantArbitrary)
-              : [variant],
-          )
-        default:
-          return [variant]
-      }
-    }),
+    pipe(
+      arbitrary.variants,
+      map(normalizeArbitrary),
+      flatMap(spreadUnionArbitraries),
+    ),
   )
 
   const falseConstant = constantArbitrary(false)
@@ -141,13 +140,15 @@ const normalizeUnionArbitrary = (arbitrary: UnionArbitrary): Arbitrary => {
       break
   }
 
+  const nullConstant = constantArbitrary(null)
   const constants = new SameValueSet<unknown>()
   for (const variant of variants) {
-    if (variant.type === `constant`) {
+    if (variant.type === `constant` && variant !== nullConstant) {
       constants.add(variant.value)
       variants.delete(variant)
     }
   }
+
   if (constants.size === 1) {
     variants.add(constantArbitrary(get(first(constants))))
   } else if (constants.size > 1) {
@@ -158,13 +159,45 @@ const normalizeUnionArbitrary = (arbitrary: UnionArbitrary): Arbitrary => {
     variants.add(arbitrary)
   }
 
-  const nullConstant = constantArbitrary(null)
   if (!variants.has(nullConstant)) {
     return unionArbitrary([...variants])
   }
 
   variants.delete(nullConstant)
   return optionArbitrary(normalizeArbitrary(unionArbitrary([...variants])))
+}
+
+const spreadUnionArbitraries = (arbitrary: Arbitrary): Iterable<Arbitrary> => {
+  switch (arbitrary.type) {
+    case `never`:
+    case `anything`:
+    case `constant`:
+    case `boolean`:
+    case `number`:
+    case `bigint`:
+    case `string`:
+    case `url`:
+    case `bytes`:
+    case `array`:
+    case `tuple`:
+    case `dictionary`:
+    case `record`:
+    case `intersection`:
+    case `reference`:
+    case `recursive-reference`:
+    case `function-declaration`:
+    case `parameter-reference`:
+    case `function-call`:
+      return [arbitrary]
+    case `option`:
+      return concat(spreadUnionArbitraries(arbitrary.arbitrary), [
+        constantArbitrary(null),
+      ])
+    case `enum`:
+      return map(constantArbitrary, arbitrary.members)
+    case `union`:
+      return flatMap(spreadUnionArbitraries, arbitrary.variants)
+  }
 }
 
 const normalizeRecordArbitrary = ({ properties }: RecordArbitrary): Arbitrary =>
@@ -182,16 +215,43 @@ const normalizeRecordArbitrary = ({ properties }: RecordArbitrary): Arbitrary =>
 const normalizeIntersectionArbitrary = (
   arbitrary: IntersectionArbitrary,
 ): Arbitrary => {
-  const arbitraries = [...unique(arbitrary.arbitraries.map(normalizeArbitrary))]
-  switch (arbitraries.length) {
+  const arbitraries = pipe(
+    arbitrary.arbitraries,
+    map(normalizeArbitrary),
+    flatMap(spreadIntersectionArbitraries),
+    reduce(toSet()),
+  )
+
+  const properties: RecordArbitrary[`properties`] = new Map()
+  for (const arbitrary of arbitraries) {
+    if (arbitrary.type !== `record`) {
+      continue
+    }
+    for (const [name, property] of arbitrary.properties) {
+      properties.set(name, property)
+    }
+    arbitraries.delete(arbitrary)
+  }
+  if (properties.size > 0) {
+    arbitraries.add(recordArbitrary(properties))
+  }
+
+  switch (arbitraries.size) {
     case 0:
       return recordArbitrary(new Map())
     case 1:
-      return arbitraries[0]!
+      return get(first(arbitraries))
     default:
-      return intersectionArbitrary(arbitraries)
+      return intersectionArbitrary([...arbitraries])
   }
 }
+
+const spreadIntersectionArbitraries = (
+  arbitrary: Arbitrary,
+): Iterable<Arbitrary> =>
+  arbitrary.type === `intersection`
+    ? flatMap(spreadIntersectionArbitraries, arbitrary.arbitraries)
+    : [arbitrary]
 
 const normalizeReferenceArbitrary = (
   arbitrary: ReferenceArbitrary,
