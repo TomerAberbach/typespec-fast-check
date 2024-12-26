@@ -587,6 +587,9 @@ test.each([
       @maxLength(7)
       scalar MinAndMaxLengthString extends string;
 
+      @pattern("[a-z]+")
+      scalar PatternString extends string;
+
       model $Model {
         a: "string",
         b: "string1" | "string2",

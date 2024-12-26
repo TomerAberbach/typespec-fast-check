@@ -11,6 +11,8 @@ export const MinAndMaxLengthString = fc.string({
   maxLength: 7,
 });
 
+export const PatternString = fc.stringMatching(/^[a-z]+$/);
+
 export const $Model = fc.record({
   a: fc.constant("string"),
   b: fc.constantFrom("string1", "string2"),

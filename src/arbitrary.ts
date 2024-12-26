@@ -86,6 +86,7 @@ export type StringArbitrary = {
   type: `string`
   minLength?: number
   maxLength?: number
+  pattern?: string
 }
 
 export const urlArbitrary = (): UrlArbitrary => memoize({ type: `url` })
@@ -264,6 +265,7 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
         arbitrary.type,
         arbitrary.minLength,
         arbitrary.maxLength,
+        arbitrary.pattern,
       ])
     case `enum`:
       return keyalesce([arbitrary.type, ...arbitrary.members])
