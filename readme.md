@@ -51,6 +51,13 @@ See the
 [TypeSpec documentation](https://typespec.io/docs/emitters/protobuf/reference/emitter)
 for more information.
 
+## Examples
+
+See [`openai-arbitraries.js`](./examples/openai-arbitraries.js) which was
+generated from the TypeSpec files in Brian Terlson's
+[`openai-in-typespec`](https://github.com/bterlson/openai-in-typespec)
+repository.
+
 ## Contributing
 
 Stars are always welcome!

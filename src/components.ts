@@ -54,6 +54,8 @@ const ArbitraryFile = ({
   sharedArbitraries: SharedArbitraries
 }): Child =>
   ay.Output().children(ts.SourceFile({ path: `arbitraries.js` }).code`
+    // Generated from TypeSpec using \`typespec-fast-check\`
+
     import * as fc from "fast-check";
 
     ${GlobalArbitraryNamespace({ namespace, sharedArbitraries })}

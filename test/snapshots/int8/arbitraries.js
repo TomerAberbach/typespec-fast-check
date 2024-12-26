@@ -1,3 +1,5 @@
+// Generated from TypeSpec using `typespec-fast-check`
+
 import * as fc from "fast-check";
 
 const int8 = fc.integer({
