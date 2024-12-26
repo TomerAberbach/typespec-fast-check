@@ -42,6 +42,13 @@ export const samples = {
 		'gpe',
 		'J&#!%F1| {#'
 	],
+	'PatternString': [
+		'e',
+		'rucolkelyou',
+		'ihllf',
+		'war',
+		'cbadabewxae'
+	],
 	'String': [
 		'',
 		'W|%=2Spc',

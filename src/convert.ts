@@ -448,6 +448,7 @@ const convertString = (constraints: Constraints): StringArbitrary =>
   stringArbitrary({
     minLength: constraints.minLength?.asNumber() ?? undefined,
     maxLength: constraints.maxLength?.asNumber() ?? undefined,
+    pattern: constraints.pattern,
   })
 
 const convertEnum = (program: Program, $enum: Enum): Arbitrary =>

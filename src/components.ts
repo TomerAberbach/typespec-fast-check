@@ -458,18 +458,22 @@ const StringArbitrary = ({
 }: {
   arbitrary: StringArbitrary
 }): Child =>
-  CallExpression({
-    name: `fc.string`,
-    args: [
-      ObjectExpression({
-        properties: {
-          minLength: arbitrary.minLength,
-          maxLength: arbitrary.maxLength,
-        },
-        singlePropertyOneLine: true,
-      }),
-    ],
-  })
+  CallExpression(
+    arbitrary.pattern === undefined
+      ? {
+          name: `fc.string`,
+          args: [
+            ObjectExpression({
+              properties: {
+                minLength: arbitrary.minLength,
+                maxLength: arbitrary.maxLength,
+              },
+              singlePropertyOneLine: true,
+            }),
+          ],
+        }
+      : { name: `fc.stringMatching`, args: [`/^${arbitrary.pattern}$/`] },
+  )
 
 const UrlArbitrary = (): Child => code`fc.webUrl()`
 
