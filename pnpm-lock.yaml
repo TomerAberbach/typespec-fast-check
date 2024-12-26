@@ -25,6 +25,9 @@ importers:
       lfi:
         specifier: ^3.8.0
         version: 3.8.0
+      svkc:
+        specifier: ^1.0.0
+        version: 1.0.0
     devDependencies:
       '@fast-check/vitest':
         specifier: ^0.1.4
@@ -5342,6 +5345,13 @@ packages:
       }
     engines: { node: '>= 0.4' }
 
+  svkc@1.0.0:
+    resolution:
+      {
+        integrity: sha512-i9/L0NJSg6BLqMTaR4NQki1ZzqBzvqil5MSdvuGNdbp655XoXmgl5Ha8pumIXJKBfNX3dC4CuhPjducqoLSpDg==,
+      }
+    engines: { node: '>= 18' }
+
   symbol-tree@3.2.4:
     resolution:
       {
@@ -9465,6 +9475,8 @@ snapshots:
       supports-color: 7.2.0
 
   supports-preserve-symlinks-flag@1.0.0: {}
+
+  svkc@1.0.0: {}
 
   symbol-tree@3.2.4: {}
 

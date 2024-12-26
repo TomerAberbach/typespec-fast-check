@@ -14,6 +14,7 @@ export type Arbitrary =
   | AnythingArbitrary
   | ConstantArbitrary
   | ScalarArbitrary
+  | OptionArbitrary
   | EnumArbitrary
   | ArrayArbitrary
   | TupleArbitrary
@@ -106,6 +107,14 @@ export type ScalarArbitrary =
   | StringArbitrary
   | UrlArbitrary
   | BytesArbitrary
+
+export const optionArbitrary = (arbitrary: Arbitrary): OptionArbitrary =>
+  memoize({ type: `option`, arbitrary })
+
+export type OptionArbitrary = {
+  type: `option`
+  arbitrary: Arbitrary
+}
 
 export const enumArbitrary = (members: unknown[]): EnumArbitrary =>
   memoize({ type: `enum`, members })
@@ -267,6 +276,8 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
         arbitrary.maxLength,
         arbitrary.pattern,
       ])
+    case `option`:
+      return keyalesce([arbitrary.type, arbitrary.arbitrary])
     case `enum`:
       return keyalesce([arbitrary.type, ...arbitrary.members])
     case `array`:

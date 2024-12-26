@@ -76,13 +76,13 @@ export const SingleLineScalar = fc.string();
 export const MultiLineScalar = fc.string();
 
 /** Enum comment. */
-export const SingleLineEnum = fc.constantFrom("A");
+export const SingleLineEnum = fc.constant("A");
 
 /**
  * Enum
  * comment.
  */
-export const MultiLineEnum = fc.constantFrom("A");
+export const MultiLineEnum = fc.constant("A");
 
 /** Union comment. */
 export const SingleLineUnion = fc.oneof(

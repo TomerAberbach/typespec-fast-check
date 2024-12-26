@@ -59,7 +59,8 @@
     "@rtsao/scc": "^1.1.0",
     "camelcase": "^8.0.0",
     "keyalesce": "^2.2.0",
-    "lfi": "^3.8.0"
+    "lfi": "^3.8.0",
+    "svkc": "^1.0.0"
   },
   "peerDependencies": {
     "@typespec/compiler": "^0.62.0"

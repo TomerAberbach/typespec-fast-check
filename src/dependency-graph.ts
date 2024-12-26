@@ -113,6 +113,8 @@ const getDirectArbitraryDependencies = (arbitrary: Arbitrary): Arbitrary[] => {
     case `function-declaration`:
     case `parameter-reference`:
       return []
+    case `option`:
+      return [arbitrary.arbitrary]
     case `array`:
       return [arbitrary.value]
     case `tuple`:

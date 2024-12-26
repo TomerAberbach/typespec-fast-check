@@ -75,7 +75,8 @@ test.each([
     name: `null`,
     code: `
       model $Model {
-        property: null
+        property1: null,
+        property2: string | null
       }
     `,
   },
@@ -611,7 +612,10 @@ test.each([
   {
     name: `enum`,
     code: `
-      enum $Enum {
+      enum SingleValueEnum {
+        A
+      }
+      enum NoSpecifiedValuesEnum {
         A,
         B,
         C,
@@ -672,10 +676,28 @@ test.each([
   {
     name: `union`,
     code: `
-      union $Union {
+      union SimpleUnion {
         string: string,
         int32: int32,
         boolean: boolean
+      }
+
+      union UnionOfTypeAndConstant {
+        string: string,
+        a: "a"
+      }
+
+      union UnionOfTypeAndConstants {
+        string: string,
+        a: "a",
+        b: "b",
+        c: "c"
+      }
+
+      union NestedUnions {
+        union1: string | boolean,
+        union2: boolean | int32 | "c",
+        union3: "a" | "b" | null
       }
     `,
   },
@@ -726,6 +748,23 @@ test.each([
         ...Model2,
         c: string,
         ...Record<boolean>
+      }
+    `,
+  },
+  {
+    name: `alias-spread`,
+    code: `
+      alias Alias = {
+        property1: int32
+      };
+
+      model Model1 {
+        ...Alias,
+        property2: string
+      }
+      model Model2 {
+        ...Alias,
+        property2: string
       }
     `,
   },
