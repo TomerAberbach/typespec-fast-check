@@ -12,8 +12,8 @@ export const $Model = fc.record({
 
 export const TemplateModel1 = (a, b) =>
   fc.record({
-    a: a,
-    b: b,
+    a,
+    b,
   });
 
 export const TemplateModel2 = (a, b) =>

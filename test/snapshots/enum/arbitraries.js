@@ -1,6 +1,8 @@
 import * as fc from "fast-check";
 
-export const $Enum = fc.constantFrom("A", "B", "C", "D");
+export const SingleValueEnum = fc.constant("A");
+
+export const NoSpecifiedValuesEnum = fc.constantFrom("A", "B", "C", "D");
 
 export const StringEnum = fc.constantFrom("a", "b", "c", "d");
 

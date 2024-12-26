@@ -1,4 +1,5 @@
-import { all, first, get, map, pipe, reduce, toArray, toMap, unique } from 'lfi'
+import { first, get, map, pipe, reduce, toMap, unique } from 'lfi'
+import { SameValueSet } from 'svkc'
 import {
   arrayArbitrary,
   booleanArbitrary,
@@ -9,6 +10,7 @@ import {
   functionDeclarationArbitrary,
   intersectionArbitrary,
   neverArbitrary,
+  optionArbitrary,
   recordArbitrary,
   referenceArbitrary,
   tupleArbitrary,
@@ -17,8 +19,8 @@ import {
 import type {
   Arbitrary,
   ArrayArbitrary,
-  ConstantArbitrary,
   DictionaryArbitrary,
+  EnumArbitrary,
   FunctionCallArbitrary,
   FunctionDeclarationArbitrary,
   IntersectionArbitrary,
@@ -39,10 +41,12 @@ const normalizeArbitrary = (arbitrary: Arbitrary): Arbitrary => {
     case `string`:
     case `url`:
     case `bytes`:
-    case `enum`:
+    case `option`:
     case `recursive-reference`:
     case `parameter-reference`:
       return arbitrary
+    case `enum`:
+      return normalizeEnumArbitrary(arbitrary)
     case `array`:
       return normalizeArrayArbitrary(arbitrary)
     case `tuple`:
@@ -64,6 +68,23 @@ const normalizeArbitrary = (arbitrary: Arbitrary): Arbitrary => {
   }
 }
 
+const normalizeEnumArbitrary = (arbitrary: EnumArbitrary): Arbitrary => {
+  const members = new SameValueSet(arbitrary.members)
+
+  switch (members.size) {
+    case 0:
+      return neverArbitrary()
+    case 1:
+      return constantArbitrary(get(first(members)))
+    default:
+      if (!members.has(null)) {
+        return enumArbitrary([...members])
+      }
+      members.delete(null)
+      return optionArbitrary(normalizeArbitrary(enumArbitrary([...members])))
+  }
+}
+
 const normalizeArrayArbitrary = ({
   value,
   ...options
@@ -80,7 +101,20 @@ const normalizeDictionaryArbitrary = ({
   dictionaryArbitrary(normalizeArbitrary(key), normalizeArbitrary(value))
 
 const normalizeUnionArbitrary = (arbitrary: UnionArbitrary): Arbitrary => {
-  const variants = new Set(arbitrary.variants.map(normalizeArbitrary))
+  const variants = new Set(
+    arbitrary.variants.map(normalizeArbitrary).flatMap(variant => {
+      // eslint-disable-next-line typescript/switch-exhaustiveness-check
+      switch (variant.type) {
+        case `enum`:
+          // These will be re-collapsed below if necessary.
+          return variant.members.map(constantArbitrary)
+        case `union`:
+          return variant.variants
+        default:
+          return [variant]
+      }
+    }),
+  )
 
   const falseConstant = constantArbitrary(false)
   const trueConstant = constantArbitrary(true)
@@ -100,16 +134,33 @@ const normalizeUnionArbitrary = (arbitrary: UnionArbitrary): Arbitrary => {
     case 1:
       return get(first(variants))
     default:
-      return all(variant => variant.type === `constant`, variants)
-        ? enumArbitrary(
-            pipe(
-              variants,
-              map(variant => (variant as ConstantArbitrary).value),
-              reduce(toArray()),
-            ),
-          )
-        : unionArbitrary([...variants])
+      break
   }
+
+  const constants = new SameValueSet<unknown>()
+  for (const variant of variants) {
+    if (variant.type === `constant`) {
+      constants.add(variant.value)
+      variants.delete(variant)
+    }
+  }
+  if (constants.size === 1) {
+    variants.add(constantArbitrary(get(first(constants))))
+  } else if (constants.size > 1) {
+    const arbitrary = normalizeArbitrary(enumArbitrary([...constants]))
+    if (variants.size === 0) {
+      return arbitrary
+    }
+    variants.add(arbitrary)
+  }
+
+  const nullConstant = constantArbitrary(null)
+  if (!variants.has(nullConstant)) {
+    return unionArbitrary([...variants])
+  }
+
+  variants.delete(nullConstant)
+  return optionArbitrary(normalizeArbitrary(unionArbitrary([...variants])))
 }
 
 const normalizeRecordArbitrary = ({ properties }: RecordArbitrary): Arbitrary =>

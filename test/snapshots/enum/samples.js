@@ -1,5 +1,5 @@
 export const samples = {
-	'$Enum': [
+	'NoSpecifiedValuesEnum': [
 		'C',
 		'D',
 		'B',
@@ -12,6 +12,13 @@ export const samples = {
 		2,
 		3.14,
 		1
+	],
+	'SingleValueEnum': [
+		'A',
+		'A',
+		'A',
+		'A',
+		'A'
 	],
 	'StringEnum': [
 		'c',

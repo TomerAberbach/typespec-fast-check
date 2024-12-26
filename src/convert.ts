@@ -309,6 +309,11 @@ const convertScalar = (
       arbitrary = convertBigInt(scalar, constraints)
       break
     case `string`:
+    case `plainDate`:
+    case `plainTime`:
+    case `utcDateTime`:
+    case `offsetDateTime`:
+    case `duration`:
       arbitrary = convertString(constraints)
       break
     case `url`:
@@ -562,7 +567,7 @@ const convertModel = (
     )
   }
 
-  return isTypeSpecNamespace(model.namespace)
+  return isTypeSpecNamespace(model.namespace) || !model.name
     ? arbitrary
     : referenceArbitrary({
         name: model.name,

@@ -1,19 +1,24 @@
 export const samples = {
 	'$Model': [
 		{
-			'property': null
+			'property1': null,
+			'property2': '$'
 		},
 		{
-			'property': null
+			'property1': null,
+			'property2': 'x$Z'
 		},
 		{
-			'property': null
+			'property1': null,
+			'property2': 'w '
 		},
 		{
-			'property': null
+			'property1': null,
+			'property2': null
 		},
 		{
-			'property': null
+			'property1': null,
+			'property2': ''
 		}
 	]
 };

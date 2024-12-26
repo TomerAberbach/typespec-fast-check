@@ -36,6 +36,7 @@ import type {
   FunctionDeclarationArbitrary,
   IntersectionArbitrary,
   NumberArbitrary,
+  OptionArbitrary,
   RecordArbitrary,
   ReferenceArbitrary,
   StringArbitrary,
@@ -188,7 +189,7 @@ const NestedArbitraryNamespace = ({
         ...map(
           namespace =>
             Commented({ comment: namespace.comment }).children(
-              ts.ObjectProperty({
+              ObjectProperty({
                 name: namespace.name,
                 value: code`${NestedArbitraryNamespace({
                   namespace,
@@ -201,7 +202,7 @@ const NestedArbitraryNamespace = ({
         ...map(
           ([name, arbitrary]) =>
             Commented({ comment: arbitrary.comment }).children(
-              ts.ObjectProperty({
+              ObjectProperty({
                 name,
                 value: code`${Arbitrary({
                   arbitrary,
@@ -280,6 +281,12 @@ const ArbitraryDefinition = ({
       return BytesArbitrary()
     case `enum`:
       return EnumArbitrary({ arbitrary })
+    case `option`:
+      return OptionArbitrary({
+        arbitrary,
+        sharedArbitraries,
+        currentStronglyConnectedArbitraries,
+      })
     case `array`:
       return ArrayArbitrary({
         arbitrary,
@@ -488,6 +495,26 @@ const EnumArbitrary = ({ arbitrary }: { arbitrary: EnumArbitrary }): Child =>
         : String(value),
     ),
     oneLine: true,
+  })
+
+const OptionArbitrary = ({
+  arbitrary,
+  sharedArbitraries,
+  currentStronglyConnectedArbitraries,
+}: {
+  arbitrary: OptionArbitrary
+  sharedArbitraries: SharedArbitraries
+  currentStronglyConnectedArbitraries: Set<ReferenceArbitrary>
+}): Child =>
+  CallExpression({
+    name: `fc.option`,
+    args: [
+      Arbitrary({
+        arbitrary: arbitrary.arbitrary,
+        sharedArbitraries,
+        currentStronglyConnectedArbitraries,
+      }),
+    ],
   })
 
 const ArrayArbitrary = ({
@@ -747,16 +774,7 @@ const ObjectExpression = ({
         `comment` in property
           ? property
           : { value: property }
-      return Commented({ comment }).children(
-        ts.ObjectProperty({
-          name,
-          // https://github.com/alloy-framework/alloy/issues/42
-          value:
-            typeof value === `number` || typeof value === `boolean`
-              ? String(value)
-              : value,
-        }),
-      )
+      return Commented({ comment }).children(ObjectProperty({ name, value }))
     }),
     reduce(toArray()),
   )
@@ -767,6 +785,27 @@ const ObjectExpression = ({
           ${Commas({ values: objectProperties })}
         }
       `
+}
+
+const ObjectProperty = ({
+  name,
+  value,
+}: {
+  name: string
+  value: Child
+}): Child => {
+  // https://github.com/alloy-framework/alloy/issues/42
+  value =
+    typeof value === `number` || typeof value === `boolean`
+      ? String(value)
+      : value
+
+  const needsQuotes = !/^(?:[0-9]+|[$a-z](?:[0-9$a-z]*))$/iu.test(name)
+  if (needsQuotes) {
+    return code`${StringLiteral({ string: name })}: ${value}`
+  }
+
+  return name === value ? name : code`${name}: ${value}`
 }
 
 const Commented = stc(
