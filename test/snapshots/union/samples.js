@@ -1,10 +1,10 @@
 export const samples = {
 	'NestedUnions': [
-		false,
-		'a',
-		'a',
-		'c',
-		true
+		19,
+		-2147483639,
+		'S',
+		null,
+		false
 	],
 	'SimpleUnion': [
 		-2,
