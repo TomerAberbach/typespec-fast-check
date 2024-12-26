@@ -1430,7 +1430,6 @@ export const OpenAI = {
       model: fc.oneof(
         fc.string(),
         fc.constantFrom("text-moderation-latest", "text-moderation-stable"),
-        fc.constant("text-moderation-latest"),
       ),
     },
     {

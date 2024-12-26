@@ -101,7 +101,7 @@ const normalizeDictionaryArbitrary = ({
   dictionaryArbitrary(normalizeArbitrary(key), normalizeArbitrary(value))
 
 const normalizeUnionArbitrary = (arbitrary: UnionArbitrary): Arbitrary => {
-  const variants = new Set(
+  const variants = new Set<Arbitrary>(
     arbitrary.variants.map(normalizeArbitrary).flatMap(variant => {
       // eslint-disable-next-line typescript/switch-exhaustiveness-check
       switch (variant.type) {
@@ -109,7 +109,11 @@ const normalizeUnionArbitrary = (arbitrary: UnionArbitrary): Arbitrary => {
           // These will be re-collapsed below if necessary.
           return variant.members.map(constantArbitrary)
         case `union`:
-          return variant.variants
+          return variant.variants.flatMap(variant =>
+            variant.type === `enum`
+              ? variant.members.map(constantArbitrary)
+              : [variant],
+          )
         default:
           return [variant]
       }
