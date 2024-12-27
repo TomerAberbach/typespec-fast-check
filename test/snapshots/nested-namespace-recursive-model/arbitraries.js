@@ -16,5 +16,5 @@ const group = fc.letrec(tie => ({
 const Node = group.Node;
 
 export const $Namespace = {
-  Node: Node,
+  Node,
 };
