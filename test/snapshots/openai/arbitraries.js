@@ -178,7 +178,7 @@ const FineTuningJob = fc.record({
       /**
        * The number of epochs to train the model for. An epoch refers to one full cycle through the
        * training dataset.
-       *
+       * 
        * "Auto" decides the optimal number of epochs based on the size of the dataset. If setting the
        * number manually, we support any number between 1 and 50 epochs.
        */
@@ -407,35 +407,35 @@ const Error = fc.record({
 /** The OpenAI REST API. Please see https://platform.openai.com/docs/api-reference for more details. */
 export const OpenAI = {
   Audio: {},
-
+  
   Chat: {},
-
+  
   FineTuning: {},
-
+  
   Temperature: Temperature,
-
+  
   TopP: TopP,
-
+  
   N: N,
-
+  
   MaxTokens: MaxTokens,
-
+  
   Penalty: Penalty,
-
+  
   User: User,
-
+  
   EditN: EditN,
-
+  
   NEpochs: NEpochs,
-
+  
   SuffixString: SuffixString,
-
+  
   ImagesN: ImagesN,
-
+  
   Stop: Stop,
-
+  
   Prompt: Prompt,
-
+  
   CreateTranscriptionRequest: fc.record(
     {
       /**
@@ -482,17 +482,17 @@ export const OpenAI = {
       requiredKeys: ["file", "model"],
     },
   ),
-
+  
   CreateTranscriptionResponse: fc.record({
     text: fc.string(),
   }),
-
+  
   ErrorResponse: fc.record({
     error: Error,
   }),
-
+  
   Error: Error,
-
+  
   CreateTranslationRequest: fc.record(
     {
       /**
@@ -533,17 +533,17 @@ export const OpenAI = {
       requiredKeys: ["file", "model"],
     },
   ),
-
+  
   CreateTranslationResponse: fc.record({
     text: fc.string(),
   }),
-
+  
   CreateChatCompletionRequest: fc.record(
     {
       /**
        * What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output
        * more random, while lower values like 0.2 will make it more focused and deterministic.
-       *
+       * 
        * We generally recommend altering this or `top_p` but not both.
        */
       temperature: fc.option(fc.oneof(
@@ -554,7 +554,7 @@ export const OpenAI = {
        * An alternative to sampling with temperature, called nucleus sampling, where the model considers
        * the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising
        * the top 10% probability mass are considered.
-       *
+       * 
        * We generally recommend altering this or `temperature` but not both.
        */
       top_p: fc.option(fc.oneof(
@@ -572,7 +572,7 @@ export const OpenAI = {
       )),
       /**
        * The maximum number of [tokens](/tokenizer) to generate in the completion.
-       *
+       * 
        * The token count of your prompt plus `max_tokens` cannot exceed the model's context length.
        * [Example Python code](https://github.com/openai/openai-cookbook/blob/main/examples/How_to_count_tokens_with_tiktoken.ipynb)
        * for counting tokens.
@@ -586,7 +586,7 @@ export const OpenAI = {
       /**
        * Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear
        * in the text so far, increasing the model's likelihood to talk about new topics.
-       *
+       * 
        * [See more information about frequency and presence penalties.](/docs/guides/gpt/parameter-details)
        */
       presence_penalty: fc.option(Penalty),
@@ -594,7 +594,7 @@ export const OpenAI = {
        * Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing
        * frequency in the text so far, decreasing the model's likelihood to repeat the same line
        * verbatim.
-       *
+       * 
        * [See more information about frequency and presence penalties.](/docs/guides/gpt/parameter-details)
        */
       frequency_penalty: fc.option(Penalty),
@@ -653,17 +653,17 @@ export const OpenAI = {
       requiredKeys: ["model", "messages"],
     },
   ),
-
+  
   ChatCompletionRequestMessage: ChatCompletionRequestMessage,
-
+  
   ChatCompletionFunctions: ChatCompletionFunctions,
-
+  
   ChatCompletionFunctionParameters: ChatCompletionFunctionParameters,
-
+  
   ChatCompletionFunctionCallOption: ChatCompletionFunctionCallOption,
-
+  
   StopSequences: StopSequences,
-
+  
   /** Represents a chat completion response returned by model, based on the provided input. */
   CreateChatCompletionResponse: fc.record(
     {
@@ -694,18 +694,18 @@ export const OpenAI = {
       requiredKeys: ["id", "object", "created", "model", "choices"],
     },
   ),
-
+  
   ChatCompletionResponseMessage: ChatCompletionResponseMessage,
-
+  
   /** Usage statistics for the completion request. */
   CompletionUsage: CompletionUsage,
-
+  
   CreateCompletionRequest: fc.record(
     {
       /**
        * What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output
        * more random, while lower values like 0.2 will make it more focused and deterministic.
-       *
+       * 
        * We generally recommend altering this or `top_p` but not both.
        */
       temperature: fc.option(fc.oneof(
@@ -716,7 +716,7 @@ export const OpenAI = {
        * An alternative to sampling with temperature, called nucleus sampling, where the model considers
        * the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising
        * the top 10% probability mass are considered.
-       *
+       * 
        * We generally recommend altering this or `temperature` but not both.
        */
       top_p: fc.option(fc.oneof(
@@ -734,7 +734,7 @@ export const OpenAI = {
       )),
       /**
        * The maximum number of [tokens](/tokenizer) to generate in the completion.
-       *
+       * 
        * The token count of your prompt plus `max_tokens` cannot exceed the model's context length.
        * [Example Python code](https://github.com/openai/openai-cookbook/blob/main/examples/How_to_count_tokens_with_tiktoken.ipynb)
        * for counting tokens.
@@ -748,7 +748,7 @@ export const OpenAI = {
       /**
        * Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear
        * in the text so far, increasing the model's likelihood to talk about new topics.
-       *
+       * 
        * [See more information about frequency and presence penalties.](/docs/guides/gpt/parameter-details)
        */
       presence_penalty: fc.option(Penalty),
@@ -756,7 +756,7 @@ export const OpenAI = {
        * Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing
        * frequency in the text so far, decreasing the model's likelihood to repeat the same line
        * verbatim.
-       *
+       * 
        * [See more information about frequency and presence penalties.](/docs/guides/gpt/parameter-details)
        */
       frequency_penalty: fc.option(Penalty),
@@ -793,7 +793,7 @@ export const OpenAI = {
       /**
        * The prompt(s) to generate completions for, encoded as a string, array of strings, array of
        * tokens, or array of token arrays.
-       *
+       * 
        * Note that <|endoftext|> is the document separator that the model sees during training, so if a
        * prompt is not specified the model will generate as if from the beginning of a new document.
        */
@@ -808,7 +808,7 @@ export const OpenAI = {
        * For example, if `logprobs` is 5, the API will return a list of the 5 most likely tokens. The
        * API will always return the `logprob` of the sampled token, so there may be up to `logprobs+1`
        * elements in the response.
-       *
+       * 
        * The maximum value for `logprobs` is 5.
        */
       logprobs: fc.option(fc.maxSafeInteger()),
@@ -817,10 +817,10 @@ export const OpenAI = {
       /**
        * Generates `best_of` completions server-side and returns the "best" (the one with the highest
        * log probability per token). Results cannot be streamed.
-       *
+       * 
        * When used with `n`, `best_of` controls the number of candidate completions and `n` specifies
        * how many to return – `best_of` must be greater than `n`.
-       *
+       * 
        * **Note:** Because this parameter generates many completions, it can quickly consume your token
        * quota. Use carefully and ensure that you have reasonable settings for `max_tokens` and `stop`.
        */
@@ -833,11 +833,11 @@ export const OpenAI = {
       requiredKeys: ["model"],
     },
   ),
-
+  
   TokenArray: TokenArray,
-
+  
   TokenArrayArray: TokenArrayArray,
-
+  
   /**
    * Represents a completion response from the API. Note: both the streamed and non-streamed response
    * objects share the same shape (unlike the chat endpoint).
@@ -877,7 +877,7 @@ export const OpenAI = {
       requiredKeys: ["id", "object", "created", "model", "choices"],
     },
   ),
-
+  
   CreateEditRequest: fc.record(
     {
       /**
@@ -903,7 +903,7 @@ export const OpenAI = {
       /**
        * What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output
        * more random, while lower values like 0.2 will make it more focused and deterministic.
-       *
+       * 
        * We generally recommend altering this or `top_p` but not both.
        */
       temperature: fc.option(fc.oneof(
@@ -914,7 +914,7 @@ export const OpenAI = {
        * An alternative to sampling with temperature, called nucleus sampling, where the model considers
        * the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising
        * the top 10% probability mass are considered.
-       *
+       * 
        * We generally recommend altering this or `temperature` but not both.
        */
       top_p: fc.option(fc.oneof(
@@ -926,7 +926,7 @@ export const OpenAI = {
       requiredKeys: ["model", "instruction"],
     },
   ),
-
+  
   CreateEditResponse: fc.record({
     /** The object type, which is always `edit`. */
     object: fc.constant("edit"),
@@ -947,7 +947,7 @@ export const OpenAI = {
     })),
     usage: CompletionUsage,
   }),
-
+  
   CreateEmbeddingRequest: fc.record(
     {
       /** ID of the model to use. You can use the [List models](/docs/api-reference/models/list) API to see all of your available models, or see our [Model overview](/docs/models/overview) for descriptions of them. */
@@ -974,7 +974,7 @@ export const OpenAI = {
       requiredKeys: ["model", "input"],
     },
   ),
-
+  
   CreateEmbeddingResponse: fc.record({
     /** The object type, which is always "embedding". */
     object: fc.constant("embedding"),
@@ -990,36 +990,36 @@ export const OpenAI = {
       total_tokens: fc.maxSafeInteger(),
     }),
   }),
-
+  
   /** Represents an embedding vector returned by embedding endpoint. */
   Embedding: Embedding,
-
+  
   ListModelsResponse: fc.record({
     object: fc.string(),
     data: fc.array(Model),
   }),
-
+  
   /** Describes an OpenAI model offering that can be used with the API. */
   Model: Model,
-
+  
   DeleteModelResponse: fc.record({
     id: fc.string(),
     object: fc.string(),
     deleted: fc.boolean(),
   }),
-
+  
   ListFilesResponse: fc.record({
     object: fc.string(),
     data: fc.array(OpenAIFile),
   }),
-
+  
   /** The `File` object represents a document that has been uploaded to OpenAI. */
   OpenAIFile: OpenAIFile,
-
+  
   CreateFileRequest: fc.record({
     /**
      * Name of the [JSON Lines](https://jsonlines.readthedocs.io/en/latest/) file to be uploaded.
-     *
+     * 
      * If the `purpose` is set to "fine-tune", the file will be used for fine-tuning.
      */
     file: fc.uint8Array(),
@@ -1030,36 +1030,36 @@ export const OpenAI = {
      */
     purpose: fc.string(),
   }),
-
+  
   DeleteFileResponse: fc.record({
     id: fc.string(),
     object: fc.string(),
     deleted: fc.boolean(),
   }),
-
+  
   CreateFineTuningJobRequest: fc.record(
     {
       /**
        * The ID of an uploaded file that contains training data.
-       *
+       * 
        * See [upload file](/docs/api-reference/files/upload) for how to upload a file.
-       *
+       * 
        * Your dataset must be formatted as a JSONL file. Additionally, you must upload your file with
        * the purpose `fine-tune`.
-       *
+       * 
        * See the [fine-tuning guide](/docs/guides/fine-tuning) for more details.
        */
       training_file: fc.string(),
       /**
        * The ID of an uploaded file that contains validation data.
-       *
+       * 
        * If you provide this file, the data is used to generate validation metrics periodically during
        * fine-tuning. These metrics can be viewed in the fine-tuning results file. The same data should
        * not be present in both train and validation files.
-       *
+       * 
        * Your dataset must be formatted as a JSONL file. You must upload your file with the purpose
        * `fine-tune`.
-       *
+       * 
        * See the [fine-tuning guide](/docs/guides/fine-tuning) for more details.
        */
       validation_file: fc.option(fc.string()),
@@ -1087,7 +1087,7 @@ export const OpenAI = {
       ),
       /**
        * A string of up to 18 characters that will be added to your fine-tuned model name.
-       *
+       * 
        * For example, a `suffix` of "custom-model-name" would produce a model name like
        * `ft:gpt-3.5-turbo:openai:custom-model-name:7p4lURel`.
        */
@@ -1097,49 +1097,49 @@ export const OpenAI = {
       requiredKeys: ["training_file", "model"],
     },
   ),
-
+  
   FineTuningJob: FineTuningJob,
-
+  
   ListPaginatedFineTuningJobsResponse: fc.record({
     object: fc.string(),
     data: fc.array(FineTuningJob),
     has_more: fc.boolean(),
   }),
-
+  
   ListFineTuningJobEventsResponse: fc.record({
     object: fc.string(),
     data: fc.array(FineTuningJobEvent),
   }),
-
+  
   FineTuningJobEvent: FineTuningJobEvent,
-
+  
   CreateFineTuneRequest: fc.record(
     {
       /**
        * The ID of an uploaded file that contains training data.
-       *
+       * 
        * See [upload file](/docs/api-reference/files/upload) for how to upload a file.
-       *
+       * 
        * Your dataset must be formatted as a JSONL file, where each training example is a JSON object
        * with the keys "prompt" and "completion". Additionally, you must upload your file with the
        * purpose `fine-tune`.
-       *
+       * 
        * See the [fine-tuning guide](/docs/guides/legacy-fine-tuning/creating-training-data) for more
        * details.
        */
       training_file: fc.string(),
       /**
        * The ID of an uploaded file that contains validation data.
-       *
+       * 
        * If you provide this file, the data is used to generate validation metrics periodically during
        * fine-tuning. These metrics can be viewed in the
        * [fine-tuning results file](/docs/guides/legacy-fine-tuning/analyzing-your-fine-tuned-model).
        * Your train and validation data should be mutually exclusive.
-       *
+       * 
        * Your dataset must be formatted as a JSONL file, where each validation example is a JSON object
        * with the keys "prompt" and "completion". Additionally, you must upload your file with the
        * purpose `fine-tune`.
-       *
+       * 
        * See the [fine-tuning guide](/docs/guides/legacy-fine-tuning/creating-training-data) for more
        * details.
        */
@@ -1164,7 +1164,7 @@ export const OpenAI = {
       /**
        * The batch size to use for training. The batch size is the number of training examples used to
        * train a single forward and backward pass.
-       *
+       * 
        * By default, the batch size will be dynamically configured to be ~0.2% of the number of examples
        * in the training set, capped at 256 - in general, we've found that larger batch sizes tend to
        * work better for larger datasets.
@@ -1173,7 +1173,7 @@ export const OpenAI = {
       /**
        * The learning rate multiplier to use for training. The fine-tuning learning rate is the original
        * learning rate used for pretraining multiplied by this value.
-       *
+       * 
        * By default, the learning rate multiplier is the 0.05, 0.1, or 0.2 depending on final
        * `batch_size` (larger learning rates tend to perform better with larger batch sizes). We
        * recommend experimenting with values in the range 0.02 to 0.2 to see what produces the best
@@ -1184,7 +1184,7 @@ export const OpenAI = {
        * The weight to use for loss on the prompt tokens. This controls how much the model tries to
        * learn to generate the prompt (as compared to the completion which always has a weight of 1.0),
        * and can add a stabilizing effect to training when completions are short.
-       *
+       * 
        * If prompts are extremely long (relative to completions), it may make sense to reduce this
        * weight so as to avoid over-prioritizing learning the prompt.
        */
@@ -1196,7 +1196,7 @@ export const OpenAI = {
        * If set, we calculate classification-specific metrics such as accuracy and F-1 score using the
        * validation set at the end of every epoch. These metrics can be viewed in the
        * [results file](/docs/guides/legacy-fine-tuning/analyzing-your-fine-tuned-model).
-       *
+       * 
        * In order to compute classification metrics, you must provide a `validation_file`. Additionally,
        * you must specify `classification_n_classes` for multiclass classification or
        * `classification_positive_class` for binary classification.
@@ -1204,13 +1204,13 @@ export const OpenAI = {
       compute_classification_metrics: fc.option(fc.boolean()),
       /**
        * The number of classes in a classification task.
-       *
+       * 
        * This parameter is required for multiclass classification.
        */
       classification_n_classes: fc.option(fc.maxSafeInteger()),
       /**
        * The positive class in binary classification.
-       *
+       * 
        * This parameter is needed to generate precision, recall, and F1 metrics when doing binary
        * classification.
        */
@@ -1218,7 +1218,7 @@ export const OpenAI = {
       /**
        * If this is provided, we calculate F-beta scores at the specified beta values. The F-beta score
        * is a generalization of F-1 score. This is only used for binary classification.
-       *
+       * 
        * With a beta of 1 (i.e. the F-1 score), precision and recall are given the same weight. A larger
        * beta score puts more weight on recall and less on precision. A smaller beta score puts more
        * weight on precision and less on recall.
@@ -1226,7 +1226,7 @@ export const OpenAI = {
       classification_betas: fc.option(fc.array(fc.double())),
       /**
        * A string of up to 18 characters that will be added to your fine-tuned model name.
-       *
+       * 
        * For example, a `suffix` of "custom-model-name" would produce a model name like
        * `ada:ft-your-org:custom-model-name-2022-02-15-04-21-04`.
        */
@@ -1236,22 +1236,22 @@ export const OpenAI = {
       requiredKeys: ["training_file"],
     },
   ),
-
+  
   /** The `FineTune` object represents a legacy fine-tune job that has been created through the API. */
   FineTune: FineTune,
-
+  
   FineTuneEvent: FineTuneEvent,
-
+  
   ListFineTunesResponse: fc.record({
     object: fc.string(),
     data: fc.array(FineTune),
   }),
-
+  
   ListFineTuneEventsResponse: fc.record({
     object: fc.string(),
     data: fc.array(FineTuneEvent),
   }),
-
+  
   FineTuningEvent: fc.record(
     {
       object: fc.string(),
@@ -1265,7 +1265,7 @@ export const OpenAI = {
       requiredKeys: ["object", "created_at", "level", "message"],
     },
   ),
-
+  
   CreateImageRequest: fc.record(
     {
       /** The number of images to generate. Must be between 1 and 10. */
@@ -1285,15 +1285,15 @@ export const OpenAI = {
       requiredKeys: ["prompt"],
     },
   ),
-
+  
   ImagesResponse: fc.record({
     created: fc.string(),
     data: fc.array(Image),
   }),
-
+  
   /** Represents the url or the content of an image generated by the OpenAI API. */
   Image: Image,
-
+  
   CreateImageEditRequest: fc.record(
     {
       /** The number of images to generate. Must be between 1 and 10. */
@@ -1324,7 +1324,7 @@ export const OpenAI = {
       requiredKeys: ["prompt", "image"],
     },
   ),
-
+  
   CreateImageVariationRequest: fc.record(
     {
       /** The number of images to generate. Must be between 1 and 10. */
@@ -1347,7 +1347,7 @@ export const OpenAI = {
       requiredKeys: ["image"],
     },
   ),
-
+  
   CreateModerationRequest: fc.record(
     {
       /** The input text to classify */
@@ -1371,7 +1371,7 @@ export const OpenAI = {
       requiredKeys: ["input"],
     },
   ),
-
+  
   CreateModerationResponse: fc.record({
     /** The unique identifier for the moderation request. */
     id: fc.string(),
