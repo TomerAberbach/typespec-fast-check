@@ -15,7 +15,7 @@ const Image = fc.record(
     /** The URL of the generated image, if `response_format` is `url` (default). */
     url: fc.webUrl(),
     /** The base64-encoded JSON of the generated image, if `response_format` is `b64_json`. */
-    b64_json: fc.uint8Array(),
+    b64_json: fc.base64String(),
   },
   { withDeletedKeys: true },
 );

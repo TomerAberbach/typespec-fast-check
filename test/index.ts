@@ -639,7 +639,10 @@ test.each([
   {
     name: `bytes`,
     code: `
-      scalar Bytes extends bytes;
+      scalar BinaryBytes extends bytes;
+
+      @encode("base64")
+      scalar Base64Bytes extends bytes;
     `,
   },
   {

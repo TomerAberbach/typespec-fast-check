@@ -10034,7 +10034,7 @@ export const samples = {
 				'data': [
 					{
 						'url': 'http://3.7e2ux9i71ygh.yp/V//4//V//',
-						'b64_json': new Uint8Array()
+						'b64_json': ''
 					}
 				]
 			},
@@ -10043,27 +10043,15 @@ export const samples = {
 				'data': [
 					{
 						'url': 'http://rab4t.lv/',
-						'b64_json': new Uint8Array([
-							154
-						])
+						'b64_json': ''
 					},
 					{
 						'url': 'https://4wd4qw.mtx/a7akV&NM',
-						'b64_json': new Uint8Array([
-							82,
-							198
-						])
+						'b64_json': 'SG=='
 					},
 					{
 						'url': 'https://v.co74yq0p7l7.nd/r/i//',
-						'b64_json': new Uint8Array([
-							67,
-							231,
-							245,
-							107,
-							206,
-							38
-						])
+						'b64_json': 'Dn1rOm=='
 					},
 					{
 						'url': 'http://w.u.mdh'
@@ -10074,10 +10062,7 @@ export const samples = {
 				'created': 'X1DZwS',
 				'data': [
 					{
-						'b64_json': new Uint8Array([
-							97,
-							254
-						])
+						'b64_json': 'h+=='
 					}
 				]
 			},
@@ -10085,24 +10070,11 @@ export const samples = {
 				'created': 'gp',
 				'data': [
 					{
-						'b64_json': new Uint8Array([
-							171,
-							31,
-							198,
-							195,
-							32,
-							9,
-							112,
-							249
-						])
+						'b64_json': 'rfGDgJw5'
 					},
 					{
 						'url': 'https://qxm12.lbg.iq/_/D/+/:/1/',
-						'b64_json': new Uint8Array([
-							113,
-							114,
-							190
-						])
+						'b64_json': 'xy+='
 					}
 				]
 			},
@@ -10110,80 +10082,26 @@ export const samples = {
 				'created': '',
 				'data': [
 					{
-						'b64_json': new Uint8Array([
-							40,
-							183,
-							10,
-							220,
-							94,
-							64,
-							96,
-							133,
-							180,
-							87
-						])
+						'b64_json': 'o3KceAgF0X=='
 					},
 					{
 						'url': 'https://osn.et//x/4///U/%F2%AF%87%9B',
-						'b64_json': new Uint8Array([
-							133,
-							102,
-							119,
-							246,
-							49,
-							24,
-							159,
-							117,
-							14
-						])
+						'b64_json': 'm32xYf1O'
 					},
 					{
 						'url': 'http://4w9fq3qbtba.2ui0ju.rjc/)//',
-						'b64_json': new Uint8Array([
-							161,
-							90,
-							143,
-							226,
-							48,
-							1,
-							28,
-							195,
-							81
-						])
+						'b64_json': 'aPiwBcDR'
 					},
 					{
 						'url': 'http://qof-npz-1-f.bpw',
-						'b64_json': new Uint8Array([
-							107,
-							224
-						])
+						'b64_json': 'rg=='
 					},
 					{
 						'url': 'https://0pl.95n63fp5r3.tc//D///4/',
-						'b64_json': new Uint8Array([
-							155,
-							217,
-							63,
-							53,
-							245,
-							184,
-							105,
-							177,
-							119,
-							21
-						])
+						'b64_json': 'bZ/114px3V=='
 					},
 					{
-						'b64_json': new Uint8Array([
-							0,
-							10,
-							94,
-							44,
-							209,
-							105,
-							159,
-							107
-						])
+						'b64_json': 'AKesRpfr'
 					}
 				]
 			}
@@ -10194,31 +10112,16 @@ export const samples = {
 			},
 			{
 				'url': 'http://atvl2c.k.ref',
-				'b64_json': new Uint8Array()
+				'b64_json': ''
 			},
 			{
 				'url': 'http://fualxl.c8b.az/x//I',
-				'b64_json': new Uint8Array([
-					0,
-					159,
-					7,
-					132,
-					255
-				])
+				'b64_json': 'sPro'
 			},
 			{},
 			{
 				'url': 'https://o.vzgos.ey///4//b///Q',
-				'b64_json': new Uint8Array([
-					254,
-					113,
-					33,
-					242,
-					243,
-					209,
-					100,
-					24
-				])
+				'b64_json': '+xhyzRkY'
 			}
 		],
 		'CreateImageEditRequest': [

@@ -1,5 +1,12 @@
 export const samples = {
-	'Bytes': [
+	'Base64Bytes': [
+		'',
+		'a3JoU8IU',
+		'6W9rFx==',
+		'pe==',
+		''
+	],
+	'BinaryBytes': [
 		new Uint8Array(),
 		new Uint8Array([
 			218,
