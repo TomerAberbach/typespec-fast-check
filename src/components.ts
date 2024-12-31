@@ -280,7 +280,7 @@ const ArbitraryDefinition = ({
     case `url`:
       return UrlArbitrary()
     case `bytes`:
-      return BytesArbitrary()
+      return BytesArbitrary({ arbitrary })
     case `enum`:
       return EnumArbitrary({ arbitrary })
     case `option`:
@@ -486,7 +486,18 @@ const StringArbitrary = ({
 
 const UrlArbitrary = (): Child => code`fc.webUrl()`
 
-const BytesArbitrary = (): Child => code`fc.uint8Array()`
+const BytesArbitrary = ({
+  arbitrary,
+}: {
+  arbitrary: BytesArbitrary
+}): Child => {
+  switch (arbitrary.encoding) {
+    case `binary`:
+      return code`fc.uint8Array()`
+    case `base64`:
+      return code`fc.base64String()`
+  }
+}
 
 const EnumArbitrary = ({ arbitrary }: { arbitrary: EnumArbitrary }): Child =>
   CallExpression({

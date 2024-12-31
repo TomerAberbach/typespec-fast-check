@@ -94,10 +94,13 @@ export const urlArbitrary = (): UrlArbitrary => memoize({ type: `url` })
 
 export type UrlArbitrary = { type: `url` }
 
-export const bytesArbitrary = (): BytesArbitrary => memoize({ type: `bytes` })
+export const bytesArbitrary = (
+  options: Omit<BytesArbitrary, `type`>,
+): BytesArbitrary => memoize({ ...options, type: `bytes` })
 
 export type BytesArbitrary = {
   type: `bytes`
+  encoding: `binary` | `base64`
 }
 
 export type ScalarArbitrary =
@@ -255,7 +258,6 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
     case `anything`:
     case `boolean`:
     case `url`:
-    case `bytes`:
       return keyalesce([arbitrary.type])
     case `constant`:
       return keyalesce([arbitrary.type, arbitrary.value])
@@ -276,6 +278,8 @@ const getArbitraryKey = (arbitrary: Arbitrary): ArbitraryKey => {
         arbitrary.maxLength,
         arbitrary.pattern,
       ])
+    case `bytes`:
+      return keyalesce([arbitrary.type, arbitrary.encoding])
     case `option`:
       return keyalesce([arbitrary.type, arbitrary.arbitrary])
     case `enum`:

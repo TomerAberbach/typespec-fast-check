@@ -1,4 +1,5 @@
 import {
+  getEncode,
   getMaxItemsAsNumeric,
   getMaxLengthAsNumeric,
   getMaxValueAsNumeric,
@@ -9,7 +10,7 @@ import {
   getMinValueExclusiveAsNumeric,
   getPattern,
 } from '@typespec/compiler'
-import type { Numeric, Program, Type } from '@typespec/compiler'
+import type { EncodeData, Numeric, Program, Type } from '@typespec/compiler'
 import keyalesce from 'keyalesce'
 import { entries, filter, pipe, reduce, toObject } from 'lfi'
 
@@ -31,6 +32,10 @@ export const getConstraints = (program: Program, type: Type): Constraints =>
         minItems: getMinItemsAsNumeric(program, type),
         maxItems: getMaxItemsAsNumeric(program, type),
         pattern: getPattern(program, type),
+        encodeData:
+          type.kind === `Scalar` || type.kind === `ModelProperty`
+            ? getEncode(program, type)
+            : undefined,
       }),
       filter(([, value]) => value !== undefined),
       reduce(toObject()),
@@ -47,6 +52,7 @@ export type Constraints = {
   minItems?: Numeric
   maxItems?: Numeric
   pattern?: string
+  encodeData?: EncodeData
 }
 
 const memoize = (constraints: Constraints): Constraints => {
@@ -69,6 +75,7 @@ const getConstraintsKey = ({
   minItems,
   maxItems,
   pattern,
+  encodeData,
 }: Constraints): ConstraintsKey =>
   keyalesce([
     min?.asBigInt(),
@@ -80,6 +87,8 @@ const getConstraintsKey = ({
     minItems?.asBigInt(),
     maxItems?.asBigInt(),
     pattern,
+    encodeData?.encoding,
+    encodeData?.type,
   ])
 
 const constraintsCache = new Map<ConstraintsKey, Constraints>()

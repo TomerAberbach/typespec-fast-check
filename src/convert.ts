@@ -63,6 +63,7 @@ import type {
   Arbitrary,
   ArbitraryNamespace,
   ArrayArbitrary,
+  BytesArbitrary,
   ConstantArbitrary,
   DictionaryArbitrary,
   ParameterReferenceArbitrary,
@@ -320,7 +321,7 @@ const convertScalar = (
       arbitrary = urlArbitrary()
       break
     case `bytes`:
-      arbitrary = bytesArbitrary()
+      arbitrary = convertBytes(constraints)
       break
     default:
       if (scalar.baseScalar) {
@@ -455,6 +456,22 @@ const convertString = (constraints: Constraints): StringArbitrary =>
     maxLength: constraints.maxLength?.asNumber() ?? undefined,
     pattern: constraints.pattern,
   })
+
+const convertBytes = (constraints: Constraints): BytesArbitrary => {
+  let encoding: BytesArbitrary[`encoding`]
+  switch (constraints.encodeData?.encoding) {
+    case `base64`:
+      encoding = `base64`
+      break
+    case undefined:
+      encoding = `binary`
+      break
+    default:
+      encoding = `binary`
+      break
+  }
+  return bytesArbitrary({ encoding })
+}
 
 const convertEnum = (program: Program, $enum: Enum): Arbitrary =>
   referenceArbitrary({
