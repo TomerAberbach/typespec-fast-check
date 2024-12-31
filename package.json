@@ -63,14 +63,19 @@
     "svkc": "^1.0.0"
   },
   "peerDependencies": {
-    "@typespec/compiler": "^0.62.0"
+    "@typespec/compiler": "^0.63.0"
   },
   "devDependencies": {
     "@fast-check/vitest": "^0.1.4",
     "@types/jsesc": "^3.0.3",
     "@types/node": "^22.10.1",
     "@types/pascalcase": "^1.0.3",
-    "@typespec/compiler": "^0.62.0",
+    "@typespec/compiler": "^0.63.0",
+    "@typespec/http": "^0.63.0",
+    "@typespec/openapi": "^0.63.0",
+    "@typespec/openapi3": "^0.63.0",
+    "@typespec/rest": "^0.63.0",
+    "@typespec/versioning": "^0.63.0",
     "@vitest/coverage-v8": "^2.1.8",
     "cross-env": "^7.0.3",
     "eslint": "^9.16.0",

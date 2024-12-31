@@ -1,21 +1,54 @@
 import { join } from 'node:path'
+import fs from 'node:fs/promises'
 import { beforeEach, expect, test } from 'vitest'
 import { createTestHost, createTestWrapper } from '@typespec/compiler/testing'
 import type { BasicTestRunner } from '@typespec/compiler/testing'
 import * as fc from 'fast-check'
-import { entries, filterMap, pipe, reduce, repeat, take, toObject } from 'lfi'
+import {
+  asConcur,
+  entries,
+  filterMap,
+  forEachConcur,
+  pipe,
+  reduce,
+  repeat,
+  take,
+  toObject,
+} from 'lfi'
 import { importFromString } from 'module-from-string'
 import { serializeError } from 'serialize-error'
 import jsesc from 'jsesc'
+import { HttpTestLibrary } from '@typespec/http/testing'
+import { OpenAPITestLibrary } from '@typespec/openapi/testing'
+import { OpenAPI3TestLibrary } from '@typespec/openapi3/testing'
+import { RestTestLibrary } from '@typespec/rest/testing'
+import { VersioningTestLibrary } from '@typespec/versioning/testing'
 import { FastCheckTestLibrary } from '../dist/testing/index.js'
+
+const fixtureNames = await fs.readdir(`test/fixtures`)
 
 let runner: BasicTestRunner
 beforeEach(async () => {
-  const host = await createTestHost({ libraries: [FastCheckTestLibrary] })
+  const host = await createTestHost({
+    libraries: [
+      HttpTestLibrary,
+      OpenAPITestLibrary,
+      OpenAPI3TestLibrary,
+      RestTestLibrary,
+      VersioningTestLibrary,
+      FastCheckTestLibrary,
+    ],
+  })
   host.addJsFile(`/test/externs.js`, {
     $decorator: () => {},
     function: () => {},
   })
+  await pipe(
+    asConcur(fixtureNames),
+    forEachConcur(name =>
+      host.addRealFolder(`/test/fixtures/${name}`, `test/fixtures/${name}`),
+    ),
+  )
   runner = createTestWrapper(host, {
     compilerOptions: { emit: [`typespec-fast-check`] },
   })
@@ -1095,6 +1128,10 @@ test.each([
       interface $Interface {}
     `,
   },
+  ...fixtureNames.map(name => ({
+    name,
+    code: `import "./fixtures/${name}/main.tsp";`,
+  })),
 ] satisfies TestCase[])(`$name`, async ({ name, code }) => {
   const snapshotPath = `./snapshots/${name}`
   const arbitrariesPath = `${snapshotPath}/arbitraries.js`
