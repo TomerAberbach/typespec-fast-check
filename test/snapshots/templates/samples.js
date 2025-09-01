@@ -116,16 +116,7 @@ export const samples = {
 					-4.980068599881027e-156
 				]
 			},
-			'property2': {
-				'_F\\': undefined,
-				'nfhN~o!%u': undefined,
-				'5h,': 8378816050479509,
-				'TTXB!]': -1095597414057245,
-				'}anE~fZ': '0!',
-				'Sn(J8Hq(`': '[',
-				'K~>|q,mA)': -1312907723665260,
-				'': 2880768520119641
-			}
+			'property2': 1.5516867864381956e-33
 		},
 		{
 			'property1': {
@@ -141,7 +132,7 @@ export const samples = {
 				},
 				'b': -4156858088246024
 			},
-			'property2': -2e-322
+			'property2': -4388813416904714
 		},
 		{
 			'property1': {
@@ -156,36 +147,14 @@ export const samples = {
 				],
 				'b': false
 			},
-			'property2': {
-				'MM,': {
-					'g=+kU,Q': true,
-					'`\'i': -1524501238707520,
-					'#9_`4fl9': -1910162777138274,
-					'x': false,
-					'|X;MPfa>7': 'SM,?kLibg',
-					'*^': undefined,
-					'ml': 5798669755948247,
-					'"M\'LSX': false,
-					'@l!&_lca@': '_|ABZ',
-					'8Cv!m': 1.2004877007287117e-90
-				},
-				'y(6/|3t': [
-					7.88330396372615e+111,
-					'(2.T1-Z&',
-					undefined,
-					-2896274675869791,
-					null,
-					-2.4530223397392525e-145,
-					undefined
-				]
-			}
+			'property2': false
 		},
 		{
 			'property1': {
 				'a': 'g',
 				'b': 'kh#F'
 			},
-			'property2': -2.5e-322
+			'property2': []
 		},
 		{
 			'property1': {
@@ -220,7 +189,7 @@ export const samples = {
 			'%.%}ayW&;',
 			15,
 			'mF4,iMU6\'L',
-			1.7976931348623073e+308,
+			1.7976931348623135e+308,
 			true,
 			true,
 			-8428340938308276

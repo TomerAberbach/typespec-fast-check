@@ -21,7 +21,7 @@ export const AllOptionalModel = fc.record(
     b: fc.string(),
     c: int64,
   },
-  { withDeletedKeys: true },
+  { requiredKeys: [] },
 );
 
 export const SomeOptionalModel = fc.record(

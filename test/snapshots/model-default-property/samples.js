@@ -80,7 +80,8 @@ export const samples = {
 				'Am': 'd}yK#KCj.'
 			},
 			'j2': {
-				'z': 'r;$U1'
+				'a': 'a',
+				'b': 'b'
 			}
 		},
 		{
@@ -114,16 +115,8 @@ export const samples = {
 				'M\'+@l!': '_lca'
 			},
 			'j2': {
-				'_|ABZ': '8Cv!m',
-				'E': 'p*y(6/',
-				'3t2Eb"V': '!x',
-				'(2.T1-Z&': '',
-				'lw]K': '"8!IcC',
-				'': '=#',
-				'w7Sdr-]z': '',
-				'aPF0/<D4ms': '',
-				'%\'l': 'l2zK$&&l-',
-				'.': '/'
+				'a': 'a',
+				'b': 'b'
 			}
 		},
 		{
@@ -148,8 +141,7 @@ export const samples = {
 				'KuHnM5KE:': ' cjt'
 			},
 			'j2': {
-				'a': 'a',
-				'b': 'b'
+				'%\';k': 'u'
 			}
 		},
 		{

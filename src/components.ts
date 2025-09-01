@@ -665,7 +665,7 @@ const RecordArbitrary = ({
         ? null
         : requiredProperties.size === 0
           ? ObjectExpression({
-              properties: { withDeletedKeys: `true` },
+              properties: { requiredKeys: `[]` },
               singlePropertyOneLine: true,
             })
           : ObjectExpression({

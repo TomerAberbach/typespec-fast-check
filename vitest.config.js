@@ -1,9 +1,10 @@
-import config from 'tomer/vitest'
+import { configDefaults, defineConfig } from 'vitest/config'
 
-export default {
-  ...config,
+export default defineConfig({
   test: {
-    ...config.test,
-    exclude: [...config.test.exclude, `**/snapshots/**/*`],
+    coverage: {
+      include: [`src`],
+    },
+    exclude: [...configDefaults.exclude, `**/snapshots/**/*`],
   },
-}
+})

@@ -17,7 +17,7 @@ const Image = fc.record(
     /** The base64-encoded JSON of the generated image, if `response_format` is `b64_json`. */
     b64_json: fc.base64String(),
   },
-  { withDeletedKeys: true },
+  { requiredKeys: [] },
 );
 
 const FineTuneEvent = fc.record({
@@ -187,7 +187,7 @@ const FineTuningJob = fc.record({
         fc.constant("auto"),
       ),
     },
-    { withDeletedKeys: true },
+    { requiredKeys: [] },
   ),
   /**
    * The file ID used for training. You can retrieve the training data with the
@@ -225,7 +225,7 @@ const FineTuningJob = fc.record({
        */
       param: fc.option(fc.string()),
     },
-    { withDeletedKeys: true },
+    { requiredKeys: [] },
   )),
 });
 
@@ -1083,7 +1083,7 @@ export const OpenAI = {
             fc.constant("auto"),
           ),
         },
-        { withDeletedKeys: true },
+        { requiredKeys: [] },
       ),
       /**
        * A string of up to 18 characters that will be added to your fine-tuned model name.

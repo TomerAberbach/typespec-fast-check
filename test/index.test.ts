@@ -1201,7 +1201,7 @@ const trySample = (value: fc.Arbitrary<unknown>): unknown => {
   try {
     return fc.sample(value, { seed: 42, numRuns: 5 })
   } catch (error: unknown) {
-    const { name, message } = serializeError(error)
+    const { name, message } = serializeError(error as Error)
     return `[${name}: ${message}]`
   }
 }

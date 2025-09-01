@@ -343,26 +343,12 @@ export const samples = {
 				],
 				'functions': [
 					{
-						'name': 'nam',
-						'description': 'apply',
+						'name': '',
+						'description': '?5h,@Sxd6T',
 						'parameters': {
-							'5': [
-								';1w1g',
-								undefined,
-								{
-									'TbNCL': -2.7030008969429613e+230,
-									'!Efn\'/6': 969135822845731,
-									'K2-,LW': 'Z51C??%[*',
-									'dE1e{R~0': null,
-									'CmI `M': false
-								},
-								'Cm@-cz;J}V',
-								true,
-								true,
-								'Mf'
-							],
-							']Sv\'U"}': '~fZ{7q0!6',
-							'n': {
+							'B!]Sv\'U"}a': -2.593966063377397e+192,
+							'{7q': 1628522398351891,
+							'': {
 								'Hq(` 7U': undefined,
 								'>|q,mA': -3.6488388248006868e-205,
 								')0bs-Btd': true,
@@ -382,9 +368,28 @@ export const samples = {
 									'': 6.41724444185921e+290
 								},
 								'ri\'gl"': false
-							},
-							'}gbU}b `p': 'O',
-							'S(q{': [
+							}
+						}
+					},
+					{
+						'name': 'bU}b `',
+						'parameters': {
+							'5': [
+								';1w1g',
+								undefined,
+								{
+									'TbNCL': -2.7030008969429613e+230,
+									'!Efn\'/6': 969135822845731,
+									'K2-,LW': 'Z51C??%[*',
+									'dE1e{R~0': null,
+									'CmI `M': false
+								},
+								'Cm@-cz;J}V',
+								true,
+								true,
+								'Mf'
+							],
+							'kOcS(q{': [
 								-3566638370163807,
 								1.99736703397865e+137,
 								true,
@@ -409,468 +414,372 @@ export const samples = {
 								'': 3133730519023943,
 								'8?<w': 4.388076752269067e+45,
 								'Hez,Vw': 9.050161667105704e-161
+							},
+							'zB$#`)JX': 6.373406183589776e-153,
+							'F(2Z': false,
+							'ye': true
+						}
+					},
+					{
+						'name': '0Xvc',
+						'description': '&',
+						'parameters': {
+							'J3J>A': 'Gw'
+						}
+					},
+					{
+						'name': '^BuF',
+						'description': '/f3szBs9EB',
+						'parameters': {
+							'OdnkN': {
+								'[': 3.627114122493758e-54,
+								'`1]7<pa/x': false,
+								'zYx3>': true,
+								']XR&.J;{wd': 8947062245887511,
+								'': false,
+								'#v6': -1.4627376130068748e-225,
+								'GH}j': 6007046386504157,
+								'~yS\'i(nl': 'aw7Wbx/.',
+								'K': 5.093132842114028e-96,
+								'g': true
+							},
+							'^': ''
+						}
+					},
+					{
+						'name': 'w9v',
+						'description': '',
+						'parameters': {
+							'0kJq|': null,
+							'\\': {
+								'(B}': '=',
+								'!2(65Y`"g9': {
+									'Bs': 'M$MXsJ',
+									'YAnGiY@hb': true,
+									'L=': -4892248951734859,
+									'm': true,
+									'b/^%l': {
+										',.=ez\\': '-!3z'
+									},
+									'P': '7Fr7xc"ZD',
+									':Dk"|W13D_': '-M',
+									'Oo,?': '/9fgJ~T1@+',
+									'k6C.Q3Q6': -16324348451980.885,
+									'h`Z`': '5.B<4'
+								}
+							},
+							'Y': -1217857370783175,
+							'mM:X\\TJ-': {
+								'ha/xF': {
+									'o*': '!jf6',
+									'&': {
+										'l': -1.3493710574514231e+122,
+										'A*LIQd)': -4.4905905047848115e-130,
+										'9ZMO/': 'oT73 l8D',
+										'G,V ': 'V#'
+									}
+								},
+								'dt^Sb:,7F': {
+									'\'&}&': {
+										'\'/^_Gio': {},
+										'!rbi_*5+nb': undefined,
+										'W[U"YRLW': -3445321341490979,
+										'y,?L': [
+											5.183014077625926e-55,
+											1429800940050367,
+											-857347375352705,
+											'&0NFu|?z8\\',
+											'5{e_\\)^BD'
+										]
+									},
+									'MZZV9`^wi': {
+										'pe#!ZgC-$': -3876416517331320,
+										'': false,
+										'A': null,
+										';yG>"U6m2': undefined,
+										'csc': null,
+										'v[/,': undefined,
+										'Zh[u<g."`': '\\|[0a3',
+										'Yb': {}
+									},
+									'y=<': false
+								},
+								'>*T': {
+									'^@*;K': null,
+									':': {
+										'<L::zr~x#}': null,
+										'qAhTCLau`K': [],
+										'TDJ9b:LVN': 'Kk'
+									}
+								}
+							},
+							']x6 +0H': [
+								'=_iWr&r',
+								-5723531181852188,
+								-1.384866874815835e+283,
+								true,
+								null,
+								'ZJ*&',
+								-1.501319110234196e-222
+							],
+							'm2': [
+								'',
+								'rygcnm+$ ',
+								[
+									'#B69{1Q',
+									true,
+									true,
+									-3036712804768712,
+									7403639147306681,
+									undefined
+								],
+								{
+									'om9Y  U': -1770257598162455,
+									'@LA*m': -1.8811884382947665e-159,
+									'': -1.541660317132588e-53,
+									'2v%dxPWD\\': 'SUH4C',
+									'edE(jLh': -3.3536256569821607e-153,
+									'z9<?m': undefined,
+									'qu|+qvZV~': null,
+									'NOo!': '28t8',
+									'eHPv': null
+								}
+							],
+							'4uVp': {
+								'1b4d&-Rf|': {
+									'fLmP': {
+										'F_': -6.165779914124726e+133,
+										'aC6qq,]4=K': false,
+										'': false,
+										'+i!': ';',
+										'@}aP': 8696388830870965,
+										'+i%\'i(\\': 8559307844112275
+									},
+									'NF': {
+										'*4]lj$8b': 5.0714713281410406e+280,
+										'"$': -1.392092265469583e-269,
+										'KxH:<RvN': 8562453280288133,
+										'E': undefined,
+										'Vq.Ob!6E3': false
+									}
+								},
+								'zTy_a4)6`[': [
+									'',
+									'',
+									true,
+									2159067380947577,
+									null,
+									1.6389788868880345e-132,
+									7.430761909597141e-100
+								],
+								'otZ': '!s ',
+								'Y%X$X': [
+									1.5888100380034075e+183,
+									{
+										'iufDo44J': 4647591523118769,
+										'D~6]': ',0@]P/_O',
+										'': -6.973508671594924e+44,
+										'aS|': 4864965242502715,
+										'UI%bw<9': 'YVb -yy4=',
+										'-K6L': -2.204208024879961e+151
+									},
+									-4.298366094115297e+176
+								]
 							}
 						}
 					},
 					{
-						'name': 'B$#`)JX,',
-						'description': 'n',
+						'name': 'nV+u',
+						'description': 'L:;M-',
 						'parameters': {
-							'ye': true,
-							'\\-': -7426084851535418,
-							'<&asJ3J': 's',
-							'Gw': 'BuFl\\/',
-							'3szBs9E': [
+							'Y[m8|nj^': [
 								[
-									'N&x>[(,',
-									null,
-									3.206461138666568e+55,
-									true,
-									'aV%zYx3',
-									false,
-									false,
-									true,
-									1.3969316908779704e-198
-								],
-								'&h4Wa\\'
-							],
-							'i#v6b\'U': {
-								'H}jC]': 1284228860316813,
-								'S\'i(nl!x': true,
-								'Wbx/.RK^': 995533354842515,
-								'[f?[^}n': -6547106020905009
-							},
-							'9vc6 |0kJ': {},
-							'j_': [
-								undefined,
-								[
-									'[=]!2(65Y',
-									-2.5475593305068394e-44,
-									'Bs',
-									'M$MXsJ',
-									5.351834471040803e+200,
-									'',
-									-1.1592484950274673e-57,
-									-7343889759386968,
-									2.6420160357266316e+156,
-									'M4V'
-								],
-								5412667862566487,
-								-6247624997156988,
-								0.0000016694918737379704,
-								{
-									'8F.-!3': '\'d&7F',
-									'': '',
-									'ZD):Dk"|W1': 2878765240940761,
-									'-p/9fgJ~T1': 2444254566177443,
-									'C.Q3Q6\\;': 5367441191484947,
-									'Z`': '5.B<4',
-									'Y': -1217857370783175,
-									'mM:X\\TJ-': true,
-									'a/xF<<8': false,
-									'X!jf6k&v/': 8829176290714885
-								}
-							],
-							' 4A*LI': [
-								863427389821977,
-								-2.4188857434909456e-175,
-								5.7231115610274794e-185,
-								1183025312592837,
-								undefined,
-								undefined
-							]
-						}
-					},
-					{
-						'name': '!t',
-						'description': 'xo',
-						'parameters': {
-							'\'/^_Gio': {},
-							'!rbi_*5+nb': undefined,
-							'W[U"YRLW': -3445321341490979,
-							'y,?L': [
-								[
-									{
-										'{_/D!': 1395736411662765,
-										'&0NFu|?z8\\': '5{e_\\)^BD',
-										'MZZV9`^wi': 2.2793680823282166e-270,
-										'#!ZgC-$h': -7.450698750190562e-244,
-										'Mc@A': null,
-										';yG>"U6m2': undefined
-									},
-									-7.847496016537755e+198,
-									null
-								],
-								-6657360806545957,
-								false,
-								'[u<g',
-								2.0193592518024623e-27
-							]
-						}
-					},
-					{
-						'name': '\\|[0a3',
-						'description': 'Br',
-						'parameters': {
-							'<': {
-								'Q>*': 'H^',
-								'*;Kn=': [
-									[
-										[
-											undefined,
-											true,
-											'}U3',
-											'AhTC',
-											false,
-											'}wTDJ9b:LV',
-											'gKkZ]',
-											-7.053047594341751e+251,
-											true,
-											'q=_iWr&r>]'
-										],
-										false,
-										'+H/3eH',
-										'ZJ*&',
-										-1.501319110234196e-222,
-										8.471273506962096e-218
-									]
-								],
-								'7x3(': {
-									'ygcn': 4995942738979829,
-									'/fxb#B69{1': true,
-									'tp[NSc': 2984740105375123,
-									'': undefined,
-									'@@': 3.1115364198623674e-149,
-									'q\\3@LA*m': -1.8811884382947665e-159,
-									'2v%dxPWD\\': 'SUH4C',
-									'edE(jLh': -3.3536256569821607e-153,
-									'z9<?m': undefined
-								},
-								'qu|+qvZV~': [
-									[
-										-2.6512108307764684e+138,
-										'28t8',
-										undefined,
-										-1554180224174691
-									],
-									[
-										true,
-										';1b4',
-										-6650708707048313,
-										4.1982858027985047e+285
-									],
-									{
-										'mP{': 762560488758481,
-										'|szeaC6': 6791974934567297,
-										'=K]C_': true,
-										'2+': -6138270911232718,
-										'j': -1843702975516207,
-										'P.5': false
-									}
-								]
-							},
-							'i%\'i(\\B': [
-								{
-									'F(w9*4]': {
-										'8b&c~E3"': 'RV',
-										'KxH:<RvN': 8562453280288133,
-										'E': undefined,
-										'Vq.Ob!6E3': false,
-										'zTy_a4)6`[': undefined,
-										'Ne-1': true,
-										'&&k981': 1.6389788868880345e-132,
-										'w-KBotZtP6': '',
-										'Y%X$X': '|]8v]!iu'
-									},
-									'Do': [
-										true,
-										'D~6]',
-										',0@]P/_O',
-										8191057601805005,
-										6426790792679001,
-										undefined,
-										3.1660954311925588e-58,
-										true,
-										''
-									]
-								},
-								'YVb -yy4=',
-								'6L(Te'
-							]
-						}
-					},
-					{
-						'name': 'w)',
-						'description': '+A',
-						'parameters': {
-							';M-kxY[m8|': [
-								null,
-								'Pp\'\'@}',
-								-1.0399765489229386e-175,
-								4128651094731593,
-								true,
-								'_>6t',
-								-3.574329191456882e+44,
-								false,
-								7283106277524601
-							],
-							'?Y"cX-ro': 1.8530620171991777e-293
-						}
-					},
-					{
-						'name': 'i;W8cAT',
-						'description': '',
-						'parameters': {
-							'': {
-								'': '.#3Xb|M eN',
-								'@\'': 2777420792200903,
-								'2"': true,
-								'mQ9B"*6': false,
-								'2N,B}A}\'h\\': -1.078829283590965e-78,
-								',b}': '*-NB',
-								'C&j3r': false,
-								'xS GA': false,
-								'|V?\'g+R': 'PL$5k',
-								'@mbYd-Dk': true
-							},
-							'%-': undefined,
-							'>': {},
-							't^d': {
-								'>;\\ls$': '9v`X&?ZxZ',
-								'B^%!$': -120.95143557608215,
-								'/a0': 'b',
-								'P>a': true,
-								'`@i': true,
-								'xi(#~w`': null,
-								'gM:hYPLfru': false,
-								'*nOzMk': -6257383565124643,
-								'+T': false,
-								'': 'e~'
-							},
-							'|': [],
-							'u"h': 32,
-							'v<}hYXGX': true,
-							'|%c': true
-						}
-					},
-					{
-						'name': '2%{<nMLU',
-						'description': 'toLo',
-						'parameters': {
-							'ref': [
-								'Y&&$&F%',
-								null,
-								-9007199254740981,
-								'length',
-								undefined,
-								'',
-								false,
-								'$x~length'
-							]
-						}
-					},
-					{
-						'name': '_~8w',
-						'description': '',
-						'parameters': {
-							'@s-i<*]?': 'qmr^\'%$/j',
-							'/lGe<x6PB': {
-								')3YH 8iY{A': '2|o~I',
-								'^U': 5864582549419417,
-								'7%\'6,F': -3243901215928289,
-								':VtWmfHw': null,
-								'S]nMIB@Y4G': '',
-								'>&"?z}n!!P': [
-									false,
-									null,
-									true,
-									5.5037592379096076e+200,
+									'\'\'@}?;',
+									'N[mQ',
 									undefined,
-									'}-',
-									's9TYLr\'}3"'
+									null,
+									-1.745062494440788e+157
 								],
-								'oAu': -6508350137706552,
-								'*)/Zw': true,
-								'07v(3izjf8': 'Xt7'
-							},
-							']qdM7(B': [
-								null,
-								true,
-								{
-									'gb]Q': 'lc:9S0..\'',
-									'&Te': -6404182057952436,
-									't[': false,
-									'r2.': 'v}&Tb}',
-									'': 1060005902726797,
-									'7sk7"]#>>': 2.5996186968903354e-249,
-									'GD': 1115456016704561,
-									'^GB"5Ia`T': -3532190547263708,
-									'Lkh2t': 'HifhgRE'
-								},
-								true,
-								6361875072777167,
-								''
+								-4853262935816800,
+								false,
+								'_?Y"cX',
+								2.7123993630831263e-301,
+								null
 							],
-							'Xq?0IwSd': '/MRx',
+							'$i;W8cAT': [],
 							'': [
-								';R!<_%Z}',
-								null,
-								undefined,
-								'J',
-								6627932742011221,
-								'G-Q8X}Z Z',
-								-2.2156793397459913e+22,
-								-2870362399144319
+								{
+									')@?': undefined
+								},
+								[
+									null,
+									undefined,
+									-1.0202355372500308e-26
+								],
+								-1856573694898330
 							],
-							'O^': 2.1434016804253328e-285
+							'mq/`N': 910264899877371
 						}
 					},
 					{
-						'name': '*ww"7B',
-						'description': 'X]r$',
+						'name': '&pe7mQ9',
+						'description': '',
 						'parameters': {
-							'z': {
-								'Lq': {},
+							'(H$l2N,B}': {
+								'h\\Hh': ',b}',
 								'': [
-									{
-										'[w#?M;': 'ej([#&',
-										'oxK': null,
-										'MQ0': 2.8345373754477377e-41,
-										'!db7V@M': undefined,
-										'Utkj': undefined,
-										'~EUdz': 'g+93+ttll',
-										'r': 2.8409072417751333e+132,
-										': {B<S`': 5996797790020011,
-										'J:m': 3948018079684345
-									},
-									{
-										'e': 7.442575287858454e+242,
-										'1-': [
-											-3417226550030724,
-											'',
-											4708497287789661,
-											-2.817892810284075e+73,
-											false,
-											true,
-											5906973946232465,
-											-4.381331822537479e+248,
-											'K0'
-										],
-										'x"': false,
-										'>ZZvC': [
-											'neL\\bNqAN-'
-										]
-									},
-									-7.4e-323
-								],
-								'!': [
-									true,
-									4606790184690509,
-									undefined,
-									4707343577184301,
-									false,
-									'ghnERt3'
-								]
-							},
-							'H%dy': [
-								true,
-								true,
-								-5.331563750714758e-15,
-								[
-									null,
-									'dKyM',
+									'BjC&j',
+									3.152382085788563e+211,
 									false,
 									false
 								],
-								[
-									'cm',
-									-1.4738295289805761e+169,
-									-8354220137439081
-								]
-							],
-							'!&+"&_$': [
-								'',
-								' g=6NP=',
-								-899203188237180,
-								'TOBdm',
-								3522086110662809,
-								7616572668171073,
-								undefined,
-								'W)">`+k\'',
-								false,
-								''
-							]
-						}
-					},
-					{
-						'name': '}p*]1!',
-						'description': '6aUaYjKB',
-						'parameters': {
-							'x\'q0B': [
-								null,
-								{},
-								-3.1525604451421735e+60,
-								false
-							],
-							'': -1.7976931348623115e+308,
-							'L "': [
-								-1.731465471266576e-89,
-								1.9391422748567844e+130,
-								null,
-								false,
-								-8e-323,
-								'|l',
-								'bind'
-							],
-							'{{"': {},
-							'length': null,
-							'&N):y &': 1625637190059751
-						}
-					},
-					{
-						'name': 'Vluw;!SC}p',
-						'description': 'i{OD[)e/',
-						'parameters': {
-							'ameO}ett': {}
-						}
-					},
-					{
-						'name': '>t',
-						'parameters': {
-							' Qo*N+': -5.116545485926398e-286,
-							'$& ': {
-								'Pn|': true
-							},
-							'_/qg': [
-								[
-									'Ys'
-								],
-								[
-									44,
-									{
-										'k{Ce"': 1.9e-322,
-										'': false,
-										'nH`': 'key'
-									},
-									'__defi',
-									48
-								],
-								[
-									-3905530385252903,
-									'kuFt4|)',
-									-199850602348143,
-									'i',
-									undefined,
-									'L',
+								'|9>9|': {
+									'g+R6is': 'k0@mb'
+								},
+								'o}V+>tI"/%': [
+									'AH~>;\\ls$',
+									'9v`X&?ZxZ',
 									null,
-									null
+									292682246841557,
+									true,
+									false,
+									null,
+									-6473377253180318
+								],
+								'>': 'E.`@',
+								'Gu }xi(': null
+							},
+							'<': [
+								[],
+								[
+									-0.00022218442310673031
 								]
+							],
+							'rupa9[*n': [
+								{
+									'&*hI+T|M': {},
+									'sne': {
+										'riNmEkGr': 4079336072953997,
+										'4]]uc.': 'aE58XR',
+										',v<}hYXG': 'N9\\z',
+										'V\'z\\AkwI': 'dr*u',
+										'gRGPq': -8.195750049423e-279,
+										'I/@ f': undefined,
+										'i': false,
+										'~0Cj\\N': 4.203851282796224e+287,
+										' *9o8:D': 'O,R',
+										'7W8_yh6': null
+									},
+									'R?ZG[Zr~tK': '5KAl$r73>',
+									'0,v.6Eg%': -4.2692794973708977e-299
+								}
+							],
+							'Vm2%{': {
+								'L': '::oJoK',
+								':q{85%': [
+									-2307344733604562,
+									'',
+									null,
+									3.0450912658626564e-213,
+									5572310359380805
+								]
+							},
+							'gtMEU': {
+								'8\'t7fD7L': [
+									false,
+									2419933417983381,
+									true,
+									3.7895724492790154e+21
+								],
+								'': 'p.Hdx',
+								'41/c&B': {
+									'xso': [
+										[
+											't_~8',
+											true,
+											7.730881896472476e+155,
+											'i<*]?%8pf',
+											-5.557517210090635e+88,
+											false,
+											null,
+											-3277011219052719
+										],
+										'',
+										undefined,
+										-1.0119148237538082e-239
+									],
+									'H 8i': -2162925463720133
+								}
+							},
+							'}': {},
+							'~IX^U$': {},
+							'': '\'6,Fv?',
+							'%<:V': false
+						}
+					},
+					{
+						'name': '_3:',
+						'parameters': {
+							'nMIB@Y4G+': {}
+						}
+					},
+					{
+						'name': '"',
+						'description': '}n!',
+						'parameters': {
+							'j@*': [
+								null,
+								true,
+								5.5037592379096076e+200,
+								undefined,
+								[
+									'A8O%s9TY',
+									-6.066884449481458e+249,
+									-2.6444104858168418e+250,
+									false,
+									1.7611273111769507e-125,
+									undefined,
+									5.557301757419359e+271,
+									true,
+									-6675157165693952
+								],
+								false,
+								undefined
+							],
+							'BXt7': 4777563659470141,
+							'7(Bza': [
+								[
+									true,
+									-1.1459727312812745e-67,
+									null
+								],
+								{
+									'c:9S0..\'': -8249737498584812,
+									'': undefined,
+									't[': false,
+									'r2.': 'v}&Tb}',
+									'7sk7"]#>>': 2.5996186968903354e-249,
+									'GD': 1115456016704561,
+									'^GB"5Ia`T': -3532190547263708,
+									'Lkh2t': 'HifhgRE',
+									'\\g=& EB': 'Xq?0IwSd'
+								},
+								'/MRx',
+								3.280115601812957e-174,
+								3.08093762013817e+199,
+								[
+									true,
+									null
+								],
+								false,
+								'tJ:X ',
+								'^G-'
 							]
 						}
 					}
 				],
 				'function_call': {
-					'name': '('
+					'name': 'Z{Tl0":'
 				}
 			},
 			{
@@ -886,88 +795,250 @@ export const samples = {
 					'GZh': -2477506756047693,
 					'UI;n': 4024749853306079
 				},
-				'user': '2OVmF4,i',
-				'stream': true,
-				'model': 'ap',
+				'user': '#iU',
+				'stream': false,
+				'model': 'gpt-4-0613',
 				'messages': [
 					{
-						'role': 'function',
-						'content': 'gErf|6+/',
-						'name': ')b|0kF',
+						'role': 'assistant',
+						'content': '',
+						'name': 'gErf|6+/',
 						'function_call': {
-							'name': 'FxY/',
-							'arguments': '+VbR|`Ogi'
+							'name': 'b',
+							'arguments': 'kFvxFxY/u'
 						}
 					},
 					{
 						'role': 'assistant',
-						'content': '^&%gFUy"_',
-						'name': ',F0F$y^-OR',
-						'function_call': {
-							'name': 'Ru\\vC',
-							'arguments': '2o'
-						}
-					},
-					{
-						'role': 'user',
-						'content': 'bz^_}_phT',
-						'name': 'y',
-						'function_call': {
-							'name': ':8#Jig(H',
-							'arguments': 'R8C+H'
-						}
+						'content': '>y',
+						'name': 'FUy"_f3,F'
 					},
 					{
 						'role': 'system',
-						'content': 'z7}?$Dr#[V',
-						'name': '',
+						'content': 'na',
+						'name': 'v2o5I',
 						'function_call': {
-							'name': 'Vl{',
-							'arguments': '0+\\{Br'
-						}
-					},
-					{
-						'role': 'assistant',
-						'content': null,
-						'name': '+]n;Wa<Czn',
-						'function_call': {
-							'name': '-w\'w(|aF$',
-							'arguments': '788&Et-J\'|'
-						}
-					},
-					{
-						'role': 'user',
-						'content': 'B',
-						'name': 'But92Z',
-						'function_call': {
-							'name': ')',
-							'arguments': '\\3N'
-						}
-					},
-					{
-						'role': 'assistant',
-						'content': 'T3Am\\d}yK',
-						'name': 'C'
-					},
-					{
-						'role': 'system',
-						'content': '\\',
-						'function_call': {
-							'name': '!r;$U1#8;Y',
-							'arguments': ''
-						}
-					},
-					{
-						'role': 'assistant',
-						'content': ':{&XNUj',
-						'name': '',
-						'function_call': {
-							'name': 'hZ&U+3lsk',
-							'arguments': '-De/a<to)'
+							'name': '__defineGe',
+							'arguments': 'IyZA:'
 						}
 					}
 				],
-				'function_call': 'auto'
+				'functions': [
+					{
+						'name': 'HQ',
+						'description': 'C+H^t"',
+						'parameters': {
+							'}?$Dr': 'O*(Vl{&',
+							'+\\{B': {},
+							'`2+]n;': {
+								'CznZ(-w\'w(': false,
+								'Q788&Et-J\'': 1.968646629909894e+183,
+								'yoBut92Z|': undefined,
+								'3NicAT3Am\\': 'K#KCj.?O\\`',
+								'z': 6.880469559884146e-68,
+								'1#8;YeZ55': -6494302901267491,
+								'Uj-\\G2hZ&': 1888361004554301,
+								'kZ-De/': 'o)VSu',
+								'kx': -781181752892571
+							},
+							've7$\\J=\'-': -3.3148273076030044e+26,
+							'J': [
+								'x',
+								[
+									true,
+									7593344756157759
+								],
+								{
+									',dlK-zwBLA': null,
+									'': undefined,
+									'q8rT#hDJ': 's+',
+									'qSTF(w~r#': undefined,
+									' ~': 'W',
+									'_IGdXU': '|0,Gs',
+									'&?[|l': true,
+									'Ym1Cc': '4`x)^EMWN'
+								},
+								'j6!Z',
+								-2.0618018172926852e+306,
+								1.3995967971547041e-251,
+								-1547892336415758,
+								[
+									true
+								]
+							],
+							'nSEd?E': -423885539693276,
+							'>oD>*Oh^H{': [
+								-2728496418528329,
+								true,
+								'',
+								{
+									'sv@9d>t_A': 8488818819688301,
+									'WSR': true,
+									'(sj*=tCu~': false,
+									']<': -9.1047945928159e-38,
+									'': -4761566386067339,
+									'"': 8146975403293069,
+									'#-\\4': -252975514.77723163
+								},
+								[
+									-3.084382373795249e-55,
+									2.1270012488379287e+281,
+									'?q',
+									'',
+									6612097279825925,
+									'kL\\?hyow',
+									true
+								],
+								'$]~G',
+								[
+									true,
+									-2.8263918678107054e-73,
+									-3.257560102788687e-58,
+									false,
+									-2.901630663405434e+115,
+									'NWTO5BdK~z'
+								]
+							]
+						}
+					},
+					{
+						'name': '<6`}L',
+						'description': 'ujZjL.(tV',
+						'parameters': {
+							'T);UqW1vjq': {
+								'3\'m': false,
+								'': null
+							},
+							'': {
+								'1': undefined,
+								'vr\\YVvj': 1.3988687816970183e-183,
+								'TT': 'Ae8EM*8F',
+								'\'z/5u09 q ': undefined,
+								'dZ}cU': true
+							},
+							'A/Yi\\Eo': {
+								'|Pe1^7': 1.4375008087001378e-90,
+								'F=PTe': 8871041541841383,
+								'HrXb': '1\\*yKs-dc',
+								'z{b$g/wi': -6.108160426660327e-231,
+								'-#clFS"': -8173464157640740,
+								'9\\': '?-',
+								'`D;a': true,
+								'gA%/A!C3A': -2.3945663504823006e-107,
+								'/b`JN': 'n-df!`s'
+							},
+							'v': [
+								{
+									'8ASv)t': -7.943729062891256e+111,
+									'YR<`1O7': '0#;',
+									'b-j': 5589460689007599,
+									'1|8$)s': -2.3582074679307278e+294,
+									'~%iDZu': 2157580525951879,
+									'|&<O*@>^!`': true,
+									'[T1\'N.~;Hc': '',
+									'*J^j3DQ': 1186724825811661
+								},
+								{
+									'`CS': null
+								},
+								[
+									'',
+									4.1391359821139225e-57,
+									true,
+									5930489017639737,
+									undefined,
+									null,
+									undefined,
+									']@S-',
+									1.0027465666780866e-203
+								]
+							],
+							'P/CWd': {
+								'H}[I*iBy"0': false,
+								'=': 'DP46j&',
+								'': -6881315757618405,
+								'v!cXd_^)8Q': 485852326194219,
+								'mh4UA!y(J': -6629371891032649,
+								'5xP#;c^': true,
+								'u0oc': null,
+								'iJ*7 5G"': 398636976296205,
+								'@5FAVoPV_O': -7981167300325452,
+								'Xoev2': 'MOkvu?_\\OW'
+							},
+							'H$J!P': [
+								false,
+								true,
+								'l',
+								true
+							]
+						}
+					},
+					{
+						'name': 'Q-?xCW',
+						'description': ': Dgd',
+						'parameters': {
+							']fVxjYM': {},
+							'"A~G3v': true,
+							'': 'F-',
+							'n&x8+<-Ki': {},
+							'\\-.f~j3': [
+								-5220573769011377,
+								'u])?%',
+								'%NT',
+								5.376047771934665e-154,
+								6489722519479829,
+								2982967185261723,
+								2.5729738237451525e-197,
+								{
+									'': false,
+									'Gz^XX<{!': -6026869034405568,
+									'*)*$T': -5.018130795340593e+87,
+									'|': undefined,
+									'E9s\'aiyw:': false,
+									'c8fX': 8280103120021625
+								},
+								'',
+								true
+							],
+							'dBuU7': {
+								' &2z5:8q1': [
+									10109278512.543566
+								],
+								';L)': undefined,
+								'T': 'K;&hR>o6O\'',
+								'm;#H': {
+									'C65/scKR': false,
+									'K b*G': null,
+									'hu`%\\': 1.0935474950423235e+207,
+									'Ld$0,=[c': null,
+									'': undefined,
+									'kI': undefined,
+									'CsuQ(,L=': -6611114193426431
+								}
+							},
+							'k!': {
+								'Y3g': -280863613530318
+							},
+							'G$C`c0': [
+								null,
+								-4.455411553052683e-48,
+								undefined,
+								[
+									'PCe',
+									null,
+									false,
+									null,
+									']"c',
+									'>\\;',
+									-4738861744694012
+								]
+							]
+						}
+					}
+				],
+				'function_call': {
+					'name': '$length'
+				}
 			},
 			{
 				'temperature': 1.2611686178923354e-44,
@@ -993,163 +1064,45 @@ export const samples = {
 						}
 					},
 					{
+						'role': 'assistant',
+						'content': 'hasOwnProp',
+						'name': '#~&labp'
+					},
+					{
+						'role': 'assistant',
+						'content': 'K8Cv!mOEU',
+						'name': '',
+						'function_call': {
+							'name': 't',
+							'arguments': 'b"Vm!xD'
+						}
+					},
+					{
 						'role': 'function',
-						'content': '? M%p\'~&la',
-						'name': 'isPrototyp',
+						'content': 'Z&5Blw]K%"',
+						'name': 'cCE9',
 						'function_call': {
-							'name': 'Cv!mOEU',
-							'arguments': ''
+							'name': 'w7Sdr-]z',
+							'arguments': 'aPF0/<D4ms'
 						}
-					},
-					{
-						'role': 'assistant',
-						'content': 't',
-						'name': '"Vm!xD(2',
-						'function_call': {
-							'name': '',
-							'arguments': '&5Blw]'
-						}
-					},
-					{
-						'role': 'assistant',
-						'content': '!IcCE9=#'
 					}
 				],
 				'functions': [
 					{
-						'name': '-]zf{aPF0',
-						'description': 'D4msQk{f%',
+						'name': '%\'l',
+						'description': '2zK$&',
 						'parameters': {
-							'\'lHl': false,
-							'&': [
-								false,
-								false
-							],
-							'=Ayf%TC': undefined
-						}
-					},
-					{
-						'name': '-3\'Fj<=2Hs',
-						'description': 'Ft\\l~',
-						'parameters': {
-							'T,#iNk]V': null,
-							'D*(?gFL0': 73727648522885,
-							'_xL]': 'sJ*&',
-							'??*geHtzd': null,
-							'*q/<hFpO\\': {
-								'XITn': true,
-								'q': true,
-								'<H': 'vx}FLI',
-								'OwjnZ}92gk': [
-									1.3902599564839783e+188,
-									false,
-									-4036684118424033,
-									undefined,
-									-7069355019351377
-								]
-							}
-						}
-					},
-					{
-						'name': 'T5',
-						'description': 'N&O6',
-						'parameters': {}
-					},
-					{
-						'name': 'ERG(',
-						'description': 'W$q[>BZ',
-						'parameters': {
-							'N\\z': [
-								-3513837607019915,
-								'IguY<iSVKv',
-								[
-									3.270883825956324e-16,
-									-8977624012649461000,
-									'i',
-									'*75s'
-								],
-								1938200765815309,
-								4.480898655559847e+114,
-								'dD[v5PGQ',
-								'cK_',
-								-1.4182084871796653e+113
-							]
-						}
-					},
-					{
-						'name': 'gD|h?33F',
-						'parameters': {
-							'V0_5P#I': null,
-							'Xg[r}': '$|RVns',
-							'<oPV6)?': null,
-							'1V': [
-								2.342492283884015e+125,
-								-8.372613693582847e-73,
-								-3915277079620004,
-								'$fVLX#}@',
-								undefined,
-								'&',
-								'N,5x:',
-								[],
-								'vFH',
-								-7050321276754083
-							],
-							'~#Xl3': 'S{u<+`M',
-							'fuH\\d!3': [
-								undefined,
-								undefined,
-								'',
-								null,
-								3156274997165757
-							],
-							'%WD{$QDwy': {
-								'"ZF=S': {
-									'28no{NxNG': null,
-									'og': -2.788212951565358e-16,
-									'uUd\\{RA_j': false,
-									'zC|t4quSFe': 'Q(',
-									'Fd,Uj<j,M&': '%,CF<5?',
-									'': undefined,
-									'K': '3elt^uYMH',
-									'LX`g/^{%': -1.1616142007339592e+26
-								},
-								'x': [
-									{
-										'Zq&0(<6t,': false
-									},
-									{
-										'': -3.355762999255355e+168,
-										'p:I)`;': null,
-										'&': 'Fi+eTy',
-										'r"P': 6486415118790695,
-										'YvQ$9_,': -1.3150169988260707e+82,
-										'?7Zk{': '.gCS',
-										'=Ac~SCA': 'Mi+$||R',
-										'kDzvP': -5596174916952246,
-										'\\GOeDp}vb-': 0.0015420853658182556
-									},
-									-5511078082441597,
-									'w]#l1L',
-									null,
-									null
-								],
-								'': {
-									'm>uvCG': 'A',
-									'Cx,Qs01$': true,
-									'\'%*': 'hWkz[_u,',
-									'l_u~^tcrT': undefined,
-									'BP2I)*Jt': true,
-									'8:&<e': undefined,
-									'c': null,
-									'\\f': '3~B'
+							'-z': {
+								'd@=Ayf%TCQ': {
+									'-3\'Fj<=2Hs': null,
+									'\\l~': 1.4937710019349156e-115,
+									'iNk]V1o': false
 								}
-							}
+							},
+							'(?': {},
+							'0~N{#h_xL]': 'sJ*&',
+							'??*geHtzd': null
 						}
-					},
-					{
-						'name': '`iry<',
-						'description': 'z?96X\\>',
-						'parameters': {}
 					}
 				],
 				'function_call': 'none'
@@ -1175,516 +1128,242 @@ export const samples = {
 						}
 					},
 					{
+						'role': 'user',
+						'content': null,
+						'name': 'p,tcl',
+						'function_call': {
+							'name': 'Kw',
+							'arguments': '<!~.8d&'
+						}
+					},
+					{
+						'role': 'system',
+						'content': 'B=r&a5ro@s',
+						'name': 'rmoy63y`R',
+						'function_call': {
+							'name': 'uHnM5',
+							'arguments': 'E:X cjt'
+						}
+					},
+					{
 						'role': 'assistant',
-						'content': '0)ap,tc',
-						'name': '&KwZ<!~.8d',
-						'function_call': {
-							'name': ' AW0B',
-							'arguments': ''
-						}
+						'content': '\'{Y%\';k',
+						'name': 'u'
 					},
 					{
 						'role': 'system',
-						'content': '5ro',
-						'name': '',
-						'function_call': {
-							'name': 'rmoy63y`R',
-							'arguments': 'KuHnM5KE:'
-						}
-					},
-					{
-						'role': 'user',
-						'content': 'jt7Da,5\'{Y',
-						'name': '',
-						'function_call': {
-							'name': 'jou$',
-							'arguments': ' kH&'
-						}
-					},
-					{
-						'role': 'user',
-						'content': '*%8h9;R',
-						'name': '=;=9'
+						'content': '&yu',
+						'name': '%8h9;RF2'
 					},
 					{
 						'role': 'system',
-						'content': '\'J-{Jt',
-						'name': '+l/i',
-						'function_call': {
-							'name': 'fy3:G8+',
-							'arguments': 'P'
-						}
+						'content': '2-m',
+						'name': '-{JtW2'
 					},
 					{
 						'role': 'function',
-						'content': 'za',
-						'name': 'cT2!Vsw'
+						'content': 'Nfy3:G8+0P',
+						'name': '',
+						'function_call': {
+							'name': 'auucT2!Vsw',
+							'arguments': ':T~4'
+						}
 					},
 					{
-						'role': 'assistant',
-						'content': '4)JIM',
-						'name': 'ttiH!_9u8',
+						'role': 'system',
+						'content': 'kttiH!_9u8',
+						'name': '_AB0;ty',
 						'function_call': {
-							'name': '_AB0;ty',
-							'arguments': 's"X+3{8V'
+							'name': '"',
+							'arguments': '+3{8VSX'
 						}
 					}
 				],
 				'functions': [
 					{
-						'name': '',
-						'description': '_ EOWaIN',
-						'parameters': {
-							'': [
-								-5707259337541623,
-								-4057993779492053,
-								2.800922777080191e+234,
-								true,
-								1.1496859894266057e+262
-							],
-							'nBGn.': [
-								-1.3823800172547782e-123,
-								'z>WEg',
-								[
-									'*%c!',
-									5.798543474369117e-199,
-									1930227476034721,
-									null,
-									null,
-									'Y>faELe")',
-									-1.2326039580804467e+195
-								],
-								false,
-								-4.845220738033121e-183
-							],
-							'Co>:U3': {
-								't': 1.6592096371867e+249,
-								'\\G?#O;9kk,': {
-									'@`VH|(L[': -8222378251908662,
-									'pC': '"5@ayTUl*',
-									'&+CYk<Xdp': 'J73%a7',
-									'c3Vd': -3757074817137281,
-									'XEA&2+(': undefined
-								},
-								'5UAK_[;': -4979210954536755,
-								'sl93jOrBQ]': -5241255532824436
-							},
-							'RN)"}.{{': 3006640715217149
-						}
-					},
-					{
-						'name': 'H{',
-						'parameters': {
-							'eC Hq[': [
-								'B)QqE',
-								{
-									'EOkM': ' }Bhao',
-									'MvW;Q': [
-										[
-											false,
-											1.5092171031734538e-285,
-											true,
-											-3613109239683939
-										],
-										[
-											'0W0q`Pi1UU',
-											null,
-											true,
-											-3.8322686608329756e+29
-										],
-										-3.7693876920975815e-136,
-										{
-											'eIF': 9.37020097725387e+196,
-											'': -6.342798481032462e+24,
-											'20y=8': true,
-											'mclgUc': 3842235024952843,
-											'v1f5aJK': 6269564265685293
-										}
-									]
-								},
-								1.3996404507648937e-222,
-								'wb'
-							],
-							'': {
-								'': 'sD,$`p-Bm:',
-								'o': -1.1203535760802582e-245,
-								'n': 7013322111507315,
-								'PZt#sn&|\'R': 'q7',
-								'g*7': {
-									'N)8T&': 2.793849072878719e+94,
-									'dwhL<t': -7627303472302367,
-									'_9!7': -1157925488314282,
-									'<': -3520681850211200,
-									'`h!.3|)j': null,
-									'|/1t<]8': 2.705206958845441e-76,
-									'\\^<V2h|p?4': -2065683515335096,
-									'`z?p<>h': undefined
-								},
-								'|@=By]d': [
-									1.0782638574280562e-255,
-									true,
-									'EU,!7',
-									false,
-									'0Y0h=Hv',
-									{},
-									-3497041925856800,
-									'm'
-								],
-								'?ZY2!)5': undefined
-							},
-							'K>=!4=3': true,
-							'.U3iI4K9H6': [
-								'e4^eR5A',
-								'B:H}qW(B^',
-								'U9~l{ ',
-								''
-							],
-							'h:[!SbahY': [
-								'Zl',
-								7.716920989617083e-112,
-								-7510754691024826,
-								-8181528238200243,
-								8.368204441985906e-211,
-								3.4892528862142303e+196,
-								{
-									'^zUJo': false,
-									'#x0jMx?|': 'F6 bYA0',
-									'4)@lfg?jT|': 'DN',
-									':!mYvZ<hU': 6019788383289299,
-									'': 1.0163751365247196e+298
-								},
-								false
-							],
-							'lDv!xH$09': {
-								'CfEBt': [
-									-2530687009716203,
-									true,
-									true,
-									8.047685636383851e+161,
-									'vH,XC"',
-									undefined,
-									-1.4797321158274463e-300,
-									undefined
-								],
-								'': 'Tj2b',
-								'@vNo': -8346757976970968,
-								'Mx^C`F': true,
-								'|NI?$te': 9.513391207681693e+275
-							}
-						}
-					},
-					{
-						'name': 'aCA{B',
-						'description': 'V1=ApfibA',
-						'parameters': {}
-					},
-					{
-						'name': '|X^B_!t',
-						'description': 'g})=,\\',
-						'parameters': {
-							']?^g': {
-								'f$"i@9~<': -2240651558774078,
-								'80K': 8562426709233207,
-								'?;g\'  3ZF': '`${kSo#V',
-								'}E"F;': null,
-								'=B9q;_': true,
-								'j': -1.8398427393994406e+228,
-								'~La\\': 7541584349689597,
-								'': 7.238283000951795e+183
-							}
-						}
-					},
-					{
-						'name': 'FjN7A*$]N',
-						'description': '/AqOkZ *X',
-						'parameters': {
-							'C0-i': [
-								undefined,
-								1.1747830176690714e+292,
-								-1507726109929992,
-								7278040330591241,
-								-1.6258284476096544e+299,
-								-1.2659098295593916e-97,
-								true,
-								'CJpu\\%z9?',
-								2.641736536918798e-227,
-								-1.2922745315001446e-251
-							],
-							'`yY"$VH$eV': [
-								'MLEkY,C\\',
-								8189980711054737,
-								null,
-								false,
-								'l~v;Boo',
-								'RraHkv8ne',
-								-2.0756694843676233e+76,
-								'4',
-								false
-							],
-							'm",c>': {
-								'G<DdE`CjT': false,
-								'a>\\i+r\'v': [
-									true,
-									null,
-									-6418186318448382,
-									2.820936998230273e+216,
-									']m~}QhAV:5',
-									false,
-									3.460826013667431e-265,
-									'?R[',
-									'OZVP}T]t+',
-									1536503906483169
-								],
-								']8XsR': 'ch^3Z\\/l-y',
-								'^D:WGDa': 4296092196983735,
-								'': {
-									'zzP0': true,
-									'': 230955643883995,
-									'J': {},
-									'b|yL_a {|l': -7358345077795185
-								}
-							},
-							'@': true,
-							'Fq`P:MF': {
-								'[pU,"': 6.410701790401766e+102,
-								'': true,
-								's_^_4D2i': '7* w[?gev5',
-								'Z\\c8&h1K': '',
-								'TZC+q uf': true,
-								'$5ztuZ!r': false,
-								' HFcF4CHsr': null,
-								'gqWz': false,
-								'Y\')S?2dA': true
-							}
-						}
-					},
-					{
-						'name': 'G\'DMAoq',
-						'description': '?p9glP[8',
-						'parameters': {
-							'5': {
-								'8': 5305037978033409,
-								'~H:1x(2?': true,
-								't^l': false,
-								'(Vu~': '4O{&P1o`',
-								'^K!hzF': '',
-								'hm]': 3515791386461475,
-								'': true,
-								'OG/D_ ': -2505762101622316,
-								'~wgBN-\\1': true
-							},
-							'<n^"w?H}': [],
-							'%=J\\eENep~': {
-								'$&': 2460552850710773
-							},
-							'THw': 'S_',
-							'l]': -3876034661629366,
-							'Bi': 'x/N-`~m',
-							'KtDVSl': [
-								'v',
-								'S<',
-								'uqu?w8',
-								-6072424596006117,
-								false,
-								'<^}G',
-								'UT@}Gx3',
-								0.0023236615850375972,
-								true
-							],
-							'[<:NEJj': [
-								-2.753306008750364e+269,
-								-1.0949930907569194e-16,
-								false,
-								false,
-								-4632556004083985,
-								' ;WSi;!eMz',
-								{
-									'': true,
-									'>': null,
-									'L;|",dmU;': '<kgc',
-									'}NncF': 'P',
-									'TK~RJ<Gc|': false,
-									'8o': undefined,
-									'mLQf[': 6861449248676701,
-									'y]{^': false
-								}
-							],
-							'JgE`N<SN%y': {
-								'L?U': true,
-								'%OB^;}`,_': -2955655239221550,
-								'.NC4su@9': false,
-								'5Ev0N05mSX': undefined,
-								'87g': null,
-								'A7F?\'8C6T}': -4.4418457443779563e+192
-							},
-							'(5D!z': {
-								'F^j,@z': ';.:8j?3_?',
-								'.:': 'yc?G_(~o',
-								'^x': null,
-								'D6qlup1Kag': 'A0xld~xQx',
-								'9;cVYd>,.': 8355111275859093,
-								'47%L<Y2e/': undefined,
-								'*}': -1.5774441956149204e-14
-							}
-						}
-					},
-					{
-						'name': 'L',
-						'parameters': {
-							'iWd': null,
-							'jQ>xN^': {
-								'($T|~b ': [
-									[
-										'<2[6',
-										1.0219141016606192e+249,
-										-3.7885064044619122e+286,
-										4531338646053575,
-										undefined,
-										-8.642297983172781e+134,
-										-1.0401711151144068e+85,
-										7510240419246665
-									],
-									{
-										'hC!#i': '?\'/V09AzG|',
-										'x1Vb': -2.062862981232639e+255,
-										']DAPjI?7\\': '*m',
-										'': -1.8706506370575844e+156,
-										'b&,Y': 'Q9!c\\',
-										'bC': -1.9693171399496805e+217,
-										'"K': '4"uN_yAO.M',
-										'pq+hQ': 3222215835628867,
-										'\'9LL@w,M]C': undefined,
-										'}': true
-									}
-								]
-							},
-							'u`': true,
-							'Is%L%D': {
-								'C6.[': null,
-								'Rf>,P/Dz-;': -5.808038452388772e+240,
-								'': 3.3768488345211984e+109,
-								'~fqe?n': undefined,
-								'"zP': '6u',
-								'6dhqyk.=<': true,
-								'M`/X1': true,
-								'.5:L)2M=': [
-									1.8650564937719398e+80,
-									-2394272697607516,
-									false,
-									'f=~NAm)>',
-									'S',
-									']5L;Bl1)-1',
-									5707595746219273
-								],
-								' ': ''
-							},
-							'N[~TsbH': 4461778553816869,
-							'/': [
-								true,
-								true,
-								2.935747704532436e-25,
-								null,
-								'7RU*kq1}',
-								null,
-								-7457606483089556,
-								'"d7Fl]dGG)',
-								6861475668220385
-							],
-							'E^Y?#:yM': [
-								[
-									{
-										'3NXX("TF': {
-											'4sxCv mX': undefined
-										},
-										'Nw58w': -4.346374657899375e-103,
-										'E[=lR.': false
-									},
-									-1.5939372061952811e-44,
-									[],
-									[
-										8749386189683387,
-										'Q{fJ!',
-										-6440309362558251,
-										'Y^0M',
-										-9.016047802923586e+55,
-										undefined
-									],
-									'UINk!$i:'
-								],
-								[
-									-1326111210184046,
-									1664929161407101,
-									undefined,
-									false,
-									-4.3731021463039666e+32,
-									null,
-									true,
-									false,
-									null,
-									'e`\\vx7@.V'
-								]
-							]
-						}
-					},
-					{
-						'name': 'pYq{l',
-						'description': '6c',
-						'parameters': {
-							'': [
-								{
-									'x?': {
-										'~@MV\\*|S': -1101547157695481,
-										'': undefined,
-										'S18%qoW.Js': true,
-										'q|': -8.289526265938606e-270
-									},
-									'"~lu': undefined,
-									'': -1.744288063765083e-269
-								}
-							],
-							'X_': [
-								{
-									'2[#ML': [
-										-9.821687666740803e-212,
-										'*'
-									],
-									'': 'u'
-								}
-							]
-						}
-					},
-					{
-						'name': 'fG<{e',
+						'name': 'arguments',
 						'description': '',
 						'parameters': {
-							'!': [
-								-8759833413093006,
-								2.0461164372707712e+27,
-								'7',
-								-5297889349681371,
+							'': [
+								-3.941668109226628e+103,
+								2.2745324361833545e+107
+							],
+							'e': -17,
+							'%c!': {
+								's%^V&J8': [
+									true,
+									[
+										-3.3715677799451293e+283,
+										'W/KrJa47Co',
+										-2349087939842885,
+										't'
+									],
+									-1.798951413447959e-45
+								],
+								';k,': {
+									'`VH|(': null,
+									'x`J': true,
+									'C"5@ayTUl*': 947545641012237,
+									'k<Xd': 'PJ73%a7sc',
+									'VdxI': 1261655797422013,
+									'A&2+(AQl': -2433297974436053,
+									'_[;L5X1Zsl': 'rBQ]%Np}V',
+									'N)"}': -7102503185305919
+								},
+								'{': 'C Hq[1EtPF'
+							},
+							'ref': {
+								'3F': false,
+								'aoyMvW;': '__de',
+								'LM"ev': '?UF0',
+								'': undefined,
+								'UU@3G': true,
+								'z0C': 4793019171544577,
+								'IF=m': null,
+								'Q.': -1.5e-323,
+								'?mO<v': true,
+								'!': -3.2252767591246022e+181
+							},
+							'}!""-mn?&': 26,
+							'&': '',
+							'/q7;g*': 'N)8T&'
+						}
+					},
+					{
+						'name': '',
+						'description': '<tq!6@\\_',
+						'parameters': {
+							'': 'E`!3)&#1',
+							']85,q,W\\': 'h|p?4NS'
+						}
+					},
+					{
+						'name': 'z?p',
+						'description': 'A=cu|@=By]',
+						'parameters': {
+							'WdqkF\\.o': {
+								'!7': {
+									'tFX0Y0': 'ct',
+									'': -2.98996375630888e-281,
+									']cmA?Z': {
+										')5': undefined
+									},
+									'K>=!4=3': true,
+									'.U3iI4K9H6': 's-e4',
+									'=otFB:H': 6819011221463097,
+									'^}icU': undefined,
+									' -': undefined
+								},
+								':[!': {
+									'h': 1.7040789774541505e-208,
+									'fZl:^5ZtS': 3.7948618848189005e+71,
+									',JOi8A': -3037055430168095,
+									'U^zUJ': false,
+									'x#x0j': '|zQ:PF6',
+									'bYA': {
+										')@': true,
+										'jT': '%DNh',
+										'!mYvZ<hUU': 6051514680620857,
+										'6[o.u': 'Dv!xH$0',
+										'(DFCfEBt\\P': -2530687009716203,
+										'/2WMD\\r\\': undefined,
+										'vH,XC"': undefined,
+										'"Mj28+': false,
+										'Tj2b': -4.755270010163009e-159,
+										'[bq}sTW(]M': -4.7536540464271725e-11
+									}
+								}
+							},
+							'': -2e-323,
+							'e8"=': [
+								{
+									'B7yV1=Apfi': '',
+									'|X^B_!t': {
+										'}': 'o7]?^',
+										'C&pf$"': 4.351040851320545e+193,
+										'<0=[=80K': 8562426709233207,
+										'?;g\'  3ZF': '`${kSo#V',
+										'}E"F;': null,
+										'=B9q;_': true
+									}
+								},
+								',g',
+								[
+									true,
+									7541584349689597,
+									false,
+									false,
+									'A*$]NO',
+									false,
+									-1.0979767843573295e-148,
+									true,
+									'-i^',
+									true
+								]
+							],
+							'T>D_&s': {
+								'_ekey_': true,
+								'{E$}': undefined,
+								'l:y6-MLE': -6.4e-323,
+								'm}h`C7': false,
+								'o': undefined,
+								'isPrototyp': 'Jj&ref',
+								'H;G<DdE`Cj': true,
+								'': '\'vp)v',
+								'%# z]!hV59': false,
+								'ey': null
+							},
+							'%y@': [
+								'oLP7ch',
+								null,
+								false,
+								undefined,
+								1778522121433521,
+								99852437055025,
+								false
+							],
+							's-zzP0% ': -5.4e-323,
+							'~ref"': [
 								undefined,
 								true,
-								-4021426437025193,
+								'',
+								'MFmua[p',
+								-3.14828238679526e+55,
+								2562965206796863,
+								true,
+								{
+									'^_4D2iad(7': true,
+									'?gev5{': 3.50535243636108e+38,
+									'Z\\c8&h1K': '',
+									'TZC+q uf': true
+								},
 								null,
-								false
+								null
+							],
+							'&': [
+								false,
+								'8dvgq',
+								false,
+								-1.7976931348623135e+308,
+								5008458999453937,
+								[
+									'~|l',
+									null,
+									false,
+									1.7976931348623155e+308,
+									'',
+									false,
+									false,
+									1870936883068371,
+									-43,
+									-48
+								]
 							]
 						}
-					},
-					{
-						'name': '2fN`13ia',
-						'description': '"Ez7Q);c',
-						'parameters': {
-							'': undefined
-						}
-					},
-					{
-						'name': '3',
-						'description': '6vK!',
-						'parameters': {}
 					}
 				],
 				'function_call': {
-					'name': 'Wzh&$'
+					'name': 'S_'
 				}
 			},
 			{
@@ -1707,8 +1386,8 @@ export const samples = {
 						}
 					},
 					{
-						'role': 'user',
-						'content': '',
+						'role': 'function',
+						'content': null,
 						'name': '#|ZOB }ak',
 						'function_call': {
 							'name': '',
@@ -1717,16 +1396,8 @@ export const samples = {
 					},
 					{
 						'role': 'function',
-						'content': '',
-						'name': 'SviODX!@',
-						'function_call': {
-							'name': '.v!',
-							'arguments': '[cw'
-						}
-					},
-					{
-						'role': 'user',
-						'content': 'Nhw"',
+						'content': 'iD!x.!ac',
+						'name': 'IHNhw"s',
 						'function_call': {
 							'name': '~&K$!}p"3',
 							'arguments': 'oU'
@@ -1734,646 +1405,67 @@ export const samples = {
 					},
 					{
 						'role': 'user',
-						'content': 'y$mssFzsi',
-						'name': '$',
+						'content': null,
+						'name': '',
 						'function_call': {
-							'name': ')k\\',
-							'arguments': ''
-						}
-					},
-					{
-						'role': 'function',
-						'content': '_%"@',
-						'name': ' ',
-						'function_call': {
-							'name': '{Nd\'',
+							'name': 'iRq',
 							'arguments': 'ref'
 						}
 					},
 					{
 						'role': 'system',
-						'content': 'B',
-						'name': 'o!'
-					},
-					{
-						'role': 'user',
-						'content': '',
-						'name': 'bL',
+						'content': 'q',
+						'name': 'ref',
 						'function_call': {
-							'name': '932Vl2}',
-							'arguments': 'ref'
+							'name': '_rnI',
+							'arguments': '|$ p&\'{%&'
 						}
 					},
 					{
-						'role': 'function',
-						'content': '[__N(vJD]H',
-						'name': '',
+						'role': 'user',
+						'content': '7O',
+						'function_call': {
+							'name': '}E',
+							'arguments': '5'
+						}
+					},
+					{
+						'role': 'assistant',
+						'content': null,
+						'function_call': {
+							'name': 'b%IL+Z\\93',
+							'arguments': 'l'
+						}
+					},
+					{
+						'role': 'system',
+						'content': 'FWt|Oz[__N',
+						'name': 'D]H3)=wS',
 						'function_call': {
 							'name': 'R!T',
 							'arguments': 'l'
 						}
 					},
 					{
+						'role': 'function',
+						'content': '_',
+						'name': 'F{6',
+						'function_call': {
+							'name': '%a%',
+							'arguments': 'ZbG5/2\'r'
+						}
+					},
+					{
 						'role': 'system',
-						'content': 'NaxT@mj',
-						'name': '~"1'
-					}
-				],
-				'functions': [
-					{
-						'name': 'PD',
-						'description': 'ZbG5/2\'r',
-						'parameters': {
-							'5%ggGe': {}
-						}
-					},
-					{
-						'name': '',
-						'description': 's',
-						'parameters': {
-							'2`*^F:6u': [
-								4.530893457201502e-234,
-								-6.209631281966165e+249,
-								-5171059291470453,
-								'f~Dh3y',
-								-3.341128779067817e-299,
-								'IOZzBWx',
-								'1\'ODFEO',
-								-484452956511477,
-								false
-							],
-							'o': 'ddR@',
-							'yH]BV': [
-								{
-									'y6K\\7 PhBX': true,
-									'q?7mB': 'Jh',
-									'R': true,
-									',irJJ': 'RR>',
-									'{1<(*O': 4164558792754873,
-									'x': false,
-									'': null
-								},
-								-4255932464694290,
-								[
-									-2.2733054630196505e-186,
-									-8579440529241159
-								],
-								'@0P)IC!E',
-								true
-							],
-							'': [
-								undefined
-							],
-							'*xfisHNg{I': {
-								'1sR': 5461802666867473,
-								'W:MmBm!^': true,
-								'l-@>C': 680746160869445,
-								'r)N~lu)p?': 'ur#v7:>^^9',
-								'<?t$]m&': undefined,
-								'wx': '6',
-								'-w:^c0%S7w': -2008383143402382,
-								'e3': undefined
-							},
-							'd6`4': undefined,
-							'"f': {
-								'I\'+3?': undefined,
-								'i.e+p': '\\v',
-								'Lkh': '-q./',
-								'b@6}bOYZ}5': 1.778763115641685e+37,
-								'l9': -2530255009674559,
-								'Yf)!g]w\'': false,
-								'7?,=Ke': 'Aqe@P{bj',
-								'Pj': null,
-								'Q 14MbmocH': 1911403292083793
-							},
-							'>1Q\'r': {
-								'Iu1QU': 864107279530221,
-								'F%Q@AhN': 3.963861160307464e+119,
-								'xelRe': '_Sv7cU\'',
-								'\'w]yz*': 'vqS',
-								'': null,
-								'*J%WN-@': {
-									'xA': 'G3O/ )Wq2'
-								},
-								'&oJ:': 3.590587478107539e-296
-							}
-						}
-					},
-					{
-						'name': '',
-						'description': ' U>',
-						'parameters': {
-							'f]\\$huU!n3': [
-								{},
-								{
-									'LBUu_$': {
-										'$4!6B7n#@,': '9V',
-										'/@X6U\\': false
-									},
-									'x&!~T)': null,
-									'': [
-										undefined,
-										false,
-										3.784348357739533e+124,
-										-8.659801914125595e-132,
-										'b_D1OF8?AU',
-										-3.599883468496344e-76,
-										{
-											'j': undefined,
-											'': undefined,
-											'C{!': true
-										},
-										-3183187894542808,
-										-8829927310632712,
-										''
-									]
-								}
-							],
-							'A=5Gp9t': -7249659615197792,
-							'Ur': 'w9W5{',
-							'y2>_Z*~rLK': -4.466546839598641e+268,
-							'z|Poj/EVm': null
-						}
-					},
-					{
-						'name': '',
-						'description': '6,',
-						'parameters': {
-							'04s~=?t*n': {
-								'Qu-Zt[Ud;-': [
-									'Md',
-									'',
-									false,
-									'bok&1Sw',
-									3005185566003725,
-									[
-										true,
-										-4980619880232620
-									],
-									true
-								],
-								'd?@F!:M:XY': [
-									'p3?*nY',
-									true,
-									'Q0s_]dZX!`',
-									undefined,
-									5.180149240085832e-224,
-									1.6612499968328057e-107,
-									{
-										';/d}X0IxQ': null,
-										'j|37': ' _iW0',
-										'': 2.8701319577602817e-142
-									},
-									'',
-									false,
-									-8671010478183727
-								],
-								'AN/': 'qfGX8y"&'
-							},
-							'EGF;i{22': [
-								{
-									'Y`=d=>AI?r': -3590697041421776,
-									'qD>60UWQb': 2.1493762583911415e-24,
-									'6l': '-ur1&',
-									'\\b-X3': 5.5106683596483146e-163,
-									'c': null,
-									'joC.(rkx': -7483991905571331,
-									'<y': '',
-									'z8`[V_T%n': 'AVd9O"-',
-									'#%7\\5': false
-								},
-								{
-									'TT3,8Pu1': 2.1195426166681848e-14,
-									'J\'t.': null,
-									'.,9': -1.7285516146962228e+99,
-									'}R': 1.2514772735751494e+96,
-									'5N_(Ijes': 5799546756052773,
-									'': 8474119392772493
-								},
-								{
-									'!\\Y^': '+3w)ri',
-									'\'kq](*u': '',
-									'CE8{7Oo': {
-										'9<\\~': true,
-										'sY}$2Y': -4684458504554849,
-										'StFyft': true,
-										't#IqRe': -4.6912633854592214e+188
-									}
-								}
-							],
-							'COu$yj3^': {
-								'': -7818202034291442,
-								'*5v': 3285257997635629,
-								'fQAvVEp': true,
-								']F#M3mfg5-': false,
-								'F0cGf': 'm" ',
-								'Vt5q/-{U8': true
-							},
-							';!gRiGB2/': {
-								'': -5790318121856035,
-								'H6;Rs,%{Z\'': {
-									'6': 9.801628423245156e+245,
-									'NYu1K:P': null,
-									'': [
-										undefined,
-										'D#jy',
-										undefined,
-										'%h vBSwTSU',
-										false
-									]
-								},
-								'K*': {
-									'NvdRshh^0a': '5+C+"Pr',
-									'11/': true,
-									'G': -3031913056558703,
-									'k4UN': -8.704250059405492e-123,
-									'8xP]OY/': true,
-									'XG*\'I{!~3q': '^6<|ct',
-									'E(YBR': '1PBI',
-									' r{}j?un(': 8934553865446777,
-									'%VD)Yj^ZLk': -6168488278647538
-								},
-								'<': -6.807646656665225e+96,
-								'@.': -2.0361058212882996e-208
-							},
-							'LGyl': [
-								[],
-								4169675610140225,
-								'\\)JQwiqc3s'
-							],
-							'': [
-								{
-									'@fgxi%P': 'mMQ',
-									'w0': 5213095445882637,
-									'j\\n6Y4': {
-										'#8A^U': '^vm_y{Ez',
-										'pQ`0`': 'l,2',
-										'Kopd~CF': null
-									},
-									'w;': '80Rgl#v>',
-									'Y9K)0D"AjP': false,
-									'{KGb^': '8G^',
-									'%iy': []
-								},
-								null,
-								'iI'
-							],
-							'YdXlA': '#o]G8'
-						}
-					},
-					{
-						'name': '',
-						'description': 'Wkf4=',
-						'parameters': {
-							'93J': {
-								'': 4155253726229843,
-								'ik^K<R*iLW': {
-									'9 ': 'FW',
-									'}GI4Si>Kgk': false,
-									'PA#M%y': true,
-									';]1K.f': '',
-									'[Hto.j B:z': '8={[@`X{',
-									'1<C': true,
-									'V\\a}8AN)': 3.953936191807366e-39,
-									'[7o%J46V8': false,
-									'': -1.1717908852260186e-30
-								},
-								'ke=2hnk\\F^': true,
-								'qe-io': -9.033607401616714e-235,
-								'2DFU': '4`',
-								'8D@(=': undefined,
-								'7A': null
-							},
-							'm@BC,$H-': false,
-							';2OM>R_af"': 'a(P]y?}LT"'
-						}
-					},
-					{
-						'name': 'yB};',
-						'description': ' -E\'',
-						'parameters': {
-							'oQjX': '?gB&yD',
-							'A,lMT ': {
-								's`8@+}': '',
-								'L': 7.582710700496655e-174,
-								'/nW0m.!0': '=B%KEuas',
-								'GXYpV': false,
-								'v?W': true
-							},
-							'^uKA]=m{': null
-						}
-					},
-					{
-						'name': 'ij',
-						'description': 'qjE#UqbC',
-						'parameters': {
-							'?&PL': {
-								'e:U ': -2161761663734718,
-								'meN': false,
-								'ZaKTuIl(': {
-									'fEU`)pL#': 'Tp|',
-									'j': 5.539714258838923e-135,
-									'Ft"+<U': 3.9238769049592848,
-									'>': -3827034465658805,
-									'd': false,
-									'': false,
-									':': true,
-									'=_MsUW5N?': 3917997303143161,
-									'/4\\v&E~]': undefined,
-									'x`n': false
-								},
-								'leu': 4938451224398945
-							},
-							'': {
-								'g$RSN("MH': 'uDn',
-								'': '{&9:FF67F',
-								'RV^9Ag8Jku': true,
-								'4e*tN,]': {
-									'VyG>+*9{': -2.0182794680775544e+180,
-									'': undefined,
-									'n>hizU': '',
-									'`y26(<:': true,
-									'xR:~$+': null,
-									'![4"y,': 'zl'
-								},
-								';}{f': -5303181306174332,
-								'g': null
-							},
-							'nd': [],
-							'YA4xd': 'pZ{',
-							'mAsufBbQ': [
-								'D\\tzHU',
-								-345111711201988300,
-								{
-									'kj34X9V8]': 2.7218632591626716e+235,
-									'[PFQ': -2289416460085941
-								},
-								[
-									'{_:%,F]d',
-									-1.9912791149790357e+260,
-									false,
-									undefined,
-									'Q&y',
-									'+g iuFwH',
-									false,
-									-634017959917031
-								],
-								-922933122275628
-							]
-						}
-					},
-					{
-						'name': 'RWry.UE',
-						'description': '{bv+.fav',
-						'parameters': {
-							'<u60[f': 'P]x.^',
-							'': {
-								'R': '}l~dRa6}|',
-								'~kpL6nV6:T': null,
-								'()qx>Gs-O': -3.1687056455798652e-263,
-								'{NnN': null,
-								'((wUUBv-': 5591553181861885,
-								',W.': 'z>'
-							}
-						}
-					},
-					{
-						'name': '0a',
-						'description': '&d[6EOR',
-						'parameters': {
-							':cu3X': '2MgspW',
-							'9T</.o': {
-								'': '*4H)y',
-								'(@Ze!': 4964058264079513,
-								'&sHd': -5.117233584392023e+245,
-								'Na': '*Zv>',
-								'\'?m6iCg6B': 2769661710226483
-							},
-							'': [
-								[
-									-850253930799828,
-									'|]fn9Lt',
-									'?sEM1t8',
-									[
-										'#zra',
-										6.326966430864723e-131,
-										-903910953359378,
-										undefined,
-										1.8938787885313193e-240,
-										-4792259767228983,
-										'P',
-										'',
-										false
-									],
-									false,
-									''
-								],
-								5.16571645785448e-248,
-								3725860533967813
-							],
-							'u?i': [
-								5312632456500045,
-								'0w2a5*xx>a',
-								true,
-								'',
-								-3.888417935730722e+272
-							],
-							'|-2': [
-								undefined,
-								true,
-								null,
-								true,
-								true,
-								'I))R?\\84'
-							],
-							'kU$88+sP': [],
-							'%xFs~Y`x4\'': 'uo}THK{3-y'
-						}
-					},
-					{
-						'name': '-v!',
-						'description': 'tZ}?<',
-						'parameters': {
-							'e': [
-								-3212150974263181,
-								false,
-								1.224919544136231e+95,
-								undefined,
-								{
-									'I/MS`53': null,
-									'TN0Kt': 5825242183517901,
-									'D-2i"': -829191337477798,
-									'&"wh)d42BH': -8800606679388837,
-									'C': undefined,
-									'v\\{#l': 1.583187999807893e-95,
-									'b9o@e': true
-								},
-								-2806079747852459
-							],
-							'vih': {
-								'J': {
-									'7,)5j': -2.006275556159273e-257,
-									'i"LPvP%fw': undefined,
-									'|T': -5098632770224314,
-									'{w~[u': -2.500044354541139e+230,
-									'z`': undefined,
-									'CF?UV]Bb': 7.062052053740022e+241,
-									'y=Hv6+za&T': -8.080573124311908e-203,
-									'i(+!A"R3': undefined,
-									'+E#h.w': -2282439816177973
-								},
-								'[o_': {
-									'W0UqK[[su': 'jj8`K?I2Ox',
-									'': 'd Ev}',
-									'O(@0Z': 8805141933976967,
-									'!LY(*@': -7364840352416981,
-									'pFVM5v9=l': -9.742741440920323e+268,
-									'|A+?7mP': '!)5MCga4',
-									'/~': true,
-									'T}': 5.04205056319333e-272
-								}
-							},
-							'': {
-								'\'kn9F': [
-									true,
-									-3.616439226515833e-240,
-									'/g)`=VY',
-									'aE{sx1*',
-									4.979482801072596e+299,
-									4060704149014709,
-									true,
-									4.067168460083181e+284
-								],
-								'<Zy': 'Z\'jN.53v'
-							},
-							'HcJ': {
-								'3X/r"L"`$t': [
-									{
-										'h/N': -1.5909877588116665e+146,
-										'PF': 'UE|M)Xv',
-										'c; #!O*': 'iX',
-										'W': null
-									},
-									-2.17661843925673e+112,
-									-3427791550594728,
-									5.254538771184226e+253
-								],
-								'': [
-									false,
-									false,
-									-5272329468266904,
-									-2578587188337535,
-									8614365322418401,
-									{
-										'@J&Z_': null
-									}
-								],
-								'T9yY4b}': null,
-								'_*x:9peb!$': 5135291670786107
-							}
-						}
-					},
-					{
-						'name': 'hE\'eZ0',
-						'description': ' V>',
-						'parameters': {
-							'!4S': {
-								'\'y5ViZe0o&': true,
-								't+': 8665587367054945,
-								'ieI*IPc': true,
-								'.y{Dz': 'afo1A',
-								'fr}?H': '2.<[6#6d2',
-								'': {
-									'zoa?\\<[4': -2211664522389500200,
-									'm#': 3.37196591498031e+43,
-									'W8 lsydQO': false,
-									'bm': true,
-									'{p-p#ey:': 'P B=',
-									't{': null,
-									'd!<4': 'dvaf9'
-								},
-								'Q}Y': ')FyTv',
-								'3/g##z ': null
-							},
-							'-p(xZ3jf2': {
-								'F:w/R\\}+': -1.350051737826463e-84,
-								'{Ma': '1Tl*zTR<',
-								'EDQmoe-`5': true,
-								']V': 'pVwJ&R',
-								'p': 7.807603204924605e-295,
-								'g': 6250741074076793,
-								'`l+9=fY': true,
-								'bZGT<': 'Yl>?we',
-								'?X8#e[': true
-							},
-							'': [
-								1889953885364993,
-								3.369996489239535e+94,
-								'IhpY!z',
-								[
-									':c^Ny!]>',
-									3.608041519499519e+297
-								],
-								'(',
-								{
-									'0bJWTO': -4.872296851743557e-31,
-									'Yik&d': true,
-									'<wcKx': 7509386211650153,
-									'eH': true
-								},
-								'(usT>2'
-							],
-							'uJaCEUc': {
-								'}\\': 5893669468825841,
-								'gw|YD/U2': true,
-								'l+': '"C|PE',
-								'rVVC4C_MV[': 7536219244621457,
-								',1': '`i=8i2Q/_d',
-								'UHVRJf': -8555757826870302,
-								'%<(%F{s': -6804268873314694,
-								'I\'=9XIn': -7895439613739989
-							},
-							'?c(*rbkB': {
-								'r"Lts': '^IHtnCL^5',
-								'~<b#QoP\\` ': 0.15983686102756134,
-								']E-S_i': [
-									-2.145715365321547e-154,
-									{
-										'P\\wp&': true
-									},
-									'',
-									5321571739127871,
-									'Zb*;',
-									'Pay'
-								],
-								'<_]ki)': [
-									undefined,
-									3.8013476967008626e+239,
-									''
-								]
-							},
-							'K2756': [
-								true,
-								{
-									'j?r4e': 'P%`',
-									'': true,
-									'zs`QU': undefined,
-									'd&i': -1.08271196850638e-90
-								},
-								true,
-								undefined,
-								false
-							],
-							']E=I48Lm': -7705738608991812,
-							'Mh0G`O': [
-								'[4'
-							],
-							'N_t-rG%\\_K': false
+						'content': 'Ge/r5,',
+						'function_call': {
+							'name': '2`*^F:6u',
+							'arguments': '4Jb=hhzHi'
 						}
 					}
 				],
 				'function_call': {
-					'name': ''
+					'name': '~Dh'
 				}
 			}
 		],
@@ -2470,11 +1562,11 @@ export const samples = {
 						}
 					],
 					'': {
-						'Ow': 1.7976931348623071e+308,
+						'Ow': 1.7976931348623125e+308,
 						's(C;1w1': 3.0217944171346494e+266,
 						' %/En/}"': '',
 						'5Z51C': -9007199254740967,
-						'': -1.7976931348623085e+308,
+						'': -1.797693134862315e+308,
 						'|VdwCm': true,
 						'toS': 2.4085215966250995e+149,
 						'uRy': true,
@@ -2835,11 +1927,11 @@ export const samples = {
 			{
 				'0&k& #FFD': [
 					{
-						'Q': 1.7976931348623057e+308,
+						'Q': 1.7976931348623135e+308,
 						'O(CS5s': ']%',
 						'apply': 9007199254740971,
 						'<!~.8d&': false,
-						'|': 1.797693134862309e+308,
+						'|': Infinity,
 						'~e$:c': ',5',
 						'': false,
 						'jou$': false
@@ -2928,13 +2020,13 @@ export const samples = {
 								'arguments': 'GZh'
 							}
 						},
-						'finish_reason': 'stop'
+						'finish_reason': 'content_filter'
 					}
 				],
 				'usage': {
-					'prompt_tokens': 3044439635824521,
-					'completion_tokens': 34,
-					'total_tokens': 15
+					'prompt_tokens': 34,
+					'completion_tokens': 15,
+					'total_tokens': 38
 				}
 			},
 			{
@@ -2956,86 +2048,94 @@ export const samples = {
 						'finish_reason': 'length'
 					},
 					{
-						'index': 3,
+						'index': -2710371215952535,
 						'message': {
 							'role': 'user',
-							'content': null
+							'content': 'A',
+							'function_call': {
+								'name': '/q2kH#9_`4',
+								'arguments': '6'
+							}
 						},
 						'finish_reason': 'length'
 					},
 					{
-						'index': 46,
+						'index': -1114072048430474,
 						'message': {
-							'role': 'assistant',
-							'content': '/q2kH#9_`4'
-						},
-						'finish_reason': 'stop'
-					},
-					{
-						'index': 3718342553923097,
-						'message': {
-							'role': 'function',
-							'content': ']RMa|X;MPf',
+							'role': 'user',
+							'content': '#$',
 							'function_call': {
-								'name': '4#',
-								'arguments': 'lehasO'
+								'name': 'Libgb*^a',
+								'arguments': ' co'
 							}
 						},
 						'finish_reason': 'content_filter'
 					},
 					{
-						'index': 8,
+						'index': 39,
 						'message': {
 							'role': 'system',
-							'content': 'TUq',
+							'content': 'c@y|',
 							'function_call': {
-								'name': 'LSX',
-								'arguments': 'apply'
-							}
-						},
-						'finish_reason': 'content_filter'
-					},
-					{
-						'index': -9007199254740988,
-						'message': {
-							'role': 'function',
-							'content': 'ep@_',
-							'function_call': {
-								'name': 'ZK8Cv!mOEU',
+								'name': 'K8Cv!mOEU',
 								'arguments': ''
 							}
 						},
-						'finish_reason': 'function_call'
+						'finish_reason': 'length'
 					},
 					{
-						'index': 4,
+						'index': -6769164422421866,
 						'message': {
-							'role': 'function',
-							'content': '"Vm!xD(2',
+							'role': 'user',
+							'content': '!x',
 							'function_call': {
-								'name': '',
-								'arguments': '&5Blw]'
+								'name': '-& ',
+								'arguments': 'IE'
+							}
+						},
+						'finish_reason': 'length'
+					},
+					{
+						'index': -15,
+						'message': {
+							'role': 'user',
+							'content': '|0',
+							'function_call': {
+								'name': 'Qz%%%zl',
+								'arguments': ''
+							}
+						},
+						'finish_reason': 'content_filter'
+					},
+					{
+						'index': 4230682946807353,
+						'message': {
+							'role': 'assistant',
+							'content': '-\'~}0#l',
+							'function_call': {
+								'name': 'T,#iNk]V',
+								'arguments': 'D\\D*(?gF'
 							}
 						},
 						'finish_reason': 'function_call'
 					},
 					{
-						'index': -44,
+						'index': 9007199254740975,
 						'message': {
-							'role': 'user',
-							'content': 'E9=',
+							'role': 'system',
+							'content': '&&?',
 							'function_call': {
-								'name': 'rx{',
-								'arguments': 'F0/<D4msQk'
+								'name': '',
+								'arguments': 'd\')'
 							}
 						},
 						'finish_reason': 'function_call'
 					}
 				],
 				'usage': {
-					'prompt_tokens': -47,
-					'completion_tokens': 9007199254740961,
-					'total_tokens': -22
+					'prompt_tokens': -9007199254740982,
+					'completion_tokens': 9007199254740983,
+					'total_tokens': 11
 				}
 			},
 			{
@@ -3054,13 +2154,13 @@ export const samples = {
 								'arguments': 'e'
 							}
 						},
-						'finish_reason': 'function_call'
+						'finish_reason': 'length'
 					}
 				],
 				'usage': {
-					'prompt_tokens': 1092092633239173,
-					'completion_tokens': 9007199254740980,
-					'total_tokens': -6714226146021441
+					'prompt_tokens': 9007199254740980,
+					'completion_tokens': -6714226146021441,
+					'total_tokens': 9007199254740971
 				}
 			},
 			{
@@ -3079,33 +2179,37 @@ export const samples = {
 								'arguments': '&"!'
 							}
 						},
-						'finish_reason': 'content_filter'
+						'finish_reason': 'length'
 					},
 					{
-						'index': -9007199254740943,
+						'index': -1598185360367089,
 						'message': {
-							'role': 'function',
-							'content': '\'%"} %',
+							'role': 'user',
+							'content': '\'9%wXia)',
 							'function_call': {
-								'name': '-oc*Y}',
-								'arguments': 'V%|'
+								'name': 'apply',
+								'arguments': ':-oc*Y}IU'
 							}
 						},
 						'finish_reason': 'content_filter'
 					},
 					{
-						'index': 21,
+						'index': 9007199254740941,
 						'message': {
 							'role': 'system',
-							'content': 'O{BT:qlMN]'
+							'content': '',
+							'function_call': {
+								'name': '$ ',
+								'arguments': '!U'
+							}
 						},
 						'finish_reason': 'content_filter'
 					}
 				],
 				'usage': {
-					'prompt_tokens': 7223325699840301,
-					'completion_tokens': 4828092475085413,
-					'total_tokens': -20
+					'prompt_tokens': 48,
+					'completion_tokens': 1413335018702049,
+					'total_tokens': 19
 				}
 			}
 		],
@@ -3201,15 +2305,27 @@ export const samples = {
 					'GZh': -2477506756047693,
 					'UI;n': 4024749853306079
 				},
-				'user': '2OVmF4,i',
-				'stream': true,
-				'model': 'ap',
+				'user': '#iU',
+				'stream': false,
+				'model': 'text-curie-001',
 				'prompt': [
-					'|6+/\'L)b|0'
+					-2284850416620588,
+					-823973111424977,
+					8005487355601669,
+					-8428340938308276,
+					-8885451180959843,
+					1028375998323509,
+					-4156858088246024,
+					7990039410495423,
+					-3669959079466347,
+					-6027145313752986,
+					-5409641318924137,
+					-8352856630045092
 				],
-				'suffix': 'FxY/',
-				'logprobs': 9007199254740947,
-				'best_of': 1
+				'suffix': 'length>cal',
+				'logprobs': null,
+				'echo': null,
+				'best_of': null
 			},
 			{
 				'temperature': 1.2611686178923354e-44,
@@ -3610,58 +2726,63 @@ export const samples = {
 									'xY/u+VbR|': -6528608642530328
 								},
 								{
-									'>2': -3764848212847635,
-									'%gF': -6989988255423169
+									'27^&%gF': -6989988255423169,
+									'_f3,F0F$': 8267108329480809
 								},
 								{
-									'f3': 1221557516116325,
-									'F$y^-ORm': 2415120584304665,
+									'm': 2415120584304665,
 									'\\vCv2o5': -5909178379889398,
 									'z^_}_ph': 1588089450030829,
-									'y': 4586173851209929,
-									'8#Jig(HQR8': 5031886690226953,
-									'^t"z7}?$D': -6387651911180688,
-									'V1O*(': 8085788450391791
+									'y': 4586173851209929
 								},
 								{
-									'0+\\{Br': 2843846982903593
+									'Ji': 1364417567940367,
+									'QR8C+H^t': -6352477356442606,
+									'}?$Dr': 737153050661751,
+									'1O*(Vl': 2013495931771341,
+									'+\\{B': 4054371099351671,
+									'`2+]n;': -2748428968962918,
+									'CznZ(-w\'w(': 408360397069993,
+									'$Q788&Et-J': 5936614833633443,
+									'BsBy': -5546813455032634
 								},
 								{
-									'+]n;Wa<Czn': 2236850715233621,
-									'w\'w': -8532198858591385,
-									'F$Q788&': 2750207434326781,
-									'J\'|1BsBy': -5546813455032634,
-									't': -3110321510488850,
-									'|c)L\\': -5528885448665532,
-									'cAT3Am\\d': -7111898017613178
+									'2Z|c': 3002079224018451,
+									'3NicAT3Am\\': 4399318581033925
 								},
 								{},
 								{
-									'C': -8087892111014455,
-									'O\\`}z!r;$U': 547169170756957,
+									'j.?O\\': -8324204634120841
+								},
+								{
+									';$U': 547169170756957,
 									';YeZ55:': -6561895162516104,
 									'NUj-\\': -8735051144649724,
 									'Z&U+3ls': -7901941338063176,
 									'De/a<': -2973357125168254
-								},
-								{
-									'Suakx4IkYb': 4489094096464489,
-									'$\\J=\'-hOL': -6513732743975563,
-									'\'': 6603981502498667
 								}
 							],
 							'text_offset': [
-								-7099208721054535,
-								849936131521737,
-								-1234673678125189,
-								-8827764141748638,
-								6237945849379357,
-								-1955763765498424
+								5302239163821573,
+								7391352646752153,
+								-1333779158529039,
+								6259060632271237,
+								-805508818777931,
+								4489094096464489,
+								3387588419522969,
+								-6363869695479491,
+								5952251730713679,
+								8516141557818357
 							]
 						},
-						'finish_reason': 'content_filter'
+						'finish_reason': 'stop'
 					}
-				]
+				],
+				'usage': {
+					'prompt_tokens': 4008175556064841,
+					'completion_tokens': -46,
+					'total_tokens': 36
+				}
 			},
 			{
 				'id': 'X1DZwS',
@@ -3686,88 +2807,110 @@ export const samples = {
 								{}
 							],
 							'text_offset': [
-								-689128394575249
+								-2759301450130114,
+								-6009052938353056,
+								-1114072048430474,
+								-305229355030076,
+								8388494932900859,
+								8971613459818841,
+								-4189129126668747,
+								2679322566859449,
+								-6929081181640497,
+								-3520118968260790
 							]
 						},
-						'finish_reason': 'length'
+						'finish_reason': 'stop'
 					},
 					{
-						'index': -25,
-						'text': 'MPfa>74#*',
+						'index': 8692043762070791,
+						'text': 'length',
 						'logprobs': {
 							'tokens': [
-								'"az! }%p\''
+								'TUq',
+								'M\'LSX',
+								'M\'+@l!',
+								'_lca',
+								'b',
+								'',
+								'@_|ABZK8Cv',
+								'mOEUp*',
+								'(',
+								'/|3t2Eb"'
 							],
 							'token_logprobs': [
-								-3.6787595091430896e-125,
-								-8.999462865164164e-65
+								2.60339596320892e-199,
+								-2.6846556447271947e-144
 							],
-							'top_logprobs': [
-								{},
-								{
-									'7': 7093050613552877,
-									'_|ABZ': 7514302632058849,
-									'v!mOEUp*y(': 8718019804181923,
-									'3t2Eb"V': 6278905411661183,
-									'D(2.T1': 2331116383989065,
-									'5Blw]K%"8!': -4237389062706692,
-									'E9=': -8855682528375583,
-									'-]zf{aPF0': 4527409129482623,
-									'4msQk{': 6912894451675969,
-									'%\'l': -1479101256876319
-								},
-								{},
-								{
-									'$': 4758612933357893,
-									'-z': 5638470488303849
-								}
-							],
-							'text_offset': []
+							'top_logprobs': [],
+							'text_offset': [
+								8845880221053603,
+								-4608173221673469,
+								-4648716481702531,
+								7303050814666203,
+								-7362740128481924,
+								2380405973108937,
+								-4237389062706692,
+								-6897460026609718,
+								8366845590686783,
+								-8855682528375583
+							]
 						},
-						'finish_reason': 'length'
+						'finish_reason': 'stop'
 					},
 					{
-						'index': 49,
-						'text': '',
+						'index': -8958201945575955,
+						'text': 'v',
 						'logprobs': {
 							'tokens': [
-								'hasOw',
-								'totyp,N',
-								'V',
-								'D\\D*(?gF',
-								'~N{#h_',
-								'n"',
-								'??*geHtzd',
-								'!x ',
-								'T\'"',
-								'4'
+								'Qk{f%7%',
+								'key',
+								'-x',
+								'',
+								'Ayf%TCQ',
+								'__defineGe',
+								'#'
 							],
 							'token_logprobs': [
-								-2.5797924493192495e-124,
-								5.866957889820808e+118
+								-1.2800407628627802e-63,
+								3.536875046782771e-109
 							],
 							'top_logprobs': [
 								{
-									'  "#6z%"rP': 44
-								},
-								{
-									'': -4995066816583652,
-									'ref': -44,
-									'Z6}N': -2644515974003130,
-									'key': 7727316557362217
-								},
-								{
-									'rPwlen': -8517970664398787,
-									'key': -6845193108571757,
-									'': -2768914552644371,
-									'_}.': -4
+									'&?%%#!%&': 1629802387551569
 								},
 								{},
 								{
-									'%%3$[}(': 9007199254740951
+									'\')H*': -45
 								},
 								{
-									'sk<oPV': 4290106768621889,
+									'O\\eblXITn\'': 6968732582974389,
+									'q': 2636928653032489
+								},
+								{
+									'ivx}F': 5250143780791193,
+									'_callere': -25,
+									'P': 44,
+									'name': -7596047214952188,
+									'G(': 9007199254740991,
+									'': 4196902171606801,
+									'\\zB8q{{': 9007199254740959,
+									'<S%rJvw': 50
+								},
+								{
+									')B': 6556130395172883
+								},
+								{
+									'XDr;.1': 3690977436499269,
+									'': 2555966015534529,
+									'D[v5PGQ\\U~': 6112484943325281,
+									'bEVR.gD|h': 4962082288289459,
+									'F&QaV': 7665606870868317,
+									'P#': 5419989754190365,
+									'w.': 3072573592649585,
+									'r}t(C$|R': -8940393575344749
+								},
+								{
+									'PV': 4290106768621889,
 									'GQMG1Vew': 1678930121606879,
 									'"': -782061066408255,
 									'!c+y': 6991089590058655,
@@ -3776,236 +2919,264 @@ export const samples = {
 									'&': 6632374251272833
 								},
 								{
-									'}:ototy': 5572441081492667,
-									'=]_S{u<+`': 50,
-									'bind': -5770517016058221
-								},
-								{},
-								{
-									'<-w%[SN': -3231779703138,
-									't%W': 2319650390531033,
-									'QDwyt)': -7495670084478399,
-									'': -8560269735841424,
-									'z[=28': -7472919115501500,
-									'NxNG7e': -4141604200170874,
-									'g': -2978810281319131
+									'': 3023988832640453,
+									'=': 4250865898459735,
+									'vFH': -1244632855690337
 								}
 							],
 							'text_offset': [
-								5306851954811313
+								5572441081492667
+							]
+						},
+						'finish_reason': 'stop'
+					},
+					{
+						'index': 5710087524427689,
+						'text': '',
+						'logprobs': {
+							'tokens': [],
+							'token_logprobs': [
+								NaN,
+								0.026854497327440333,
+								-3168005.864031875,
+								8.4e-323
+							],
+							'top_logprobs': [],
+							'text_offset': [
+								-3231779703138,
+								-8529264651635319
+							]
+						},
+						'finish_reason': 'content_filter'
+					},
+					{
+						'index': -10,
+						'text': ' ',
+						'logprobs': {
+							'tokens': [
+								'[=28no',
+								'NxNG7e',
+								'PogzYWK6',
+								'Ud\\{',
+								''
+							],
+							'token_logprobs': [
+								1.3505460484634985e+32,
+								1.3669904794855285e-48,
+								4.946321741703929e-195,
+								3.882621476968189e+272,
+								6.623062009939916e+94,
+								2.025451554703194e-177,
+								-1.4535226394783718e-185
+							],
+							'top_logprobs': [
+								{
+									'Q(': -1508571177659423,
+									',Uj<j': 3250242862929373
+								},
+								{},
+								{
+									',C': 8022628239263967,
+									'?UaeQyxqt': 584388836541209,
+									'sL': -7306551541992479,
+									'elt^uYMH"': -3829404512843771,
+									'g/^{%9': -7473748918142344,
+									'xxDS': -3738555397067870,
+									'Zq&0(<6t,': -5367792252499996
+								}
+							],
+							'text_offset': [
+								-1275909692419344,
+								-826596034114618,
+								2611363580059525,
+								3854611899404777,
+								-4834986932045634,
+								-2807562152125199,
+								3298855557504059,
+								6706708166747413,
+								6248714015631957
 							]
 						},
 						'finish_reason': 'length'
 					},
 					{
-						'index': 5982604310064921,
-						'text': '~z&qS%y',
+						'index': -2101950089837071,
+						'text': 'cg"EH~z',
 						'logprobs': {
-							'tokens': [
-								'd,Uj<',
-								',M&',
-								'',
-								'B%,CF<5?Ua',
-								'Q',
-								'',
-								'qt*',
-								'K',
-								'',
-								'0p'
-							],
+							'tokens': [],
 							'token_logprobs': [
-								-2.03e-322,
-								2.168626226730095e-66,
-								3.062800694462168e-256
+								-3.369343392814307e+68,
+								1.8782080916023604e-283,
+								1.2470084720196843e-235,
+								2.1761284005444253e+300,
+								1.618397383163955e-174,
+								2.8733388201194985e-295
 							],
 							'top_logprobs': [
 								{
-									'{%9wU ': -5259127371933903,
-									'S 92Zq&0(': 1946779523440781,
-									',GaVt': -7958058687039598,
-									';-ri': 3854611899404777,
-									')`;M$\']C': 5746406672944535,
-									']7': -2101950089837071,
-									'Ncg"EH~zm': -7691951452041468,
-									'1Fi': 3357791529812405,
-									'y': 7317093666312331
+									'_,': -3567545077185009,
+									'kn': -16,
+									'key': -26,
+									'A8}EMi': -9007199254740955,
+									'': -3110228975194975
+								},
+								{
+									'&': -9007199254740974,
+									'DtoanamV"n': 6067014613383529,
+									'L!': 7,
+									'': 7212190514113723,
+									'xQ0$!\'*': 5356155397225209,
+									'kz[_': 1693026075953861,
+									'u': -2265987238965527,
+									' __defic': -5257591242624814
 								}
 							],
 							'text_offset': [
-								6611688282959629
+								-414624148448286,
+								-7652508687935583,
+								2601149656063365,
+								-2790313448025816,
+								-641252007946419,
+								-3482172466997846
+							]
+						},
+						'finish_reason': 'length'
+					},
+					{
+						'index': 191182052669763,
+						'text': 'i',
+						'logprobs': {
+							'tokens': [
+								'qz?96X',
+								'>(%YDL>8r#',
+								'<p',
+								'O(Iz4a@4q)',
+								'4XG5b4',
+								'#/m',
+								'`',
+								'*,x;:e`p'
+							],
+							'token_logprobs': [
+								-1.9287066732835976e+87,
+								-1.9673599509408886e-255,
+								4.310476774631094e-249,
+								-3.25401410797459e+272,
+								6.396175508703122e+77,
+								-2.834657458422286e+44,
+								-0.0002363971260079807
+							],
+							'top_logprobs': [],
+							'text_offset': [
+								-1818860012380024,
+								2600543853464957
 							]
 						},
 						'finish_reason': 'content_filter'
 					},
 					{
-						'index': 9007199254740958,
-						'text': '$9_,o',
+						'index': 1912085719750745,
+						'text': 'fVN;\\| ',
 						'logprobs': {
 							'tokens': [],
 							'token_logprobs': [
-								-996453650977.933,
-								-8e-323,
-								-8e-323,
-								-1.53e-322,
-								-2.37e-322
+								-2.324259797669513e-307,
+								1.7661592368324788e-62,
+								3.1546072490916877e+235,
+								-3.0687319683989124e-195,
+								-8.122511703183802e+176,
+								1.5306307693490819e+258,
+								1.6788631019185908e+184,
+								-7.798707943107056e-278,
+								-7.46023542400631e+233,
+								1.6744458156967396e-69
 							],
 							'top_logprobs': [
 								{
-									'}EMi+': -978928090407737,
-									'RVBdMl': -4318359540159617,
-									'QY{T': 1601178448292645,
-									'vPA&R>c\\GO': -1142849809326959,
-									'}vb': -4726329825229644,
-									'as': 3633537724403825,
-									'WL-Vw': -5706950985649835,
-									'1L<8W=L_o': 2029412606329309,
-									'm>uvCG': 7212190514113723
-								},
-								{},
-								{
-									'6Cx,Qs0': -2954674925297374
+									'D9': 7967345516869033,
+									'DeJ': 8052275862892595,
+									':ji[u': -7306207879510285
 								},
 								{
-									'B4\'%*q2\\hW': -2246059888250771
+									'\\n#ns': 3460549606033773,
+									'}Is(': -1569549550258786,
+									'4d"U#|@': 1186797424449171,
+									'A$O|': 8172143673143105,
+									'XPa/O>\'+': 8442373017136311
 								},
 								{
-									'u,cl_u~^t': -2889652726133502
-								},
-								{
-									'': -1621809671470296,
-									'BP2I)*Jt': 6936858590124565,
-									'-8:&<eq': -7652508687935583,
-									'c': -2790313448025816,
-									'*': -6566640996270499,
-									'~B': -3831257468309130,
-									'Zqz?96X\\': -2212029620961360,
-									'YDL>8r#J<p': -589313363100578
-								}
-							],
-							'text_offset': [
-								4885062260107303,
-								5285478675078549,
-								-4267945242853292,
-								-1677296890960726,
-								5219708169838321,
-								2662505263674299,
-								3364048302705573,
-								1816030740200291
-							]
-						},
-						'finish_reason': 'stop'
-					},
-					{
-						'index': 2466292276332113,
-						'text': '{',
-						'logprobs': {
-							'tokens': [
-								'ka',
-								'Ryo":XE',
-								'__',
-								'd|`m',
-								';',
-								'|',
-								'S"D Rr%w3$'
-							],
-							'token_logprobs': [
-								-7.891181545957919e-89,
-								1.3054206332511523e-71
-							],
-							'top_logprobs': [
-								{
-									'0d#': 6854859865086751,
-									'[u3B_!^\\n#': -5687480324288701,
-									'Yi}Is': -1545076038013823,
-									'g4d"U': -8254598361906281,
-									'@(': -4573484207758819,
-									'O|': 8172143673143105,
-									'XPa/O>\'+': 8442373017136311,
-									'Ox[#(pL9}': 453085821719571,
-									'3!>S&9@-': 4239588783297239
-								},
-								{
-									'6,T': -7283988844214417
-								},
-								{
+									'[#(pL9': -5414796889318379,
+									'g3!>S&9@-': 4239588783297239,
+									'Vg\\b6,T ;A': -730454626629956,
 									'Zy|=%<': 8004473150882937,
 									'/Fq': 8261887469353813,
 									'': -2124174995705944,
 									'+3Qa-~:~Q/': -3055839250039472,
-									'9/nnz': 6253462820937385,
-									'R_M': -1011560376324348,
+									'9/nnz': 6253462820937385
+								},
+								{
+									'M': -1011560376324348,
 									'q=KA-r': -7077329009400690,
 									'F': -8167780031502348,
 									'*K-V1': -5011427194108575,
-									'nEw>N': -292967245179816
+									'nEw>N': -292967245179816,
+									'a_5&0F|QJ': -5299758307153152,
+									'YkuC*GhXt': -2246831280456465,
+									'X=Z:': -8533708460944660,
+									'<Vqd': 372363006289601,
+									'8[': -3048518862403666
+								},
+								{},
+								{
+									'h!|s,5}=': -1820726349276450,
+									'D>0Zfzn!': 796023202080689,
+									'pS\'a;}\\G[]': 1064896501129263,
+									'_Kb/_K@3<': 1570173033338555,
+									'?S\\D3pR': -6616216078851631,
+									':TsTlz3': 5546488606617735
+								},
+								{
+									'': -2553018626868862,
+									'G^f': -2114522085115366,
+									'B?v*?j|Lt': 1315968498793515,
+									'{LCd=8': -4362423062261058,
+									',_\\&6O8A_q': 7455759696781009,
+									'"yh\\Nt1$;': 2309697700908143,
+									'|J': -3290083918150169,
+									'E:~': -271372718383914,
+									'@-"': -631707150397051
+								},
+								{
+									'70': -8546676941560522,
+									'ua?2N-': -8771973282510037,
+									'UlKt#,': -8702472058202783,
+									'1I': -5935204717938181,
+									'#x_PM$\\p': -7195336850606017,
+									'~{(4J+t?w3': 2457998369582937,
+									'i<FR_': 5861696993687,
+									'SKsH=': 6499121673515419,
+									'fc\'c^O\\': -8731648883587103,
+									'|': -2723286182650014
 								}
 							],
 							'text_offset': [
-								3373180780920921,
-								-2790859291198428,
-								-5299758307153152,
-								5286089238638579,
-								-1982738286688322,
-								31,
-								-2246831280456465
+								4412924946443373,
+								-8927359623285025,
+								-2601544383869892,
+								-6703771627067304,
+								8235541566978953,
+								3350049429224227,
+								8647514213465705,
+								-2862442851359674,
+								6518196590393883
 							]
 						},
-						'finish_reason': 'stop'
-					},
-					{
-						'index': 4868163623122081,
-						'text': '#4<',
-						'logprobs': null,
-						'finish_reason': 'content_filter'
-					},
-					{
-						'index': -34,
-						'text': '[Hc:}"T%',
-						'logprobs': {
-							'tokens': [],
-							'token_logprobs': [
-								-1.5107623673221439e-202,
-								8.887166144420663e+188,
-								-2.8890694736537756e+56,
-								-0.011717240846329604,
-								3.363463733878358e+203,
-								1.9629996355912253e+50
-							],
-							'top_logprobs': [
-								{
-									';}\\G[]5rw': 4,
-									'K': 7307591672547401,
-									' "': 9007199254740976,
-									'$': 2763132888853961,
-									'3G': 12,
-									'B?v*?j|Lt': 2247585684282385,
-									'': 455028450200145,
-									'name': 7455759696781009,
-									'yh\\Nt1': 3,
-									'KE#l-xg{2': -9007199254740976
-								},
-								{
-									'!y#z': -12,
-									'(__lookupS': -3987844031303910,
-									'Bvi<FR': 5861696993687
-								},
-								{
-									'': 6396008387448407
-								}
-							],
-							'text_offset': [
-								5543300075912445,
-								-8997770118483309,
-								-7841730923004253
-							]
-						},
-						'finish_reason': 'content_filter'
+						'finish_reason': 'length'
 					}
 				],
 				'usage': {
-					'prompt_tokens': 18,
-					'completion_tokens': 1223803918504753,
-					'total_tokens': 1136591726894137
+					'prompt_tokens': -45,
+					'completion_tokens': -9007199254740985,
+					'total_tokens': -9007199254740955
 				}
 			},
 			{
@@ -4051,20 +3222,34 @@ export const samples = {
 									'l/i+N': -6431687831899615
 								},
 								{
-									'G8+0P_.kza': 7199711094488419
+									'8+0P_.kza': 7199711094488419,
+									'T': -5810649697116621,
+									'swT:T~4)JI': -3478062749203798,
+									'ttiH!_9u8': 8435461279611109,
+									'AB0;tyVs"': 7579902846651315,
+									'{8': -1246781333060092,
+									'-e6B_ E': -4673348367980143,
+									'IN<hKPsb': -5707259337541623,
+									'la"@;': -5576212671039326,
+									'': 8557194489823005
 								}
 							],
 							'text_offset': [
-								-3092600411432129
+								-6933572566332652,
+								-5460459465395319,
+								1526115842573281,
+								-1910073019043159,
+								-800194349946822,
+								4421669159563153
 							]
 						},
 						'finish_reason': 'content_filter'
 					}
 				],
 				'usage': {
-					'prompt_tokens': 9007199254740974,
-					'completion_tokens': -9007199254740957,
-					'total_tokens': 2
+					'prompt_tokens': -23,
+					'completion_tokens': -59883672999361,
+					'total_tokens': -7753210856868720
 				}
 			},
 			{
@@ -4091,190 +3276,104 @@ export const samples = {
 									's<S': 2410948864828137
 								},
 								{
-									'_, w:6ZdO': -4334007050038967,
-									'lMN]a<kCU': -5010130899753184,
-									'V_H7s:aC': -945719615270849,
-									'iD!x.!ac': 24,
-									'Nhw"': 52,
-									'.!~Uu+PKY': 3238422338229761,
-									'': 2829728422763629,
-									'zUc': 5238855177354041,
-									'qp2i=Du6': 3642306437940101
+									'x': -8339178527601949,
+									'w:6Zd': 8557838127557149,
+									'T:q': 1600676232432033,
+									']a': -1365492743070613,
+									'UCGU.0': -7955515578990819,
+									'7s:aCM^Fv': -8385153451216807,
+									'viODX!@&x': 4195114094515937,
+									'!`a[cw': -7542040851875229,
+									'HN': 85203176531401
+								},
+								{}
+							],
+							'text_offset': [
+								578572397638133,
+								1046427103433065,
+								5457639909439865,
+								-1745932988063949,
+								7630273125253461,
+								-1594288098248693,
+								1165887177778989,
+								3610595170438761,
+								2829728422763629
+							]
+						},
+						'finish_reason': 'length'
+					},
+					{
+						'index': -266559298605762,
+						'text': '$x$sR#=!7',
+						'logprobs': {
+							'tokens': [
+								'L9w}>c1F3d'
+							],
+							'token_logprobs': [
+								-6e-323,
+								3e-323
+							],
+							'top_logprobs': [
+								{
+									'eG=pr{Nd\'': 2315641904048023,
+									'N}0Z^9",uJ': -2999144568583520
 								},
 								{
-									'L9w}>c1F3d': -6656365318573343
+									'}E': 21
 								}
 							],
 							'text_offset': []
 						},
-						'finish_reason': 'stop'
-					},
-					{
-						'index': -16,
-						'text': 'nG',
-						'logprobs': {
-							'tokens': [
-								'Nd\'0ubN}',
-								'Z^9",u',
-								'Bh7O1bh',
-								'}E'
-							],
-							'token_logprobs': [
-								-4.221390022833488e+289
-							],
-							'top_logprobs': [
-								{
-									'< gXb%I': -1864566036636822,
-									'\\': -7060475369173571,
-									'Vl2}M;zG': 2230481400413121,
-									'|Oz[': -2417091388193004,
-									'': 1396169998267317,
-									'D]H3)=wS': 1343879177598835,
-									'~': 2074808908546993,
-									'T}': 5803224825079797,
-									'Ko+@b': -6271938115376175
-								},
-								{
-									'yNaxT': -5688343469165643,
-									'obU': 4924610990138473,
-									'6UF': 6322955025238351,
-									'1E$RavPDDO': 3087033404134601,
-									'5/2\'rl': -1796096321024195
-								},
-								{
-									'g': 5007755202586397,
-									'r': 2626838836533665
-								},
-								{
-									'#k2`*^F:6': -8175546739217968
-								},
-								{
-									'Jb=h': 8741267968376597,
-									'i': 8078234286399731,
-									'G7af~Dh3y@': 5339733089165293,
-									'~F': -4796158452806671,
-									'ZzBWxv': -887580244156626,
-									'1\'ODFEO': -2099169914249810,
-									'}': -6520220630361332,
-									'No2ZVddR@4': -4725486993235403,
-									'BVzm}': -6935252865871959
-								},
-								{
-									'K\\7 PhBXp': -385776834330922,
-									'q?7mB': 763168176925533,
-									'Jh': -4356109594318010,
-									'W2S': 5539192480711377,
-									'JJmseR': 4271580858890749,
-									'{1<(*O': -872875137692256,
-									'u?xV/0;': 5744166265005601,
-									';:Bg^xI13': 6572726160775717,
-									'l': 575835423772353
-								},
-								{
-									'@0P)IC!E': -3649108128858054,
-									'%)': 1355420436088209,
-									'/>': 3934766887762063,
-									'isHNg{I5O': -5512858413327105,
-									'R8': -6260925376796804,
-									'HW:MmBm!^': 2348803367193539,
-									'Gl-@>': 8023295399256141,
-									'f': -1741332983756612,
-									')N~': 405635880088421,
-									'p?/(': -315878160475216
-								},
-								{
-									'v7': -3110226512687006,
-									'^9g<?t$': 132622386017625,
-									'g[J[w': -2391978246317439,
-									'G6w-w:^c0%': 4789751058520339,
-									'': -3372793002729798,
-									'3dy': -884426535145816,
-									'6`40=Z': -4419377012381594,
-									'?\\;5V"foh': 8668599794108817
-								},
-								{
-									'3?+`H': 1444339292809595,
-									'e+': 3811477410300277,
-									'S': -3255438165659194
-								}
-							],
-							'text_offset': [
-								-6422441496283679,
-								-360227843156883,
-								-4760935672232031,
-								2811617873500421,
-								1499258344071679,
-								-6217387350438867,
-								-7814193631225741
-							]
-						},
 						'finish_reason': 'content_filter'
 					},
 					{
-						'index': 2877257036161011,
-						'text': '5qrc',
+						'index': 4,
+						'text': 'b%IL+Z\\93',
 						'logprobs': {
 							'tokens': [
-								'<IU'
+								'}M;zG',
+								'Wt|Oz[',
+								'_',
+								'',
+								'v',
+								'D]H3)=wS'
 							],
-							'token_logprobs': [
-								2.2539670307788517e+256,
-								-2.4546719277756494e+283,
-								6.398234107895454e-170,
-								-5.828653115328253e-186,
-								3.504496990425832e-294,
-								-1.9378035206967318e-166,
-								2.0160252232022958e+278
-							],
+							'token_logprobs': [],
 							'top_logprobs': [
+								{},
 								{
-									'z': 7682513974662481
+									'KT': -3535220855497215,
+									'lKo+@b<': -3259156681978652,
+									'yNaxT': -5688343469165643,
+									'obU': 4924610990138473,
+									'6UF': 6322955025238351,
+									'1E$RavPDDO': 3087033404134601
 								},
 								{
-									'97': -8928795392188685,
-									'P{bjUPj=': -943811030668548,
-									'Q 14MbmocH': 2611549726712089,
-									'\'r~ckIu1': -7645057477430995,
-									'{_C': 2060727343787505,
-									'Q@AhNe': -5795191441873401,
-									' xelRe23': -3641881953320279,
-									'Sv7cU\'{\'': 8218820816938161,
-									'z*I7': -1435674824385683
-								},
-								{
-									'"h~T>*': -3909050573081021,
-									'N-@t I': -2027447839345558,
-									'ZCG3O/ ': 74901559929965,
-									'2O&oJ:7wH': 5051242432681985,
-									'% U': 5292100405061325,
-									'f]\\$huU!n3': 2158285815024185
-								},
-								{
-									'': 2472278866147931
-								},
-								{
-									'': -5318238721114950,
-									'_$=y': -1441545270773956,
-									'7n#@,Eih9': -5886227221136451,
-									'@X6U\\b44hx': 929477928357613,
-									'T)f=vE]': 2371979395889849,
-									'CFCh>w': 8056801663927867
+									'2\'': 2567830351383221,
+									'5%ggGe': 199551794120293,
+									'': 7839110981435479,
+									'#k2`*^F:6': -8175546739217968,
+									'4Jb=hhzHi': 8078234286399731,
+									'G7af~Dh3y@': 5339733089165293,
+									'~F': -4796158452806671
 								}
 							],
 							'text_offset': [
-								6590165519821509,
-								7349126574911129,
-								6266048933350729
+								7729562471623865,
+								6078711500552013,
+								-887580244156626,
+								8057853007814109,
+								4972586124779083,
+								259459158883389,
+								7524057242030119,
+								-2099169914249810,
+								-484452956511477
 							]
 						},
-						'finish_reason': 'length'
+						'finish_reason': 'stop'
 					}
-				],
-				'usage': {
-					'prompt_tokens': 8017974755141889,
-					'completion_tokens': 6911602934291197,
-					'total_tokens': 76997794210649
-				}
+				]
 			}
 		],
 		'CreateEditRequest': [
@@ -4328,9 +3427,9 @@ export const samples = {
 					}
 				],
 				'usage': {
-					'prompt_tokens': 3431320546432719,
-					'completion_tokens': 3460722071092843,
-					'total_tokens': 21
+					'prompt_tokens': 9007199254740951,
+					'completion_tokens': -3,
+					'total_tokens': 1420428971246357
 				}
 			},
 			{
@@ -4343,25 +3442,25 @@ export const samples = {
 						'finish_reason': 'length'
 					},
 					{
+						'text': 'K',
+						'index': -5631469596107203,
+						'finish_reason': 'stop'
+					},
+					{
+						'text': 'ka',
+						'index': -3100215902955851,
+						'finish_reason': 'length'
+					},
+					{
 						'text': '',
-						'index': 5178512383065365,
-						'finish_reason': 'length'
-					},
-					{
-						'text': 'B',
-						'index': -5507447356553084,
-						'finish_reason': 'length'
-					},
-					{
-						'text': '?G',
-						'index': -2704905703538252,
+						'index': 154698745919729,
 						'finish_reason': 'stop'
 					}
 				],
 				'usage': {
-					'prompt_tokens': -24,
-					'completion_tokens': -1725913310238462,
-					'total_tokens': -4243160923077178
+					'prompt_tokens': 34,
+					'completion_tokens': 15,
+					'total_tokens': 38
 				}
 			},
 			{
@@ -4375,9 +3474,9 @@ export const samples = {
 					}
 				],
 				'usage': {
-					'prompt_tokens': 4170106346149985,
-					'completion_tokens': 7067900313175501,
-					'total_tokens': 45
+					'prompt_tokens': -3,
+					'completion_tokens': 7183984005123651,
+					'total_tokens': 4182378936615621
 				}
 			},
 			{
@@ -4390,15 +3489,15 @@ export const samples = {
 						'finish_reason': 'length'
 					},
 					{
-						'text': 'W83F1',
-						'index': -5324441155802604,
+						'text': '83',
+						'index': -2354672613270022,
 						'finish_reason': 'stop'
 					}
 				],
 				'usage': {
-					'prompt_tokens': -7147509804422720,
-					'completion_tokens': -4277895518425397,
-					'total_tokens': 7026071321090133
+					'prompt_tokens': -26,
+					'completion_tokens': 5379460477013319,
+					'total_tokens': -35
 				}
 			},
 			{
@@ -4411,29 +3510,29 @@ export const samples = {
 						'finish_reason': 'stop'
 					},
 					{
-						'text': 'b4ug{;Fj',
-						'index': 3816889140404385,
+						'text': '4',
+						'index': 5812434823937413,
 						'finish_reason': 'stop'
 					},
 					{
-						'text': 'w1lXajj',
-						'index': -6355881311550763,
-						'finish_reason': 'length'
-					},
-					{
-						'text': ')dw',
-						'index': 8754884418654633,
+						'text': 'j1]>zw',
+						'index': -1513875985504010,
 						'finish_reason': 'stop'
 					},
 					{
-						'text': 'T/0$q',
-						'index': -5277777301612695,
+						'text': 'j#>x:)',
+						'index': 4869048987908177,
 						'finish_reason': 'length'
 					},
 					{
-						'text': 'X%@syNc',
-						'index': -2964930669156999,
+						'text': 'MT',
+						'index': 8833144847254137,
 						'finish_reason': 'length'
+					},
+					{
+						'text': 'dJ?X%@syN',
+						'index': -4677260404230294,
+						'finish_reason': 'stop'
 					}
 				],
 				'usage': {
@@ -4497,15 +3596,15 @@ export const samples = {
 						'object': 'embedding',
 						'embedding': [
 							1.7239822556155386e-305,
-							-2.27e-322,
+							1e-323,
 							5.029672284330661e-18,
-							3e-322
+							2.5e-323
 						]
 					}
 				],
 				'usage': {
-					'prompt_tokens': 9007199254740951,
-					'total_tokens': -3
+					'prompt_tokens': 27,
+					'total_tokens': 3
 				}
 			},
 			{
@@ -4520,15 +3619,17 @@ export const samples = {
 						]
 					},
 					{
-						'index': -4260276367636519,
+						'index': 6271444680713219,
+						'object': 'embedding',
+						'embedding': []
+					},
+					{
+						'index': -8951572677704823,
 						'object': 'embedding',
 						'embedding': [
-							-3.3588419070606835e+222,
-							2.48745237061599e-237,
-							-1.977590642166704e-34,
-							5.076691207757488e+207,
-							-2.6366258841564536e-150,
-							-1.0117727373444844e-73
+							-246815664640.74954,
+							-4.987965587892669e+67,
+							-4.3714792170989e+246
 						]
 					},
 					{
@@ -4540,26 +3641,11 @@ export const samples = {
 							-2.141030831841768e+229,
 							2.4712223852955565e-299
 						]
-					},
-					{
-						'index': 3044439635824521,
-						'object': 'embedding',
-						'embedding': [
-							-1.968235794571496e-300,
-							-2.112636522003258e+186,
-							8.731704624835332e+109,
-							-2.0006560976368245e-35,
-							-3.304312462140761e+130,
-							-1.8299867337826988e-230,
-							7.786107627999606e+72,
-							3.0941225446003613e+252,
-							3.5549594735191135e+301
-						]
 					}
 				],
 				'usage': {
-					'prompt_tokens': 15,
-					'total_tokens': 9007199254740966
+					'prompt_tokens': -1725913310238462,
+					'total_tokens': -4243160923077178
 				}
 			},
 			{
@@ -4576,8 +3662,8 @@ export const samples = {
 					}
 				],
 				'usage': {
-					'prompt_tokens': 29,
-					'total_tokens': -2
+					'prompt_tokens': 4170106346149985,
+					'total_tokens': 7067900313175501
 				}
 			},
 			{
@@ -4599,23 +3685,18 @@ export const samples = {
 						]
 					},
 					{
-						'index': 8143852094050725,
+						'index': 3185988981028397,
 						'object': 'embedding',
 						'embedding': [
-							7.7656425539626e-52,
-							4.628710189484482e-258,
-							-4911.663004172573,
-							-5762807424.832144,
-							-2.02531101008742e+83,
-							-1.9079023065326996e-18,
-							2.2357562043014555e+63,
-							1.8006291510364276e-211
+							-6.616286631323084e+50,
+							1.292661861469973e-275,
+							-1.6327248386422616e-26
 						]
 					}
 				],
 				'usage': {
-					'prompt_tokens': 7496076609618097,
-					'total_tokens': -7973323236451022
+					'prompt_tokens': 2100429121808153,
+					'total_tokens': -4
 				}
 			},
 			{
@@ -4639,73 +3720,73 @@ export const samples = {
 						]
 					},
 					{
-						'index': 1983802564365201,
+						'index': 2053402690427741,
 						'object': 'embedding',
 						'embedding': [
-							7.986309149233314e-88,
-							2.2277062483289316e-121,
-							6.871609095285797e+184,
-							2.469340617383344e+74,
-							-5.4410491052674676e-154
+							-1.8944931138978042e+230,
+							-6.07536407396041e-271,
+							0.0000020621224572767144,
+							1.1928942802734248e-91,
+							8.311048523069549e+185,
+							3.0187803287010567e+268,
+							3.9543094700291757e+62
 						]
 					},
 					{
-						'index': 6172744036991417,
+						'index': -5277777301612695,
 						'object': 'embedding',
 						'embedding': [
-							3.9543094700291757e+62,
-							-8.674526224661259e+136,
-							9.75354222812983e-45,
-							6.506458068453944e-212,
-							-2.382454667603027e+266,
-							-3.5793165813779307e-12,
+							6.506458068453944e-212
+						]
+					},
+					{
+						'index': 5267971775693849,
+						'object': 'embedding',
+						'embedding': [
 							1.2770482579330461e+231,
 							-9.487218860133057e-247,
 							1.1527915003471923e-188,
-							1.992453702973367e-96
+							1.992453702973367e-96,
+							-4.0779264269372735e+226,
+							2.615804942087344e-176,
+							2.8441820486758262e+203,
+							5.600946580087825e+33
 						]
 					},
 					{
-						'index': 5758287343888883,
+						'index': -2848185602084871,
 						'object': 'embedding',
 						'embedding': [
-							7.366572714869017e-21,
-							1.0348028384546306e+24,
-							-2.0298213818542995e+118,
-							2.2480107242694333e+209,
-							-2.0284611453978832e-201,
-							-1.2948400620562807e+99,
-							242907607194061980,
-							3.590907259744695e+170,
-							1.443268645760571e-200,
-							-1.4301988191528283e-36
-						]
-					},
-					{
-						'index': 3058642915744813,
-						'object': 'embedding',
-						'embedding': [
+							-1.0637061101369826e+248,
+							1.0081401848945538e+153,
+							-2.1593286513528987e-252,
+							1.7204737150821537e+51,
+							-1.7176059113001816e+181,
+							1.1299228290632103e+43,
+							5.797042139044728e+60,
 							-2.4817189238638608e-269,
-							5.0475547070595165e+32,
-							2.410921071095989e+301,
-							1274529.2392225473,
+							5.0475547070595165e+32
+						]
+					},
+					{
+						'index': -3740123000507742,
+						'object': 'embedding',
+						'embedding': [
 							-1.9436385899113685e-140,
 							7879307283628800,
 							-1.6431607450196283e-30,
 							-2.228948981797343e-198,
 							1.0113835065114451e-109,
-							-4.842587234601288e-178
+							-4.842587234601288e-178,
+							-5.717304792950623e-302,
+							2.5767804235709496e-211,
+							2.5246859364237605e-275
 						]
-					},
-					{
-						'index': -5517937531175103,
-						'object': 'embedding',
-						'embedding': []
 					}
 				],
 				'usage': {
-					'prompt_tokens': -1133964940944190,
-					'total_tokens': 52
+					'prompt_tokens': -1376133099602180,
+					'total_tokens': 4390546098238289
 				}
 			}
 		],
@@ -4743,7 +3824,7 @@ export const samples = {
 				'embedding': [
 					1.570515416842304e+296,
 					3.5350753028755085e+161,
-					-1.33e-322,
+					-1e-323,
 					-4.109212834110641e-166
 				]
 			},
@@ -4752,14 +3833,14 @@ export const samples = {
 				'object': 'embedding',
 				'embedding': [
 					1.5229968792035285e+206,
-					-3e-323,
+					9e-323,
 					1.844077993547969e-83,
-					-Infinity,
+					-1.7976931348623151e+308,
 					2.171864694483577e-253,
 					3.7405655943947157e-16,
-					-2.2e-322,
+					9e-323,
 					-2.487207815404871e-235,
-					-1.5e-322
+					3e-323
 				]
 			},
 			{
@@ -4792,22 +3873,22 @@ export const samples = {
 						'owned_by': ''
 					},
 					{
-						'id': '',
+						'id': 'K',
 						'object': 'model',
-						'created': 'K',
-						'owned_by': '%B7dka?'
+						'created': '%B7dka?',
+						'owned_by': 'ZhW'
 					},
 					{
-						'id': 'ZhW',
+						'id': 'UI;n',
 						'object': 'model',
-						'created': 'jUI',
-						'owned_by': 'nDA$(;2OV'
+						'created': 'A$(;2O',
+						'owned_by': 'mF4,iMU6\'L'
 					},
 					{
-						'id': 'F4,iMU',
+						'id': 'I^',
 						'object': 'model',
-						'created': '\'LDrI^b',
-						'owned_by': 'f'
+						'created': 'ufUC',
+						'owned_by': 'B.gE'
 					}
 				]
 			},
@@ -4832,10 +3913,10 @@ export const samples = {
 						'owned_by': '~D'
 					},
 					{
-						'id': '\\~8MxC0;',
+						'id': '~',
 						'object': 'model',
-						'created': 'Q',
-						'owned_by': 'm|hbI:O'
+						'created': 'MxC',
+						'owned_by': ';UQ<m|hb'
 					}
 				]
 			},
@@ -4849,34 +3930,34 @@ export const samples = {
 						'owned_by': '4'
 					},
 					{
-						'id': 'g{;Fj1]>',
+						'id': '{;Fj1]>',
 						'object': 'model',
 						'created': 'w1lXajj',
 						'owned_by': '>x:)dw{'
 					},
 					{
-						'id': ';MT',
+						'id': 'MT',
 						'object': 'model',
 						'created': '0$q"dJ?X%@',
 						'owned_by': 'yNc/O^5\''
 					},
 					{
-						'id': '%wXia',
+						'id': 'wXia)s*Nb',
 						'object': 'model',
-						'created': 's*Nb7$gK',
-						'owned_by': ':-oc*Y}IU'
+						'created': '$g',
+						'owned_by': '[:-o'
 					},
 					{
-						'id': '<SV',
+						'id': 'Y',
 						'object': 'model',
-						'created': '1q',
-						'owned_by': 'Ux_, w:6Z'
+						'created': 'IUs',
+						'owned_by': 'SVt1qKUx_,'
 					},
 					{
-						'id': 'O{BT:qlMN]',
+						'id': ':6ZdO{BT:q',
 						'object': 'model',
-						'created': '<kCUCGU.',
-						'owned_by': 'V_H7s:aC'
+						'created': '',
+						'owned_by': 'N]a<k'
 					}
 				]
 			}
@@ -4969,33 +4050,32 @@ export const samples = {
 						'status': 'error'
 					},
 					{
-						'id': '',
+						'id': 'dka',
 						'object': 'file',
-						'bytes': -5507447356553084,
-						'createdAt': 'a?GZ',
-						'filename': 'WI',
-						'purpose': 'UI;n',
-						'status': 'deleted',
-						'status_details': ';2OVmF4,'
+						'bytes': -3100215902955851,
+						'createdAt': 'hWIj',
+						'filename': 'I',
+						'purpose': 'nDA$(;2OV',
+						'status': 'deleting'
 					},
 					{
-						'id': 'MU6\'',
+						'id': 'iM',
 						'object': 'file',
-						'bytes': 1981401224928941,
-						'createdAt': 'I^',
-						'filename': 'ufUC',
-						'purpose': 'B.gE',
-						'status': 'error',
-						'status_details': '+/\'L)'
+						'bytes': -6616032072791378,
+						'createdAt': 'LDrI^bu',
+						'filename': 'UC/B.gEr',
+						'purpose': '|6+/\'L)b|0',
+						'status': 'processed',
+						'status_details': 'FxY/'
 					},
 					{
-						'id': '|0k',
+						'id': 'VbR|`Ogi>',
 						'object': 'file',
-						'bytes': -4388813416904714,
-						'createdAt': 'FxY/',
-						'filename': '+VbR|`Ogi',
-						'purpose': '27^&%gF',
-						'status': 'pending'
+						'bytes': -3364340835901468,
+						'createdAt': '&%gFUy"',
+						'filename': 'f3',
+						'purpose': 'F0F$y^-OR',
+						'status': 'deleted'
 					}
 				]
 			},
@@ -5028,7 +4108,7 @@ export const samples = {
 						'status_details': '0;UQ<m|hb'
 					},
 					{
-						'id': ':O(CS5s',
+						'id': 'O(CS5s',
 						'object': 'file',
 						'bytes': 8772965419884965,
 						'createdAt': 'e',
@@ -5053,53 +4133,53 @@ export const samples = {
 						'status_details': ';MT'
 					},
 					{
-						'id': '0$q"dJ?X%@',
+						'id': '$q"',
 						'object': 'file',
-						'bytes': 145240636009377,
-						'createdAt': '',
-						'filename': '/O^5\'9%',
-						'purpose': 'Xia)s*Nb7$',
+						'bytes': 7836669036334213,
+						'createdAt': 'X%@syNc',
+						'filename': 'O^5\'9',
+						'purpose': 'wXia)s*Nb',
+						'status': 'uploaded',
+						'status_details': '[:-o'
+					},
+					{
+						'id': 'Y',
+						'object': 'file',
+						'bytes': 4949184378582703,
+						'createdAt': 's<S',
+						'filename': '',
+						'purpose': '1q',
 						'status': 'deleting',
-						'status_details': '-oc*Y}'
+						'status_details': ', w:6ZdO{'
 					},
 					{
-						'id': 'Us<SVt1',
+						'id': ':qlM',
 						'object': 'file',
-						'bytes': 5066605701805665,
-						'createdAt': 'x',
-						'filename': ', w:6ZdO{',
-						'purpose': 'T:q',
-						'status': 'pending',
-						'status_details': null
+						'bytes': -1133964940944190,
+						'createdAt': '<kCUCGU.',
+						'filename': 'V_H7s:aC',
+						'purpose': '^FvN7',
+						'status': 'deleted',
+						'status_details': 'DX!@&x(.'
 					},
 					{
-						'id': 'a<kCUCG',
+						'id': '`a[cwD`',
 						'object': 'file',
-						'bytes': 4828092475085413,
-						'createdAt': 'V_H7s:aC',
-						'filename': '^FvN7',
-						'purpose': 'viODX!@&x',
-						'status': 'processed',
-						'status_details': '`a[cwD`'
-					},
-					{
-						'id': 'HN',
-						'object': 'file',
-						'bytes': 85203176531401,
-						'createdAt': '',
+						'bytes': -1058348967633031,
+						'createdAt': 'hw"',
 						'filename': '',
 						'purpose': '#NA.!~Uu+P',
 						'status': 'deleted'
 					},
 					{
-						'id': 'A|!%G',
+						'id': '|!%G$okp',
 						'object': 'file',
-						'bytes': 3610595170438761,
-						'createdAt': 'pQ(',
-						'filename': ')3{<o',
-						'purpose': 'cc&Gy$mss',
-						'status': 'processed',
-						'status_details': 'Rqp2'
+						'bytes': 2005752293915599,
+						'createdAt': ')3{<o',
+						'filename': 'cc&Gy$mss',
+						'purpose': 'zsiRqp2i=',
+						'status': 'deleting',
+						'status_details': '7)k\\'
 					}
 				]
 			}
@@ -5229,7 +4309,7 @@ export const samples = {
 				'hyperparameters': {
 					'n_epochs': 48
 				},
-				'suffix': '&'
+				'suffix': 'call'
 			},
 			{
 				'training_file': 'W|%=2Spc',
@@ -5244,13 +4324,14 @@ export const samples = {
 				'hyperparameters': {
 					'n_epochs': 'auto'
 				},
-				'suffix': 'n>'
+				'suffix': '>H?'
 			},
 			{
 				'training_file': 'gp',
 				'validation_file': 'D8FFD\\8}',
 				'model': 'Q',
-				'hyperparameters': {}
+				'hyperparameters': {},
+				'suffix': 'O(CS5s&Lp'
 			},
 			{
 				'training_file': '',
@@ -5259,7 +4340,7 @@ export const samples = {
 				'hyperparameters': {
 					'n_epochs': 'auto'
 				},
-				'suffix': '";'
+				'suffix': ';MT/0'
 			}
 		],
 		'FineTuningJob': [
@@ -5273,17 +4354,24 @@ export const samples = {
 				'organization_id': 'O(ha\\r1qor',
 				'status': 'succeeded',
 				'hyperparameters': {},
-				'training_file': '}Rcq3Q\\',
-				'validation_file': 'I-zqvO',
+				'training_file': '3{u-',
+				'validation_file': 'F"GfNo%~',
 				'result_files': [
-					'\\',
-					'$%'
+					'h',
+					']Sv\'U"}',
+					'__proto__',
+					'q0!6Sn(J',
+					' U',
+					',',
+					'm)',
+					's-Btd*98',
+					'%%!'
 				],
-				'trained_tokens': null,
+				'trained_tokens': -7944149406186202,
 				'error': {
-					'message': '~',
-					'code': 'u9',
-					'param': 'h,@Sxd6TT'
+					'message': 'wQ(5j5;G',
+					'code': 'Ss+T-onBW>',
+					'param': 'XmX[ex:'
 				}
 			},
 			{
@@ -5298,10 +4386,9 @@ export const samples = {
 				'hyperparameters': {
 					'n_epochs': 'auto'
 				},
-				'training_file': '',
-				'validation_file': 'cal',
+				'training_file': '|$D',
+				'validation_file': ';2OVmF4,',
 				'result_files': [
-					'#iU',
 					'LDrI^bu',
 					'C/B.gE',
 					'|6+/\'L)b|0',
@@ -5329,22 +4416,18 @@ export const samples = {
 				'hyperparameters': {
 					'n_epochs': 26
 				},
-				'training_file': 'V^g=+kU',
-				'validation_file': null,
+				'training_file': 'r__defi',
+				'validation_file': 'i/q2kH',
 				'result_files': [
-					'e',
-					'`\'i',
-					'q2',
-					'H#9_',
-					'',
 					'f',
-					'9U!',
-					'',
-					'6x]RM',
-					'|X;MPfa>7'
+					'\\x$|;Py#'
 				],
 				'trained_tokens': null,
-				'error': null
+				'error': {
+					'message': '#&8z_ }%',
+					'code': 'apply',
+					'param': 'ca@be'
+				}
 			},
 			{
 				'id': 'gp',
@@ -5356,23 +4439,13 @@ export const samples = {
 				'organization_id': 'xC0;UQ<',
 				'status': 'created',
 				'hyperparameters': {},
-				'training_file': 'key',
-				'validation_file': 'Lpe*]%0)ap',
-				'result_files': [
-					'',
-					'<!~.8d&',
-					'AW0B=r&a',
-					'call',
-					'moy63',
-					're',
-					':X cjt7Da',
-					'%'
-				],
-				'trained_tokens': -8320680981078940,
+				'training_file': '$&&!! ',
+				'validation_file': null,
+				'result_files': [],
+				'trained_tokens': 8756148567481437,
 				'error': {
-					'message': '',
-					'code': 'ug*%8h9;R',
-					'param': ''
+					'message': 'd&. AW0B=',
+					'param': 'call'
 				}
 			},
 			{
@@ -5387,21 +4460,19 @@ export const samples = {
 				'hyperparameters': {
 					'n_epochs': 'auto'
 				},
-				'training_file': 'J?X%@syNc',
-				'validation_file': '"En%:r__',
+				'training_file': '}N&5|"}',
+				'validation_file': null,
 				'result_files': [
-					's<S',
+					'$g',
+					'[:-o',
+					'*Y}IUs<',
 					'',
-					'1q',
-					'Ux_, w:6Z',
-					'O{BT:qlMN]',
-					'<kCUCGU.',
-					'V_H7s:aC'
+					''
 				],
-				'trained_tokens': -7230120473649787,
+				'trained_tokens': -45,
 				'error': {
-					'code': 'ODX!@&x',
-					'param': '`a[cwD`'
+					'message': '',
+					'param': null
 				}
 			}
 		],
@@ -5421,27 +4492,27 @@ export const samples = {
 						'hyperparameters': {
 							'n_epochs': 'auto'
 						},
-						'training_file': '$',
-						'validation_file': null,
+						'training_file': 'h',
+						'validation_file': 'isP',
 						'result_files': [
-							']Sv\'U"}',
-							'nE~fZ{7q',
-							'!6Sn(J8H',
-							'(`',
-							'7U[$K~>|',
-							',mA)^',
-							'mu)0bs-',
-							'td*98sUl @'
+							'q!S',
+							'callle',
+							',',
+							'm)',
+							's-Btd*98',
+							'%%!',
+							'',
+							'3Q55%;s',
+							'-onBW>WoS.'
 						],
-						'trained_tokens': 2138421504252153,
+						'trained_tokens': -1398848019101925,
 						'error': {
-							'message': '}= ',
-							'code': '5;',
-							'param': 'Ss+T-onBW>'
+							'code': '',
+							'param': '#BD'
 						}
 					}
 				],
-				'has_more': true
+				'has_more': false
 			},
 			{
 				'object': 'W|%=2Spc',
@@ -5458,83 +4529,81 @@ export const samples = {
 						'hyperparameters': {
 							'n_epochs': 'auto'
 						},
-						'training_file': 'WI',
-						'validation_file': 'I',
+						'training_file': '',
+						'validation_file': 'UI;n',
 						'result_files': [
-							'DA$(',
-							'2OVmF4,i',
-							'U6\'LDr',
-							'^bu',
-							'UC/B.gEr',
-							'|6+/\'L)b|0',
-							'F',
-							'xFxY/u',
-							'VbR|`Ogi>'
+							'$(;2',
+							'V',
+							'F4,iMU',
+							'\'LDrI^b',
+							'f',
+							'C/B.gE'
 						],
-						'trained_tokens': -3764848212847635,
+						'trained_tokens': -3512613568745797,
+						'error': null
+					},
+					{
+						'id': '\'L)b|0kFv',
+						'object': 'fine_tuning.job',
+						'created_at': 'FxY/',
+						'finished_at': 'VbR|`Ogi>',
+						'model': '7^&%g',
+						'fine_tuned_model': null,
+						'organization_id': 'y',
+						'status': 'succeeded',
+						'hyperparameters': {},
+						'training_file': ',F0F$y^-OR',
+						'validation_file': 'Ru\\vC',
+						'result_files': [
+							'o5Iebz^',
+							'}_phT.IyZA'
+						],
+						'trained_tokens': -5568101017891181,
 						'error': {
-							'message': 'FUy"_f3,F'
+							'message': '(HQR8C+H',
+							'param': '7}?$Dr#'
 						}
 					},
 					{
-						'id': 'y^-ORm',
+						'id': 'O*(Vl{&',
 						'object': 'fine_tuning.job',
-						'created_at': 'Ru\\vC',
-						'finished_at': 'o5Iebz^',
-						'model': '}_phT.IyZA',
-						'fine_tuned_model': '#Jig(HQR8',
-						'organization_id': '+H^t"z7}?',
+						'created_at': '+\\{B',
+						'finished_at': '',
+						'model': '`2+]n;',
+						'fine_tuned_model': '<CznZ(-w\'',
+						'organization_id': '(|aF$',
 						'status': 'running',
 						'hyperparameters': {
-							'n_epochs': 44
+							'n_epochs': 40
 						},
-						'training_file': 'V1O*(',
-						'validation_file': '{&0+\\{BrG',
+						'training_file': 't-J\'|1',
+						'validation_file': 'B',
 						'result_files': [
-							'2+]n;Wa',
-							'CznZ(-w\'w(',
-							'aF$Q788&',
-							't-J\'|1',
-							'',
-							'B'
+							'But92Z',
+							'c)L\\3N',
+							'cAT3Am\\d',
+							'yK#KCj'
 						],
-						'trained_tokens': -5546813455032634,
-						'error': null
+						'trained_tokens': -943978597620495,
+						'error': {
+							'code': '!r;$U1#8;Y',
+							'param': null
+						}
 					},
 					{
-						'id': '92',
+						'id': '{&XNUj-\\G',
 						'object': 'fine_tuning.job',
-						'created_at': '|c)L\\',
-						'finished_at': null,
-						'model': 'i',
-						'fine_tuned_model': 'T3Am\\d}yK',
-						'organization_id': 'KCj.?O',
-						'status': 'pending',
-						'hyperparameters': {},
-						'training_file': 'z',
-						'validation_file': ';$U',
-						'result_files': [
-							'8;YeZ55:',
-							'',
-							'XN'
-						],
-						'trained_tokens': 3988628320355997,
-						'error': null
-					},
-					{
-						'id': '2hZ&U+3',
-						'object': 'fine_tuning.job',
-						'created_at': 'skZ-De/a',
-						'finished_at': 'o)VSu',
-						'model': 'kx',
-						'fine_tuned_model': 'kY',
-						'organization_id': 've7$\\J=\'-',
-						'status': 'succeeded',
+						'created_at': 'hZ&U+3lsk',
+						'finished_at': 'De/a<',
+						'model': 'o)VSu',
+						'fine_tuned_model': 'x4Ik',
+						'organization_id': 'bve7$\\J=\'',
+						'status': 'running',
 						'hyperparameters': {
-							'n_epochs': 24
+							'n_epochs': 'auto'
 						},
-						'training_file': 'J',
-						'validation_file': 'cUBxW%Q9',
+						'training_file': 'AJ\'4cUBxW%',
+						'validation_file': '',
 						'result_files': [],
 						'trained_tokens': 6237945849379357,
 						'error': {
@@ -5544,7 +4613,7 @@ export const samples = {
 						}
 					}
 				],
-				'has_more': true
+				'has_more': false
 			},
 			{
 				'object': 'X1DZwS',
@@ -5561,15 +4630,24 @@ export const samples = {
 						'hyperparameters': {
 							'n_epochs': 40
 						},
-						'training_file': 'kU,Q',
-						'validation_file': 'e',
+						'training_file': 'U,Q^%eA`\'i',
+						'validation_file': '2k',
 						'result_files': [
-							'\'i/q2kH',
 							'9_',
-							''
+							'',
+							'f',
+							'9U!',
+							'',
+							'6x]RM',
+							'|X;MPfa>7',
+							'#*SM,?kLi'
 						],
-						'trained_tokens': null,
-						'error': null
+						'trained_tokens': 8692043762070791,
+						'error': {
+							'message': '8W;ml_',
+							'code': '',
+							'param': null
+						}
 					}
 				],
 				'has_more': false
@@ -5589,41 +4667,49 @@ export const samples = {
 						'hyperparameters': {
 							'n_epochs': 47
 						},
-						'training_file': '&KwZ<!~.8d',
-						'validation_file': ' AW0B',
-						'result_files': [],
+						'training_file': 'Kw',
+						'validation_file': '',
+						'result_files': [
+							'',
+							'8d&. AW0',
+							'=r&a5',
+							'o@sWKrm',
+							'y63y`R',
+							'KuHnM5KE:',
+							' cjt',
+							'D',
+							',5',
+							'{Y%\';kjou'
+						],
 						'trained_tokens': null,
 						'error': {
-							'message': 'ro@s',
-							'code': 'rmoy63y`R',
-							'param': null
+							'message': 'H&yug*%',
+							'param': ''
 						}
 					},
 					{
-						'id': '',
+						'id': '=;=9',
 						'object': 'fine_tuning.job',
-						'created_at': 'nM5KE:X cj',
-						'finished_at': null,
-						'model': 'D',
-						'fine_tuned_model': '5\'{',
-						'organization_id': '%\';k',
-						'status': 'pending',
+						'created_at': '2-m',
+						'finished_at': '-{JtW2',
+						'model': 'l/i+N',
+						'fine_tuned_model': '3:G8+0P',
+						'organization_id': '.kzauucT2',
+						'status': 'running',
 						'hyperparameters': {
-							'n_epochs': 'auto'
+							'n_epochs': 43
 						},
-						'training_file': '+ kH',
-						'validation_file': 'ug*%8h9;R',
+						'training_file': 'T~4',
+						'validation_file': 'IM&ktti',
 						'result_files': [
-							'=;=9',
-							'2-m',
-							'J',
-							'{Jt'
+							'_9u8',
+							')_AB0'
 						],
-						'trained_tokens': 2844086108159647,
+						'trained_tokens': 7664567357868531,
 						'error': {
-							'message': '+Nfy3:G',
-							'code': '0',
-							'param': ''
+							'message': 'X+3{8',
+							'code': 'X',
+							'param': 'B_ EO'
 						}
 					}
 				],
@@ -5642,149 +4728,152 @@ export const samples = {
 						'organization_id': '>zw1lXaj',
 						'status': 'succeeded',
 						'hyperparameters': {},
-						'training_file': 'x:)dw{";',
-						'validation_file': '/',
-						'result_files': [
-							'q"dJ?X%@sy',
-							'',
-							'/O^5\'9%'
-						],
-						'trained_tokens': 2955434569852113,
+						'training_file': ':)dw{";MT/',
+						'validation_file': 'q"dJ?X%@sy',
+						'result_files': [],
+						'trained_tokens': null,
 						'error': {
-							'message': '*Nb7$gK',
-							'code': '-oc*Y}'
+							'message': '',
+							'code': '9%wXi',
+							'param': '*Nb7$gK'
 						}
 					},
 					{
-						'id': 's<S',
+						'id': 'oc*Y}IUs<',
 						'object': 'fine_tuning.job',
 						'created_at': '',
-						'finished_at': 'qKUx_, w:6',
-						'model': 'dO',
-						'fine_tuned_model': 'T:q',
-						'organization_id': '',
-						'status': 'cancelled',
-						'hyperparameters': {},
-						'training_file': 'a<kCUCG',
-						'validation_file': '0V_H7s:aCM',
-						'result_files': [
-							'',
-							'N7S'
-						],
-						'trained_tokens': 7931466253510897,
-						'error': {
-							'message': '@&x(',
-							'code': '!`a[cw',
-							'param': 'HN'
-						}
-					},
-					{
-						'id': 'w"sS#NA.!~',
-						'object': 'fine_tuning.job',
-						'created_at': 'u+PKYS',
-						'finished_at': '!',
-						'model': 'G$okpQ(d)',
-						'fine_tuned_model': '<oUcc&Gy$m',
-						'organization_id': 'sFzsiR',
-						'status': 'created',
-						'hyperparameters': {},
-						'training_file': 'i=D',
-						'validation_file': 'N7)k\\qL9',
-						'result_files': [
-							'>c1F3d_',
-							'nIU*"y@Dk',
-							'#+neG=pr{',
-							'',
-							'\'0ubN}',
-							'Z^9",u',
-							'Bh7O1bh',
-							'}E',
-							'Y*8M5bZI',
-							'< gXb%I'
-						],
-						'trained_tokens': 7278119140623617,
-						'error': {
-							'message': '2Vl2}M;zGF',
-							'code': '|Oz[',
-							'param': ''
-						}
-					},
-					{
-						'id': 'v',
-						'object': 'fine_tuning.job',
-						'created_at': 'D]H3)=wS',
-						'finished_at': '*~$Y',
-						'model': '',
-						'fine_tuned_model': 'KT',
-						'organization_id': 'h3lKo+@b<G',
-						'status': 'succeeded',
+						'finished_at': null,
+						'model': '1q',
+						'fine_tuned_model': 'x',
+						'organization_id': ', w:6ZdO{',
+						'status': 'running',
 						'hyperparameters': {
 							'n_epochs': 'auto'
 						},
-						'training_file': 'axT@mjobU',
-						'validation_file': '{6',
+						'training_file': '',
+						'validation_file': ']a',
 						'result_files': [
-							'on',
-							'1E$RavPDDO',
-							'bG5/2\'rlz5'
+							'CU',
+							'',
+							'U.0V_',
+							'7s:aCM^Fv',
+							'7',
+							'viODX!@&x',
+							'.v!',
+							'a[cwD`',
+							'HN'
 						],
-						'trained_tokens': 3884538466529771,
-						'error': {
-							'message': 'r',
-							'code': '}s#k2`*'
-						}
-					},
-					{
-						'id': ':6u~-4Jb=',
-						'object': 'fine_tuning.job',
-						'created_at': 'hzHi',
-						'finished_at': 'x',
-						'model': '7',
-						'fine_tuned_model': '~Dh',
-						'organization_id': 'y@',
-						'status': 'pending',
-						'hyperparameters': {
-							'n_epochs': 'auto'
-						},
-						'training_file': 'FKIOZzBWxv',
-						'validation_file': '11\'ODFEO',
-						'result_files': [
-							'\\}jz'
-						],
-						'trained_tokens': -1853647156680431,
+						'trained_tokens': -3899108920425895,
 						'error': null
 					},
 					{
-						'id': 'Vdd',
+						'id': 'NA.!~Uu+PK',
 						'object': 'fine_tuning.job',
-						'created_at': '@4yH',
-						'finished_at': '',
-						'model': 'zm}bzy6K\\',
-						'fine_tuned_model': 'Ph',
-						'organization_id': 'Xpf-iq?7',
-						'status': 'cancelled',
+						'created_at': 'SA|!',
+						'finished_at': '$okpQ(d)3{',
+						'model': 'oU',
+						'fine_tuned_model': '&Gy$mssFz',
+						'organization_id': 'iRq',
+						'status': 'created',
 						'hyperparameters': {
-							'n_epochs': 34
+							'n_epochs': 'auto'
 						},
-						'training_file': 'Jh',
-						'validation_file': null,
+						'training_file': 'u6',
+						'validation_file': ')k\\',
 						'result_files': [
-							'W2S',
-							'irJJmseRR',
-							'{{1<(*Or',
-							'au?',
-							'V/0;',
-							'));',
-							'',
-							'',
-							'',
-							'xI13`Z'
+							'9w}>c1F',
+							'd_rnIU',
+							'"y@D',
+							'a#+neG=p',
+							'{Nd\'',
+							'ubN',
+							'0Z^9",',
+							'JBh',
+							'O1b',
+							''
 						],
-						'trained_tokens': -8579440529241159,
+						'trained_tokens': null,
 						'error': {
-							'message': '@0P)IC!E',
+							'message': 'Y*8M5bZI'
+						}
+					},
+					{
+						'id': 'b%IL+Z\\93',
+						'object': 'fine_tuning.job',
+						'created_at': 'Vl2}M;zG',
+						'finished_at': null,
+						'model': 't|Oz[_',
+						'fine_tuned_model': '',
+						'organization_id': 'v',
+						'status': 'succeeded',
+						'hyperparameters': {
+							'n_epochs': 26
+						},
+						'training_file': '=w',
+						'validation_file': '_*~$YR3!K',
+						'result_files': [
+							'h3lKo+@b<G',
+							'*yNax',
+							'@mjobUzF',
+							'6UF',
+							'nE1E$',
+							'avPDD',
+							'ZbG5/2\'r',
+							'z'
+						],
+						'trained_tokens': -8933465031586568,
+						'error': {
+							'message': '',
 							'code': '',
-							'param': 'E$[/>*xfi'
+							'param': 's'
+						}
+					},
+					{
+						'id': '`*^F:6u',
+						'object': 'fine_tuning.job',
+						'created_at': '-4J',
+						'finished_at': 'hhzHi{ ',
+						'model': 'G7af~Dh3y@',
+						'fine_tuned_model': '|~FK',
+						'organization_id': 'OZzBWxv',
+						'status': 'failed',
+						'hyperparameters': {
+							'n_epochs': 'auto'
+						},
+						'training_file': 'ODFEO_]',
+						'validation_file': 'jz{No2ZVdd',
+						'result_files': [
+							'4yH]BVzm}',
+							'zy6K\\7 ',
+							'hBXp',
+							'-iq'
+						],
+						'trained_tokens': -3265823275361026,
+						'error': {
+							'message': '"JhrR',
+							'param': ',irJJ'
+						}
+					},
+					{
+						'id': 'RR>',
+						'object': 'fine_tuning.job',
+						'created_at': '{1<(*O',
+						'finished_at': 'au?',
+						'model': 'V/0;',
+						'fine_tuned_model': ');:Bg^xI13',
+						'organization_id': 'Zl',
+						'status': 'cancelled',
+						'hyperparameters': {},
+						'training_file': 'm@0P)IC!ES',
+						'validation_file': '%)',
+						'result_files': [
+							''
+						],
+						'trained_tokens': null,
+						'error': {
+							'message': 'xfisHN',
+							'code': 'I5',
+							'param': 'sR8+q5H'
 						}
 					}
 				],
@@ -5815,25 +4904,25 @@ export const samples = {
 						'message': 'K'
 					},
 					{
-						'id': '%B7dka?',
-						'object': 'ZhW',
-						'created_at': 'jUI',
+						'id': 'B',
+						'object': 'dka',
+						'created_at': 'GZh',
 						'level': 'error',
-						'message': 'DA$('
+						'message': 'jUI'
 					},
 					{
-						'id': '2OVmF4,i',
-						'object': 'U6\'LDr',
-						'created_at': '^bu',
-						'level': 'warn',
-						'message': 'C/B.gE'
+						'id': 'DA$(',
+						'object': '2OVmF4,i',
+						'created_at': 'U6\'LDr',
+						'level': 'error',
+						'message': 'bu'
 					},
 					{
-						'id': 'f|6+/\'L)b',
-						'object': '',
-						'created_at': 'kFvxFxY/u',
+						'id': 'C/B.gE',
+						'object': 'f|6+/\'L)b',
+						'created_at': '',
 						'level': 'info',
-						'message': 'bR|`Ogi>27'
+						'message': 'F'
 					}
 				]
 			},
@@ -5860,8 +4949,8 @@ export const samples = {
 						'message': '~'
 					},
 					{
-						'id': 'MxC',
-						'object': ';UQ<m|hb',
+						'id': 'xC0;UQ<',
+						'object': '|hb',
 						'created_at': ':O(CS5s',
 						'level': 'info',
 						'message': ''
@@ -5879,39 +4968,39 @@ export const samples = {
 						'message': '{;Fj1]>'
 					},
 					{
-						'id': 'w1lXajj',
-						'object': '>x:)dw{',
-						'created_at': ';MT',
-						'level': 'info',
-						'message': '$q"'
-					},
-					{
-						'id': 'J?X%@syNc',
-						'object': 'O^5\'9',
-						'created_at': 'wXia)s*Nb',
-						'level': 'info',
-						'message': 'gK[:-oc*Y'
-					},
-					{
-						'id': 'IUs',
-						'object': 'SVt1qKUx_,',
-						'created_at': 'w:6Zd',
+						'id': '1',
+						'object': 'Xajj#>x:',
+						'created_at': '',
 						'level': 'warn',
-						'message': 'B'
+						'message': '{";'
 					},
 					{
-						'id': ':qlM',
-						'object': ']a',
-						'created_at': 'kCUCGU.0V',
+						'id': '/',
+						'object': '$q"',
+						'created_at': 'J?X%@syNc',
 						'level': 'info',
-						'message': '7s:aCM^Fv'
+						'message': '^5\'9%w'
 					},
 					{
-						'id': '7',
-						'object': 'viODX!@&x',
-						'created_at': '.v!',
+						'id': 'a',
+						'object': 's*Nb7$gK',
+						'created_at': ':-oc*Y}IU',
+						'level': 'error',
+						'message': 'SVt1qKUx_,'
+					},
+					{
+						'id': ':6ZdO{BT:q',
+						'object': '',
+						'created_at': 'N]a<k',
 						'level': 'info',
-						'message': '[cw'
+						'message': 'CG'
+					},
+					{
+						'id': '0V_H7s:aCM',
+						'object': 'Fv',
+						'created_at': '7',
+						'level': 'error',
+						'message': 'iODX!@&'
 					}
 				]
 			}
@@ -5962,13 +5051,13 @@ export const samples = {
 				'classification_n_classes': null,
 				'classification_positive_class': '',
 				'classification_betas': [
-					2.87e-322,
-					2.1e-322,
-					8e-323,
+					1e-323,
+					0,
+					-4.4e-323,
 					-1.776738909098305e-146,
 					6.481833545673042e-10,
-					-2.5e-323,
-					-6e-323,
+					8e-323,
+					-7e-323,
 					-2.8368990582369986e+266
 				],
 				'suffix': '_F'
@@ -5992,7 +5081,7 @@ export const samples = {
 				'model': 'davinci',
 				'n_epochs': 4,
 				'batch_size': 8135018342510755,
-				'learning_rate_multiplier': -2.03e-322,
+				'learning_rate_multiplier': 6.4e-323,
 				'prompt_loss_rate': -6.345582871413447e-137,
 				'compute_classification_metrics': true,
 				'classification_n_classes': -9007199254740967,
@@ -6021,7 +5110,7 @@ export const samples = {
 				'compute_classification_metrics': true,
 				'classification_positive_class': 'yNc/O^5\'',
 				'classification_betas': [
-					3.06e-322
+					-8.4e-323
 				]
 			}
 		],
@@ -6038,7 +5127,7 @@ export const samples = {
 				'hyperparams': {
 					'n_epochs': 3,
 					'batch_size': 11469143300661,
-					'prompt_loss_weight': -1.7976931348623037e+308,
+					'prompt_loss_weight': -1.797693134862315e+308,
 					'learning_rate_multiplier': -4.2583736657279364e+114,
 					'compute_classification_metrics': false,
 					'classification_positive_class': 'I-zqvO',
@@ -6048,131 +5137,168 @@ export const samples = {
 					{
 						'id': '',
 						'object': 'file',
-						'bytes': 8171971410588325,
-						'createdAt': 'u9',
-						'filename': '?5h,@Sxd6T',
-						'purpose': 'nameisPr',
+						'bytes': 329412884891741,
+						'createdAt': '|t',
+						'filename': '',
+						'purpose': '!]Sv\'U"}',
 						'status': 'uploaded',
 						'status_details': 'q!S'
-					}
-				],
-				'validation_files': [
-					{
-						'id': ' U',
-						'object': 'file',
-						'bytes': 20,
-						'createdAt': '  ',
-						'filename': '',
-						'purpose': '-Bt',
-						'status': 'uploaded',
-						'status_details': 'Ul'
 					},
 					{
-						'id': 'd`J',
+						'id': '8Hq(` ',
 						'object': 'file',
-						'bytes': 21,
-						'createdAt': '}= ',
-						'filename': 'j5',
-						'purpose': '',
-						'status': 'pending',
-						'status_details': '-onBW>WoS.'
-					},
-					{
-						'id': 'key',
-						'object': 'file',
-						'bytes': -2638559958500036,
-						'createdAt': '#',
-						'filename': '#/',
-						'purpose': '__proto__m',
-						'status': 'pending',
-						'status_details': '\'CS6{?GK'
-					},
-					{
-						'id': 'key',
-						'object': 'file',
-						'bytes': 12,
-						'createdAt': 'DR',
-						'filename': 'valueOf',
-						'purpose': '',
+						'bytes': -7518332722377429,
+						'createdAt': '~',
+						'filename': 'q,',
+						'purpose': 'm)',
 						'status': 'processed',
-						'status_details': '}|'
+						'status_details': 'td*98sUl @'
 					},
 					{
-						'id': 'S',
+						'id': 'ml\\%`',
 						'object': 'file',
-						'bytes': 40,
-						'createdAt': '',
-						'filename': 'K^daGp',
+						'bytes': 3323348897744599,
+						'createdAt': '*=3wQ(5',
+						'filename': ';GRv;',
+						'purpose': '+T-on',
+						'status': 'pending',
+						'status_details': null
+					},
+					{
+						'id': '.Xm',
+						'object': 'file',
+						'bytes': 7326159756129779,
+						'createdAt': 'yJ!#BD#{f',
+						'filename': '8 6|"I%&#D',
+						'purpose': '\'',
+						'status': 'deleted',
+						'status_details': null
+					},
+					{
+						'id': '',
+						'object': 'file',
+						'bytes': 44,
+						'createdAt': '+WO',
+						'filename': '',
+						'purpose': 'b',
+						'status': 'pending',
+						'status_details': null
+					},
+					{
+						'id': 'O',
+						'object': 'file',
+						'bytes': 7676614237622425,
+						'createdAt': '9i<5GkK^d',
+						'filename': '&" {/~#|',
 						'purpose': '',
 						'status': 'uploaded',
 						'status_details': null
 					},
 					{
-						'id': 'z',
+						'id': 'd@!4;HV',
 						'object': 'file',
-						'bytes': -8204353449961037,
-						'createdAt': '~#',
-						'filename': '"%d#H!',
-						'purpose': '',
+						'bytes': 9007199254740966,
+						'createdAt': '@&',
+						'filename': 'pI?d>T@',
+						'purpose': '#ply',
+						'status': 'pending',
+						'status_details': null
+					},
+					{
+						'id': '',
+						'object': 'file',
+						'bytes': 9007199254740977,
+						'createdAt': '!f\'',
+						'filename': 'v',
+						'purpose': 'DqK2-,LW]',
+						'status': 'uploaded',
+						'status_details': '%'
+					},
+					{
+						'id': '',
+						'object': 'file',
+						'bytes': 52,
+						'createdAt': '0|VdwC',
+						'filename': '"~$";}',
+						'purpose': 'RySRF;(#M',
+						'status': 'error',
+						'status_details': '$"{'
+					}
+				],
+				'validation_files': [
+					{
+						'id': '%pr',
+						'object': 'file',
+						'bytes': -3,
+						'createdAt': '$#`)JX',
+						'filename': ':h>F(2Zs/',
+						'purpose': 'd',
+						'status': 'pending',
+						'status_details': null
+					},
+					{
+						'id': '9<&asJ3',
+						'object': 'file',
+						'bytes': -2285282750371365,
+						'createdAt': 'VGwrjm^Bu',
+						'filename': 'z__proto__',
+						'purpose': '[|O',
+						'status': 'pending'
+					},
+					{
+						'id': 'x>',
+						'object': 'file',
+						'bytes': -9007199254740969,
+						'createdAt': 'key',
+						'filename': 'xa}x%',
+						'purpose': 'isPrototyp',
 						'status': 'processed',
-						'status_details': ''
+						'status_details': '4&h4W'
 					}
 				],
 				'result_files': [],
 				'events': [
 					{
-						'object': '@L',
-						'created_at': '*xs',
-						'level': 'C;1w',
-						'message': 'g'
+						'object': '\'',
+						'created_at': 'f',
+						'level': 'GH}j',
+						'message': ']'
 					},
 					{
-						'object': 'ejS6`',
-						'created_at': 'bNCLMm@y',
-						'level': '!Efn\'/6',
-						'message': '!<Dq'
+						'object': 'E~yS\'i(n',
+						'created_at': '!',
+						'level': 'waw7',
+						'message': 'bx/'
 					},
 					{
-						'object': '2-,LW]_5',
-						'created_at': '51C??%[*',
-						'level': 'dE1e{R~0',
-						'message': 'VdwCmI '
+						'object': 'K',
+						'created_at': 'hbA',
+						'level': 'g',
+						'message': 'f'
 					},
 					{
-						'object': 'M:',
-						'created_at': '',
+						'object': '^',
+						'created_at': 'nu+g1w9vc',
 						'level': '',
-						'message': 'shCm'
+						'message': '|0kJq|d'
 					},
 					{
-						'object': '',
-						'created_at': 'cz;J',
-						'level': 'VuRySRF;',
-						'message': '#MfDfH,\'N'
+						'object': 'f\\cy',
+						'created_at': '(B}',
+						'level': 'K[',
+						'message': ']!2(65Y`'
 					},
 					{
-						'object': 'tyhh"bqQ{',
-						'created_at': '?<',
-						'level': '@m3fxH',
-						'message': 'z,Vw'
+						'object': '9X<',
+						'created_at': 'Bs',
+						'level': 'L!gM$M',
+						'message': 'sJnYA'
 					},
 					{
-						'object': 'O >dzB$#',
-						'created_at': ')JX,m',
-						'level': 'h>F(2Zs/i0',
-						'message': 'exf@d\\-0X'
-					},
-					{
-						'object': 'c9<&asJ3',
-						'created_at': '>',
-						'level': 'bsV',
-						'message': 'wrjm^BuFl'
-					},
-					{
-						'object': '/f3szBs9EB',
-						'created_at': '|O',
-						'level': 'nkN&x',
-						'message': '['
+						'object': 'iY@',
+						'created_at': 'b',
+						'level': '%leL',
+						'message': '@q/:_mM4V'
 					}
 				]
 			},
@@ -6195,67 +5321,57 @@ export const samples = {
 				},
 				'training_files': [
 					{
-						'id': 'bu',
+						'id': 'y|__lo',
 						'object': 'file',
-						'bytes': 8360390589329745,
-						'createdAt': '',
-						'filename': 'B.gE',
-						'purpose': 'f|6+/\'L)b',
-						'status': 'error'
+						'bytes': -9007199254740987,
+						'createdAt': 'vy/%%Oi ~',
+						'filename': '',
+						'purpose': 'f3',
+						'status': 'deleting'
 					},
 					{
-						'id': 'F',
+						'id': '',
 						'object': 'file',
-						'bytes': -5409641318924137,
-						'createdAt': 'xY/u+VbR|',
-						'filename': 'Ogi>27',
-						'purpose': '&%gFUy"',
-						'status': 'uploaded',
-						'status_details': 'F0F$y^-OR'
-					},
-					{
-						'id': 'sR',
-						'object': 'file',
-						'bytes': -7934550547945966,
-						'createdAt': 'Cv2o5Ieb',
-						'filename': '^_}_phT.',
-						'purpose': 'y',
+						'bytes': 26,
+						'createdAt': 'Ru\\vC',
+						'filename': 'o5Iebz^',
+						'purpose': 'It',
 						'status': 'deleted',
-						'status_details': '#Jig(HQR8'
+						'status_details': 'toString'
 					}
 				],
 				'validation_files': [
 					{
-						'id': '^t"z7}?$D',
+						'id': 'H^t"z7}',
 						'object': 'file',
-						'bytes': -6387651911180688,
-						'createdAt': 'V1O*(',
-						'filename': 'l{&0+\\{',
-						'purpose': 'rG2`2+]n;',
+						'bytes': -3151492778700085,
+						'createdAt': 'r#[V1O*',
+						'filename': 'Vl{',
+						'purpose': '0+\\{Br',
+						'status': 'uploaded'
+					},
+					{
+						'id': '+]n;Wa<Czn',
+						'object': 'file',
+						'bytes': 2236850715233621,
+						'createdAt': 'w\'w',
+						'filename': '|aF$',
+						'purpose': '788&Et-J\'|',
+						'status': 'error',
+						'status_details': 'yoBut92Z|'
+					},
+					{
+						'id': 'L\\3NicAT',
+						'object': 'file',
+						'bytes': 4497406566177909,
+						'createdAt': '\\d}yK#KC',
+						'filename': '',
+						'purpose': '?O\\`}z!r;$',
 						'status': 'deleted',
-						'status_details': 'znZ(-w\'w(|'
+						'status_details': ';YeZ55:'
 					},
 					{
-						'id': 'F$Q788&',
-						'object': 'file',
-						'bytes': 2750207434326781,
-						'createdAt': 'J\'|1BsBy',
-						'filename': 'But92Z',
-						'purpose': 'c)L\\3N',
-						'status': 'deleting',
-						'status_details': '3Am\\d'
-					},
-					{
-						'id': 'yK#KCj',
-						'object': 'file',
-						'bytes': 8380238465377653,
-						'createdAt': '\\',
-						'filename': '}',
-						'purpose': '!r;$U1#8;Y',
-						'status': 'deleted'
-					},
-					{
-						'id': '5:{&XN',
+						'id': 'XN',
 						'object': 'file',
 						'bytes': -6371877913220189,
 						'createdAt': '\\G2',
@@ -6265,108 +5381,140 @@ export const samples = {
 						'status_details': 'o)VSu'
 					},
 					{
-						'id': 'kx',
+						'id': 'x4Ik',
 						'object': 'file',
-						'bytes': -5616370914542442,
-						'createdAt': 'Yb',
-						'filename': 'e7$\\J=\'-h',
-						'purpose': '',
+						'bytes': -805508818777931,
+						'createdAt': 'e7$\\J=\'-h',
+						'filename': '',
+						'purpose': 'dAJ\'4',
 						'status': 'uploaded',
-						'status_details': '\''
+						'status_details': 'W%Q9pq]5k'
 					},
 					{
-						'id': 'cUBxW%Q9',
+						'id': 'a,dlK-zw',
 						'object': 'file',
-						'bytes': -8827764141748638,
-						'createdAt': '5',
-						'filename': ',*a,dlK-',
-						'purpose': 'wBL',
-						'status': 'processed',
-						'status_details': 'cYomzq'
+						'bytes': 7698728516892319,
+						'createdAt': '6yHcYom',
+						'filename': 'q8rT#hDJ',
+						'purpose': 'y%',
+						'status': 'deleting',
+						'status_details': 'qSTF(w~r#'
 					},
 					{
-						'id': 'rT#hDJ',
+						'id': '#Q"',
 						'object': 'file',
-						'bytes': 1156461948898593,
-						'createdAt': 'vs+6qST',
-						'filename': '(w~r#',
-						'purpose': '[#Q"Uik%',
-						'status': 'uploaded',
-						'status_details': 'x2'
+						'bytes': -596332961874901,
+						'createdAt': '%/ ',
+						'filename': 'Xx',
+						'purpose': 'W',
+						'status': 'deleted',
+						'status_details': 'dXUA-V|0'
+					},
+					{
+						'id': 'sf&?[|le',
+						'object': 'file',
+						'bytes': -3365654403337902,
+						'createdAt': 'Ym1Cc',
+						'filename': '<g4`x)^EM',
+						'purpose': 'N0Fqj6',
+						'status': 'deleting',
+						'status_details': '=Z*hy'
+					},
+					{
+						'id': '!7',
+						'object': 'file',
+						'bytes': 892741851579329,
+						'createdAt': 'q',
+						'filename': ':+nS',
+						'purpose': 'd?E]&dE ',
+						'status': 'deleting',
+						'status_details': '*Oh^H'
 					}
 				],
 				'result_files': [
 					{
-						'id': 'dXUA-V|0',
+						'id': '&j',
 						'object': 'file',
-						'bytes': 1879719915852501,
-						'createdAt': '%m&4eyhasO',
-						'filename': 'chqF',
-						'purpose': 'q',
-						'status': 'processed',
-						'status_details': 'Ed?E]&'
-					},
-					{
-						'id': '*^ OwnProp',
-						'object': 'file',
-						'bytes': -2643350026450953,
-						'createdAt': '',
+						'bytes': 5598397143173725,
+						'createdAt': 'JBn98=s',
 						'filename': '',
-						'purpose': '9d>t_A`',
+						'purpose': '@',
 						'status': 'deleted',
-						'status_details': 'key'
+						'status_details': '_A`IEK.W'
 					},
 					{
-						'id': '(sj*=tCu~',
+						'id': '~*`R',
 						'object': 'file',
-						'bytes': 2,
-						'createdAt': '<frgVQ ]',
-						'filename': '|"',
-						'purpose': '#VT#-\\',
-						'status': 'deleting',
-						'status_details': 'T7^'
+						'bytes': 7709105033557745,
+						'createdAt': '',
+						'filename': '=tCu~39N"]',
+						'purpose': 'f',
+						'status': 'deleted',
+						'status_details': ''
 					},
 					{
-						'id': '!7L$%${w',
+						'id': 'QQ|"T',
 						'object': 'file',
-						'bytes': 4678618241538393,
-						'createdAt': 'x{ -',
-						'filename': 'argumen',
-						'purpose': '!',
+						'bytes': 6735897546256801,
+						'createdAt': 'T',
+						'filename': '-\\4%rv(N}',
+						'purpose': 'Tw7i^<0!}D',
+						'status': 'error',
+						'status_details': '+L0C0'
+					},
+					{
+						'id': 'akL\\?h',
+						'object': 'file',
+						'bytes': 4358029654353901,
+						'createdAt': '',
+						'filename': 'pd?P?$',
+						'purpose': '~G_{I',
 						'status': 'uploaded',
-						'status_details': 'K~z'
+						'status_details': '[_.wu9'
+					},
+					{
+						'id': '&*',
+						'object': 'file',
+						'bytes': 1214308185304901,
+						'createdAt': ']AJNWTO5Bd',
+						'filename': '~zhV+<6`}L',
+						'purpose': '"ujZjL.(tV',
+						'status': 'pending',
+						'status_details': ';UqW1vjq1~'
+					},
+					{
+						'id': '\'m0p7v;',
+						'object': 'file',
+						'bytes': 3182262530008697,
+						'createdAt': '',
+						'filename': 'OJv',
+						'purpose': '\\YVvjg1}M3',
+						'status': 'deleted',
+						'status_details': '\'TT.}6Ae'
+					},
+					{
+						'id': 'M*8Fm\'z',
+						'object': 'file',
+						'bytes': -8456107750957020,
+						'createdAt': '09 q 4',
+						'filename': '=Hd',
+						'purpose': '}cU',
+						'status': 'deleted',
+						'status_details': ''
 					}
 				],
 				'events': [
 					{
-						'object': '6`}L2"',
-						'created_at': 'jZjL.(tVEa',
-						'level': ');UqW1vjq',
-						'message': '~v3\'m0'
+						'object': '#',
+						'created_at': '3|Pe1^7Wh',
+						'level': 'BF=PTe)NOJ',
+						'message': 'rXbg}?1\\*y'
 					},
 					{
-						'object': '7v;)',
-						'created_at': 'wTOJvr\\YV',
-						'level': 'jg',
-						'message': '}M31$Va\'T'
-					},
-					{
-						'object': '.}6Ae',
-						'created_at': 'EM*8Fm\'z/',
-						'level': 'u09 q',
-						'message': ''
-					},
-					{
-						'object': 'L',
-						'created_at': 'HdZ}',
-						'level': 'U',
-						'message': '%=m b~Z A/'
-					},
-					{
-						'object': 'i\\E',
-						'created_at': 'Ys3|Pe1',
-						'level': '7Wh&QBF=P',
-						'message': 'e)N'
+						'object': '',
+						'created_at': '{',
+						'level': 'g/wiZ,W#',
+						'message': '#clF'
 					}
 				]
 			},
@@ -6389,213 +5537,183 @@ export const samples = {
 				},
 				'training_files': [
 					{
-						'id': '',
+						'id': 'q\\6x]RMa|X',
 						'object': 'file',
-						'bytes': -8827773646959298,
-						'createdAt': 'XMx7',
-						'filename': '',
-						'purpose': 't',
-						'status': 'processed',
-						'status_details': '? M%p\'~&la'
-					},
-					{
-						'id': 'ep@_',
-						'object': 'file',
-						'bytes': 1,
-						'createdAt': '!!p }tE',
-						'filename': 'Vm!xD(',
+						'bytes': -305229355030076,
+						'createdAt': 'fa>74#*SM,',
+						'filename': 'kLibgb*^a8',
 						'purpose': '',
-						'status': 'error',
-						'status_details': ''
-					},
-					{
-						'id': '',
-						'object': 'file',
-						'bytes': 5287318282891805,
-						'createdAt': 'E9=',
-						'filename': 'w7Sdr-]z',
-						'purpose': 'aPF0/<D4ms',
 						'status': 'deleted',
-						'status_details': ''
+						'status_details': '?TUq"M\'LSX'
 					},
 					{
-						'id': '\'lHl',
+						'id': '\'+',
 						'object': 'file',
-						'bytes': -15,
-						'createdAt': '!/ ',
-						'filename': 'f%',
-						'purpose': ' ot',
+						'bytes': -8967581333681241,
+						'createdAt': '&_lca@be',
+						'filename': '@_|ABZK8Cv',
+						'purpose': 'mOEUp*',
 						'status': 'deleting',
-						'status_details': ' T}'
+						'status_details': '|3'
 					},
 					{
-						'id': '\\',
+						'id': 'Eb"Vm!x',
 						'object': 'file',
-						'bytes': -9007199254740980,
-						'createdAt': '%#!',
-						'filename': '__proto__',
-						'purpose': '\\??*',
+						'bytes': -4717982153773997,
+						'createdAt': '.T1',
+						'filename': 'Z&5Blw]K%"',
+						'purpose': '!IcCE9=#',
 						'status': 'uploaded'
 					},
 					{
-						'id': '|*/',
+						'id': 'dr',
 						'object': 'file',
-						'bytes': -9007199254740982,
-						'createdAt': 'I',
-						'filename': '\'C4',
-						'purpose': 'F',
-						'status': 'deleted',
-						'status_details': 's'
-					},
-					{
-						'id': 'nZ}92gkV',
-						'object': 'file',
-						'bytes': 19,
-						'createdAt': ',CVN:19s8q',
-						'filename': 'P*N',
-						'purpose': 'p',
-						'status': 'processed',
-						'status_details': 'ref'
-					},
-					{
-						'id': '',
-						'object': 'file',
-						'bytes': 4196902171606801,
-						'createdAt': '\\zB8q{{',
-						'filename': '_',
-						'purpose': 'rPwlen',
+						'bytes': 5961469839924989,
+						'createdAt': 'f{aPF0',
+						'filename': '',
+						'purpose': 'D4msQk{f%',
 						'status': 'error',
-						'status_details': 'key'
+						'status_details': 'Hl2zK$&&l'
+					},
+					{
+						'id': '.',
+						'object': 'file',
+						'bytes': -6710416049129850,
+						'createdAt': '',
+						'filename': '=Ayf%TC',
+						'purpose': '',
+						'status': 'pending',
+						'status_details': '3\'Fj<'
+					},
+					{
+						'id': 'Hs03Ft\\',
+						'object': 'file',
+						'bytes': 4908779544979013,
+						'createdAt': '^T,#i',
+						'filename': 'k]V1oD\\',
+						'purpose': '*(?',
+						'status': 'pending',
+						'status_details': '~N{#h_'
+					},
+					{
+						'id': ']{7nsJ*&\\',
+						'object': 'file',
+						'bytes': -6329293900180412,
+						'createdAt': '',
+						'filename': 'eHtzd\')H*',
+						'purpose': 'q/<hF',
+						'status': 'pending',
+						'status_details': 'blXIT'
+					},
+					{
+						'id': 'C4Gq>4M',
+						'object': 'file',
+						'bytes': -2860816081998902,
+						'createdAt': 'K(ivx}FL',
+						'filename': 'VOwjn',
+						'purpose': '',
+						'status': 'uploaded'
 					}
 				],
-				'validation_files': [
-					{
-						'id': 'XDr;.1',
-						'object': 'file',
-						'bytes': 3690977436499269,
-						'createdAt': '',
-						'filename': 'SdD[v',
-						'purpose': 'PGQ\\U~cK_b',
-						'status': 'pending',
-						'status_details': 'gD|h?33F'
-					},
-					{
-						'id': 'QaV0_5',
-						'object': 'file',
-						'bytes': -5802492079557789,
-						'createdAt': '',
-						'filename': '3w.',
-						'purpose': 'g',
-						'status': 'pending',
-						'status_details': '(C$|'
-					},
-					{
-						'id': 'Vnsk<oPV6',
-						'object': 'file',
-						'bytes': 8445621909727925,
-						'createdAt': 'QMG1',
-						'filename': 'e',
-						'purpose': ';^\'"\\J-!c+',
-						'status': 'error',
-						'status_details': 'u$'
-					},
-					{
-						'id': '',
-						'object': 'file',
-						'bytes': -6875513811617876,
-						'createdAt': '#}@ctSf',
-						'filename': '&&;<',
-						'purpose': 'N,5x:',
-						'status': 'deleting',
-						'status_details': '\'v'
-					},
-					{
-						'id': 'H:S#rr',
-						'object': 'file',
-						'bytes': -1617271520102602,
-						'createdAt': 'l',
-						'filename': 'C=]_S{u<+',
-						'purpose': 'MxfuH\\d',
-						'status': 'deleting',
-						'status_details': 'm3{pj'
-					},
-					{
-						'id': '<-w%[SN',
-						'object': 'file',
-						'bytes': -3231779703138,
-						'createdAt': 't%W',
-						'filename': '{$QDwy',
-						'purpose': ')',
-						'status': 'pending',
-						'status_details': '='
-					},
-					{
-						'id': 'z[=28',
-						'object': 'file',
-						'bytes': -7472919115501500,
-						'createdAt': 'NxNG7e',
-						'filename': 'PogzYWK6',
-						'purpose': 'Ud\\{',
-						'status': 'pending',
-						'status_details': null
-					},
-					{
-						'id': '',
-						'object': 'file',
-						'bytes': -4709454357465285,
-						'createdAt': 'UzC|t4q',
-						'filename': 'SFerxyQ(mF',
-						'purpose': ',Uj<j',
-						'status': 'uploaded',
-						'status_details': ''
-					}
-				],
+				'validation_files': [],
 				'result_files': [
 					{
-						'id': 'F<5?U',
+						'id': ',CVN:19s8q',
 						'object': 'file',
-						'bytes': -9007199254740974,
-						'createdAt': 'Hs#|~M"Xg',
-						'filename': '{%9wU ',
-						'purpose': 'DS 9',
-						'status': 'processed',
-						'status_details': '(<6t,GaVt'
+						'bytes': 286249667977845,
+						'createdAt': '',
+						'filename': 'N&O6',
+						'purpose': 'ERG(',
+						'status': 'deleting',
+						'status_details': ''
 					},
 					{
-						'id': 'rpI`',
+						'id': '}',
 						'object': 'file',
-						'bytes': 9007199254740970,
+						'bytes': -3645353772016940,
+						'createdAt': 'q{{36(VI',
+						'filename': '__pr',
+						'purpose': 'rIJPvew6Y',
+						'status': 'deleted',
+						'status_details': ' 5'
+					},
+					{
+						'id': '',
+						'object': 'file',
+						'bytes': -2768914552644371,
 						'createdAt': '',
-						'filename': '',
-						'purpose': 'ZmHNcg"E',
-						'status': 'deleting',
-						'status_details': 'jP1Fi+eT'
+						'filename': 'dD[v5PGQ',
+						'purpose': '_}.',
+						'status': 'pending',
+						'status_details': ''
+					},
+					{
+						'id': 'V%%3$[',
+						'object': 'file',
+						'bytes': -3287050593181622,
+						'createdAt': '$|RVns',
+						'filename': 'oPV6)?G',
+						'purpose': '!"',
+						'status': 'pending',
+						'status_details': '\'$}X#'
+					},
+					{
+						'id': '_looyv',
+						'object': 'file',
+						'bytes': -9007199254740955,
+						'createdAt': '',
+						'filename': '#rr~#',
+						'purpose': '3',
+						'status': 'uploaded',
+						'status_details': '{u<'
+					},
+					{
+						'id': 'xfuH\\d',
+						'object': 'file',
+						'bytes': -28,
+						'createdAt': 'j&%',
+						'filename': 'Z',
+						'purpose': 'WD{$Q',
+						'status': 'deleted',
+						'status_details': ';"Z'
 					}
 				],
 				'events': [
 					{
-						'object': 'P7]<}/YvQ$',
-						'created_at': '_,',
-						'level': 'wGj!?7Zk{n',
-						'message': 'PQ'
-					},
-					{
-						'object': 'gCS',
-						'created_at': '=Ac~SCA',
-						'level': '}EMi+',
-						'message': '||RV'
-					},
-					{
-						'object': 'dMlcGG',
-						'created_at': 'Y{TkDzvP',
-						'level': '&',
+						'object': '=28no{Nx',
+						'created_at': 'G7e*P',
+						'level': 'g',
 						'message': ''
 					},
 					{
-						'object': 'c\\G',
-						'created_at': 'eDp',
-						'level': 'vb-zTas2',
-						'message': '0WL-Vw]#l1'
+						'object': 'K6',
+						'created_at': 'Ud\\{',
+						'level': '',
+						'message': '_j%R:'
+					},
+					{
+						'object': 'C|t4',
+						'created_at': 'u',
+						'level': '',
+						'message': 'erxyQ('
+					},
+					{
+						'object': 'd,Uj<',
+						'created_at': ',M&',
+						'level': '',
+						'message': 'B%,CF<5?Ua'
+					},
+					{
+						'object': 'yxqt*HKs',
+						'created_at': '0p',
+						'level': 'elt^uYMH"',
+						'message': 'X`'
+					},
+					{
+						'object': '^{%9wU xx',
+						'created_at': 'S 92Zq&0(',
+						'level': '6t,Ga',
+						'message': 'tlq'
 					}
 				]
 			},
@@ -6612,79 +5730,72 @@ export const samples = {
 					'n_epochs': -49,
 					'batch_size': -9007199254740977,
 					'prompt_loss_weight': -1.2181447740504146e+77,
-					'learning_rate_multiplier': -1.7976931348623131e+308,
+					'learning_rate_multiplier': -1.797693134862314e+308,
 					'compute_classification_metrics': true,
 					'classification_n_classes': 9007199254740980
 				},
 				'training_files': [
 					{
-						'id': '*&Kw',
+						'id': '',
 						'object': 'file',
-						'bytes': 8756148567481437,
-						'createdAt': '~.8d&. AW0',
-						'filename': '=r&a5',
-						'purpose': 'o@sWKrm',
+						'bytes': 6428445330487685,
+						'createdAt': 'd&. AW0B=',
+						'filename': 'er',
+						'purpose': '~',
+						'status': 'deleting',
+						'status_details': 'i'
+					},
+					{
+						'id': 'c',
+						'object': 'file',
+						'bytes': -38,
+						'createdAt': ',5',
+						'filename': '',
+						'purpose': '\';k',
 						'status': 'processed',
-						'status_details': null
-					},
-					{
-						'id': 'y`RJK',
-						'object': 'file',
-						'bytes': -7407276863483866,
-						'createdAt': 'M5KE',
-						'filename': '',
-						'purpose': ' cjt',
-						'status': 'error',
-						'status_details': '5\'{'
-					},
-					{
-						'id': '%\';k',
-						'object': 'file',
-						'bytes': -2994643005867375,
-						'createdAt': '$+ kH&yug',
-						'filename': '%8h9;RF2',
-						'purpose': ';=9J2-m',
-						'status': 'error'
-					},
-					{
-						'id': '{Jt',
-						'object': 'file',
-						'bytes': -1099317831394641,
-						'createdAt': 'l/i+N',
-						'filename': 'y3:G8+0P_',
-						'purpose': '',
-						'status': 'pending',
-						'status_details': null
-					},
-					{
-						'id': 'ucT',
-						'object': 'file',
-						'bytes': -5810649697116621,
-						'createdAt': 'swT:T~4)JI',
-						'filename': '',
-						'purpose': 'kttiH!_9u8',
-						'status': 'deleted',
-						'status_details': null
-					},
-					{
-						'id': 'B0;tyV',
-						'object': 'file',
-						'bytes': 7244950334020885,
-						'createdAt': '+3{8VSX',
-						'filename': 'e6B_ EOW',
-						'purpose': 'IN<hKPsb',
-						'status': 'deleted',
 						'status_details': ''
+					}
+				],
+				'validation_files': [
+					{
+						'id': 'g*%8h9;RF',
+						'object': 'file',
+						'bytes': -1216951606346459,
+						'createdAt': '',
+						'filename': '9J',
+						'purpose': '-m\'J',
+						'status': 'deleted',
+						'status_details': 'W2+l/i'
 					},
 					{
-						'id': '"@;]',
+						'id': 'fy3:G8+',
 						'object': 'file',
-						'bytes': -5356127742329180,
-						'createdAt': 'iv;#vznBG',
-						'filename': '.`\'\'',
-						'purpose': 'c]F26z',
+						'bytes': -6296458519930215,
+						'createdAt': '.kzauucT2',
+						'filename': 'VswT',
+						'purpose': 'T~4',
+						'status': 'error',
+						'status_details': null
+					},
+					{
+						'id': 'kttiH!_9u8',
+						'object': 'file',
+						'bytes': 8435461279611109,
+						'createdAt': 'AB0;tyVs"',
+						'filename': '+3{8VSX',
+						'purpose': 'e6B_ EOW',
 						'status': 'pending',
-						'status_details': '0*f->*%c!p'
+						'status_details': 'hKPs'
+					},
+					{
+						'id': ':dla"@;];',
+						'object': 'file',
+						'bytes': -5630997764872518,
+						'createdAt': 'v;#vznB',
+						'filename': 'n.`\'\'Ec]',
+						'purpose': '26z>WEg0',
+						'status': 'deleting',
+						'status_details': '*%c!'
 					},
 					{
 						'id': '',
@@ -6695,199 +5806,98 @@ export const samples = {
 						'purpose': 'Y>faELe")',
 						'status': 'processed',
 						'status_details': 'W/KrJa47Co'
-					}
-				],
-				'validation_files': [
-					{
-						'id': '39i',
-						'object': 'file',
-						'bytes': -1053481303568808,
-						'createdAt': '1e}T\\',
-						'filename': '?#O',
-						'purpose': '9kk,Cp.@',
-						'status': 'uploaded',
-						'status_details': '('
 					},
 					{
-						'id': '[?:x`',
+						'id': 'U39int',
 						'object': 'file',
-						'bytes': 3861157102886297,
-						'createdAt': 'hdC',
-						'filename': '5@ayTUl*\\&',
-						'purpose': 'CYk',
-						'status': 'uploaded',
-						'status_details': null
+						'bytes': 6271272316997577,
+						'createdAt': '}T\\G?#O;9',
+						'filename': 'k,',
+						'purpose': 'p.@`VH',
+						'status': 'deleting',
+						'status_details': '?:x`JpChdC'
 					},
 					{
-						'id': 'siPJ',
+						'id': '@ayTUl',
 						'object': 'file',
-						'bytes': 8743556310700881,
-						'createdAt': 'a7sc3VdxI',
-						'filename': '&',
-						'purpose': 'XEA&2+(',
-						'status': 'processed',
-						'status_details': '5UAK_[;'
-					},
-					{
-						'id': '5X',
-						'object': 'file',
-						'bytes': -5901301923131030,
-						'createdAt': 'l9',
-						'filename': 'jOrBQ]%N',
-						'purpose': '}VR',
-						'status': 'uploaded'
-					},
-					{
-						'id': '}.{{0N:l\'',
-						'object': 'file',
-						'bytes': 620258605616407,
-						'createdAt': 'iheC Hq[1E',
-						'filename': 'PFB)Qq',
-						'purpose': 'WHh',
+						'bytes': -6536779300881942,
+						'createdAt': '',
+						'filename': 'CYk',
+						'purpose': 'XdpsiPJ73',
 						'status': 'deleted',
-						'status_details': '3F'
+						'status_details': 'c3Vd'
 					},
 					{
-						'id': ' }Bhao',
+						'id': 'W&xXEA',
 						'object': 'file',
-						'bytes': 5522548858138393,
-						'createdAt': 'W;Q}',
-						'filename': 'u#1C',
-						'purpose': 'nh',
-						'status': 'deleted'
+						'bytes': -2881365324175317,
+						'createdAt': '(AQlT',
+						'filename': '',
+						'purpose': '',
+						'status': 'uploaded',
+						'status_details': ';L5X1Zsl93'
+					},
+					{
+						'id': 'rBQ]%Np}V',
+						'object': 'file',
+						'bytes': -2099083840755985,
+						'createdAt': '"}.{{0N:l\'',
+						'filename': '{HiheC',
+						'purpose': 'Hq[1Et',
+						'status': 'deleted',
+						'status_details': 'QqEWHhEOkM'
 					}
 				],
 				'result_files': [
 					{
-						'id': 'p',
+						'id': 'yv;%#&h',
 						'object': 'file',
-						'bytes': -26,
-						'createdAt': '`',
-						'filename': '1',
-						'purpose': '@3G;M4',
-						'status': 'deleted',
+						'bytes': -1336815445957957,
+						'createdAt': 'ev=n%+?',
+						'filename': '0W0q`Pi1UU',
+						'purpose': '',
+						'status': 'processed',
+						'status_details': '0C"'
+					},
+					{
+						'id': ' %e',
+						'object': 'file',
+						'bytes': -1908196838587457,
+						'createdAt': 'B`xJr',
+						'filename': '20y=8',
+						'purpose': 'Q.',
+						'status': 'pending',
+						'status_details': 'm!|xN}!'
+					},
+					{
+						'id': ')',
+						'object': 'file',
+						'bytes': -9,
+						'createdAt': 'IsD,$`p-',
+						'filename': ':no?T&Y',
+						'purpose': '',
+						'status': 'pending',
+						'status_details': 't#'
+					},
+					{
+						'id': '',
+						'object': 'file',
+						'bytes': -51,
+						'createdAt': 'caller',
+						'filename': ') O',
+						'purpose': '',
+						'status': 'deleting',
 						'status_details': null
 					},
 					{
-						'id': 'a%F',
+						'id': '!6@\\_9!7_',
 						'object': 'file',
-						'bytes': -36,
-						'createdAt': '',
-						'filename': '',
-						'purpose': '0y',
-						'status': 'uploaded'
-					},
-					{
-						'id': 'Q.',
-						'object': 'file',
-						'bytes': 7,
-						'createdAt': 'm!|xN}!',
-						'filename': 'b}',
-						'purpose': 'Strivalu',
-						'status': 'error',
-						'status_details': '"Z%&x~i$%~'
-					},
-					{
-						'id': ')8T&!O+',
-						'object': 'file',
-						'bytes': 8,
-						'createdAt': 'q6#%!i&u',
-						'filename': '`h!.3|)j',
-						'purpose': '`:|/1t<]8',
-						'status': 'error',
-						'status_details': '\\^<V2h|p?4'
-					},
-					{
-						'id': 'Ii``z?',
-						'object': 'file',
-						'bytes': -1246688038169672,
-						'createdAt': '=c',
-						'filename': '@',
-						'purpose': 'ref',
-						'status': 'error',
+						'bytes': -1157925488314282,
+						'createdAt': 'E`!3)&#1',
+						'filename': ']85,q,W\\',
+						'purpose': '|',
+						'status': 'uploaded',
 						'status_details': null
-					},
-					{
-						'id': 'o__looku',
-						'object': 'file',
-						'bytes': 42,
-						'createdAt': '%&HcpE',
-						'filename': 'o]cmA?ZY2',
-						'purpose': 'isPrototyp',
-						'status': 'processed',
-						'status_details': ''
-					},
-					{
-						'id': 'z.U3iI4K',
-						'object': 'file',
-						'bytes': 28,
-						'createdAt': 'gs-e',
-						'filename': 'arguments',
-						'purpose': 'tFB:H}qW',
-						'status': 'processed',
-						'status_details': 'cU9~l'
-					}
-				],
-				'events': [
-					{
-						'object': '~;',
-						'created_at': ':[!',
-						'level': '',
-						'message': 'ahYTgK'
-					},
-					{
-						'object': 'fZl:^5ZtS',
-						'created_at': '18N ,',
-						'level': 'Oi8A^',
-						'message': '#~{U^zUJo'
-					},
-					{
-						'object': '%kx#x0jMx?',
-						'created_at': 'zQ:PF6 b',
-						'level': 'A0P4)',
-						'message': 'lfg?jT|'
-					},
-					{
-						'object': 'y %DNh:!mY',
-						'created_at': 'Z<',
-						'level': 'UU',
-						'message': '0r#K6'
-					},
-					{
-						'object': 'o.u`-',
-						'created_at': 'Dv!xH$0',
-						'level': '(DFCfEBt\\P',
-						'message': '{0'
-					},
-					{
-						'object': 'O/2WMD\\r',
-						'created_at': 'ttKPvH,XC"',
-						'level': 'j7?"Mj28',
-						'message': 'Z'
-					},
-					{
-						'object': '',
-						'created_at': '!Tj2b)@vN',
-						'level': '[bq}sTW(]M',
-						'message': '^C`F,'
-					},
-					{
-						'object': '@q',
-						'created_at': '',
-						'level': 'I?$te8"=9]',
-						'message': 'CA{'
-					},
-					{
-						'object': '7yV1=Apfib',
-						'created_at': 'x-|',
-						'level': '^B_!tm%',
-						'message': '}'
-					},
-					{
-						'object': '=,',
-						'created_at': 'o7]?^',
-						'level': 'C&pf$"',
-						'message': '@9~<<0='
 					}
 				]
 			},
@@ -6911,172 +5921,57 @@ export const samples = {
 				},
 				'training_files': [
 					{
-						'id': '$g',
+						'id': 'gK[:-oc*Y',
 						'object': 'file',
-						'bytes': 3674988223872945,
-						'createdAt': '-oc*Y}',
-						'filename': 'Us<SVt1',
-						'purpose': 'KUx_, w:6Z',
-						'status': 'deleted',
-						'status_details': 'T:q'
-					},
-					{
-						'id': '',
-						'object': 'file',
-						'bytes': 7891880114911403,
-						'createdAt': 'a<kCUCG',
-						'filename': '.0V_H7s:a',
-						'purpose': 'M^FvN7S',
-						'status': 'deleted',
-						'status_details': ''
-					},
-					{
-						'id': '!',
-						'object': 'file',
-						'bytes': 7730120175404281,
-						'createdAt': '(.v!`a[cw',
-						'filename': '`IH',
-						'purpose': 'hw"',
-						'status': 'uploaded',
-						'status_details': 'A.!~'
-					},
-					{
-						'id': 'u+PKYS',
-						'object': 'file',
-						'bytes': 3238422338229761,
-						'createdAt': '%G$okpQ',
-						'filename': 'd)3{<o',
-						'purpose': 'cc&Gy$mss',
-						'status': 'processed',
-						'status_details': 'Rqp2'
-					},
-					{
-						'id': '=Du',
-						'object': 'file',
-						'bytes': -7282471176794596,
-						'createdAt': ')k\\',
-						'filename': 'L9w}>c1F3d',
-						'purpose': 'rnIU*"y',
+						'bytes': 4949184378582703,
+						'createdAt': 's<S',
+						'filename': '',
+						'purpose': '1q',
 						'status': 'deleting',
-						'status_details': '#+neG=pr{'
+						'status_details': ', w:6ZdO{'
+					},
+					{
+						'id': ':qlM',
+						'object': 'file',
+						'bytes': -1133964940944190,
+						'createdAt': '<kCUCGU.',
+						'filename': 'V_H7s:aC',
+						'purpose': '^FvN7',
+						'status': 'deleted',
+						'status_details': 'DX!@&x(.'
 					}
 				],
 				'validation_files': [
 					{
-						'id': 'ref',
+						'id': 'wD`IHN',
 						'object': 'file',
-						'bytes': -20,
-						'createdAt': 'h|h',
-						'filename': 'M',
-						'purpose': 'ZI>< gXb',
-						'status': 'processed',
-						'status_details': '\\'
+						'bytes': -3899108920425895,
+						'createdAt': '',
+						'filename': '!~Uu+PKYS',
+						'purpose': '!',
+						'status': 'pending'
 					},
 					{
-						'id': '|$#',
+						'id': 'pQ(',
 						'object': 'file',
-						'bytes': 6779847350323233,
-						'createdAt': '(J ',
-						'filename': '',
-						'purpose': 'R#',
-						'status': 'uploaded'
-					}
-				],
-				'result_files': [
-					{
-						'id': 'o+@b<G',
-						'object': 'file',
-						'bytes': 5643671681942401,
-						'createdAt': 'NaxT@mj',
-						'filename': 'bUzF{6U',
-						'purpose': 'on',
-						'status': 'deleted'
+						'bytes': 8732269390794129,
+						'createdAt': 'oU',
+						'filename': '&Gy$mssFz',
+						'purpose': 'Rqp2',
+						'status': 'error'
 					},
 					{
-						'id': '$',
+						'id': 'N7)k\\qL9',
 						'object': 'file',
-						'bytes': -1249434215761921,
-						'createdAt': 'PD',
-						'filename': 'OZbG5/2\'r',
-						'purpose': 'z',
-						'status': 'pending',
-						'status_details': 'Ge/r5,'
-					},
-					{
-						'id': 's',
-						'object': 'file',
-						'bytes': -2382368574373263,
-						'createdAt': '`*^F:6u',
-						'filename': '-4J',
-						'purpose': '=hhzHi{ x',
-						'status': 'pending',
-						'status_details': '~Dh'
-					},
-					{
-						'id': 'y@',
-						'object': 'file',
-						'bytes': 5339733089165293,
-						'createdAt': '~F',
-						'filename': 'IOZzBWx',
-						'purpose': '',
+						'bytes': 42,
+						'createdAt': '_%"@',
+						'filename': 'nG',
+						'purpose': 'r{Nd\'0ubN',
 						'status': 'deleting',
-						'status_details': '\'ODFEO_'
-					},
-					{
-						'id': '\\}jz',
-						'object': 'file',
-						'bytes': 7223880986487327,
-						'createdAt': '2',
-						'filename': 'Vdd',
-						'purpose': '@4yH',
-						'status': 'deleted',
-						'status_details': ''
+						'status_details': '",uJBh7'
 					}
 				],
-				'events': [
-					{
-						'object': 'y6K\\7 PhBX',
-						'created_at': 'f-iq?7mB<',
-						'level': '"JhrR',
-						'message': 'W2S'
-					},
-					{
-						'object': 'irJJmseRR',
-						'created_at': '{{1<(*Or',
-						'level': 'au?',
-						'message': 'V/0;'
-					},
-					{
-						'object': '));',
-						'created_at': '',
-						'level': '',
-						'message': ''
-					},
-					{
-						'object': 'xI13`Z',
-						'created_at': 'l',
-						'level': 'Nxm@0P)I',
-						'message': '!ES'
-					},
-					{
-						'object': '',
-						'created_at': '%)',
-						'level': '$',
-						'message': '/>'
-					},
-					{
-						'object': 'xfisHN',
-						'created_at': '',
-						'level': 'I5',
-						'message': 'z1sR8+q5'
-					},
-					{
-						'object': 'W:MmBm!^',
-						'created_at': 'z*G',
-						'level': '-@>C/&f5',
-						'message': 'r)N~lu)p?'
-					}
-				]
+				'result_files': []
 			}
 		],
 		'FineTuneEvent': [
@@ -7127,7 +6022,7 @@ export const samples = {
 						'hyperparams': {
 							'n_epochs': -6942274658231016,
 							'batch_size': -1152707729587157,
-							'prompt_loss_weight': -1.7976931348623127e+308,
+							'prompt_loss_weight': -1.7976931348623151e+308,
 							'learning_rate_multiplier': -5.1174241296117715e-284,
 							'compute_classification_metrics': true,
 							'classification_positive_class': 'u9',
@@ -7135,88 +6030,158 @@ export const samples = {
 						},
 						'training_files': [
 							{
-								'id': 'apply',
+								'id': 'xd6',
 								'object': 'file',
-								'bytes': 5446349429940349,
-								'createdAt': 'v\'U',
-								'filename': 'an',
-								'purpose': '7 ',
+								'bytes': 2876563598972235,
+								'createdAt': 'B!]Sv\'U"}a',
+								'filename': 'E~fZ{7q0!6',
+								'purpose': 'n',
 								'status': 'deleted',
 								'status_details': null
 							}
 						],
 						'validation_files': [
 							{
-								'id': 'Hq(` 7U',
+								'id': 'h',
 								'object': 'file',
-								'bytes': -6881661612825162,
-								'createdAt': '~',
-								'filename': '|q,m',
-								'purpose': ')^5mu)0b',
-								'status': 'deleted',
-								'status_details': null
+								'bytes': -8946666392785871,
+								'createdAt': 'm)',
+								'filename': 's-Btd*98',
+								'purpose': '%%!',
+								'status': 'error',
+								'status_details': '*=3wQ(5'
 							},
 							{
-								'id': 'd*98sUl @d',
+								'id': 'GRv;Ss+T',
 								'object': 'file',
-								'bytes': -145092788119325,
-								'createdAt': 'l\\%`:3l`%*',
-								'filename': '',
-								'purpose': 'wQ(5j5;G',
-								'status': 'pending',
-								'status_details': ''
-							},
-							{
-								'id': '+T-on',
-								'object': 'file',
-								'bytes': 583491548663765,
-								'createdAt': 'WoS.Xm',
-								'filename': '[ex',
-								'purpose': '',
-								'status': 'uploaded',
-								'status_details': '0~J\'CO'
+								'bytes': 2427385057740253,
+								'createdAt': '',
+								'filename': '.Xm',
+								'purpose': 'ex:%?6o0~',
+								'status': 'uploaded'
 							},
 							{
 								'id': '#/',
 								'object': 'file',
-								'bytes': 3252462012951969,
-								'createdAt': '*u9cq^5f+V',
-								'filename': '(*8M\'CS6{?',
-								'purpose': 'K<',
-								'status': 'pending',
-								'status_details': null
-							},
-							{
-								'id': 'u,XL%zSR5D',
-								'object': 'file',
-								'bytes': 7545739770724069,
+								'bytes': 4,
 								'createdAt': '',
-								'filename': '',
-								'purpose': 'P+dri\'g',
-								'status': 'processed',
-								'status_details': 'O+}gbU'
+								'filename': '5f+V',
+								'purpose': ' 6|"',
+								'status': 'processed'
 							},
 							{
-								'id': 'b',
+								'id': 'pr',
 								'object': 'file',
-								'bytes': 3680177401903783,
-								'createdAt': '1UkO',
-								'filename': 'S(q{',
-								'purpose': 'i<5GkK^daG',
-								'status': 'error',
-								'status_details': 'rn'
+								'bytes': -7664823337038128,
+								'createdAt': '',
+								'filename': 'P+dri\'g',
+								'purpose': '+WO',
+								'status': 'deleting',
+								'status_details': '}b `p1UkO'
+							},
+							{
+								'id': 'q{9i<5Gk',
+								'object': 'file',
+								'bytes': 39,
+								'createdAt': '&" {/~#|',
+								'filename': '',
+								'purpose': '',
+								'status': 'processed',
+								'status_details': 'V&x'
+							},
+							{
+								'id': 'cOvsq',
+								'object': 'file',
+								'bytes': 12,
+								'createdAt': 'T@L5*xs(C',
+								'filename': 'w1grejS',
+								'purpose': ' %/En/}"',
+								'status': 'uploaded',
+								'status_details': ''
+							},
+							{
+								'id': '5Z51C',
+								'object': 'file',
+								'bytes': 7219409267120305,
+								'createdAt': '"dE1',
+								'filename': '|d& M&s',
+								'purpose': '',
+								'status': 'deleting',
+								'status_details': '}VuRySRF;'
+							},
+							{
+								'id': 'fDfH,\'NHty',
+								'object': 'file',
+								'bytes': 9007199254740951,
+								'createdAt': '$$',
+								'filename': '$torxJ',
+								'purpose': '',
+								'status': 'pending',
+								'status_details': '(2Zs/i0'
+							},
+							{
+								'id': '',
+								'object': 'file',
+								'bytes': -4376002761897624,
+								'createdAt': '<a >!&z%',
+								'filename': 'z__proto__',
+								'purpose': '[|O',
+								'status': 'pending'
+							},
+							{
+								'id': 'x>',
+								'object': 'file',
+								'bytes': -9007199254740969,
+								'createdAt': 'key',
+								'filename': 'xa}x%',
+								'purpose': 'isPrototyp',
+								'status': 'processed',
+								'status_details': '4&h4W'
 							}
 						],
-						'result_files': [
+						'result_files': [],
+						'events': [
 							{
-								'id': 'Df"%Py/K',
-								'object': 'file',
-								'bytes': 8237689676869633,
-								'createdAt': 'OA\'z@dYg',
-								'filename': 'M-(|d@',
-								'purpose': '4;HVAis|H_',
-								'status': 'processed',
-								'status_details': 'Ovsqp'
+								'object': '\'',
+								'created_at': 'f',
+								'level': 'GH}j',
+								'message': ']'
+							},
+							{
+								'object': 'E~yS\'i(n',
+								'created_at': '!',
+								'level': 'waw7',
+								'message': 'bx/'
+							},
+							{
+								'object': 'K',
+								'created_at': 'hbA',
+								'level': 'g',
+								'message': 'f'
+							},
+							{
+								'object': '^',
+								'created_at': 'nu+g1w9vc',
+								'level': '',
+								'message': '|0kJq|d'
+							},
+							{
+								'object': 'f\\cy',
+								'created_at': '(B}',
+								'level': 'K[',
+								'message': ']!2(65Y`'
+							},
+							{
+								'object': '9X<',
+								'created_at': 'Bs',
+								'level': 'L!gM$M',
+								'message': 'sJnYA'
+							},
+							{
+								'object': 'iY@',
+								'created_at': 'b',
+								'level': '%leL',
+								'message': '@q/:_mM4V'
 							}
 						]
 					}
@@ -7244,241 +6209,247 @@ export const samples = {
 						},
 						'training_files': [
 							{
-								'id': '6\'LDrI^',
+								'id': '\'LDrI^b',
 								'object': 'file',
-								'bytes': 2374199356561607,
-								'createdAt': 'UC/B.gEr',
-								'filename': '|6+/\'L)b|0',
-								'purpose': 'F',
-								'status': 'error'
+								'bytes': -7291108078013508,
+								'createdAt': 'C/B.gE',
+								'filename': 'f|6+/\'L)b',
+								'purpose': '',
+								'status': 'uploaded',
+								'status_details': 'xFxY/u'
 							},
 							{
-								'id': 'xY/u+VbR|',
+								'id': 'bR|`Ogi>27',
 								'object': 'file',
-								'bytes': -6528608642530328,
-								'createdAt': 'i>',
-								'filename': '7^&%g',
-								'purpose': 'Uy"_f3,F',
-								'status': 'uploaded'
+								'bytes': 1077436109481657,
+								'createdAt': '',
+								'filename': 'FUy"_f3,F',
+								'purpose': 'F$y^-ORm',
+								'status': 'uploaded',
+								'status_details': 'vCv2'
 							},
 							{
-								'id': 'y^-ORm',
+								'id': 'Iebz^_}_p',
 								'object': 'file',
-								'bytes': 2415120584304665,
-								'createdAt': '\\vCv2o5',
-								'filename': 'ebz^',
-								'purpose': '}_phT.IyZA',
-								'status': 'deleted',
-								'status_details': 'ig(HQR8C+H'
-							},
-							{
-								'id': 't"z7}?$',
-								'object': 'file',
-								'bytes': 1248106344173175,
-								'createdAt': '[V1O*(Vl',
-								'filename': '&',
-								'purpose': '+\\{B',
-								'status': 'deleted'
-							},
-							{
-								'id': '`2+]n;',
-								'object': 'file',
-								'bytes': -2748428968962918,
-								'createdAt': 'CznZ(-w\'w(',
-								'filename': 'aF$Q788&',
-								'purpose': 't-J\'|1',
-								'status': 'error',
-								'status_details': 'oBut'
-							},
-							{
-								'id': '2Z|c',
-								'object': 'file',
-								'bytes': 3002079224018451,
-								'createdAt': '3NicAT3Am\\',
-								'filename': '',
-								'purpose': 'yK#KCj',
+								'bytes': 4623066787587165,
+								'createdAt': 'IyZA:',
+								'filename': '#Jig(HQR8',
+								'purpose': '+H^t"z7}?',
 								'status': 'pending',
-								'status_details': '`}z!r;$U1'
+								'status_details': null
+							},
+							{
+								'id': 'V1O*(',
+								'object': 'file',
+								'bytes': 8085788450391791,
+								'createdAt': '&',
+								'filename': '+\\{B',
+								'purpose': 'G2`2+]n;',
+								'status': 'deleted',
+								'status_details': 'znZ(-w\'w(|'
+							},
+							{
+								'id': '$Q788&Et-J',
+								'object': 'file',
+								'bytes': 5936614833633443,
+								'createdAt': 'BsBy',
+								'filename': 'But92Z',
+								'purpose': 'c)L\\3N',
+								'status': 'deleting',
+								'status_details': '3Am\\d'
+							},
+							{
+								'id': 'K#KCj.?O\\`',
+								'object': 'file',
+								'bytes': 8687752111780755,
+								'createdAt': 'r;$U1',
+								'filename': '8;YeZ55:',
+								'purpose': '',
+								'status': 'error',
+								'status_details': null
+							},
+							{
+								'id': '-\\G2hZ&U+3',
+								'object': 'file',
+								'bytes': 659963993465277,
+								'createdAt': 'Z-De',
+								'filename': 'a<to)VS',
+								'purpose': 'a',
+								'status': 'deleted',
+								'status_details': 'kY'
 							}
 						],
 						'validation_files': [
 							{
-								'id': ';YeZ55:',
+								'id': '7$\\J',
 								'object': 'file',
-								'bytes': -6561895162516104,
-								'createdAt': 'NUj-\\',
-								'filename': '2hZ&U+3',
-								'purpose': 'skZ-De/a',
+								'bytes': 5952251730713679,
+								'createdAt': 'hOLdA',
+								'filename': '\'',
+								'purpose': 'cUBxW%Q9',
 								'status': 'processed',
-								'status_details': 'VSu'
+								'status_details': 'k,*a,'
 							},
 							{
-								'id': 'kx',
+								'id': 'K-zwBLA',
 								'object': 'file',
-								'bytes': -5616370914542442,
-								'createdAt': 'Yb',
-								'filename': 'e7$\\J=\'-h',
-								'purpose': '',
-								'status': 'uploaded',
-								'status_details': '\''
+								'bytes': 2663439476693475,
+								'createdAt': 'cYomzq',
+								'filename': 'rT#hDJ',
+								'purpose': 'y%',
+								'status': 'deleting',
+								'status_details': 'qSTF(w~r#'
 							},
 							{
-								'id': 'cUBxW%Q9',
+								'id': '#Q"',
 								'object': 'file',
-								'bytes': -8827764141748638,
-								'createdAt': '5',
-								'filename': ',*a,dlK-',
-								'purpose': 'wBL',
-								'status': 'processed',
-								'status_details': 'cYomzq'
+								'bytes': -596332961874901,
+								'createdAt': '%/ ',
+								'filename': 'Xx',
+								'purpose': 'W',
+								'status': 'deleted',
+								'status_details': 'dXUA-V|0'
 							},
 							{
-								'id': 'rT#hDJ',
+								'id': 'sf&?[|le',
 								'object': 'file',
-								'bytes': 1156461948898593,
-								'createdAt': 'vs+6qST',
-								'filename': '(w~r#',
-								'purpose': '[#Q"Uik%',
-								'status': 'uploaded',
-								'status_details': 'x2'
+								'bytes': -3365654403337902,
+								'createdAt': 'Ym1Cc',
+								'filename': '<g4`x)^EM',
+								'purpose': 'N0Fqj6',
+								'status': 'deleting',
+								'status_details': '=Z*hy'
 							},
 							{
-								'id': '6_IGd',
+								'id': '!7',
 								'object': 'file',
-								'bytes': -2118335184796665,
-								'createdAt': '-V|0,Gsf&',
-								'filename': '[|le\\u4Ym1',
-								'purpose': 'cN<',
+								'bytes': 892741851579329,
+								'createdAt': 'q',
+								'filename': ':+nS',
+								'purpose': 'd?E]&dE ',
+								'status': 'deleting',
+								'status_details': '*Oh^H'
+							},
+							{
+								'id': 'xh&j_ ',
+								'object': 'file',
+								'bytes': 6661878467435493,
+								'createdAt': 'n98=s',
+								'filename': '',
+								'purpose': '@',
+								'status': 'deleted',
+								'status_details': '_A`IEK.W'
+							},
+							{
+								'id': '~*`R',
+								'object': 'file',
+								'bytes': 7709105033557745,
+								'createdAt': '',
+								'filename': '=tCu~39N"]',
+								'purpose': 'f',
+								'status': 'deleted',
+								'status_details': ''
+							},
+							{
+								'id': 'QQ|"T',
+								'object': 'file',
+								'bytes': 6735897546256801,
+								'createdAt': 'T',
+								'filename': '-\\4%rv(N}',
+								'purpose': 'Tw7i^<0!}D',
 								'status': 'error',
-								'status_details': null
+								'status_details': '+L0C0'
 							},
 							{
-								'id': ')^EMWN0Fq',
+								'id': 'akL\\?h',
 								'object': 'file',
-								'bytes': -3298178586551100,
-								'createdAt': 'Zqw=Z*hyx',
-								'filename': '!7',
-								'purpose': '\\',
+								'bytes': 4358029654353901,
+								'createdAt': '',
+								'filename': 'pd?P?$',
+								'purpose': '~G_{I',
 								'status': 'uploaded',
-								'status_details': '+nSE'
-							},
-							{
-								'id': '?',
-								'object': 'file',
-								'bytes': -4774235224796797,
-								'createdAt': 'dE >o',
-								'filename': '>',
-								'purpose': 'Oh^H{>x',
-								'status': 'uploaded'
-							},
-							{
-								'id': '_ /JBn98=s',
-								'object': 'file',
-								'bytes': 728384616991453,
-								'createdAt': '9d>t_A`',
-								'filename': 'EK.WSR~*',
-								'purpose': 'R(sj*=tCu',
-								'status': 'error',
-								'status_details': '"]'
+								'status_details': '[_.wu9'
 							}
 						],
 						'result_files': [
 							{
-								'id': 'rgVQ',
+								'id': '*|Zv]AJN',
 								'object': 'file',
-								'bytes': -1849974489199044,
-								'createdAt': 'Q|"T?#VT#',
-								'filename': '\\4%r',
-								'purpose': '(N}jTw',
+								'bytes': 266725982916299,
+								'createdAt': '5BdK~zhV+',
+								'filename': '6`}L2"',
+								'purpose': 'jZjL.(tVEa',
+								'status': 'deleting'
+							},
+							{
+								'id': 'qW',
+								'object': 'file',
+								'bytes': 8756762157794593,
+								'createdAt': 'q1~v',
+								'filename': '\'m0p7v;',
+								'purpose': 'UwTOJvr',
 								'status': 'error',
-								'status_details': null
+								'status_details': 'jg'
 							}
 						],
 						'events': [
 							{
-								'object': '}D?q!7+L',
-								'created_at': 'C0m_akL\\?h',
-								'level': 'ow',
-								'message': 'pd?P?$'
+								'object': '1',
+								'created_at': 'Va\'TT.}',
+								'level': 'Ae8EM*8F',
+								'message': '\'z/5u09 q '
 							},
 							{
-								'object': '~G_{I',
-								'created_at': 'L-',
-								'level': '[_.wu9',
-								'message': 'C'
+								'object': '=Hd',
+								'created_at': '}cU',
+								'level': '%=m b~Z A/',
+								'message': 'i\\E'
 							},
 							{
-								'object': '*|Zv]AJN',
-								'created_at': 'TO5BdK~z',
-								'level': '',
-								'message': ''
-							},
-							{
-								'object': '<6`}L',
-								'created_at': '"ujZjL.(tV',
-								'level': 'aT);Uq',
-								'message': '1vjq1~'
-							},
-							{
-								'object': '3\'m',
-								'created_at': 'p7v',
-								'level': ')Uw',
-								'message': 'OJv'
-							},
-							{
-								'object': '\\YVvjg1}M3',
-								'created_at': '$V',
-								'level': '\'TT.}6Ae',
-								'message': 'EM*8Fm\'z/'
-							},
-							{
-								'object': 'u09 q',
-								'created_at': '',
-								'level': 'L',
-								'message': 'HdZ}'
-							},
-							{
-								'object': 'U',
-								'created_at': '%=m b~Z A/',
-								'level': 'i\\E',
-								'message': 'Ys3|Pe1'
-							},
-							{
-								'object': '7Wh&QBF=P',
-								'created_at': 'e)N',
-								'level': 'J3HrXbg}?1',
-								'message': '*yKs-dc'
+								'object': 's3|P',
+								'created_at': '1^7W',
+								'level': '&QB',
+								'message': '=P'
 							}
 						]
 					},
 					{
-						'id': 'z{b$g/wi',
+						'id': 'NOJ3HrX',
 						'object': 'fine-tune',
-						'created_at': ',W',
-						'updated_at': 'd-#clFS";',
-						'model': 'EYx9\\k3S',
-						'fine_tuned_model': null,
-						'organization_id': '-&',
-						'status': 'cancelled',
+						'created_at': '',
+						'updated_at': '}?1\\*yKs-d',
+						'model': 'Xz{b$g/w',
+						'fine_tuned_model': ',W',
+						'organization_id': 'd-#clFS";',
+						'status': 'running',
 						'hyperparams': {
-							'n_epochs': -650186758551256,
-							'batch_size': -8533364329540111,
-							'prompt_loss_weight': 6.32951556890538e-211,
-							'learning_rate_multiplier': -2.147580690293864e-262,
-							'compute_classification_metrics': true,
-							'classification_positive_class': '!C3AQ^@',
-							'classification_n_classes': -2052654813176820
+							'n_epochs': -8173464157640740,
+							'batch_size': -2181802727539650,
+							'prompt_loss_weight': -3.8662939725557956e+183,
+							'learning_rate_multiplier': 6.770625723015992e-180,
+							'classification_positive_class': '',
+							'classification_n_classes': 4992352063959209
 						},
 						'training_files': [
 							{
-								'id': 'JN\'F=n-df',
+								'id': '4j@gA%/',
 								'object': 'file',
-								'bytes': -4541908054809176,
-								'createdAt': '=v',
-								'filename': '@<@\'8ASv)t',
-								'purpose': 'rS',
+								'bytes': -7620835060523397,
+								'createdAt': '3',
+								'filename': 'Q^@"I/',
+								'purpose': '`J',
+								'status': 'pending',
+								'status_details': 'n-df!`s'
+							},
+							{
+								'id': ',@<',
+								'object': 'file',
+								'bytes': -6605298893695068,
+								'createdAt': 'ASv)t',
+								'filename': 'rS',
+								'purpose': ':YR<`1',
 								'status': 'uploaded',
-								'status_details': '<`1O72Ks0'
+								'status_details': 's'
 							},
 							{
 								'id': ';Nb-js',
@@ -7488,9 +6459,7 @@ export const samples = {
 								'filename': ')sjJ7|"~',
 								'purpose': 'iDZu-S',
 								'status': 'deleting'
-							}
-						],
-						'validation_files': [
+							},
 							{
 								'id': '&<O*@>',
 								'object': 'file',
@@ -7502,73 +6471,75 @@ export const samples = {
 								'status_details': 'Zv*J^j3DQ{'
 							},
 							{
-								'id': '$o>UK`',
+								'id': 'o',
 								'object': 'file',
-								'bytes': 4412144505776099,
-								'createdAt': '.IR[N',
-								'filename': 'l/@O8',
-								'purpose': 'f(r',
-								'status': 'processed',
-								'status_details': '8Bo'
+								'bytes': -6067649206988431,
+								'createdAt': '`CS',
+								'filename': '.IR[N',
+								'purpose': 'l/@O8',
+								'status': 'uploaded'
 							},
 							{
-								'id': 'm',
+								'id': '0\\\'y8B',
 								'object': 'file',
-								'bytes': -8866184201098040,
-								'createdAt': '#~$A]@S-',
-								'filename': ',l!K',
-								'purpose': '/CWd>',
-								'status': 'processed',
+								'bytes': 1141589915193757,
+								'createdAt': '5`',
+								'filename': '#~$A]@S-',
+								'purpose': ',l!K',
+								'status': 'error',
 								'status_details': null
 							},
 							{
-								'id': '[I*iBy"0j',
+								'id': '>^\\',
 								'object': 'file',
-								'bytes': -3840013403864125,
-								'createdAt': '=',
-								'filename': 'LWwDP46j&',
-								'purpose': '',
-								'status': 'pending',
-								'status_details': 'Sv'
+								'bytes': 6394777951021879,
+								'createdAt': 'I',
+								'filename': 'iBy"0jM6&=',
+								'purpose': 'LWwDP46j&',
+								'status': 'error',
+								'status_details': 'gSv!'
 							},
 							{
-								'id': 'cX',
+								'id': 'd_^',
 								'object': 'file',
-								'bytes': 595983266953777,
-								'createdAt': ')8Q$lO',
-								'filename': '#mh4UA',
-								'purpose': 'y(JEbBS',
-								'status': 'error'
-							},
+								'bytes': -3435690553397715,
+								'createdAt': '$lO6#',
+								'filename': 'h',
+								'purpose': 'UA!y(',
+								'status': 'error',
+								'status_details': 'S85xP#;'
+							}
+						],
+						'validation_files': [
 							{
-								'id': 'P#;c^=z',
+								'id': '',
 								'object': 'file',
-								'bytes': -2011068399854440,
-								'createdAt': '0oc',
+								'bytes': 5465427574053617,
+								'createdAt': 'u0oc',
 								'filename': 'G-BiJ*7 ',
 								'purpose': 'G">0',
 								'status': 'pending',
 								'status_details': '5FAVoP'
 							},
 							{
-								'id': '_OO+\'}I',
+								'id': 'OO+\'}IXo',
 								'object': 'file',
-								'bytes': 8448441870109285,
-								'createdAt': 'v2&n4MO',
-								'filename': 'vu?',
-								'purpose': '\\OWwH',
-								'status': 'deleting',
-								'status_details': 'x%cRlxp'
+								'bytes': -1758875143131849,
+								'createdAt': '&n',
+								'filename': 'MOkvu?_\\OW',
+								'purpose': 'H$J!P',
+								'status': 'processed',
+								'status_details': ''
 							},
 							{
-								'id': 'S<ql_pON',
+								'id': 'pYS<ql',
 								'object': 'file',
-								'bytes': -5821771146634781,
-								'createdAt': '-?xCW',
-								'filename': '(: Dg',
-								'purpose': 'te',
-								'status': 'deleting',
-								'status_details': 'jYM#k^"'
+								'bytes': 4102689452326373,
+								'createdAt': 'N<aQ-?xCWl',
+								'filename': ': Dgd',
+								'purpose': 'e]fVxjYM',
+								'status': 'pending',
+								'status_details': null
 							},
 							{
 								'id': '~G3vF',
@@ -7581,17 +6552,15 @@ export const samples = {
 								'status_details': 'umV'
 							},
 							{
-								'id': ' ',
+								'id': 'J*-"u]',
 								'object': 'file',
-								'bytes': 7159258950544525,
-								'createdAt': '',
-								'filename': 'u])?%',
-								'purpose': 'U\'%NT"O8',
-								'status': 'pending',
-								'status_details': 'P`bgS",'
-							}
-						],
-						'result_files': [
+								'bytes': -8525487144682163,
+								'createdAt': '|U',
+								'filename': '%NT',
+								'purpose': 'O8K',
+								'status': 'deleted',
+								'status_details': '`bgS",'
+							},
 							{
 								'id': 'V\\',
 								'object': 'file',
@@ -7601,311 +6570,269 @@ export const samples = {
 								'purpose': '?`',
 								'status': 'deleted',
 								'status_details': 'TITa\'I|8e'
-							},
-							{
-								'id': 'OE9s\'aiy',
-								'object': 'file',
-								'bytes': 5465486171180153,
-								'createdAt': '',
-								'filename': 'lb',
-								'purpose': '8f',
-								'status': 'deleted'
-							},
-							{
-								'id': '-;8xLFzg.G',
-								'object': 'file',
-								'bytes': 1900421070945497,
-								'createdAt': '[',
-								'filename': 'BuU7mc~ ',
-								'purpose': '2',
-								'status': 'pending',
-								'status_details': null
-							},
-							{
-								'id': 'q1hQyme',
-								'object': 'file',
-								'bytes': -7783192637706751,
-								'createdAt': 'L)l',
-								'filename': '',
-								'purpose': '#T{_x',
-								'status': 'deleted',
-								'status_details': 'R'
-							},
-							{
-								'id': 'o6O\'Km;#H',
-								'object': 'file',
-								'bytes': -4373797465428866,
-								'createdAt': 'C65/scKR',
-								'filename': '9$yK',
-								'purpose': 'b*G>[* ',
-								'status': 'deleted',
-								'status_details': '\\'
-							},
-							{
-								'id': 'OSA',
-								'object': 'file',
-								'bytes': -8019652699653726,
-								'createdAt': '$0,=[c|)BA',
-								'filename': '',
-								'purpose': '5}kInG',
-								'status': 'deleted',
-								'status_details': '6hFCsuQ('
-							}
-						],
-						'events': []
-					},
-					{
-						'id': 'QI',
-						'object': 'fine-tune',
-						'created_at': 'nDk!MMiY',
-						'updated_at': 'g%&',
-						'model': '>H',
-						'fine_tuned_model': 'C`c0>)k=',
-						'organization_id': 'DTKx7j%',
-						'status': 'succeeded',
-						'hyperparams': {
-							'n_epochs': 8849030496670365,
-							'batch_size': -4917106966001628,
-							'prompt_loss_weight': -4.063886231635105e-188,
-							'learning_rate_multiplier': -1.7576593293227591e+31,
-							'compute_classification_metrics': true,
-							'classification_positive_class': 'z8VBi#',
-							'classification_n_classes': 3955252191182271
-						},
-						'training_files': [
-							{
-								'id': 'iD',
-								'object': 'file',
-								'bytes': -1621825481606615,
-								'createdAt': '30:%',
-								'filename': 'Vw',
-								'purpose': 'KT|',
-								'status': 'pending',
-								'status_details': ''
-							},
-							{
-								'id': 'N',
-								'object': 'file',
-								'bytes': -8120335849060122,
-								'createdAt': 'r!lZ',
-								'filename': '%qeIz=Q#{',
-								'purpose': '_\\Xn[o>',
-								'status': 'pending',
-								'status_details': null
-							},
-							{
-								'id': 'jsP6',
-								'object': 'file',
-								'bytes': 5987777458813353,
-								'createdAt': 'sWFlQL,',
-								'filename': '5axuluN',
-								'purpose': '5@iNb"vrh',
-								'status': 'pending',
-								'status_details': 'j4}D|sI[D'
-							},
-							{
-								'id': '.-ZjR',
-								'object': 'file',
-								'bytes': 1522929177454879,
-								'createdAt': '"A$w"04eW',
-								'filename': 'D@ZC>',
-								'purpose': '&(ORDm',
-								'status': 'deleting',
-								'status_details': '<h%S4Yq%'
-							},
-							{
-								'id': '}^)EZc',
-								'object': 'file',
-								'bytes': 1788576681107069,
-								'createdAt': 'llI,DF',
-								'filename': '',
-								'purpose': '*iW\'',
-								'status': 'uploaded',
-								'status_details': null
-							},
-							{
-								'id': '',
-								'object': 'file',
-								'bytes': -5623468367334001,
-								'createdAt': 'Z',
-								'filename': '} pV',
-								'purpose': 'gN',
-								'status': 'uploaded',
-								'status_details': 'p:RQ'
-							},
-							{
-								'id': '2aY/Q]ii#',
-								'object': 'file',
-								'bytes': -4327735280756322,
-								'createdAt': 'iC6',
-								'filename': 'Wk>~*^]EO',
-								'purpose': 'jY"7s ~H',
-								'status': 'processed',
-								'status_details': ''
-							}
-						],
-						'validation_files': [
-							{
-								'id': ':+?_<c',
-								'object': 'file',
-								'bytes': 5526234791411567,
-								'createdAt': '82Ag',
-								'filename': 'WTM',
-								'purpose': '',
-								'status': 'pending'
-							},
-							{
-								'id': 'KLk;V+|K9J',
-								'object': 'file',
-								'bytes': 2158854778418309,
-								'createdAt': 'aBge[F0',
-								'filename': '.F>fF?',
-								'purpose': 'J`*0(',
-								'status': 'processed',
-								'status_details': '?\'dJyts^q'
-							},
-							{
-								'id': '"SJ',
-								'object': 'file',
-								'bytes': 1035700676122305,
-								'createdAt': 'Z',
-								'filename': 'BJ',
-								'purpose': '/3nw',
-								'status': 'uploaded',
-								'status_details': '<7yC,TL'
-							},
-							{
-								'id': 'QJUSaqE5h',
-								'object': 'file',
-								'bytes': -2017365612870843,
-								'createdAt': 'b?Gl',
-								'filename': ';D~tH',
-								'purpose': '>9):JM=',
-								'status': 'deleted',
-								'status_details': 'Si'
 							}
 						],
 						'result_files': [
 							{
-								'id': 'L/foD\\Jln',
+								'id': '9s\'ai',
 								'object': 'file',
-								'bytes': -1057571519916248,
-								'createdAt': '4=?3!0DUt',
-								'filename': 'xUR/o](',
-								'purpose': '2zd7J~S',
+								'bytes': -3990398767502635,
+								'createdAt': '"9lbc8fX~',
+								'filename': '-;8xLFzg.G',
+								'purpose': '',
 								'status': 'deleting',
-								'status_details': '"B?no@(`>W'
+								'status_details': 'BuU7mc~ '
 							},
 							{
-								'id': 't',
+								'id': 'z5:8q1hQym',
 								'object': 'file',
-								'bytes': -2798077146035991,
-								'createdAt': '',
-								'filename': ':',
-								'purpose': '-BLr#7Y',
+								'bytes': 5300173412784443,
+								'createdAt': ';L)',
+								'filename': '',
+								'purpose': '',
+								'status': 'pending'
+							},
+							{
+								'id': '_x',
+								'object': 'file',
+								'bytes': 6957937437063293,
+								'createdAt': 'hR>o6O\'Km;',
+								'filename': 'Hh<eC',
+								'purpose': '',
 								'status': 'error',
-								'status_details': '\\=mE:'
+								'status_details': 'KR\''
 							},
 							{
-								'id': '>',
+								'id': 'yK b*G>[*',
 								'object': 'file',
-								'bytes': 2763483935093197,
-								'createdAt': 'f`}]S',
-								'filename': 'P^\\mu<',
-								'purpose': 'JI8-|G',
-								'status': 'deleting'
+								'bytes': -4253820668781012,
+								'createdAt': '`%\\&OSA:L',
+								'filename': '$0,=[c|)BA',
+								'purpose': '',
+								'status': 'error',
+								'status_details': 'InG]~*b'
 							},
 							{
-								'id': '\'<x',
+								'id': '',
 								'object': 'file',
-								'bytes': 1512953275166189,
-								'createdAt': 'v2:C-"H\'M-',
-								'filename': '!}=',
-								'purpose': ',j|}NKC0p',
-								'status': 'deleted',
+								'bytes': -6153874205548780,
+								'createdAt': 'u',
+								'filename': '(,L=QI,nDk',
+								'purpose': 'MMiY3g%&r>',
+								'status': 'error',
 								'status_details': ''
 							},
 							{
-								'id': ':Y',
+								'id': '0>)k=8DTKx',
 								'object': 'file',
-								'bytes': -3678788461695521,
-								'createdAt': 'YJ',
-								'filename': 'XU',
-								'purpose': '3_!g',
+								'bytes': -5491425607829538,
+								'createdAt': ',sZ',
+								'filename': 'WP',
+								'purpose': '',
 								'status': 'pending',
-								'status_details': 'A!'
+								'status_details': '1'
 							},
 							{
-								'id': '3ANlJA(,',
+								'id': '',
 								'object': 'file',
-								'bytes': 4773331024314659,
-								'createdAt': 'x&',
-								'filename': 'VH_>@3q1',
-								'purpose': 'R(k{#',
-								'status': 'processed',
-								'status_details': 'b^dZAjiX3'
+								'bytes': -852756975813768,
+								'createdAt': 'i#',
+								'filename': ']"c',
+								'purpose': 'iD',
+								'status': 'deleted',
+								'status_details': '0:%R'
+							},
+							{
+								'id': '\\KT|cyUP',
+								'object': 'file',
+								'bytes': -3213102322729062,
+								'createdAt': 'X<r!lZ.',
+								'filename': 'qeIz',
+								'purpose': 'Q#{#_\\X',
+								'status': 'uploaded',
+								'status_details': null
+							},
+							{
+								'id': 'w7ujsP6ci',
+								'object': 'file',
+								'bytes': 8296068396585187,
+								'createdAt': 'FlQL,?5a',
+								'filename': 'uluN85@iN',
+								'purpose': '"v',
+								'status': 'deleting',
+								'status_details': ':6j4'
 							}
 						],
-						'events': []
+						'events': [
+							{
+								'object': 'I[Dy',
+								'created_at': '-Zj',
+								'level': '',
+								'message': '`_"A$w"0'
+							},
+							{
+								'object': 'W)',
+								'created_at': '@ZC>-&(',
+								'level': 'RDmdT,/',
+								'message': 'h%'
+							},
+							{
+								'object': 'Y',
+								'created_at': '%3}^',
+								'level': 'EZcmY%llI',
+								'message': 'DF'
+							},
+							{
+								'object': '*iW\'',
+								'created_at': 'yxT#y~Zv} ',
+								'level': 'V gNU',
+								'message': 'B,p:RQW2'
+							},
+							{
+								'object': '/Q]ii#^',
+								'created_at': '\\iC',
+								'level': 'eWk>~*^]E',
+								'message': '&jY"7s'
+							},
+							{
+								'object': 'H5?rE17:+?',
+								'created_at': '<cY\\v8',
+								'level': 'AgXWTMu|/',
+								'message': 'KLk;V+|K9J'
+							},
+							{
+								'object': '\\aBge[',
+								'created_at': '0',
+								'level': '.F>fF?',
+								'message': 'J`*0('
+							},
+							{
+								'object': 'c8?\'dJy',
+								'created_at': 's^qy"SJd',
+								'level': '"Z5B',
+								'message': 'r/3nwa:sJ'
+							}
+						]
 					},
 					{
-						'id': '*I@1 KqJk',
+						'id': 'C,TL1QJUS',
 						'object': 'fine-tune',
-						'created_at': 'n^',
-						'updated_at': '',
-						'model': '',
-						'fine_tuned_model': '',
-						'organization_id': 'uSIp:',
+						'created_at': 'qE5h6{l',
+						'updated_at': '?Gl|;D~tHT',
+						'model': '9',
+						'fine_tuned_model': 'JM=Lsb',
+						'organization_id': 'Si',
 						'status': 'cancelled',
 						'hyperparams': {
-							'n_epochs': 7541917710195343,
-							'batch_size': 3872541966138349,
-							'prompt_loss_weight': 2.4782819613909014e-158,
-							'learning_rate_multiplier': -9.046343333387966e+291,
-							'compute_classification_metrics': true,
-							'classification_positive_class': '].V-',
-							'classification_n_classes': -4478664937541196
+							'n_epochs': 3842388325265741,
+							'batch_size': 281618916577189,
+							'prompt_loss_weight': -1.4038485966391462e-49,
+							'learning_rate_multiplier': -4.840635635352253e-132,
+							'compute_classification_metrics': false,
+							'classification_positive_class': '64=?3!0',
+							'classification_n_classes': -3166877468311842
 						},
 						'training_files': [
 							{
-								'id': 'lBIOg$?U',
+								'id': '',
 								'object': 'file',
-								'bytes': -1082801554814146,
-								'createdAt': 'QU',
-								'filename': 'I',
-								'purpose': 'IPksNC',
+								'bytes': 6137384757431277,
+								'createdAt': '',
+								'filename': '(C',
+								'purpose': 'zd7J~SrEkg',
+								'status': 'pending',
+								'status_details': 'o@(`>WPt'
+							},
+							{
+								'id': '2J:I-BLr#',
+								'object': 'file',
+								'bytes': -4055083853344290,
+								'createdAt': 'aK7\\=',
+								'filename': 'E:q>~-',
+								'purpose': 'f`}]S',
+								'status': 'pending',
+								'status_details': 'm'
+							},
+							{
+								'id': 'LJI8-|GlCV',
+								'object': 'file',
+								'bytes': -8505019491927021,
+								'createdAt': 'lc',
+								'filename': 'v2:C-"H\'M-',
+								'purpose': '!}=',
+								'status': 'error',
+								'status_details': '}NKC0p}1'
+							},
+							{
+								'id': '',
+								'object': 'file',
+								'bytes': 5481711851776437,
+								'createdAt': 'n',
+								'filename': 'GYJO',
+								'purpose': 'UJ3_!g ',
+								'status': 'deleted',
+								'status_details': '!I3A'
+							},
+							{
+								'id': 'JA(,^g',
+								'object': 'file',
+								'bytes': 862210160018253,
+								'createdAt': '>VH_>@',
+								'filename': 'q1gR(k',
+								'purpose': '#xY:^b^d',
+								'status': 'deleted',
+								'status_details': 'X3['
+							},
+							{
+								'id': '*I@1 KqJk',
+								'object': 'file',
+								'bytes': 8509274074498103,
+								'createdAt': 'qzRhj',
+								'filename': 'SIp:V,s~P',
+								'purpose': 'c:.J?(+].',
+								'status': 'deleted',
+								'status_details': '.'
+							}
+						],
+						'validation_files': [
+							{
+								'id': 'BIOg$?U_xk',
+								'object': 'file',
+								'bytes': 2326275540434361,
+								'createdAt': 'I',
+								'filename': 'IPksNC',
+								'purpose': '=O[ZiK$',
 								'status': 'deleting',
-								'status_details': 'ZiK$b0r'
+								'status_details': null
 							},
 							{
-								'id': '}]p~',
+								'id': ']p~Uj',
 								'object': 'file',
-								'bytes': -3642116452247802,
-								'createdAt': '0',
-								'filename': 'h:R',
-								'purpose': '',
-								'status': 'deleted',
-								'status_details': 'XAS0=.'
+								'bytes': -5248436313177140,
+								'createdAt': 'h:R',
+								'filename': '',
+								'purpose': 'KfqXA',
+								'status': 'error'
 							},
 							{
-								'id': 'Ix',
+								'id': 'mIxoOLVZ',
 								'object': 'file',
-								'bytes': -2299925922178386,
-								'createdAt': 'VZ(L',
-								'filename': '-',
-								'purpose': 'AuT9t}@W5',
-								'status': 'deleted',
-								'status_details': 'r?Cv,~,"'
+								'bytes': -1784537053791975,
+								'createdAt': '-',
+								'filename': 'AuT9t}@W5',
+								'purpose': 'bh:r',
+								'status': 'pending',
+								'status_details': '~,"i-F?qG_'
 							},
 							{
-								'id': '-F?q',
+								'id': 'Ycf',
 								'object': 'file',
-								'bytes': -7605818509012514,
-								'createdAt': '5Ycfxb1[',
-								'filename': '1o_g|/="',
-								'purpose': 'Sq99fQ',
-								'status': 'deleted',
-								'status_details': 'L'
+								'bytes': -1409802509025774,
+								'createdAt': '[]1o',
+								'filename': 'g|/=":',
+								'purpose': 'q',
+								'status': 'uploaded',
+								'status_details': ',lb%'
 							},
 							{
 								'id': 'B89><(1x9',
@@ -7918,226 +6845,362 @@ export const samples = {
 								'status_details': '\\\'>(D'
 							},
 							{
-								'id': '{[{yq[5C',
+								'id': '[{yq[5Cz?',
 								'object': 'file',
-								'bytes': -2794319557744917,
-								'createdAt': 'Q0[K@%o9h',
-								'filename': '?KO$^>B]U',
-								'purpose': 'OxS2)-tg',
-								'status': 'pending',
-								'status_details': null
+								'bytes': 7628068871923303,
+								'createdAt': '[',
+								'filename': '@%o9hp',
+								'purpose': 'KO$^>B]U',
+								'status': 'error',
+								'status_details': '2)-tgW'
 							},
 							{
-								'id': 'aFT}3^lO',
+								'id': '_aFT}',
 								'object': 'file',
-								'bytes': -1551531543656391,
-								'createdAt': 'TB',
-								'filename': 'r?M*o}>/',
-								'purpose': '',
+								'bytes': 4705344243783197,
+								'createdAt': 'OBd|TBo',
+								'filename': '?M*o}>',
+								'purpose': 'O',
 								'status': 'deleted',
 								'status_details': '<-p^PP=Jv'
 							},
 							{
-								'id': 'Ii',
+								'id': 'iKx>*2|:=',
 								'object': 'file',
-								'bytes': -1665184017333587,
-								'createdAt': '*2',
-								'filename': ':=',
-								'purpose': '0Bs!Y4UGO',
+								'bytes': -3156248320956935,
+								'createdAt': 's!Y4UGOd',
+								'filename': 'yX8s0dCT',
+								'purpose': '_Wu5b/k',
 								'status': 'pending',
-								'status_details': '8s0dC'
-							},
-							{
-								'id': '9_Wu',
-								'object': 'file',
-								'bytes': 7819200987698957,
-								'createdAt': 'koui@$',
-								'filename': '$u',
-								'purpose': 'u',
-								'status': 'deleting',
-								'status_details': '%smj;vOH'
+								'status_details': null
 							}
 						],
-						'validation_files': [
+						'result_files': [
 							{
-								'id': 'Org.8v;^',
+								'id': '$u',
 								'object': 'file',
-								'bytes': -6150024646607624,
-								'createdAt': 'r"Ct',
-								'filename': '-XyQYd?',
-								'purpose': 'WA(}w',
-								'status': 'deleting',
-								'status_details': '"91P Dviv'
+								'bytes': 5171044767918857,
+								'createdAt': '4*v',
+								'filename': 'smj;vOH',
+								'purpose': '>Or',
+								'status': 'pending'
 							},
 							{
-								'id': '\\b0\\@Dx',
+								'id': ';^VW',
 								'object': 'file',
-								'bytes': -3540328478026680,
-								'createdAt': 'm',
+								'bytes': 4655316685061363,
+								'createdAt': 'CtA-',
+								'filename': '',
+								'purpose': 'QY',
+								'status': 'processed',
+								'status_details': 'A(}wQ0'
+							},
+							{
+								'id': '"91P Dviv',
+								'object': 'file',
+								'bytes': 3893703234497033,
+								'createdAt': '0\\@Dxe:Sm',
 								'filename': 'O1t86hyN',
 								'purpose': '[m8j<uZ)@',
 								'status': 'processed',
 								'status_details': '"&}g[!g\'"'
 							},
 							{
-								'id': 'b{g~oGG&7c',
+								'id': '{g~oGG&7cG',
 								'object': 'file',
-								'bytes': -8777823562996585,
-								'createdAt': '^)_.ocHil\\',
-								'filename': 'o8~|7S?90',
-								'purpose': 'FG',
-								'status': 'processed',
-								'status_details': 'pB>E'
-							}
-						],
-						'result_files': [
-							{
-								'id': 'fawEpI',
-								'object': 'file',
-								'bytes': 6835845462534517,
-								'createdAt': '',
-								'filename': '?I,"/j',
-								'purpose': 'ys|[f>T/+',
+								'bytes': 110595976985259,
+								'createdAt': ')_.ocHi',
+								'filename': '\\.',
+								'purpose': '8~|7S?9',
 								'status': 'deleting',
-								'status_details': 'R?/{x@QD'
+								'status_details': 'Un$'
 							},
 							{
-								'id': 'O>?Xm2y',
+								'id': 'B>Egpfaw',
 								'object': 'file',
-								'bytes': -902299348325858,
-								'createdAt': 'ry%7r2O',
-								'filename': 'h=YRM',
-								'purpose': 'Sec98<',
-								'status': 'error'
-							},
-							{
-								'id': '',
-								'object': 'file',
-								'bytes': -6844003246507416,
-								'createdAt': 'yKu\'j}P^s',
-								'filename': 'aZ^3%A)p',
-								'purpose': '-D',
+								'bytes': 7767443907183589,
+								'createdAt': '>',
+								'filename': ' P?I,"',
+								'purpose': 'jEys|',
 								'status': 'uploaded'
 							},
 							{
-								'id': 'n',
+								'id': '/+F%f}R',
 								'object': 'file',
-								'bytes': -6765990479345292,
-								'createdAt': 'j},*?}',
-								'filename': '-',
-								'purpose': '',
-								'status': 'deleting',
-								'status_details': '8IO'
+								'bytes': 4932514254765605,
+								'createdAt': 'x@QDIO>?',
+								'filename': 'm2yp)`ry',
+								'purpose': '7',
+								'status': 'uploaded',
+								'status_details': 'h=YRM'
 							},
 							{
-								'id': '06',
+								'id': 'ec9',
 								'object': 'file',
-								'bytes': 3618167081173199,
-								'createdAt': 'Ty@#RN7E9N',
-								'filename': 'AF',
-								'purpose': 'b+8LuP[Ef',
-								'status': 'pending'
-							},
-							{
-								'id': 'xT',
-								'object': 'file',
-								'bytes': 8860355021204975,
-								'createdAt': '%KMJi',
-								'filename': 'U',
-								'purpose': 'dOS!HL',
-								'status': 'error',
-								'status_details': null
-							},
-							{
-								'id': '*\'#;ZiE`',
-								'object': 'file',
-								'bytes': 8736440592225523,
-								'createdAt': '',
-								'filename': 'Sgb%s f$eo',
-								'purpose': 'U?Y%;y.,^',
-								'status': 'processed',
-								'status_details': ''
-							},
-							{
-								'id': 'ne',
-								'object': 'file',
-								'bytes': 6662020941945309,
-								'createdAt': '\\""d7k',
-								'filename': 'G)Wa{',
-								'purpose': '>|9df,',
-								'status': 'error',
-								'status_details': 'bjZ'
-							},
-							{
-								'id': '^7%E=(h',
-								'object': 'file',
-								'bytes': -7104645929949341,
-								'createdAt': '',
-								'filename': '*l*',
-								'purpose': 'qs<`._}',
+								'bytes': -2049363252830591,
+								'createdAt': '+e(TOyKu\'j',
+								'filename': 'P^sdaZ^3%A',
+								'purpose': 'p<-DxvNnp',
 								'status': 'deleted',
-								'status_details': '$FUZ'
+								'status_details': ',*?'
 							},
 							{
-								'id': '',
+								'id': '-',
 								'object': 'file',
-								'bytes': 7227367166234509,
-								'createdAt': 'b[+',
-								'filename': 'L3',
-								'purpose': ']8jo;1/}7`',
-								'status': 'deleted'
+								'bytes': 6717581116793539,
+								'createdAt': 'UK8IOO062s',
+								'filename': 'Ty@#RN7E9N',
+								'purpose': 'AF',
+								'status': 'pending',
+								'status_details': 'LuP[Efe6I'
+							},
+							{
+								'id': ']"',
+								'object': 'file',
+								'bytes': -8950326584223165,
+								'createdAt': 'MJif',
+								'filename': '\\dOS!HL)XK',
+								'purpose': '*\'#;ZiE`',
+								'status': 'processed'
 							}
 						],
 						'events': [
 							{
-								'object': '',
-								'created_at': '1E|mUcT',
-								'level': '25k|cJ',
-								'message': 'b:V0OJ}'
+								'object': 'b%s f$',
+								'created_at': 'oaU?Y%;y.',
+								'level': '^v',
+								'message': 'Wx'
 							},
 							{
-								'object': '8Ad5TBgl',
-								'created_at': '=N',
-								'level': '<\'f^>',
-								'message': '\'j)'
+								'object': 'e',
+								'created_at': ']B\\',
+								'level': '"d7kbG)',
+								'message': 'a{>>'
 							},
 							{
-								'object': '',
-								'created_at': 'Bfq\'n',
-								'level': '/""',
-								'message': 'fJH`'
+								'object': 'd',
+								'created_at': ',',
+								'level': 'W{ZbjZ',
+								'message': '^7%E=(h'
 							},
 							{
-								'object': '/%1=',
+								'object': 'U=*l*P',
+								'created_at': 's<`._}',
+								'level': '@1F$FU',
+								'message': '+2'
+							},
+							{
+								'object': 'b[+',
+								'created_at': 'L3',
+								'level': ']8jo;1/}7`',
+								'message': '9fPz41E'
+							},
+							{
+								'object': 'UcTs',
 								'created_at': '',
-								'level': 'RpY]',
-								'message': 'x4w.'
+								'level': 'k|cJ<b:V0',
+								'message': 'J}58Ad5TBg'
 							},
 							{
-								'object': '3j#wbc9',
-								'created_at': 'd',
-								'level': 'Ro6Ua',
-								'message': '[_$'
-							},
-							{
-								'object': 'P9Fj[,',
-								'created_at': '7Z]5YtM',
-								'level': 'Mv.',
-								'message': '.`wY$5aq'
-							},
-							{
-								'object': '',
-								'created_at': ']m`]vxx#$k',
-								'level': 'iR~',
+								'object': '=N',
+								'created_at': '<\'f^>',
+								'level': '\'j)',
 								'message': ''
 							},
 							{
-								'object': '',
-								'created_at': '6L2M39oD,',
-								'level': '.it',
-								'message': '8tGd.C'
+								'object': 'fq',
+								'created_at': 'nK/""gfJH`',
+								'level': '/%1=',
+								'message': ''
+							},
+							{
+								'object': 'pY',
+								'created_at': 'P',
+								'level': '',
+								'message': 'w.}3j#wb'
 							}
 						]
+					},
+					{
+						'id': 'd',
+						'object': 'fine-tune',
+						'created_at': 'Ro6Ua',
+						'updated_at': '[_$',
+						'model': 'P9Fj[,',
+						'fine_tuned_model': 'Z]5YtMLM',
+						'organization_id': '.P.`wY',
+						'status': 'cancelled',
+						'hyperparams': {
+							'n_epochs': -3572656690309963,
+							'batch_size': 2593855643565941,
+							'prompt_loss_weight': -108932366494.03871,
+							'learning_rate_multiplier': 2.042423989136171e-112,
+							'compute_classification_metrics': true,
+							'classification_positive_class': '#$k~iR~\')\'',
+							'classification_n_classes': -301714494988600
+						},
+						'training_files': [
+							{
+								'id': 'oD,t.it=',
+								'object': 'file',
+								'bytes': -6844041435874738,
+								'createdAt': 'd.CS',
+								'filename': '[P{&',
+								'purpose': 'Xs',
+								'status': 'uploaded',
+								'status_details': null
+							},
+							{
+								'id': 'td',
+								'object': 'file',
+								'bytes': 7856622614077729,
+								'createdAt': 'l 4YUmo!Z',
+								'filename': 'VUcbW',
+								'purpose': 'jQoeo`V',
+								'status': 'processed',
+								'status_details': 'Af}2"'
+							},
+							{
+								'id': ',v',
+								'object': 'file',
+								'bytes': -7646959827582942,
+								'createdAt': ',9adPW]jj',
+								'filename': '',
+								'purpose': '0O/`d [Wo',
+								'status': 'uploaded'
+							},
+							{
+								'id': 'QvHjjmD;8A',
+								'object': 'file',
+								'bytes': -8865898651945769,
+								'createdAt': 'hA8^',
+								'filename': ':\'\\D_L_|Y(',
+								'purpose': ']3,EWb',
+								'status': 'uploaded',
+								'status_details': 'B'
+							},
+							{
+								'id': '<!WI0*A',
+								'object': 'file',
+								'bytes': -3798329957149868,
+								'createdAt': 'M?<V',
+								'filename': 'vq~&qw.',
+								'purpose': '"m.Ed!P<',
+								'status': 'deleting'
+							},
+							{
+								'id': '#ZaC',
+								'object': 'file',
+								'bytes': -5774791235313843,
+								'createdAt': '7GDDzD',
+								'filename': 'Ld"T~',
+								'purpose': 't-',
+								'status': 'error',
+								'status_details': ''
+							}
+						],
+						'validation_files': [
+							{
+								'id': 'p/dTH65',
+								'object': 'file',
+								'bytes': 4305380098838167,
+								'createdAt': 'i-gZ',
+								'filename': '$]C',
+								'purpose': 'R)D',
+								'status': 'processed'
+							},
+							{
+								'id': 'd-Y%Yp*t3@',
+								'object': 'file',
+								'bytes': 736920113277845,
+								'createdAt': 'k',
+								'filename': 'eF[X7"!T',
+								'purpose': '&M',
+								'status': 'pending',
+								'status_details': ''
+							},
+							{
+								'id': 'z,WkS;I[<',
+								'object': 'file',
+								'bytes': 455893236772077,
+								'createdAt': 'n`ev6zz<',
+								'filename': 'Z3=Y|[v',
+								'purpose': '2[',
+								'status': 'uploaded',
+								'status_details': '--J)ph6'
+							},
+							{
+								'id': 'n?7lqz0=<',
+								'object': 'file',
+								'bytes': -7384736366686168,
+								'createdAt': 'ep&CmC\\6&',
+								'filename': 'qjKexb>}s',
+								'purpose': 'M{0',
+								'status': 'deleting',
+								'status_details': 'ezz}*qoV`x'
+							},
+							{
+								'id': 'V;.h',
+								'object': 'file',
+								'bytes': -6084157514690613,
+								'createdAt': '#T(us+)V',
+								'filename': ':PmaWlFk',
+								'purpose': '+QWk',
+								'status': 'processed',
+								'status_details': ''
+							},
+							{
+								'id': '9TP7)}4',
+								'object': 'file',
+								'bytes': 1367814618660689,
+								'createdAt': 'MIE!V\\U2a',
+								'filename': 'BY*\'Z',
+								'purpose': 'sU!G',
+								'status': 'deleted'
+							}
+						],
+						'result_files': [
+							{
+								'id': '',
+								'object': 'file',
+								'bytes': -5015756923949970,
+								'createdAt': 'Mb',
+								'filename': '7S7w5}i"',
+								'purpose': '\\',
+								'status': 'uploaded',
+								'status_details': '9jB{'
+							},
+							{
+								'id': '<3&',
+								'object': 'file',
+								'bytes': -3149347702917950,
+								'createdAt': 'v-Yc)j7LA>',
+								'filename': 'GF>-OJ#;e&',
+								'purpose': 'du`?9',
+								'status': 'deleting',
+								'status_details': '{'
+							},
+							{
+								'id': 'H',
+								'object': 'file',
+								'bytes': 4410185645033275,
+								'createdAt': '<uVMP',
+								'filename': '\'',
+								'purpose': '/$c',
+								'status': 'deleted',
+								'status_details': null
+							},
+							{
+								'id': 'k+|;JKg-_$',
+								'object': 'file',
+								'bytes': 4730588974891473,
+								'createdAt': 'Qp',
+								'filename': 's',
+								'purpose': '[VVf3-',
+								'status': 'pending'
+							}
+						],
+						'events': []
 					}
 				]
 			},
@@ -8164,151 +7227,230 @@ export const samples = {
 						},
 						'training_files': [
 							{
-								'id': 'U!q\\6x',
+								'id': '!q\\6x]RM',
 								'object': 'file',
-								'bytes': -2759301450130114,
-								'createdAt': 'a|X;',
-								'filename': 'P',
-								'purpose': 'a',
-								'status': 'error'
+								'bytes': 3455073595951809,
+								'createdAt': ';MPfa>74#',
+								'filename': 'SM,?kLibg',
+								'purpose': '*^',
+								'status': 'error',
+								'status_details': 'ml'
 							},
 							{
-								'id': '#*SM,?kLi',
+								'id': 'TUq',
 								'object': 'file',
-								'bytes': 1629087973957983,
-								'createdAt': '*^',
-								'filename': '8W;ml_',
-								'purpose': 'TUq',
+								'bytes': 8728976318177045,
+								'createdAt': 'LSX',
+								'filename': 'M\'+@l!',
+								'purpose': '_lca',
+								'status': 'processed',
+								'status_details': '@_|ABZK8Cv'
+							},
+							{
+								'id': '',
+								'object': 'file',
+								'bytes': -1534029251832097,
+								'createdAt': 'p*y(6/',
+								'filename': '3t2Eb"V',
+								'purpose': '!x',
+								'status': 'error',
+								'status_details': 'T1-Z'
+							},
+							{
+								'id': '',
+								'object': 'file',
+								'bytes': -4778466502280187,
+								'createdAt': ']K',
+								'filename': '"8!IcC',
+								'purpose': '',
+								'status': 'deleting',
+								'status_details': 'w7Sdr-]z'
+							},
+							{
+								'id': 'aPF0/<D4ms',
+								'object': 'file',
+								'bytes': -7026174106879113,
+								'createdAt': 'f%',
+								'filename': '%\'l',
+								'purpose': 'l2zK$&&l-',
+								'status': 'uploaded',
+								'status_details': 'd@=Ayf%TCQ'
+							},
+							{
+								'id': '@-3',
+								'object': 'file',
+								'bytes': -6726802898737497,
+								'createdAt': '<=2Hs03F',
+								'filename': '\\l~',
+								'purpose': '^T,#i',
+								'status': 'deleting',
+								'status_details': '1oD\\D*'
+							}
+						],
+						'validation_files': [
+							{
+								'id': 'FL0~N{#h',
+								'object': 'file',
+								'bytes': -6942144310109825,
+								'createdAt': ']{7nsJ*&\\',
+								'filename': '',
+								'purpose': '*geHt',
 								'status': 'deleted',
 								'status_details': null
 							},
 							{
-								'id': 'SXpM\'+',
+								'id': '',
 								'object': 'file',
-								'bytes': -8967581333681241,
-								'createdAt': '&_lca@be',
-								'filename': '@_|ABZK8Cv',
-								'purpose': 'mOEUp*',
+								'bytes': -7575070743262673,
+								'createdAt': '/<hFpO\\e',
+								'filename': 'lXIT',
+								'purpose': '\'C4',
 								'status': 'deleting',
-								'status_details': '|3'
+								'status_details': 'MF<HK(ivx}'
+							},
+							{
+								'id': 'IVOwjnZ',
+								'object': 'file',
+								'bytes': -7745010420401435,
+								'createdAt': 'g',
+								'filename': 'VT}r',
+								'purpose': '6,',
+								'status': 'pending',
+								'status_details': '19s'
+							},
+							{
+								'id': 'r5P*NT',
+								'object': 'file',
+								'bytes': 4021680181160073,
+								'createdAt': 'N&O6',
+								'filename': '',
+								'purpose': 'ERG(',
+								'status': 'deleting',
+								'status_details': ''
+							},
+							{
+								'id': '',
+								'object': 'file',
+								'bytes': -7211001129197968,
+								'createdAt': '6}N\\zB8q{{',
+								'filename': '6(VIguY<i',
+								'purpose': 'VKv9rI',
+								'status': 'deleted',
+								'status_details': 'w6'
+							},
+							{
+								'id': 'y-|i',
+								'object': 'file',
+								'bytes': 5857523241646321,
+								'createdAt': '.*75s',
+								'filename': 'Dr;.1;6{U',
+								'purpose': 'dD[v5PGQ',
+								'status': 'pending',
+								'status_details': 'K_b'
+							},
+							{
+								'id': 'R.gD|h',
+								'object': 'file',
+								'bytes': 4962082288289459,
+								'createdAt': 'F&QaV',
+								'filename': '_5P#I5',
+								'purpose': 'w.',
+								'status': 'error',
+								'status_details': '}t('
+							},
+							{
+								'id': '|RVn',
+								'object': 'file',
+								'bytes': 2628764490554253,
+								'createdAt': 'oPV6)?G',
+								'filename': 'MG1',
+								'purpose': 'e',
+								'status': 'deleting',
+								'status_details': '"'
+							},
+							{
+								'id': '-',
+								'object': 'file',
+								'bytes': -328197195881222,
+								'createdAt': 'y\'z#u$fV',
+								'filename': 'X#}@ctS',
+								'purpose': 's&&;<0',
+								'status': 'deleted',
+								'status_details': ':2=o'
+							},
+							{
+								'id': 'vFH',
+								'object': 'file',
+								'bytes': -1244632855690337,
+								'createdAt': 'rr~#Xl3',
+								'filename': '=]_S{u<+`',
+								'purpose': 'xfuH\\d',
+								'status': 'deleting',
+								'status_details': 'm3{pj'
 							}
 						],
-						'validation_files': [],
 						'result_files': [
 							{
-								'id': 'b"Vm!xD',
+								'id': '',
 								'object': 'file',
-								'bytes': 3074589109824577,
-								'createdAt': 'T1-Z',
-								'filename': '5Blw]K%"8!',
-								'purpose': 'cCE9',
+								'bytes': 50137419032029,
+								'createdAt': 'SNg=Z',
+								'filename': '%WD{$QDwy',
+								'purpose': ')',
 								'status': 'pending',
-								'status_details': null
+								'status_details': '='
 							},
 							{
-								'id': '7',
+								'id': '[=28no',
 								'object': 'file',
-								'bytes': 7093050613552877,
-								'createdAt': '-]zf{aPF0',
-								'filename': '',
-								'purpose': 'D4msQk{f%',
-								'status': 'error',
-								'status_details': 'Hl2zK$&&l'
+								'bytes': 7610083228655137,
+								'createdAt': 'NG7e*Po',
+								'filename': 'zYWK6u',
+								'purpose': 'd\\{RA_j%R:',
+								'status': 'processed'
 							},
 							{
-								'id': 'z',
+								'id': 't4quSFer',
 								'object': 'file',
-								'bytes': 5638470488303849,
-								'createdAt': 'd@=Ayf%TCQ',
-								'filename': 'n@-3\'Fj',
-								'purpose': '=2Hs03Ft\\l',
+								'bytes': 4012702014496373,
+								'createdAt': '(',
+								'filename': 'Fd,Uj<j,M&',
+								'purpose': '',
+								'status': 'uploaded',
+								'status_details': 'CF<5?UaeQy'
+							},
+							{
+								'id': 't*HKsL0p3',
+								'object': 'file',
+								'bytes': 7306922128962321,
+								'createdAt': '^uYMH"',
+								'filename': 'X`',
+								'purpose': '/',
+								'status': 'pending',
+								'status_details': 'wU x'
+							},
+							{
+								'id': 'S 92Zq&0(',
+								'object': 'file',
+								'bytes': 1946779523440781,
+								'createdAt': ',GaVt',
+								'filename': 'q+;-rip:I',
+								'purpose': '`;M$\']C',
 								'status': 'processed',
-								'status_details': ',#i'
+								'status_details': '7Zm'
 							},
 							{
-								'id': 'k]V1oD\\',
+								'id': 'cg"EH~z',
 								'object': 'file',
-								'bytes': 7548408754878137,
-								'createdAt': '?g',
-								'filename': '',
-								'purpose': '0~N{#h_xL]',
+								'bytes': -357925943727050,
+								'createdAt': '',
+								'filename': '1Fi',
+								'purpose': '',
 								'status': 'error',
-								'status_details': 'J'
-							},
-							{
-								'id': '&\\??',
-								'object': 'file',
-								'bytes': -2261287854602061,
-								'createdAt': 'Htzd\')H',
-								'filename': '*q/<hFpO\\',
-								'purpose': 'blXIT',
-								'status': 'deleted'
-							},
-							{
-								'id': '4G',
-								'object': 'file',
-								'bytes': -573749260100026,
-								'createdAt': 'MF<HK(ivx}',
-								'filename': 'LIVOw',
-								'purpose': 'nZ}92gkV',
-								'status': 'pending',
-								'status_details': '6,'
-							},
-							{
-								'id': 'VN:1',
-								'object': 'file',
-								'bytes': -5341297009191534,
-								'createdAt': 'qr5P*NT5Pl',
-								'filename': '&O6DjERG',
-								'purpose': 'F.W',
-								'status': 'deleting',
-								'status_details': 'BZ6'
+								'status_details': 'r"P'
 							}
 						],
-						'events': [
-							{
-								'object': 'zB8q',
-								'created_at': '{36(V',
-								'level': 'guY<iSV',
-								'message': 'v9rIJPv'
-							},
-							{
-								'object': 'w6',
-								'created_at': '#y-|i)',
-								'level': 'v.',
-								'message': '75sXDr;'
-							},
-							{
-								'object': '1;6{USdD',
-								'created_at': 'v5PGQ\\U~c',
-								'level': '_bEVR.gD|h',
-								'message': ''
-							},
-							{
-								'object': '3F&Q',
-								'created_at': 'V0_5P#I',
-								'level': '3w.',
-								'message': 'g'
-							},
-							{
-								'object': 'r}t(C$|R',
-								'created_at': 'nsk<oPV',
-								'level': ')?GQ',
-								'message': 'G1Vew;'
-							},
-							{
-								'object': '\'',
-								'created_at': '\\J-',
-								'level': 'c+y\'z#u$',
-								'message': ''
-							},
-							{
-								'object': 'LX#}',
-								'created_at': 'ctSfs&&;<0',
-								'level': ',5',
-								'message': ':2=o'
-							}
-						]
+						'events': []
 					}
 				]
 			},
@@ -8334,446 +7476,419 @@ export const samples = {
 						},
 						'training_files': [
 							{
-								'id': 'p,tcl',
+								'id': ',',
 								'object': 'file',
-								'bytes': 4720007142369649,
-								'createdAt': 'wZ',
-								'filename': '',
-								'purpose': '~.8d&. AW0',
+								'bytes': 3150587768612211,
+								'createdAt': '*&Kw',
+								'filename': '<!~.8d&',
+								'purpose': ' AW0B',
+								'status': 'error'
+							},
+							{
+								'id': '5ro',
+								'object': 'file',
+								'bytes': -563489196443429,
+								'createdAt': 'Kr',
+								'filename': 'oy63y`',
+								'purpose': 'JKuHnM',
+								'status': 'uploaded',
+								'status_details': ''
+							},
+							{
+								'id': 'c',
+								'object': 'file',
+								'bytes': 8948875872914587,
+								'createdAt': 'D',
+								'filename': ',5',
+								'purpose': '{Y%\';kjou',
+								'status': 'uploaded',
+								'status_details': 'H&yug*%'
+							},
+							{
+								'id': '9;RF2=',
+								'object': 'file',
+								'bytes': -3712851507422871,
+								'createdAt': '',
+								'filename': '2-m',
+								'purpose': 'J',
+								'status': 'deleted',
+								'status_details': 'W2+l/i'
+							},
+							{
+								'id': 'fy3:G8+',
+								'object': 'file',
+								'bytes': -6296458519930215,
+								'createdAt': '.kzauucT2',
+								'filename': 'VswT',
+								'purpose': 'T~4',
 								'status': 'error',
+								'status_details': null
+							}
+						],
+						'validation_files': [
+							{
+								'id': 'ttiH!_9u8',
+								'object': 'file',
+								'bytes': 8435461279611109,
+								'createdAt': 'AB0;tyVs"',
+								'filename': '+3{8VSX',
+								'purpose': 'e6B_ EOW',
+								'status': 'pending',
+								'status_details': 'hKPs'
+							},
+							{
+								'id': ':dla"@;];',
+								'object': 'file',
+								'bytes': -5630997764872518,
+								'createdAt': 'v;#vznB',
+								'filename': 'n.`\'\'Ec]',
+								'purpose': '26z>WEg0',
+								'status': 'deleting',
+								'status_details': '*%c!'
+							},
+							{
+								'id': '',
+								'object': 'file',
+								'bytes': 6246630749433455,
+								'createdAt': ':s%^V',
+								'filename': 'J8&9i',
+								'purpose': 'Y>faELe")',
+								'status': 'processed',
+								'status_details': 'W/KrJa47Co'
+							},
+							{
+								'id': 'U39int',
+								'object': 'file',
+								'bytes': 6271272316997577,
+								'createdAt': '}T\\G?#O;9',
+								'filename': 'k,',
+								'purpose': 'p.@`VH',
+								'status': 'deleting',
+								'status_details': '?:x`JpChdC'
+							},
+							{
+								'id': '@ayTUl',
+								'object': 'file',
+								'bytes': -6536779300881942,
+								'createdAt': '',
+								'filename': 'CYk',
+								'purpose': 'XdpsiPJ73',
+								'status': 'deleted',
+								'status_details': 'c3Vd'
+							},
+							{
+								'id': 'W&xXEA',
+								'object': 'file',
+								'bytes': -2881365324175317,
+								'createdAt': '(AQlT',
+								'filename': '',
+								'purpose': '',
+								'status': 'uploaded',
+								'status_details': ';L5X1Zsl93'
+							},
+							{
+								'id': 'rBQ]%Np}V',
+								'object': 'file',
+								'bytes': -2099083840755985,
+								'createdAt': '"}.{{0N:l\'',
+								'filename': '{HiheC',
+								'purpose': 'Hq[1Et',
+								'status': 'deleted',
+								'status_details': 'QqEWHhEOkM'
+							},
+							{
+								'id': 'p }',
+								'object': 'file',
+								'bytes': -6407611571962561,
+								'createdAt': 'o',
+								'filename': 'MvW;Q',
+								'purpose': '|u#1C<n',
+								'status': 'processed',
 								'status_details': null
 							},
 							{
-								'id': 'a5r',
+								'id': '"ev=n',
 								'object': 'file',
-								'bytes': -2332304397697149,
-								'createdAt': '',
-								'filename': 'Kr',
-								'purpose': 'oy63y`',
-								'status': 'pending',
+								'bytes': 4138525050465227,
+								'createdAt': 'UF0W0q`P',
+								'filename': '1',
+								'purpose': 'U@3G;M42J',
+								'status': 'uploaded'
+							},
+							{
+								'id': '!`a %',
+								'object': 'file',
+								'bytes': -5138704566716146,
+								'createdAt': '=mMB`xJrc}',
+								'filename': '0y',
+								'purpose': '8CfQ.mclg',
+								'status': 'error',
+								'status_details': ''
+							}
+						],
+						'result_files': [
+							{
+								'id': 'v1f5aJK',
+								'object': 'file',
+								'bytes': -4316428510096865,
+								'createdAt': 'X*^!^',
+								'filename': 'dS',
+								'purpose': 'b)"%2r-Is',
+								'status': 'pending'
+							},
+							{
+								'id': 'p-Bm:no?',
+								'object': 'file',
+								'bytes': 4487422412614301,
+								'createdAt': 'vnQg',
+								'filename': '',
+								'purpose': '{P',
+								'status': 'deleting',
 								'status_details': null
 							},
 							{
 								'id': '',
 								'object': 'file',
-								'bytes': -5471009988558625,
-								'createdAt': '5KE:X cj',
-								'filename': '7Da,5\'{Y%',
-								'purpose': '',
-								'status': 'deleted',
-								'status_details': 'u'
-							},
-							{
-								'id': '+ kH',
-								'object': 'file',
-								'bytes': 2452990204281285,
-								'createdAt': 'g*%8h9;RF',
-								'filename': '=;=9',
-								'purpose': '2-m',
-								'status': 'error'
-							},
-							{
-								'id': '{Jt',
-								'object': 'file',
-								'bytes': -1099317831394641,
-								'createdAt': 'l/i+N',
-								'filename': 'y3:G8+0P_',
-								'purpose': '',
+								'bytes': 3621305677084053,
+								'createdAt': 'R{i',
+								'filename': 'q7',
+								'purpose': 'g*7',
 								'status': 'pending',
-								'status_details': null
+								'status_details': ')8T&!O+'
 							},
 							{
-								'id': 'ucT',
+								'id': 'dwhL<t',
 								'object': 'file',
-								'bytes': -5810649697116621,
-								'createdAt': 'swT:T~4)JI',
-								'filename': '',
-								'purpose': 'kttiH!_9u8',
-								'status': 'deleted',
-								'status_details': null
-							},
-							{
-								'id': 'B0;tyV',
-								'object': 'file',
-								'bytes': 7244950334020885,
-								'createdAt': '+3{8VSX',
-								'filename': 'e6B_ EOW',
-								'purpose': 'IN<hKPsb',
-								'status': 'deleted',
+								'bytes': -4272159791407608,
+								'createdAt': '@\\_9',
+								'filename': '7_!4',
+								'purpose': 'e',
+								'status': 'processed',
 								'status_details': ''
 							},
 							{
-								'id': '"@;]',
+								'id': '`h!.3|)j',
 								'object': 'file',
-								'bytes': -5356127742329180,
-								'createdAt': 'iv;#vznBG',
-								'filename': '.`\'\'',
-								'purpose': 'c]F26z',
-								'status': 'pending',
-								'status_details': '0*f->*%c!p'
-							}
-						],
-						'validation_files': [],
-						'result_files': [
-							{
-								'id': ',:s',
-								'object': 'file',
-								'bytes': -5782739456378556,
-								'createdAt': '&J8',
-								'filename': '9',
-								'purpose': 'hY>faELe',
-								'status': 'uploaded',
-								'status_details': ''
-							},
-							{
-								'id': 'vW/',
-								'object': 'file',
-								'bytes': 6932601985228505,
-								'createdAt': 'a47Co>:U3',
-								'filename': 'int',
-								'purpose': '1e}T\\',
-								'status': 'deleting',
-								'status_details': ''
-							},
-							{
-								'id': '9kk,Cp.@',
-								'object': 'file',
-								'bytes': 8291205453440637,
-								'createdAt': '|(L[?:x',
-								'filename': 'JpChdC"5@',
-								'purpose': 'yTUl',
-								'status': 'error',
-								'status_details': 'CYk'
-							},
-							{
-								'id': 'XdpsiPJ73',
-								'object': 'file',
-								'bytes': 6274799695228285,
-								'createdAt': 'sc',
-								'filename': 'VdxI',
-								'purpose': '&',
-								'status': 'deleting',
-								'status_details': null
-							},
-							{
-								'id': '&2+(AQlT',
-								'object': 'file',
-								'bytes': -399269155087634,
-								'createdAt': 'K',
-								'filename': '[;L5',
-								'purpose': '',
-								'status': 'deleting',
-								'status_details': '93jOrBQ]'
-							},
-							{
-								'id': 'Np}VRN',
-								'object': 'file',
-								'bytes': 364612579236761,
-								'createdAt': '.{{0N:',
-								'filename': '\'H{Hihe',
-								'purpose': ' ',
-								'status': 'error',
-								'status_details': ''
-							},
-							{
-								'id': 'tPFB',
-								'object': 'file',
-								'bytes': 3267259171233689,
-								'createdAt': 'EWHhEOkM3F',
-								'filename': ' }Bhao',
-								'purpose': 'MvW;Q',
-								'status': 'processed'
-							},
-							{
-								'id': '#',
-								'object': 'file',
-								'bytes': -5991684460175162,
-								'createdAt': 'nh',
-								'filename': 'w',
-								'purpose': 'M"ev=n%',
-								'status': 'pending',
-								'status_details': '0W0q`Pi1UU'
-							},
-							{
-								'id': '3',
-								'object': 'file',
-								'bytes': -5933148528868231,
-								'createdAt': '',
-								'filename': '2Jz0C"!`a ',
-								'purpose': 'eIF',
-								'status': 'pending',
-								'status_details': '`x'
-							},
-							{
-								'id': 'rc}20y=8C',
-								'object': 'file',
-								'bytes': -2221488114397516,
-								'createdAt': 'mclgUc',
-								'filename': '?mO<v',
-								'purpose': 'f5a',
-								'status': 'pending',
-								'status_details': 'SX*^!^>'
-							}
-						]
-					},
-					{
-						'id': 'wb',
-						'object': 'fine-tune',
-						'created_at': '',
-						'updated_at': '%2r-IsD,$',
-						'model': 'p-Bm:no?',
-						'fine_tuned_model': 'YvnQgZn{PZ',
-						'organization_id': '',
-						'status': 'failed',
-						'hyperparams': {
-							'n_epochs': 8728621679083599,
-							'batch_size': 3621305677084053,
-							'prompt_loss_weight': 8.691041613731687e-185,
-							'learning_rate_multiplier': -2.8641688859836467e-249,
-							'compute_classification_metrics': true,
-							'classification_positive_class': 'g*7',
-							'classification_n_classes': -6560649777380200
-						},
-						'training_files': [
-							{
-								'id': '8T&!',
-								'object': 'file',
-								'bytes': 2384968822737315,
-								'createdAt': 'DdwhL<tq',
-								'filename': '6@\\',
-								'purpose': '9!7_!4ie<',
-								'status': 'pending',
-								'status_details': '#`h!.3|'
-							},
-							{
-								'id': 'jTo`:|/',
-								'object': 'file',
-								'bytes': 4082796029388801,
-								'createdAt': ']85,q,W\\',
-								'filename': '<V2h|',
+								'bytes': -3592451759514833,
+								'createdAt': ':|/1t<]85',
+								'filename': 'q,W\\^<V2h|',
 								'purpose': '?4NSIi``z?',
 								'status': 'error',
 								'status_details': 'A=cu|@=By]'
 							},
 							{
-								'id': '',
+								'id': 'e#^Wdqk',
 								'object': 'file',
-								'bytes': -2533708226099230,
-								'createdAt': '^WdqkF\\.o',
-								'filename': 'EU,!7',
-								'purpose': '/]tFX0Y0',
-								'status': 'deleting',
-								'status_details': null
-							},
-							{
-								'id': 'ct',
-								'object': 'file',
-								'bytes': 2871284175448125,
-								'createdAt': 'K+o]',
-								'filename': 'm',
-								'purpose': '?ZY2!)5',
+								'bytes': 5483152478414077,
+								'createdAt': 'oGEU,!7`/',
+								'filename': 'tFX0Y0',
+								'purpose': '=Hvctp&EK',
 								'status': 'uploaded',
-								'status_details': 'K>=!4=3'
+								'status_details': 'm'
 							},
 							{
-								'id': 'u3z.',
+								'id': 'ZY2!)5"Bnz',
 								'object': 'file',
-								'bytes': -2499712202657845,
-								'createdAt': 'I4K9H6l#',
-								'filename': 's-e4',
-								'purpose': '',
-								'status': 'pending',
-								'status_details': null
-							},
-							{
-								'id': '=otFB:H',
-								'object': 'file',
-								'bytes': -5791259394624926,
-								'createdAt': '(B^}',
-								'filename': 'cU9~l',
-								'purpose': ' -',
-								'status': 'error',
-								'status_details': ':[!'
-							},
-							{
-								'id': '',
-								'object': 'file',
-								'bytes': -4845916020468872,
-								'createdAt': 'YTgKxf',
-								'filename': 'l:^',
-								'purpose': 'Zt',
-								'status': 'processed'
+								'bytes': 1163803487536609,
+								'createdAt': '!4=',
+								'filename': '',
+								'purpose': 'u3z.',
+								'status': 'uploaded',
+								'status_details': '4'
 							}
-						],
-						'validation_files': [
+						]
+					},
+					{
+						'id': 'l#gs-e4^',
+						'object': 'fine-tune',
+						'created_at': 'R5A=otFB:',
+						'updated_at': '}',
+						'model': 'W(B^}icU9',
+						'fine_tuned_model': '{ -<',
+						'organization_id': '',
+						'status': 'succeeded',
+						'hyperparams': {
+							'n_epochs': -8150631137457290,
+							'batch_size': -5909061098755364,
+							'prompt_loss_weight': -9.056324651319023e+51,
+							'learning_rate_multiplier': -0.00001804728935323336,
+							'compute_classification_metrics': false,
+							'classification_positive_class': 'xfZl',
+							'classification_n_classes': -5346441177484914
+						},
+						'training_files': [
 							{
-								'id': 'N',
+								'id': '&18',
 								'object': 'file',
-								'bytes': -8181528238200243,
-								'createdAt': 'Oi8A^',
+								'bytes': -1968985490657550,
+								'createdAt': 'JOi8A^',
 								'filename': '#~{U^zUJo',
 								'purpose': '%kx#x0jMx?',
 								'status': 'pending',
 								'status_details': 'PF6 b'
 							},
 							{
-								'id': 'A0P4)',
+								'id': '0P',
 								'object': 'file',
-								'bytes': -1961254948628509,
-								'createdAt': 'g?jT|)',
-								'filename': ' %',
-								'purpose': 'N',
-								'status': 'uploaded'
+								'bytes': -7016314885161099,
+								'createdAt': 'lfg?jT|',
+								'filename': 'y %DNh:!mY',
+								'purpose': 'Z<',
+								'status': 'processed',
+								'status_details': '0r#K6'
 							},
 							{
-								'id': 'm',
+								'id': '.u`',
 								'object': 'file',
-								'bytes': -8827562625507491,
-								'createdAt': '<hUUN0',
-								'filename': '#K6[o.u`',
-								'purpose': 'lDv!xH$09',
-								'status': 'pending',
-								'status_details': 'fE'
+								'bytes': 3352074336210713,
+								'createdAt': 'v!xH',
+								'filename': '0',
+								'purpose': '(DFCfEBt\\P',
+								'status': 'deleting',
+								'status_details': null
+							},
+							{
+								'id': '/2WMD\\r\\',
+								'object': 'file',
+								'bytes': -2529770225072559,
+								'createdAt': 'PvH,XC"Uj',
+								'filename': '?"Mj28+Z',
+								'purpose': '',
+								'status': 'pending'
+							},
+							{
+								'id': '2b)@vNo[',
+								'object': 'file',
+								'bytes': -2861842598569813,
+								'createdAt': 'sTW(]Mx^C',
+								'filename': 'F,C@q|N',
+								'purpose': '?$te8"=9]',
+								'status': 'deleting',
+								'status_details': 'B7yV1=Apfi'
+							}
+						],
+						'validation_files': [
+							{
+								'id': '',
+								'object': 'file',
+								'bytes': 2623207896786091,
+								'createdAt': '^B_!tm%',
+								'filename': '}',
+								'purpose': '=,',
+								'status': 'error',
+								'status_details': ''
+							},
+							{
+								'id': 'gC&p',
+								'object': 'file',
+								'bytes': -6746913106298989,
+								'createdAt': 'i@9~',
+								'filename': '<0=[=80K',
+								'purpose': '?uIP?',
+								'status': 'deleting',
+								'status_details': ' 3ZF#`'
+							},
+							{
+								'id': '`${kSo#V',
+								'object': 'file',
+								'bytes': -1705979119972661,
+								'createdAt': '"F;YQz',
+								'filename': '=B9q;_',
+								'purpose': 'RU\'j',
+								'status': 'error',
+								'status_details': 'h~La'
 							}
 						],
 						'result_files': [
 							{
-								'id': '\\P,{0',
+								'id': 'uX^%,h +F',
 								'object': 'file',
-								'bytes': 8875345995424435,
-								'createdAt': '2WMD',
-								'filename': 'r\\ttKPvH',
-								'purpose': 'XC"U',
-								'status': 'pending',
-								'status_details': 'Mj28+ZR}'
-							},
-							{
-								'id': 'Tj2b',
-								'object': 'file',
-								'bytes': -3337370542956565,
-								'createdAt': 'No[bq}sT',
-								'filename': '',
-								'purpose': ']Mx^C`F,C',
-								'status': 'deleted',
-								'status_details': null
-							},
-							{
-								'id': 'I?$te8"=9]',
-								'object': 'file',
-								'bytes': 5246932456708627,
-								'createdAt': '{B',
-								'filename': 'yV1=ApfibA',
-								'purpose': '',
-								'status': 'deleted',
-								'status_details': 'B'
-							},
-							{
-								'id': '!tm%',
-								'object': 'file',
-								'bytes': -7242368864022227,
-								'createdAt': '=,',
-								'filename': 'o7]?^',
-								'purpose': 'C&pf$"',
-								'status': 'processed',
-								'status_details': null
-							},
-							{
-								'id': '<<0=[=8',
-								'object': 'file',
-								'bytes': -7177682492620981,
-								'createdAt': '?uIP?',
-								'filename': 'g\'  ',
-								'purpose': 'ZF#`< ',
-								'status': 'pending',
-								'status_details': 'So#'
-							},
-							{
-								'id': '=}E"F;YQze',
-								'object': 'file',
-								'bytes': -698796480188472,
-								'createdAt': 'q;_8RU\'j|',
-								'filename': ',g',
-								'purpose': '~La\\',
-								'status': 'uploaded',
-								'status_details': '^%,h +Fj'
+								'bytes': 7921684383461373,
+								'createdAt': 'A*$]NO',
+								'filename': '/AqOkZ *X',
+								'purpose': 'QC0-i',
+								'status': 'deleting'
 							},
 							{
 								'id': '',
 								'object': 'file',
-								'bytes': -2469707507734175,
-								'createdAt': '$]NOr',
-								'filename': 'AqOkZ',
-								'purpose': '*X',
-								'status': 'error',
-								'status_details': '-i^'
-							},
-							{
-								'id': 'uj\\^T>D_&s',
-								'object': 'file',
-								'bytes': -5473405543602347,
-								'createdAt': 'm\\4;',
-								'filename': 'W.|g`v',
+								'bytes': -958168231980678,
+								'createdAt': '>D_&sJj0',
+								'filename': '\\4;MW.|g`v',
 								'purpose': 'R',
 								'status': 'deleting',
 								'status_details': null
+							},
+							{
+								'id': 'pu\\%z9?-\'',
+								'object': 'file',
+								'bytes': -3370355300808002,
+								'createdAt': 'OpUE`y',
+								'filename': '"$VH$',
+								'purpose': 'V]l:y',
+								'status': 'uploaded',
+								'status_details': 'EkY,'
+							},
+							{
+								'id': 'kDm}h`C7*4',
+								'object': 'file',
+								'bytes': -4732527864558929,
+								'createdAt': 'l~v;Boo',
+								'filename': '',
+								'purpose': 'YgR',
+								'status': 'deleting'
+							},
+							{
+								'id': 'v8nel,~',
+								'object': 'file',
+								'bytes': -2560119445771126,
+								'createdAt': 'Ju4',
+								'filename': '>|tm",c>',
+								'purpose': 'H;G<DdE`Cj',
+								'status': 'uploaded',
+								'status_details': 'ma>\\i'
+							},
+							{
+								'id': '\'vp)v',
+								'object': 'file',
+								'bytes': 6105384975982641,
+								'createdAt': '$6%+csq1QE',
+								'filename': 'U',
+								'purpose': ']m~}QhAV:5',
+								'status': 'processed',
+								'status_details': null
+							},
+							{
+								'id': 'd;~o3v?R',
+								'object': 'file',
+								'bytes': -3990604613181640,
+								'createdAt': '~',
+								'filename': 'ZVP',
+								'purpose': 'T]t+;?m',
+								'status': 'error',
+								'status_details': 'XsRoLP7'
+							},
+							{
+								'id': '^3',
+								'object': 'file',
+								'bytes': -7866144867160579,
+								'createdAt': 'l-yf^D:WG',
+								'filename': '',
+								'purpose': 'Hlp2 _s-z',
+								'status': 'deleting'
+							},
+							{
+								'id': ' 8rB{U{gJa',
+								'object': 'file',
+								'bytes': -1241026112014110,
+								'createdAt': '',
+								'filename': 'yL_a ',
+								'purpose': '|l',
+								'status': 'processed',
+								'status_details': 'B@5uB'
 							}
 						],
-						'events': [
-							{
-								'object': 'u',
-								'created_at': '%z9',
-								'level': '-\'0j,O',
-								'message': 'UE`'
-							},
-							{
-								'object': 'Y"$VH$e',
-								'created_at': ']l:y6',
-								'level': 'MLEkY,C\\',
-								'message': 'Dm}h`C7*4'
-							},
-							{
-								'object': 'KWl',
-								'created_at': 'v;',
-								'level': 'ooG~YgRr',
-								'message': 'Hkv8nel,~.'
-							},
-							{
-								'object': '[Ju4j>|t',
-								'created_at': '",c>7H;',
-								'level': '',
-								'message': 'DdE`C'
-							},
-							{
-								'object': 'TC ?ma>\\',
-								'created_at': '+r\'vp)v',
-								'level': '8Z$',
-								'message': '%+csq1QE'
-							},
-							{
-								'object': 'U',
-								'created_at': ']m~}QhAV:5',
-								'level': '9;C;d;',
-								'message': 'o'
-							},
-							{
-								'object': 'v?R[',
-								'created_at': '#~O',
-								'level': 'VP}T]t+;',
-								'message': 'm'
-							},
-							{
-								'object': 'z]8Xs',
-								'created_at': 'oLP7ch',
-								'level': '3Z\\/',
-								'message': '-yf^D:WG'
-							},
-							{
-								'object': '',
-								'created_at': 'Hlp2 _s-z',
-								'level': '',
-								'message': '0% 8rB{'
-							}
-						]
+						'events': []
 					}
 				]
 			},
@@ -8799,344 +7914,366 @@ export const samples = {
 						},
 						'training_files': [
 							{
-								'id': '^5\'9%w',
+								'id': '',
 								'object': 'file',
-								'bytes': 2955434569852113,
-								'createdAt': ')',
-								'filename': '*Nb7$gK',
+								'bytes': -5752096489929217,
+								'createdAt': '%wXia',
+								'filename': 's*Nb7$gK',
 								'purpose': ':-oc*Y}IU',
 								'status': 'deleted',
 								'status_details': ''
 							},
 							{
-								'id': '1q',
+								'id': 'qKUx_, w:6',
 								'object': 'file',
-								'bytes': -3740123000507742,
-								'createdAt': '_, w:6ZdO',
-								'filename': 'B',
-								'purpose': ':qlM',
-								'status': 'uploaded',
-								'status_details': null
-							},
-							{
-								'id': 'kCUCGU.0V',
-								'object': 'file',
-								'bytes': 2461927603112413,
-								'createdAt': 's:',
-								'filename': 'CM^Fv',
-								'purpose': '7',
-								'status': 'deleted',
-								'status_details': 'DX!@&x(.'
-							},
-							{
-								'id': '!`a[cw',
-								'object': 'file',
-								'bytes': -7542040851875229,
-								'createdAt': 'HN',
-								'filename': 'w"sS#NA.!~',
-								'purpose': 'u+PKYS',
-								'status': 'processed'
-							},
-							{
-								'id': '%G$okpQ',
-								'object': 'file',
-								'bytes': 8017425371484357,
-								'createdAt': '3{<oUc',
-								'filename': '&Gy$mssFz',
-								'purpose': 'iRq',
-								'status': 'uploaded',
-								'status_details': 'Du6N7)k'
-							}
-						],
-						'validation_files': [
-							{
-								'id': 'L9w}>c1F3d',
-								'object': 'file',
-								'bytes': -6656365318573343,
-								'createdAt': 'IU',
-								'filename': '"y@D',
-								'purpose': 'a#+neG=p',
-								'status': 'deleting'
-							}
-						],
-						'result_files': [],
-						'events': [
-							{
-								'object': 'ubN',
-								'created_at': '0Z^9",',
-								'level': 'JBh',
-								'message': 'O1b'
-							},
-							{
-								'object': '',
-								'created_at': '}E',
-								'level': 'Y*8M5bZI',
-								'message': '< gXb%I'
-							}
-						]
-					},
-					{
-						'id': '+Z\\932Vl2',
-						'object': 'fine-tune',
-						'created_at': 'M;zGFW',
-						'updated_at': '|Oz[',
-						'model': '_',
-						'fine_tuned_model': 'v',
-						'organization_id': 'D]H3)=wS',
-						'status': 'running',
-						'hyperparams': {
-							'n_epochs': -8875866298425943,
-							'batch_size': 4059635344957193,
-							'prompt_loss_weight': -6.696977260640063e+192,
-							'learning_rate_multiplier': 2.5885939866859664e-170,
-							'compute_classification_metrics': true
-						},
-						'training_files': [
-							{
-								'id': 'Ko+@b',
-								'object': 'file',
-								'bytes': -6271938115376175,
-								'createdAt': '*yNax',
-								'filename': '@mjobUzF',
-								'purpose': '6UF',
-								'status': 'processed',
-								'status_details': 'E$RavPDD'
-							},
-							{
-								'id': 'ZbG5/2\'r',
-								'object': 'file',
-								'bytes': 4515368950931061,
-								'createdAt': '%ggGe/r',
-								'filename': '',
-								'purpose': '}s#k2`*',
-								'status': 'uploaded',
-								'status_details': 'u~-4Jb=hhz'
-							},
-							{
-								'id': 'i',
-								'object': 'file',
-								'bytes': 8078234286399731,
-								'createdAt': 'G7af~Dh3y@',
-								'filename': 'L|',
-								'purpose': 'FKIOZzBWxv',
-								'status': 'deleting',
-								'status_details': '\'ODFEO_'
-							},
-							{
-								'id': '\\}jz',
-								'object': 'file',
-								'bytes': 7223880986487327,
-								'createdAt': '2',
-								'filename': 'Vdd',
-								'purpose': '@4yH',
-								'status': 'deleted',
+								'bytes': -6002982175678410,
+								'createdAt': '{BT:qlMN',
+								'filename': 'a<kCUCG',
+								'purpose': '.0V_H7s:a',
+								'status': 'error',
 								'status_details': ''
 							},
 							{
-								'id': '}bzy6',
+								'id': '7',
 								'object': 'file',
-								'bytes': -6198478410150750,
-								'createdAt': ' PhBXpf-i',
-								'filename': '?7mB<_"J',
-								'purpose': 'rRRW2S,',
-								'status': 'uploaded',
-								'status_details': 'mseRR>'
+								'bytes': 7696890397804069,
+								'createdAt': 'ODX!@&x',
+								'filename': '.v!',
+								'purpose': 'a[cwD`',
+								'status': 'error',
+								'status_details': 'w"sS#NA.!~'
 							},
 							{
-								'id': '{1<(*O',
+								'id': '+PKYSA|!%',
 								'object': 'file',
-								'bytes': -872875137692256,
-								'createdAt': 'u?xV/0;',
-								'filename': '));',
-								'purpose': '',
-								'status': 'uploaded',
-								'status_details': 'I1'
+								'bytes': -3264256889007150,
+								'createdAt': 'kpQ(d',
+								'filename': '3{<oUc',
+								'purpose': '&Gy$mssFz',
+								'status': 'deleted',
+								'status_details': 'p'
 							},
 							{
-								'id': '`ZllmNx',
+								'id': '=Du',
 								'object': 'file',
-								'bytes': -48488968792397,
-								'createdAt': 'P)IC!ES4X',
-								'filename': '',
-								'purpose': 'E$[/>*xfi',
-								'status': 'pending'
+								'bytes': -7282471176794596,
+								'createdAt': ')k\\',
+								'filename': 'L9w}>c1F3d',
+								'purpose': 'rnIU*"y',
+								'status': 'deleting',
+								'status_details': '#+neG=pr{'
+							},
+							{
+								'id': '\'0ubN}',
+								'object': 'file',
+								'bytes': 7481728760792749,
+								'createdAt': '9",uJBh7O',
+								'filename': 'bho',
+								'purpose': 'EtY*8',
+								'status': 'error',
+								'status_details': 'I>< gXb%I'
 							}
 						],
 						'validation_files': [
 							{
-								'id': '',
+								'id': '\\',
 								'object': 'file',
-								'bytes': 4698014190779923,
-								'createdAt': 'Oz1sR8+q5H',
-								'filename': ':MmB',
-								'purpose': '!^]z*Gl-@',
+								'bytes': -7060475369173571,
+								'createdAt': 'Vl2}M;zG',
+								'filename': 'Wt|Oz[',
+								'purpose': '_',
 								'status': 'deleted',
-								'status_details': 'f'
+								'status_details': 'D]H3)=wS'
 							},
 							{
-								'id': 'xr)',
+								'id': '*~$Y',
 								'object': 'file',
-								'bytes': 6236615939494289,
-								'createdAt': 'u)p?/(uur#',
-								'filename': '7:>^',
-								'purpose': '9g<',
-								'status': 'deleted',
-								'status_details': 'm&g[J[wx'
-							},
-							{
-								'id': 'sG6w-w',
-								'object': 'file',
-								'bytes': -8756853195333176,
-								'createdAt': '0%S7',
-								'filename': '',
-								'purpose': '5x54e3dyRa',
-								'status': 'processed',
-								'status_details': '0=ZH|}?\\;'
-							},
-							{
-								'id': '',
-								'object': 'file',
-								'bytes': -8568724265245109,
-								'createdAt': 'ohII\'+3?+`',
-								'filename': 'Yi.e+p|',
-								'purpose': 'S',
+								'bytes': -8301370290929054,
+								'createdAt': 'KT',
+								'filename': 'h3lKo+@b<G',
+								'purpose': '*yNax',
 								'status': 'pending',
-								'status_details': 'kh%t6M-'
+								'status_details': 'obU'
 							},
 							{
-								'id': './&b',
+								'id': '{6',
 								'object': 'file',
-								'bytes': -7814193631225741,
-								'createdAt': 'bOYZ}5qr',
-								'filename': 'dil',
-								'purpose': 'a+<IUYf)',
-								'status': 'uploaded',
-								'status_details': '\'CMrz7?'
+								'bytes': -6023378748695149,
+								'createdAt': 'nE1E$',
+								'filename': 'avPDD',
+								'purpose': 'ZbG5/2\'r',
+								'status': 'pending',
+								'status_details': 'gg'
+							},
+							{
+								'id': '',
+								'object': 'file',
+								'bytes': 199551794120293,
+								'createdAt': '',
+								'filename': '}s#k2`*',
+								'purpose': '',
+								'status': 'deleted',
+								'status_details': '~-4Jb=h'
+							},
+							{
+								'id': 'Hi{ xG7af',
+								'object': 'file',
+								'bytes': 5342441970337781,
+								'createdAt': '3y@cL|~FKI',
+								'filename': 'ZzBWxv',
+								'purpose': '',
+								'status': 'error',
+								'status_details': 'ODFEO_]'
+							},
+							{
+								'id': 'jz{No2ZVdd',
+								'object': 'file',
+								'bytes': -6814267221953598,
+								'createdAt': 'yH]BV',
+								'filename': '',
+								'purpose': '}bzy6',
+								'status': 'deleting',
+								'status_details': 'Ph'
+							},
+							{
+								'id': 'pf-iq?7',
+								'object': 'file',
+								'bytes': -7356844104719639,
+								'createdAt': '_"JhrR',
+								'filename': 'W2S',
+								'purpose': 'irJJmseRR',
+								'status': 'processed',
+								'status_details': '<(*Orga'
+							},
+							{
+								'id': 'x',
+								'object': 'file',
+								'bytes': 4274414684729261,
+								'createdAt': ';<));',
+								'filename': '',
+								'purpose': '',
+								'status': 'error',
+								'status_details': '13`Zl'
+							},
+							{
+								'id': 'Nxm@0P)I',
+								'object': 'file',
+								'bytes': 3620917089335457,
+								'createdAt': 'S4X%)E$[/>',
+								'filename': 'xfisHN',
+								'purpose': '',
+								'status': 'deleted',
+								'status_details': 'z1sR8+q5'
 							}
 						],
 						'result_files': [
 							{
-								'id': 'Ke)_z',
+								'id': 'MmB',
 								'object': 'file',
-								'bytes': 7682513974662481,
-								'createdAt': '@P{bjUPj=',
-								'filename': '*FQ 14Mb',
-								'purpose': 'ocH-+~97>1',
-								'status': 'error',
-								'status_details': 'ckIu'
+								'bytes': -1294454061088297,
+								'createdAt': ']z*Gl-@>C',
+								'filename': '&f5x',
+								'purpose': ')N~',
+								'status': 'pending',
+								'status_details': '?'
 							},
 							{
-								'id': 'QUd{_C',
+								'id': 'uur#v7:',
 								'object': 'file',
-								'bytes': 2060727343787505,
-								'createdAt': 'Q@AhNe',
-								'filename': ',a xelR',
-								'purpose': '23Fc',
-								'status': 'deleting',
-								'status_details': 'cU\'{'
+								'bytes': -6104067821040637,
+								'createdAt': '9g<',
+								'filename': 't$',
+								'purpose': 'm&g[J[wx',
+								'status': 'pending',
+								'status_details': 'w-'
 							},
 							{
-								'id': 'w]yz*I7>',
+								'id': '^c0',
 								'object': 'file',
-								'bytes': -3277176259683371,
-								'createdAt': '"h~T>*',
-								'filename': '%',
-								'purpose': 'N-@t I',
+								'bytes': -5501915761671103,
+								'createdAt': 'wv5x54',
+								'filename': '3dy',
+								'purpose': 'ad6`4',
 								'status': 'uploaded',
-								'status_details': 'CG3O/ )Wq'
+								'status_details': ''
 							},
 							{
-								'id': 'O',
+								'id': '?\\;5V"foh',
 								'object': 'file',
-								'bytes': 852484468324445,
-								'createdAt': ':7wHxoi% U',
-								'filename': ':=f]\\$',
-								'purpose': 'uU!n35B4',
+								'bytes': 8668599794108817,
+								'createdAt': '+3?',
+								'filename': '`HYi',
+								'purpose': 'e+',
+								'status': 'pending',
+								'status_details': '\\v'
+							}
+						],
+						'events': []
+					},
+					{
+						'id': 't6M-q./&b@',
+						'object': 'fine-tune',
+						'created_at': '',
+						'updated_at': 'bOYZ}5qr',
+						'model': 'dil',
+						'fine_tuned_model': '+<IU',
+						'organization_id': 'f)',
+						'status': 'running',
+						'hyperparams': {
+							'n_epochs': 3059797034243701,
+							'batch_size': 8699763767396789,
+							'prompt_loss_weight': -5.828653115328253e-186,
+							'learning_rate_multiplier': 3.504496990425832e-294,
+							'compute_classification_metrics': false,
+							'classification_n_classes': 652703300342873
+						},
+						'training_files': [
+							{
+								'id': 'Aqe@P{bj',
+								'object': 'file',
+								'bytes': -4581986325351123,
+								'createdAt': '',
+								'filename': 'y*FQ ',
+								'purpose': '4M',
+								'status': 'error',
+								'status_details': 'H-+'
+							}
+						],
+						'validation_files': [],
+						'result_files': [
+							{
+								'id': '1Q\'r~ckIu',
+								'object': 'file',
+								'bytes': 1553755997001437,
+								'createdAt': 'd{_C]F',
+								'filename': 'Q@AhNe',
+								'purpose': ',a xelR',
 								'status': 'processed',
-								'status_details': 'LBUu_$'
-							},
-							{
-								'id': 'yc$4!6B7',
-								'object': 'file',
-								'bytes': -8708142605361194,
-								'createdAt': ',Ei',
-								'filename': '9V',
-								'purpose': '/@X6U\\',
-								'status': 'error'
-							},
-							{
-								'id': 'hx',
-								'object': 'file',
-								'bytes': 929477928357613,
-								'createdAt': 'T)f=vE]',
-								'filename': 'H~CFCh>wmg',
-								'purpose': 'ca66-\'b_D1',
-								'status': 'deleting'
+								'status_details': 'c_Sv7'
 							},
 							{
 								'id': '',
 								'object': 'file',
-								'bytes': 6911602934291197,
-								'createdAt': '(|NQ',
-								'filename': '8cj(L$rU3r',
-								'purpose': 'C{!',
+								'bytes': -2353705168161243,
+								'createdAt': 'w]yz*I7>',
+								'filename': 'qS"h~',
+								'purpose': '>*J%',
 								'status': 'error',
-								'status_details': 'S'
+								'status_details': 't IxA'
 							},
 							{
-								'id': '\\',
+								'id': 'CG3O/ )Wq',
 								'object': 'file',
-								'bytes': 7596636090777571,
-								'createdAt': 'uh7a#',
-								'filename': '=5Gp9t',
-								'purpose': 'v}a9Ur*<;',
-								'status': 'processed'
-							},
-							{
-								'id': '5{Z',
-								'object': 'file',
-								'bytes': 5315801359301165,
-								'createdAt': '_Z*~rLKrh',
-								'filename': '<7z|Po',
-								'purpose': '/EVm9V',
-								'status': 'deleting',
-								'status_details': '6,'
-							},
-							{
-								'id': 'H04s~=?',
-								'object': 'file',
-								'bytes': 3939207028532039,
-								'createdAt': ',,wQu',
-								'filename': 'Zt[U',
-								'purpose': ';-\\irt}nM',
+								'bytes': 2392476403317009,
+								'createdAt': 'oJ:7wHxoi%',
+								'filename': 'U>:=f]\\$h',
+								'purpose': 'U!n35B4M',
 								'status': 'pending',
 								'status_details': ''
+							},
+							{
+								'id': 'u_$=yc$4!6',
+								'object': 'file',
+								'bytes': -7481872172989716,
+								'createdAt': '',
+								'filename': '@,Eih',
+								'purpose': 'V-/@',
+								'status': 'uploaded',
+								'status_details': ''
+							},
+							{
+								'id': '4hx&!~',
+								'object': 'file',
+								'bytes': -4453288528345948,
+								'createdAt': '=',
+								'filename': '',
+								'purpose': '',
+								'status': 'deleting',
+								'status_details': 'CFCh>w'
+							}
+						]
+					},
+					{
+						'id': 'a66',
+						'object': 'fine-tune',
+						'created_at': '\'b',
+						'updated_at': 'D1OF8?AU(|',
+						'model': 'Q28cj(L$',
+						'fine_tuned_model': null,
+						'organization_id': '',
+						'status': 'cancelled',
+						'hyperparams': {
+							'n_epochs': -942258118570150,
+							'batch_size': -5718066691746695,
+							'prompt_loss_weight': 4.4294436251121795e+52,
+							'learning_rate_multiplier': -15073308383210064000,
+							'compute_classification_metrics': true,
+							'classification_n_classes': 7596636090777571
+						},
+						'training_files': [
+							{
+								'id': '7a#',
+								'object': 'file',
+								'bytes': -3727083285206330,
+								'createdAt': 'Gp9',
+								'filename': '^v}',
+								'purpose': '9Ur',
+								'status': 'error',
+								'status_details': '9W5{Zy2>_Z'
+							}
+						],
+						'validation_files': [
+							{
+								'id': 'LKr',
+								'object': 'file',
+								'bytes': -4192738346378455,
+								'createdAt': '7',
+								'filename': '|P',
+								'purpose': 'j/EVm',
+								'status': 'error',
+								'status_details': ''
+							}
+						],
+						'result_files': [
+							{
+								'id': '',
+								'object': 'file',
+								'bytes': -2973481777829258,
+								'createdAt': '04s~=?t*n',
+								'filename': '',
+								'purpose': 'wQu',
+								'status': 'pending',
+								'status_details': null
+							},
+							{
+								'id': 'd',
+								'object': 'file',
+								'bytes': -2113310551549925,
+								'createdAt': 'irt}nM',
+								'filename': '',
+								'purpose': '2\\wp]j)}m',
+								'status': 'processed',
+								'status_details': '1Sw\\]'
 							}
 						],
 						'events': [
 							{
-								'object': 'j)}mbok&',
-								'created_at': 'S',
-								'level': '\\',
-								'message': ''
-							},
-							{
-								'object': 't!c%p',
+								'object': '%p',
 								'created_at': 'nXU>',
 								'level': 'W\'\\d?@',
 								'message': ''
 							},
 							{
-								'object': ':M:XY4',
+								'object': 'M:XY4',
 								'created_at': 'r<`p3?*nYI',
 								'level': 'C^ZpQ0s_]',
 								'message': ''
 							},
 							{
-								'object': 'X!`*L%',
-								'created_at': 'm',
-								'level': '+l\'"',
-								'message': 'kuA;/d'
+								'object': '!',
+								'created_at': '*L%g',
+								'level': 'Y+l\'"mk',
+								'message': 'A;/'
 							},
 							{
 								'object': 'X0Ix',
@@ -9147,454 +8284,433 @@ export const samples = {
 							{
 								'object': '',
 								'created_at': '',
-								'level': '',
-								'message': 'WHsJof&,{Y'
+								'level': 'WHsJof&,{Y',
+								'message': 'IAN/1y:u'
 							},
 							{
-								'object': 'IAN/1y:u',
-								'created_at': 'fGX8y"&b',
+								'object': 'GX8',
+								'created_at': '"&b',
 								'level': 'GF;i{22K ',
 								'message': 'pgY`='
 							},
 							{
-								'object': '=>AI?r_lk',
-								'created_at': '',
-								'level': 'qD>60UWQb',
-								'message': 'T3dt'
+								'object': '>AI?',
+								'created_at': '_lk(!qD>60',
+								'level': 'WQbyT',
+								'message': 'dt6l(_u-ur'
 							},
 							{
-								'object': 'l(_u-ur1&S',
-								'created_at': 'b-X3M',
-								'level': 'Qt3cY',
-								'message': 'Z#joC.(r'
+								'object': '',
+								'created_at': '\\b-X3',
+								'level': '|',
+								'message': ''
 							},
 							{
-								'object': 'x=vo&|<',
-								'created_at': 'rK_ z8`[V',
-								'level': 'T%nKG',
-								'message': ';AV'
+								'object': 'c',
+								'created_at': '8Z#jo',
+								'level': '.(rkx',
+								'message': 'vo&|<yrK'
 							}
 						]
 					},
 					{
-						'id': '9O"- ',
+						'id': '8`[V_T%',
 						'object': 'fine-tune',
-						'created_at': '%7\\5c9[k',
-						'updated_at': 'lTT3,8',
-						'model': 'u1T^`+$',
-						'fine_tuned_model': 't.k=HR.,',
-						'organization_id': 'L',
-						'status': 'succeeded',
+						'created_at': 'K',
+						'updated_at': '',
+						'model': ';AV',
+						'fine_tuned_model': 'O"- #%7\\5c',
+						'organization_id': '[kglTT',
+						'status': 'cancelled',
 						'hyperparams': {
-							'n_epochs': 1888944068327587,
-							'batch_size': -6932906255389665,
-							'prompt_loss_weight': -8.812438923105336e-32,
-							'learning_rate_multiplier': -7.328786586327362e-165,
-							'classification_positive_class': 'N_(Ij',
-							'classification_n_classes': -4842198289210328
+							'n_epochs': -6468965381126879,
+							'batch_size': 5024166284418775,
+							'prompt_loss_weight': 8.808178393173727e+183,
+							'learning_rate_multiplier': 8.788524879508195e+35,
+							'compute_classification_metrics': false,
+							'classification_positive_class': 't.k=HR.,',
+							'classification_n_classes': 6596124652891201
 						},
 						'training_files': [
 							{
-								'id': '>j',
+								'id': '}R',
 								'object': 'file',
-								'bytes': 3953091376565767,
-								'createdAt': 'UgOY!\\Y^"',
-								'filename': '<+3',
-								'purpose': ')riJ\'kq](',
+								'bytes': 7848633472187741,
+								'createdAt': '&',
+								'filename': '5N_(Ijes',
+								'purpose': '&',
+								'status': 'deleting',
+								'status_details': '{UUgO'
+							},
+							{
+								'id': '',
+								'object': 'file',
+								'bytes': -192856372976710,
+								'createdAt': '"K',
+								'filename': '+3w)ri',
+								'purpose': '\'kq](*u',
+								'status': 'processed',
+								'status_details': 'CE8{7Oo'
+							},
+							{
+								'id': 's9<\\',
+								'object': 'file',
+								'bytes': -7381317293211922,
+								'createdAt': '<RsY}$2Y',
+								'filename': '{&I*St',
+								'purpose': 'yftV4N$t#',
 								'status': 'deleted',
+								'status_details': 'g\'P%WCOu$'
+							},
+							{
+								'id': '',
+								'object': 'file',
+								'bytes': -3807187857248407,
+								'createdAt': '?\'1St/h*',
+								'filename': 'v=:.\\@f',
+								'purpose': 'A',
+								'status': 'uploaded',
+								'status_details': '@HyP'
+							},
+							{
+								'id': '#M3m',
+								'object': 'file',
+								'bytes': 6373141855257189,
+								'createdAt': '-{HytF0cG',
+								'filename': '<~M:m" Zy',
+								'purpose': '',
+								'status': 'uploaded'
+							},
+							{
+								'id': '$Vt5q/',
+								'object': 'file',
+								'bytes': 492440537782261,
+								'createdAt': '8',
+								'filename': 'f<b;!g',
+								'purpose': 'iGB2/]',
+								'status': 'error',
+								'status_details': 'sF^H6;'
+							},
+							{
+								'id': ',%{Z\'lp ',
+								'object': 'file',
+								'bytes': 1131355347325537,
+								'createdAt': '1K:',
+								'filename': '&Qcg',
+								'purpose': 'H"dC-U',
+								'status': 'processed',
+								'status_details': 'pKPD#jy'
+							},
+							{
+								'id': 'CZ<8%h v',
+								'object': 'file',
+								'bytes': 5242264344228985,
+								'createdAt': 'TSU]a!K',
+								'filename': '*',
+								'purpose': 'PlNvdRsh',
+								'status': 'uploaded'
+							},
+							{
+								'id': '/U,5',
+								'object': 'file',
+								'bytes': -349636345014701,
+								'createdAt': '',
+								'filename': 'Pr.1',
+								'purpose': '/Z9)<G',
+								'status': 'processed',
+								'status_details': '.k4U'
+							}
+						],
+						'validation_files': [
+							{
+								'id': '4Mo8xP]',
+								'object': 'file',
+								'bytes': 5369534227679975,
+								'createdAt': '@k$',
+								'filename': 'XG*\'I{!~3q',
+								'purpose': '.2g^6<|cth',
+								'status': 'uploaded',
 								'status_details': ''
 							},
 							{
-								'id': '',
+								'id': 'UG',
 								'object': 'file',
-								'bytes': 5418218056298353,
-								'createdAt': '8{',
-								'filename': 'Oo',
-								'purpose': 'Qs9<\\~.z<',
-								'status': 'error'
+								'bytes': -5801753471323262,
+								'createdAt': 'I! r{}j?un',
+								'filename': '#qK-~%V',
+								'purpose': ')Yj^ZLkg+h',
+								'status': 'processed',
+								'status_details': ''
 							},
 							{
-								'id': '}$2',
+								'id': '!7@.>Tg:',
 								'object': 'file',
-								'bytes': -2665773887771203,
-								'createdAt': '&',
-								'filename': '*S',
-								'purpose': 'FyftV4',
-								'status': 'deleted',
+								'bytes': 839477333551941,
+								'createdAt': 'yl',
+								'filename': 'Zx!&SHwrF#',
+								'purpose': ')JQwiqc3sg',
+								'status': 'deleting',
+								'status_details': 'l@fgxi%'
+							},
+							{
+								'id': '}FmM',
+								'object': 'file',
+								'bytes': 3859011700001645,
+								'createdAt': '0X0ud~j\\n',
+								'filename': 'Y4<tX',
+								'purpose': '8A',
+								'status': 'pending',
+								'status_details': '@^vm_y{E'
+							},
+							{
+								'id': 'pQ`0`',
+								'object': 'file',
+								'bytes': 2355330425511901,
+								'createdAt': 'l,2',
+								'filename': 'Kopd~CF',
+								'purpose': 'e"qw;',
+								'status': 'uploaded'
+							},
+							{
+								'id': '80Rgl#v>',
+								'object': 'file',
+								'bytes': -5374513719202399,
+								'createdAt': 'K)0D"AjPPz',
+								'filename': '',
+								'purpose': '{KGb^',
+								'status': 'uploaded',
+								'status_details': 'G^'
+							},
+							{
+								'id': 'iyR\\',
+								'object': 'file',
+								'bytes': -6412932985569273,
+								'createdAt': '#PiiI"YdX',
+								'filename': 'A\'xA',
+								'purpose': 'o]G8($<Wk',
+								'status': 'uploaded',
+								'status_details': 'Z93'
+							},
+							{
+								'id': '8zMbi1:',
+								'object': 'file',
+								'bytes': 86076840660017,
+								'createdAt': 'K<R*iLW]1',
+								'filename': '9 ',
+								'purpose': 'F',
+								'status': 'pending',
+								'status_details': '}GI4Si>Kgk'
+							},
+							{
+								'id': 'idP',
+								'object': 'file',
+								'bytes': -5654146372890130,
+								'createdAt': '%y0',
+								'filename': '-_;]',
+								'purpose': 'K.f.',
+								'status': 'deleting',
 								'status_details': null
 							},
 							{
-								'id': 'IqRe',
+								'id': 't',
 								'object': 'file',
-								'bytes': 1162007774899665,
-								'createdAt': '%WCOu$yj',
-								'filename': '^P?\'1S',
-								'purpose': '/h*',
-								'status': 'pending',
-								'status_details': '.\\'
-							},
-							{
-								'id': 'fQAvVEp',
-								'object': 'file',
-								'bytes': -4926524211414855,
-								'createdAt': '',
-								'filename': ']F#M3mfg5-',
-								'purpose': 'HytF0cGf',
-								'status': 'pending',
-								'status_details': 'm" '
-							},
-							{
-								'id': '',
-								'object': 'file',
-								'bytes': -1158470460758466,
-								'createdAt': '',
-								'filename': '%I',
-								'purpose': 'Vt5q/-{U8',
+								'bytes': -6818431657071460,
+								'createdAt': ' B:z2',
+								'filename': 'p8={[@`X{D',
+								'purpose': '<CmMG}V',
 								'status': 'deleting',
-								'status_details': ';!gRiGB2/'
+								'status_details': 'AN)v\'\'Jn['
 							}
 						],
-						'validation_files': [],
 						'result_files': [
 							{
-								'id': '',
+								'id': 'J46',
 								'object': 'file',
-								'bytes': 788026360252573,
-								'createdAt': 'F^H6;Rs,',
-								'filename': '{Z',
-								'purpose': '',
-								'status': 'deleted',
-								'status_details': 'Yu1'
+								'bytes': 2243411609117659,
+								'createdAt': '\\o(I\'m',
+								'filename': ']ke=2hnk\\',
+								'purpose': '^{/1Vqe-i',
+								'status': 'pending'
 							},
 							{
-								'id': '',
+								'id': 'U"2D',
 								'object': 'file',
-								'bytes': -1362028354673378,
-								'createdAt': 'Qcg6',
-								'filename': '"dC-UwcGr',
-								'purpose': 'KPD#jy',
-								'status': 'uploaded',
-								'status_details': '<8%h v'
-							},
-							{
-								'id': 'S',
-								'object': 'file',
-								'bytes': 3532028377042953,
-								'createdAt': 'U]a!KK*GPl',
-								'filename': '',
-								'purpose': 'dRshh^0a/U',
+								'bytes': -3582952600404448,
+								'createdAt': 'Vk>4`B8',
+								'filename': '@(=JG`"7A',
+								'purpose': 'o7bm',
 								'status': 'processed',
-								'status_details': '+"Pr.11/'
+								'status_details': '$H-"WR,;2'
 							},
 							{
-								'id': '9)<GYS\\=.k',
+								'id': '>R_af"',
 								'object': 'file',
-								'bytes': -4511054280721723,
-								'createdAt': '4|4Mo8',
-								'filename': 'P]OY/@k$v',
-								'purpose': 'G*\'',
+								'bytes': 1935146580844981,
+								'createdAt': 'a(P]y?}LT"',
+								'filename': 'yB};',
+								'purpose': '| -',
+								'status': 'pending',
+								'status_details': 'oQjX'
+							},
+							{
+								'id': '&i?gB&yDN',
+								'object': 'file',
+								'bytes': 3782910091159365,
+								'createdAt': 'MT',
+								'filename': '::L',
+								'purpose': '',
 								'status': 'deleting',
-								'status_details': '3q>.2g^'
-							},
-							{
-								'id': '<',
-								'object': 'file',
-								'bytes': -4828126009834488,
-								'createdAt': 'hE(YBR^U',
-								'filename': '1PBI',
-								'purpose': ' r{}j?un(',
-								'status': 'deleted',
-								'status_details': '~%VD)Yj'
-							}
-						]
-					},
-					{
-						'id': 'Lk',
-						'object': 'fine-tune',
-						'created_at': '+',
-						'updated_at': '>w<A@u',
-						'model': '7@.>Tg:',
-						'fine_tuned_model': null,
-						'organization_id': 'Gyl3Zx!',
-						'status': 'running',
-						'hyperparams': {
-							'n_epochs': 7001374360260685,
-							'batch_size': -3889791565842730,
-							'prompt_loss_weight': -2727120.663035022,
-							'learning_rate_multiplier': -4.646137494435977e+97,
-							'classification_positive_class': 'i',
-							'classification_n_classes': -7128368211030548
-						},
-						'training_files': [],
-						'validation_files': [],
-						'result_files': [
-							{
-								'id': 'FLl',
-								'object': 'file',
-								'bytes': -5961236845002378,
-								'createdAt': 'x',
-								'filename': '%P]}FmMQt',
-								'purpose': '0X0ud~j\\n',
-								'status': 'deleted',
-								'status_details': 'tX#8A^UO<@'
+								'status_details': null
 							}
 						],
 						'events': [
 							{
-								'object': '_y{',
-								'created_at': 'zupQ`0`gA_',
-								'level': ',2',
-								'message': 'Kopd~CF'
+								'object': '71Lac.*',
+								'created_at': '/nW0m.!0',
+								'level': '.Qa=B%K',
+								'message': 'uasK'
 							},
 							{
-								'object': 'e"qw;',
-								'created_at': 'G:',
-								'level': '80Rgl#v>',
-								'message': 'Y9K)0D"AjP'
-							},
-							{
-								'object': 'z#t{K',
-								'created_at': 'b^YKg8G',
-								'level': 'J%',
-								'message': 'y'
-							},
-							{
-								'object': '\\5B,#PiiI',
-								'created_at': 'YdXlA',
-								'level': 'xA',
-								'message': 'o]G8($<Wk'
-							},
-							{
-								'object': '4=',
-								'created_at': 'Z93',
-								'level': 'i',
-								'message': 'zMbi1:i'
-							},
-							{
-								'object': '^',
-								'created_at': '<R*iLW',
-								'level': '1v9 &F',
-								'message': 'FW'
-							},
-							{
-								'object': '}GI4Si>Kgk',
-								'created_at': 'aidPA#M%',
-								'level': '0z-_;]1K',
-								'message': 'f.A9L[Ht'
+								'object': 'YpV zB|v',
+								'created_at': 'WG ',
+								'level': 'a^u',
+								'message': 'A]=m{y`'
 							}
 						]
 					},
 					{
-						'id': '.j B:z2x',
+						'id': 'j~',
 						'object': 'fine-tune',
-						'created_at': '8={[@`X{',
-						'updated_at': '1<C',
-						'model': 'MG}V\\',
-						'fine_tuned_model': '8AN)',
-						'organization_id': '\'\'Jn[7o%J4',
-						'status': 'succeeded',
+						'created_at': 'qjE#UqbC',
+						'updated_at': 'R?&PL',
+						'model': ',He:U E?H',
+						'fine_tuned_model': 'meN',
+						'organization_id': '9P|',
+						'status': 'failed',
 						'hyperparams': {
-							'n_epochs': 2243411609117659,
-							'batch_size': 8071677935729745,
-							'prompt_loss_weight': 7.38619484063192e+76,
-							'learning_rate_multiplier': 4.428438773152094e+300,
+							'n_epochs': 3013984014829145,
+							'batch_size': -8420895606283937,
+							'prompt_loss_weight': -2.8596068095590934e-13,
+							'learning_rate_multiplier': -3.346136794853363e-257,
 							'compute_classification_metrics': true,
-							'classification_positive_class': 'e='
+							'classification_positive_class': 'U`)pL#On4',
+							'classification_n_classes': 2354479998610513
 						},
 						'training_files': [
 							{
-								'id': 'k\\F^{',
+								'id': '',
 								'object': 'file',
-								'bytes': 7309079812692349,
-								'createdAt': 'qe-io',
-								'filename': 'T\'U"2D',
-								'purpose': 'U^Vk>4`B8',
-								'status': 'error',
-								'status_details': 'JG`"7Afo'
-							},
-							{
-								'id': 'bm@BC',
-								'object': 'file',
-								'bytes': -4395097604415069,
-								'createdAt': '-"WR,;',
-								'filename': 'OM>R_af"Z',
-								'purpose': '4a(',
-								'status': 'error',
-								'status_details': '}LT"&yB};E'
-							},
-							{
-								'id': ' -E\'',
-								'object': 'file',
-								'bytes': -1748818593377291,
-								'createdAt': '',
-								'filename': 'jX@t&i?g',
-								'purpose': '&y',
-								'status': 'uploaded',
-								'status_details': 'lMT :'
-							},
-							{
-								'id': 'Ls`8@',
-								'object': 'file',
-								'bytes': -7667524583565076,
-								'createdAt': '27',
-								'filename': 'L',
-								'purpose': 'c.*',
+								'bytes': -664518883534050,
+								'createdAt': '-F',
+								'filename': '"+<',
+								'purpose': '5;IkT>',
 								'status': 'processed',
-								'status_details': '0m.!0A.Qa='
+								'status_details': ''
 							},
 							{
-								'id': '%KEuasKGXY',
+								'id': ',a~xD%A',
 								'object': 'file',
-								'bytes': 5890731718939973,
-								'createdAt': 'zB|',
-								'filename': '?WG Ma^uK',
-								'purpose': '',
-								'status': 'pending',
-								'status_details': 'y`Idij~$q'
+								'bytes': -8891035826549029,
+								'createdAt': '',
+								'filename': '~d=_',
+								'purpose': 'sUW5N??',
+								'status': 'deleting',
+								'status_details': '/4\\v&E~]'
 							},
 							{
-								'id': 'E#UqbCDR',
+								'id': '}',
 								'object': 'file',
-								'bytes': -808606463230397,
-								'createdAt': 'L-,He:U',
-								'filename': '',
-								'purpose': '?H:Y',
-								'status': 'pending',
+								'bytes': -7107634203793482,
+								'createdAt': '',
+								'filename': 'VW~wleuE',
+								'purpose': 'Yx0\\v',
+								'status': 'deleting',
+								'status_details': 'SN("'
+							},
+							{
+								'id': '3(9u',
+								'object': 'file',
+								'bytes': 4511786357437191,
+								'createdAt': '',
+								'filename': '(T{&9:FF67',
+								'purpose': 'CR',
+								'status': 'deleted',
 								'status_details': null
 							},
 							{
-								'id': '9P|',
+								'id': '8Jku',
 								'object': 'file',
-								'bytes': 5452148224210229,
-								'createdAt': 'TuIl(pm7f',
-								'filename': 'U`)pL#On4',
-								'purpose': 'p|_j',
-								'status': 'uploaded',
-								'status_details': '-F'
+								'bytes': -668971503263812,
+								'createdAt': '{4e*tN',
+								'filename': ']j|O',
+								'purpose': '',
+								'status': 'processed',
+								'status_details': '*9{mh'
 							},
 							{
-								'id': '"+<',
+								'id': '!Y=Dq',
 								'object': 'file',
-								'bytes': -2727154267867089,
-								'createdAt': '',
-								'filename': '',
-								'purpose': 'T>jqd\\',
-								'status': 'deleted'
+								'bytes': -4921870601991957,
+								'createdAt': 'izUw',
+								'filename': '~0`y26(',
+								'purpose': ':A46U2mQgr',
+								'status': 'error',
+								'status_details': ''
+							},
+							{
+								'id': '6.g6![4"y',
+								'object': 'file',
+								'bytes': -8781984665520147,
+								'createdAt': 'cz',
+								'filename': 'r;}{f@Np:%',
+								'purpose': '+t2[ndo]7Y',
+								'status': 'deleting',
+								'status_details': 'jL,ipZ'
 							}
 						],
-						'validation_files': [],
-						'result_files': [
+						'validation_files': [
 							{
-								'id': 'xD%Ac:;k',
+								'id': 'AsufBbQ"',
 								'object': 'file',
-								'bytes': 1940405965005425,
-								'createdAt': '_MsUW',
-								'filename': 'N??v_c',
-								'purpose': '/4\\v&E~]',
-								'status': 'deleted',
-								'status_details': 'x`n'
-							},
-							{
-								'id': 'W~',
-								'object': 'file',
-								'bytes': 8606837015570673,
-								'createdAt': 'uE&Yx0',
-								'filename': 'v<',
-								'purpose': '$R',
-								'status': 'deleted'
-							},
-							{
-								'id': '"M',
-								'object': 'file',
-								'bytes': 2834047197285417,
-								'createdAt': '9uDnjI(T{&',
-								'filename': ':FF67FCR',
-								'purpose': '^9',
+								'bytes': -3493928539888670,
+								'createdAt': '\\|D\\tzHU@;',
+								'filename': '2E~+kj3',
+								'purpose': 'X9V8]|Je',
 								'status': 'uploaded',
+								'status_details': 'FQ'
+							},
+							{
+								'id': 'MR8V(}6{_',
+								'object': 'file',
+								'bytes': 1015451750656133,
+								'createdAt': 'F]d,Ec',
+								'filename': 'AR36',
+								'purpose': '+42>Q&y',
+								'status': 'deleting',
 								'status_details': null
 							},
 							{
-								'id': 'kuJR/{4e*t',
+								'id': '',
 								'object': 'file',
-								'bytes': 6714751499069573,
-								'createdAt': 'j|OV',
-								'filename': '',
-								'purpose': '>+',
-								'status': 'deleting'
-							},
-							{
-								'id': 'mhmX!',
-								'object': 'file',
-								'bytes': 1772592099712729,
-								'createdAt': 'q',
-								'filename': '>hi',
-								'purpose': 'UwP',
+								'bytes': -3604237741193361,
+								'createdAt': '',
+								'filename': 'FwHX\\hw',
+								'purpose': '',
 								'status': 'error',
-								'status_details': null
+								'status_details': '``'
 							},
 							{
-								'id': '2',
+								'id': 'Wry.UE^',
 								'object': 'file',
-								'bytes': -3112775535515441,
-								'createdAt': ':A46U2mQgr',
-								'filename': 'R:~$+6.g',
-								'purpose': '![4"y,',
-								'status': 'pending',
-								'status_details': ''
+								'bytes': -4279298787969555,
+								'createdAt': 'v+.fav23<u',
+								'filename': '0[fqP@P]x',
+								'purpose': '^NPgCR_',
+								'status': 'uploaded',
+								'status_details': '~dRa6'
 							},
 							{
-								'id': 'r;}{f@Np:%',
-								'object': 'file',
-								'bytes': -5859132591106004,
-								'createdAt': '2[ndo]',
-								'filename': 'YA4xd',
-								'purpose': 'L,ipZ{',
-								'status': 'deleted',
-								'status_details': ''
-							}
-						]
-					},
-					{
-						'id': 'Bb',
-						'object': 'fine-tune',
-						'created_at': '"rdy\\|D\\tz',
-						'updated_at': 'U@;"2E~+kj',
-						'model': '4X9V8',
-						'fine_tuned_model': 'JeD~[PFQ',
-						'organization_id': ':MR8V(}6{_',
-						'status': 'running',
-						'hyperparams': {
-							'n_epochs': 677873340659207,
-							'batch_size': 7985078616004697,
-							'prompt_loss_weight': 2.303025869684622e-184,
-							'learning_rate_multiplier': 2.4455361619686327e-55,
-							'compute_classification_metrics': true,
-							'classification_positive_class': '6$+42>Q',
-							'classification_n_classes': -469498617196027
-						},
-						'training_files': [
-							{
-								'id': 'B+g iuF',
-								'object': 'file',
-								'bytes': 7675129956280691,
-								'createdAt': '\\hw',
-								'filename': '',
-								'purpose': 'h:S``pRWry',
-								'status': 'error',
-								'status_details': 'J{bv+.fav2'
-							},
-							{
-								'id': '<u60[f',
-								'object': 'file',
-								'bytes': 1793022344807569,
-								'createdAt': 'P]x.^',
-								'filename': '',
-								'purpose': 'gCR_(]}l~',
-								'status': 'processed',
-								'status_details': null
-							},
-							{
-								'id': '}|',
+								'id': '',
 								'object': 'file',
 								'bytes': 3261814072067281,
 								'createdAt': 'p',
@@ -9604,141 +8720,227 @@ export const samples = {
 								'status_details': 'O0'
 							},
 							{
-								'id': '9=,{NnNvQS',
+								'id': '=',
 								'object': 'file',
-								'bytes': -460914915063587,
-								'createdAt': 'wUUBv-s0>',
-								'filename': '(,',
-								'purpose': '.d}2z>o0a',
-								'status': 'deleting',
-								'status_details': '['
-							},
-							{
-								'id': 'EORK\':cu3',
-								'object': 'file',
-								'bytes': 2797397122525201,
-								'createdAt': 'R2Mgs',
-								'filename': 'W49T</.oE',
-								'purpose': '$ZF_*',
+								'bytes': 8410999787178275,
+								'createdAt': 'nNvQS5(',
+								'filename': 'wUUBv-s0>',
+								'purpose': '(,',
 								'status': 'deleted',
-								'status_details': null
-							},
-							{
-								'id': ':+|nPm(@Ze',
-								'object': 'file',
-								'bytes': -6694894446461699,
-								'createdAt': 'pZ(&sHd',
-								'filename': '^&B',
-								'purpose': 'Na',
-								'status': 'pending'
-							},
-							{
-								'id': '*Zv>',
-								'object': 'file',
-								'bytes': 1050771654087889,
-								'createdAt': 'm6iCg6',
-								'filename': '\\bJWZ',
-								'purpose': ',6.!:rm',
-								'status': 'uploaded',
 								'status_details': ''
 							},
 							{
-								'id': 'fn',
+								'id': '>o0aV_',
 								'object': 'file',
-								'bytes': 6349015431435001,
-								'createdAt': '~n0?sE',
-								'filename': '1t8[it',
-								'purpose': '@#zra)Tt',
-								'status': 'deleting'
-							}
-						],
-						'validation_files': [
+								'bytes': -387274568502381,
+								'createdAt': '6EORK\':cu',
+								'filename': 'X@AR2Mgs',
+								'purpose': 'W49T</.oE',
+								'status': 'uploaded'
+							},
 							{
-								'id': '*w~EfYA)',
+								'id': '_*4H',
 								'object': 'file',
-								'bytes': 8008825375021011,
-								'createdAt': 'b-o',
-								'filename': 'M',
-								'purpose': '2(8Y/2M',
-								'status': 'error',
-								'status_details': 'aI>c6'
+								'bytes': -3564090502656600,
+								'createdAt': '',
+								'filename': '|nP',
+								'purpose': '(@Ze!',
+								'status': 'deleting',
+								'status_details': null
 							}
 						],
 						'result_files': [
 							{
-								'id': '?',
+								'id': 'sHd9^',
 								'object': 'file',
-								'bytes': 3725860533967813,
-								'createdAt': 'u?i',
-								'filename': '(Ybg%id"0w',
-								'purpose': 'a5*xx>a<9w',
-								'status': 'pending',
-								'status_details': ''
+								'bytes': 8237060833175841,
+								'createdAt': 'Na',
+								'filename': '',
+								'purpose': '4*Zv>',
+								'status': 'processed',
+								'status_details': '6iCg6B\\bJ'
 							},
 							{
 								'id': '',
 								'object': 'file',
-								'bytes': -1870866154979393,
-								'createdAt': '6x',
-								'filename': ']@gx>T5^',
-								'purpose': ']8',
-								'status': 'pending',
-								'status_details': '!;&\\d'
-							},
-							{
-								'id': '=',
-								'object': 'file',
-								'bytes': -5376709886592287,
-								'createdAt': ';pN',
-								'filename': '=f555',
-								'purpose': 'gAZ',
-								'status': 'deleted'
-							},
-							{
-								'id': '2SR8',
-								'object': 'file',
-								'bytes': -4408206802747749,
-								'createdAt': '*3w.rwR6Zz',
-								'filename': '',
-								'purpose': 'itI))R?\\84',
-								'status': 'processed',
-								'status_details': '88+sP *'
-							},
-							{
-								'id': '%xFs~Y`x4\'',
-								'object': 'file',
-								'bytes': 5092942265736117,
-								'createdAt': 'uo}THK{3-y',
-								'filename': '-v!',
-								'purpose': 'ptZ}?<Ju',
+								'bytes': 6058605910413907,
+								'createdAt': '.!',
+								'filename': 'rm.(f',
+								'purpose': '',
 								'status': 'uploaded',
-								'status_details': '&M5eMs#'
+								'status_details': 'Lt~'
+							},
+							{
+								'id': '?sEM1t8',
+								'object': 'file',
+								'bytes': -1506133151845310,
+								'createdAt': '}@#z',
+								'filename': 'a)TtWk',
+								'purpose': 'e',
+								'status': 'error',
+								'status_details': 'fYA'
+							},
+							{
+								'id': 'b4b-oVMP2',
+								'object': 'file',
+								'bytes': 4159631996484525,
+								'createdAt': '/2MW',
+								'filename': '',
+								'purpose': 'yaI>c6<T?.',
+								'status': 'deleted'
 							}
 						],
 						'events': [
 							{
-								'object': ';',
-								'created_at': '#BpYI/MS',
-								'level': '53e',
-								'message': ';aT'
+								'object': '(Ybg%id"0w',
+								'created_at': 'a5*xx>a<9w',
+								'level': 'B#7bJgV6',
+								'message': 'a]@g'
 							},
 							{
-								'object': '',
-								'created_at': 'KtZ:\\',
-								'level': '|D',
-								'message': '2i"|'
+								'object': 'T5^:]8/t$V',
+								'created_at': ';&\\d4==',
+								'level': '`;pN9=f5',
+								'message': '5kgAZ7'
 							},
 							{
-								'object': 'D#m',
-								'created_at': '"wh)d',
-								'level': '2BHb:',
-								'message': 'KYC'
+								'object': '2SR8',
+								'created_at': '02*3',
+								'level': '.rwR6Zz[/',
+								'message': 'tI))R?'
+							}
+						]
+					},
+					{
+						'id': '',
+						'object': 'fine-tune',
+						'created_at': 'kU$88+sP',
+						'updated_at': '*$%xFs~',
+						'model': '`x4\'oi',
+						'fine_tuned_model': 'o}THK{',
+						'organization_id': '',
+						'status': 'failed',
+						'hyperparams': {
+							'n_epochs': 6132779577344293,
+							'batch_size': -3048183636980479,
+							'prompt_loss_weight': 6.569099495806997e-129,
+							'learning_rate_multiplier': 1.4110154186309925e-88,
+							'compute_classification_metrics': false,
+							'classification_positive_class': 'Jue`-}&M5',
+							'classification_n_classes': 6602695576741783
+						},
+						'training_files': [
+							{
+								'id': 'e;=#',
+								'object': 'file',
+								'bytes': -6363096956764023,
+								'createdAt': 'I/MS`53',
+								'filename': '[;aTN0K',
+								'purpose': 'Z:\\{|D',
+								'status': 'pending',
+								'status_details': '|]D#m&'
 							},
 							{
-								'object': 'Q"[v\\{#ltc',
-								'created_at': '18',
-								'level': '9o@',
-								'message': 'T'
+								'id': 'h)d42BHb:',
+								'object': 'file',
+								'bytes': -8800606679388837,
+								'createdAt': 'C',
+								'filename': 'Q"[v\\{#ltc',
+								'purpose': '18',
+								'status': 'error',
+								'status_details': ''
+							},
+							{
+								'id': ' mJ5',
+								'object': 'file',
+								'bytes': -2806079747852459,
+								'createdAt': 'vih',
+								'filename': 'M!Jc7y7,)',
+								'purpose': 'j!YnIo',
+								'status': 'pending',
+								'status_details': 'v'
+							},
+							{
+								'id': 'fwDGlN|Tj',
+								'object': 'file',
+								'bytes': -3044467505503533,
+								'createdAt': '',
+								'filename': '{w~[u',
+								'purpose': 'r`s',
+								'status': 'uploaded'
+							},
+							{
+								'id': '~DbCF?UV]',
+								'object': 'file',
+								'bytes': -1558411129272429,
+								'createdAt': 'OY5?y=H',
+								'filename': '6+za&',
+								'purpose': '',
+								'status': 'error',
+								'status_details': '<'
+							},
+							{
+								'id': '+!A"R3B',
+								'object': 'file',
+								'bytes': -1921052530185871,
+								'createdAt': '+E#h.w',
+								'filename': '',
+								'purpose': '\\sm[o_ej',
+								'status': 'pending',
+								'status_details': 'qK['
+							}
+						],
+						'validation_files': [
+							{
+								'id': 'uPTjj8`K?I',
+								'object': 'file',
+								'bytes': -1024048977333522,
+								'createdAt': '*!U',
+								'filename': 'd Ev}',
+								'purpose': 'O(@0Z',
+								'status': 'processed',
+								'status_details': '<hpD4'
+							},
+							{
+								'id': '\'',
+								'object': 'file',
+								'bytes': 5123032055755441,
+								'createdAt': 'LY(*@;NCtN',
+								'filename': 'FVM',
+								'purpose': '',
+								'status': 'deleting',
+								'status_details': 'U;Ca'
+							}
+						],
+						'result_files': [
+							{
+								'id': '+?7',
+								'object': 'file',
+								'bytes': 8298852435011237,
+								'createdAt': '#+!)5MCg',
+								'filename': '4,/~zC',
+								'purpose': 'ZT}s1',
+								'status': 'uploaded',
+								'status_details': ''
+							},
+							{
+								'id': '\'kn9F',
+								'object': 'file',
+								'bytes': 7902761642620025,
+								'createdAt': '\\.J"p',
+								'filename': '.#C',
+								'purpose': 'g)`=VY8-',
+								'status': 'deleted'
+							},
+							{
+								'id': 'sx',
+								'object': 'file',
+								'bytes': -6478234251797566,
+								'createdAt': '',
+								'filename': 'Rspl^nt>a',
+								'purpose': 'O$rI<',
+								'status': 'pending',
+								'status_details': null
 							}
 						]
 					}
@@ -9767,16 +8969,16 @@ export const samples = {
 						'message': ''
 					},
 					{
-						'object': 'K',
+						'object': '',
 						'created_at': '%B7dka?',
 						'level': 'ZhW',
 						'message': 'jUI'
 					},
 					{
-						'object': 'nDA$(;2OV',
-						'created_at': 'F4,iMU',
-						'level': '\'LDrI^b',
-						'message': 'f'
+						'object': 'DA$(',
+						'created_at': '2OVmF4,i',
+						'level': 'U6\'LDr',
+						'message': '^bu'
 					},
 					{
 						'object': 'C/B.gE',
@@ -9807,10 +9009,10 @@ export const samples = {
 						'message': '\\~8MxC0;'
 					},
 					{
-						'object': 'Q',
-						'created_at': 'm|hbI:O',
-						'level': 'CS5',
-						'message': '&Lpe*]%0'
+						'object': '<',
+						'created_at': '|hb',
+						'level': ':O(CS5s',
+						'message': 'Lpe*]%0)ap'
 					}
 				]
 			},
@@ -9824,34 +9026,34 @@ export const samples = {
 						'message': 'g{;Fj1]>'
 					},
 					{
-						'object': 'w1lXajj',
-						'created_at': '>x:)dw{',
-						'level': ';MT',
-						'message': '0$q"dJ?X%@'
+						'object': '1',
+						'created_at': 'Xajj#>x:',
+						'level': '',
+						'message': 'w{";MT'
 					},
 					{
-						'object': 'yNc/O^5\'',
-						'created_at': '%wXia',
-						'level': 's*Nb7$gK',
-						'message': ':-oc*Y}IU'
+						'object': '$q"',
+						'created_at': 'J?X%@syNc',
+						'level': 'O^5\'9',
+						'message': 'wXia)s*Nb'
 					},
 					{
-						'object': '<SV',
-						'created_at': '1q',
-						'level': 'Ux_, w:6Z',
-						'message': 'O{BT:qlMN]'
+						'object': 'gK[:-oc*Y',
+						'created_at': 'IUs',
+						'level': 'SVt1qKUx_,',
+						'message': 'w:6Zd'
 					},
 					{
-						'object': '<kCUCGU.',
-						'created_at': 'V_H7s:aC',
-						'level': '^FvN7',
-						'message': 'viODX!@&x'
+						'object': 'B',
+						'created_at': ':qlM',
+						'level': ']a',
+						'message': 'kCUCGU.0V'
 					},
 					{
-						'object': '.v!',
-						'created_at': 'a[cwD`',
-						'level': 'HN',
-						'message': 'w"sS#NA.!~'
+						'object': '7s:aCM^Fv',
+						'created_at': '7',
+						'level': 'viODX!@&x',
+						'message': '.v!'
 					}
 				]
 			}
@@ -9873,12 +9075,12 @@ export const samples = {
 					'%h': {
 						'nDA$(;2OV': [
 							false,
-							2.1e-322,
-							1.7976931348623155e+308
+							-3e-323,
+							1.7976931348623153e+308
 						]
 					}
 				},
-				'type': 'message'
+				'type': 'metrics'
 			},
 			{
 				'object': 'X1DZwS',
@@ -9968,8 +9170,7 @@ export const samples = {
 						'2+l': 'Nfy3:G8+0P',
 						'.kzauucT2': null
 					}
-				},
-				'type': 'message'
+				}
 			},
 			{
 				'object': '',
@@ -9991,8 +9192,7 @@ export const samples = {
 							'qKUx_, w:6': '{BT:qlMN'
 						}
 					]
-				},
-				'type': 'message'
+				}
 			}
 		],
 		'CreateImageRequest': [
@@ -10046,15 +9246,16 @@ export const samples = {
 						'b64_json': ''
 					},
 					{
-						'url': 'https://4wd4qw.mtx/a7akV&NM',
-						'b64_json': 'SG=='
+						'url': 'https://ud4d.xm//u//%F0%B4%9B%90//V',
+						'b64_json': 'CStZA2S='
 					},
 					{
 						'url': 'https://v.co74yq0p7l7.nd/r/i//',
 						'b64_json': 'Dn1rOm=='
 					},
 					{
-						'url': 'http://w.u.mdh'
+						'url': 'http://y-7zlsrvg.as',
+						'b64_json': 'KY=='
 					}
 				]
 			},
@@ -10073,7 +9274,7 @@ export const samples = {
 						'b64_json': 'rfGDgJw5'
 					},
 					{
-						'url': 'https://qxm12.lbg.iq/_/D/+/:/1/',
+						'url': 'http://pm1g700bg.iq/_/D/+/:/1/',
 						'b64_json': 'xy+='
 					}
 				]
@@ -10085,23 +9286,22 @@ export const samples = {
 						'b64_json': 'o3KceAgF0X=='
 					},
 					{
-						'url': 'https://osn.et//x/4///U/%F2%AF%87%9B',
-						'b64_json': 'm32xYf1O'
+						'url': 'http://5n.et//x/4///U/%F2%A1%BF%A3',
+						'b64_json': ''
 					},
 					{
-						'url': 'http://4w9fq3qbtba.2ui0ju.rjc/)//',
-						'b64_json': 'aPiwBcDR'
+						'url': 'https://f.79.rb/D',
+						'b64_json': '3X4oCh=='
 					},
 					{
-						'url': 'http://qof-npz-1-f.bpw',
-						'b64_json': 'rg=='
+						'url': 'http://p-zz5.oea/z///$/%F3%A3%A8%9B///R/v'
 					},
 					{
-						'url': 'https://0pl.95n63fp5r3.tc//D///4/',
-						'b64_json': 'bZ/114px3V=='
+						'url': 'https://1z4ptfsdp9c9.0pl.gnf//L/2/1',
+						'b64_json': 'Niv4C9=='
 					},
 					{
-						'b64_json': 'AKesRpfr'
+						'url': 'http://lkghax60l25.es/J.+q:'
 					}
 				]
 			}
@@ -10317,17 +9517,17 @@ export const samples = {
 							'violence/graphic': false
 						},
 						'category_scores': {
-							'hate': 1.159018678185451e-40,
-							'hate/threatening': -4.2741136580292516e+126,
-							'harassment': 7.88869707541181e+41,
-							'harassment/threatening': -2.3286140685070204e-175,
-							'self-harm': -3210466610.2503843,
-							'self-harm/intent': 2.4672880112852087e+252,
-							'self-harm/instructive': 4.339669262961258e+248,
-							'sexual': 1.1812929421296412e+75,
-							'sexual/minors': 3.1701006922821085e-249,
-							'violence': -3.2760361473163865e-142,
-							'violence/graphic': -1.776738909098305e-146
+							'hate': -4.0791520831950605e-170,
+							'hate/threatening': -1.186992101911498e+61,
+							'harassment': -1.9234747807331341e+46,
+							'harassment/threatening': 1.6043419781306742e+227,
+							'self-harm': -1.418911391745249e-124,
+							'self-harm/intent': -1.8769826400766025e+102,
+							'self-harm/instructive': 9.427899531761832e+64,
+							'sexual': -6.760256318989894e-250,
+							'sexual/minors': -2.721308638934788e+285,
+							'violence': -3.209292048217556e-146,
+							'violence/graphic': 4.583512339862001e-119
 						}
 					}
 				]
@@ -10357,46 +9557,46 @@ export const samples = {
 							'violence/graphic': false
 						},
 						'category_scores': {
-							'hate': -5.652212984361727e+223,
-							'hate/threatening': 9.879743296847822e+283,
-							'harassment': 8.188022035216251e-56,
-							'harassment/threatening': 2.6816960065058036e-238,
-							'self-harm': 1.3912725713255596e-240,
-							'self-harm/intent': 4.689774112242179e+194,
-							'self-harm/instructive': 3.676710916622422e+55,
-							'sexual': 1.9146769528021638e+264,
-							'sexual/minors': -6.345582871413447e-137,
-							'violence': 2.4149122951249697e+27,
-							'violence/graphic': -4.974636372289859e-184
+							'hate': 1.0775131250094523e-249,
+							'hate/threatening': -3.0243164610474634e+54,
+							'harassment': 2.6712385732858164e-272,
+							'harassment/threatening': 3.7311080277491607e-212,
+							'self-harm': -2.3392769696858268e-59,
+							'self-harm/intent': -5.971872567855621e+27,
+							'self-harm/instructive': -1.2941349487300143e-74,
+							'sexual': -2.8594727786737245e+24,
+							'sexual/minors': -8.474033215117734e-104,
+							'violence': -4.343470571182799e-36,
+							'violence/graphic': -1.0723186965674982e-48
 						}
 					},
 					{
-						'flagged': true,
+						'flagged': false,
 						'categories': {
 							'hate': false,
 							'hate/threatening': true,
 							'harassment': false,
-							'harassment/threatening': false,
+							'harassment/threatening': true,
 							'self-harm': true,
 							'self-harm/intent': false,
 							'self-harm/instructive': true,
 							'sexual': true,
-							'sexual/minors': false,
-							'violence': true,
-							'violence/graphic': true
+							'sexual/minors': true,
+							'violence': false,
+							'violence/graphic': false
 						},
 						'category_scores': {
-							'hate': 1.0131606533392615e+94,
-							'hate/threatening': 5.842830592391507e+141,
-							'harassment': -6.496664659145238e-180,
-							'harassment/threatening': 4.218759983210466e+70,
-							'self-harm': 9.524799235886333e+297,
-							'self-harm/intent': 8.697820921635621e+185,
-							'self-harm/instructive': -5.839852407943096e+212,
-							'sexual': 5.95022414225251e+91,
-							'sexual/minors': 54146091290.303925,
-							'violence': 3.1291561462464935e-36,
-							'violence/graphic': 6.643904541353512e+52
+							'hate': -6.496664659145238e-180,
+							'hate/threatening': 4.218759983210466e+70,
+							'harassment': 9.524799235886333e+297,
+							'harassment/threatening': 8.697820921635621e+185,
+							'self-harm': -5.839852407943096e+212,
+							'self-harm/intent': 5.95022414225251e+91,
+							'self-harm/instructive': 54146091290.303925,
+							'sexual': 3.1291561462464935e-36,
+							'sexual/minors': 6.643904541353512e+52,
+							'violence': 5.463923567133734e-142,
+							'violence/graphic': -8.157785906438249e+296
 						}
 					}
 				]
@@ -10421,26 +9621,26 @@ export const samples = {
 							'violence/graphic': true
 						},
 						'category_scores': {
-							'hate': -511150.29175974743,
-							'hate/threatening': 3.8048779337339844e+142,
-							'harassment': 4.628710189484482e-258,
-							'harassment/threatening': -7.4e-323,
-							'self-harm': -1.797693134862312e+308,
-							'self-harm/intent': 1.389009017620572e+87,
-							'self-harm/instructive': 1.8006291510364276e-211,
-							'sexual': -3.958901164163695e+79,
-							'sexual/minors': -9.162459401326056e-172,
-							'violence': -3.1693402326961245e-130,
-							'violence/graphic': 1.7976931348623101e+308
+							'hate': 3e-323,
+							'hate/threatening': -1.7976931348623133e+308,
+							'harassment': 5.4e-323,
+							'harassment/threatening': 1.7976931348623135e+308,
+							'self-harm': -2.4196115951808257e-30,
+							'self-harm/intent': 3.5e-323,
+							'self-harm/instructive': 7e-323,
+							'sexual': -5e-324,
+							'sexual/minors': -5e-323,
+							'violence': -9e-323,
+							'violence/graphic': -4e-323
 						}
 					},
 					{
-						'flagged': true,
+						'flagged': false,
 						'categories': {
 							'hate': false,
-							'hate/threatening': false,
-							'harassment': false,
-							'harassment/threatening': false,
+							'hate/threatening': true,
+							'harassment': true,
+							'harassment/threatening': true,
 							'self-harm': true,
 							'self-harm/intent': true,
 							'self-harm/instructive': true,
@@ -10450,17 +9650,17 @@ export const samples = {
 							'violence/graphic': true
 						},
 						'category_scores': {
-							'hate': 2.92693105074061e-232,
-							'hate/threatening': 1.4464097134736245e+32,
-							'harassment': -5e-323,
-							'harassment/threatening': 4.1345650132086565e-95,
-							'self-harm': 1.7976931348623123e+308,
-							'self-harm/intent': 1.797693134862309e+308,
-							'self-harm/instructive': -1.7976931348623107e+308,
-							'sexual': 1.04e-322,
-							'sexual/minors': -1.7976931348623103e+308,
-							'violence': 1.8e-322,
-							'violence/graphic': 1.7976931348623111e+308
+							'hate': -5e-324,
+							'hate/threatening': 8.4e-323,
+							'harassment': 2e-323,
+							'harassment/threatening': -4.4e-323,
+							'self-harm': -4e-323,
+							'self-harm/intent': -1.63597179155361e-297,
+							'self-harm/instructive': 6.330488541135626e+74,
+							'sexual': -2.73897821817224e-55,
+							'sexual/minors': 0,
+							'violence': -5e-324,
+							'violence/graphic': 4731560.069336809
 						}
 					}
 				]

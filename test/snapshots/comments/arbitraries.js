@@ -11,7 +11,7 @@ const group = fc.letrec(tie => ({
        */
       property: tie("MultiLineRecursiveModel"),
     },
-    { withDeletedKeys: true },
+    { requiredKeys: [] },
   ),
 }));
 /**
@@ -26,7 +26,7 @@ const group_2 = fc.letrec(tie => ({
       /** Property comment. */
       property: tie("SingleLineRecursiveModel"),
     },
-    { withDeletedKeys: true },
+    { requiredKeys: [] },
   ),
 }));
 /** Recursive model comment. */

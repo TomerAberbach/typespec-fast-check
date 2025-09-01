@@ -2,44 +2,43 @@ export const samples = {
 	'$Model': [
 		{
 			'a': 9,
-			'b': 'LZy\\;m',
-			'0#E': false,
-			'<b+u.Lx@D(': false,
-			'': true,
-			'qO(ha': false,
-			'c': ''
+			'b': '%',
+			'J5<b+u.L': false,
+			'D(HX1t': true,
+			'c': 'a\\r1qorn'
 		},
 		{
 			'a': -994490854,
-			'b': '__proto__',
-			' =RiGs.>Ju': false,
-			'c': ''
+			'b': '=2Spc0sZ ',
+			'c': '%.%}ayW&;'
 		},
 		{
 			'a': -1536816376,
-			'b': 'S',
-			'RFYz': true,
-			'c': ']N5gX'
+			'b': ' cFz',
+			'': false,
+			'g': true,
+			'BF': true,
+			'76On>H?&': false,
+			'k~MM,)V': true,
+			'c': 'kU,Q'
 		},
 		{
 			'a': -25,
-			'b': '0&k& #FFD',
-			'8MxC': false,
-			'c': 'Q'
+			'b': 'dg0B,7Ekh',
+			'^DW83F1': false,
+			'DA\\~8MxC': false,
+			'UQ<': false,
+			'hbI:O(C': true,
+			's&Lpe*': true,
+			'0)ap,tc': false,
+			'&KwZ<!~.8d': true,
+			' AW0B': true,
+			'c': ''
 		},
 		{
-			'a': true,
-			'b': 'J',
-			'propertyIs': false,
-			'j1]>zw': true,
-			'>x:)dw{': false,
-			'"': false,
-			'X%@syNc': true,
-			'"En%:r__': true,
-			'V%|': true,
-			'O': true,
-			'ref': false,
-			'c': '<kCUCGU.'
+			'a': -2147483626,
+			'b': 'Q1 "~g',
+			'c': '%wl{#x'
 		}
 	],
 	'Model1': [

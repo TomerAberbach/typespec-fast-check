@@ -158,7 +158,7 @@ const convertType = (
   ) {
     return functionCallArbitrary({
       name: String(type.name),
-      // eslint-disable-next-line array-callback-return
+
       args: type.templateMapper.args.map(arg => {
         switch (arg.entityKind) {
           case `Type`:
