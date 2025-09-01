@@ -101,49 +101,40 @@ export const samples = {
 						'value': 33345291
 					},
 					'right': {
-						'value': -757343395,
-						'left': {
-							'value': 5,
-							'left': {
-								'value': 2147483645,
-								'right': {
-									'value': -1234891809,
-									'right': {
-										'value': 1,
-										'right': {
-											'value': 205959794
+						'value': '+u.Lx@D(HX',
+						'next': {
+							'value': true,
+							'next': {
+								'value': 'toString',
+								'next': {
+									'value': false,
+									'next': {
+										'value': '|qx -q',
+										'next': {
+											'value': true
 										}
 									}
-								}
-							},
-							'right': {
-								'value': -1109023683,
-								'left': {
-									'value': 406983436
-								}
-							}
-						},
-						'right': {
-							'value': '',
-							'next': {
-								'value': false,
-								'next': {
-									'value': '_F\\'
 								}
 							}
 						}
 					}
 				},
 				'right': {
-					'value': '',
+					'value': '~',
 					'next': {
 						'value': true,
 						'next': {
-							'value': 'u9',
+							'value': 'nam',
 							'next': {
 								'value': false,
 								'next': {
-									'value': '$'
+									'value': '',
+									'next': {
+										'value': true,
+										'next': {
+											'value': 'v\'U'
+										}
+									}
 								}
 							}
 						}
@@ -151,7 +142,106 @@ export const samples = {
 				}
 			},
 			'right': {
-				'value': 'isP'
+				'value': -518035002,
+				'left': {
+					'value': 20,
+					'left': {
+						'value': -2147483644,
+						'left': {
+							'value': 59445392,
+							'left': {
+								'value': 1086819626,
+								'right': {
+									'value': 1000933769
+								}
+							},
+							'right': {
+								'value': 'u',
+								'next': {
+									'value': true,
+									'next': {
+										'value': 'Btd*',
+										'next': {
+											'value': true,
+											'next': {
+												'value': 'apply'
+											}
+										}
+									}
+								}
+							}
+						},
+						'right': {
+							'value': 1946543637,
+							'left': {
+								'value': 929827146
+							},
+							'right': {
+								'value': 'GRv;Ss+T',
+								'next': {
+									'value': true,
+									'next': {
+										'value': '',
+										'next': {
+											'value': true,
+											'next': {
+												'value': 'key',
+												'next': {
+													'value': false,
+													'next': {
+														'value': '#',
+														'next': {
+															'value': true
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					},
+					'right': {
+						'value': -11,
+						'left': {
+							'value': -501837099
+						}
+					}
+				},
+				'right': {
+					'value': 2147483644,
+					'left': {
+						'value': 27,
+						'left': {
+							'value': -7,
+							'left': {
+								'value': -2147483641,
+								'right': {
+									'value': -2147483646,
+									'right': {
+										'value': 17
+									}
+								}
+							},
+							'right': {
+								'value': -16,
+								'left': {
+									'value': 1287810943,
+									'right': {
+										'value': -30,
+										'left': {
+											'value': -1988409897,
+											'left': {
+												'value': -1165637752
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
 			}
 		},
 		{
@@ -175,25 +265,10 @@ export const samples = {
 							}
 						},
 						'right': {
-							'value': '',
+							'value': 'A(%m!%\' "',
 							'next': {
 								'value': true,
 								'next': {
-									'value': 'nDA$(;2OV',
-									'next': {
-										'value': false
-									}
-								}
-							}
-						}
-					},
-					'right': {
-						'value': -1001881920,
-						'left': {
-							'value': -18,
-							'left': {
-								'value': 2147483647,
-								'right': {
 									'value': 'ref',
 									'next': {
 										'value': true,
@@ -208,11 +283,62 @@ export const samples = {
 										}
 									}
 								}
-							},
-							'right': {
-								'value': 2007225324,
-								'left': {
-									'value': -286976122
+							}
+						}
+					},
+					'right': {
+						'value': -817981670,
+						'left': {
+							'value': -1134274816
+						}
+					}
+				}
+			},
+			'right': {
+				'value': 552113290,
+				'left': {
+					'value': -48028143,
+					'left': {
+						'value': -1008262277,
+						'right': {
+							'value': '_&TI~8%',
+							'next': {
+								'value': false
+							}
+						}
+					},
+					'right': {
+						'value': 'p',
+						'next': {
+							'value': true
+						}
+					}
+				},
+				'right': {
+					'value': -577866090,
+					'left': {
+						'value': -16,
+						'left': {
+							'value': -15,
+							'left': {
+								'value': 1428822646,
+								'right': {
+									'value': 18,
+									'right': {
+										'value': -2077356988
+									}
+								}
+							}
+						}
+					},
+					'right': {
+						'value': -25,
+						'left': {
+							'value': 29,
+							'left': {
+								'value': 272953060,
+								'right': {
+									'value': 1710073561
 								}
 							}
 						}
@@ -259,18 +385,15 @@ export const samples = {
 				}
 			},
 			'right': {
-				'value': '',
+				'value': '&"!',
 				'next': {
-					'value': true,
+					'value': false,
 					'next': {
-						'value': '&"!',
+						'value': '',
 						'next': {
 							'value': false,
 							'next': {
-								'value': '',
-								'next': {
-									'value': false
-								}
+								'value': '9%wXi'
 							}
 						}
 					}

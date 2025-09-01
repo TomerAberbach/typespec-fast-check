@@ -3,31 +3,31 @@ export const samples = {
 		{
 			'property': {
 				'a': 9,
-				'b': 'LZy\\;m'
+				'b': '%'
 			}
 		},
 		{
 			'property': {
 				'a': -994490854,
-				'b': '__proto__'
+				'b': '=2Spc0sZ '
 			}
 		},
 		{
 			'property': {
 				'a': -1536816376,
-				'b': 'S'
+				'b': ' cFz'
 			}
 		},
 		{
 			'property': {
 				'a': -25,
-				'b': '0&k& #FFD'
+				'b': 'dg0B,7Ekh'
 			}
 		},
 		{
 			'property': {
 				'a': -2147483626,
-				'b': 'J'
+				'b': 'Q1 "~g'
 			}
 		}
 	],

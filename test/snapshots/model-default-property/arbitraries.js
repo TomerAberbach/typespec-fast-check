@@ -95,5 +95,5 @@ export const DefaultPropertiesModel = fc.record(
       }),
     ),
   },
-  { withDeletedKeys: true },
+  { requiredKeys: [] },
 );
